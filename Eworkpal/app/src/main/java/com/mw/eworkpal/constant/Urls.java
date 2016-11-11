@@ -26,8 +26,8 @@ package com.mw.eworkpal.constant;
 public class Urls {
 
 
-    public static String URL_JsonObject = "jsonObject";
-    public static String URL_jsonArray = "jsonArray";
+    public static String URL_JsonObject = "_jsonObject";
+    public static String URL_jsonArray = "_jsonArray";
 
 
 
