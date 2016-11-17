@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.utils;
+package com.mainiway.eworkpal.widgets;
 
 import android.app.Activity;
 import android.content.Context;
