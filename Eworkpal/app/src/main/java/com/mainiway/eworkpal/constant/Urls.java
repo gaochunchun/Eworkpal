@@ -27,6 +27,7 @@ public class Urls {
 
 
     public static String URL_JsonObject = "test";
+    public static String URL_JsonArray = "testJsonArray";
 
 
 

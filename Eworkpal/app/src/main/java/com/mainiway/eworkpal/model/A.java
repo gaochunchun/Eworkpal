@@ -13,6 +13,25 @@ public class A implements Serializable {
     public String email;
     public String address;
     public String name;
+    public Author author;
+
+
+    public class Author implements Serializable {
+        private static final long serialVersionUID = -3763442542685948189L;
+
+        public String email;
+        public String address;
+        public String name;
+
+        @Override
+        public String toString() {
+            return "Author{" +
+                    "email='" + email + '\'' +
+                    ", address='" + address + '\'' +
+                    ", name='" + name + '\'' +
+                    '}';
+        }
+    }
 
     @Override
     public String toString() {
@@ -20,6 +39,7 @@ public class A implements Serializable {
                 "email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", name='" + name + '\'' +
+                ", author=" + author +
                 '}';
     }
 }
