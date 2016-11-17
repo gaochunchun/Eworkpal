@@ -21,7 +21,7 @@ public abstract class BaseFragment extends Fragment implements OnTouchListener {
     /**
      * 模拟后退键
      */
-    /*protected void back() {
+    /*protected void ic_back() {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.popBackStackImmediate();
     }*/

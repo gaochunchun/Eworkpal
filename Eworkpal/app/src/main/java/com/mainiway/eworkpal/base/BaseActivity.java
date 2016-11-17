@@ -3,7 +3,9 @@ package com.mainiway.eworkpal.base;
 import android.app.Activity;
 import android.os.Bundle;
 
-public  class BaseActivity extends Activity {
+import com.zhy.autolayout.AutoLayoutActivity;
+
+public  class BaseActivity extends AutoLayoutActivity {
 
     //private SystemBarTintManager tintManager;
     //public static SVProgressHUD mSVProgressHUD;
