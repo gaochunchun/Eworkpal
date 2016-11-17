@@ -32,9 +32,12 @@ public class UserRequestManager {
 
     }
 
-    public <T> void testReturnJsonArray (Activity activity , AbsCallback<T> mCallback) {
+    /**
+     * 功能：测试，返回JsonArray数组
+     */
+    public <T> void testReturnJsonArray(Activity activity , AbsCallback<T> mCallback) {
 
-        GenericRequestManager.getInstance().dataRequestByParamsOrNull(RequestTypes.GET,activity, Urls.URL_jsonArray,null,mCallback);
+        GenericRequestManager.getInstance().dataRequestByParamsOrNull(RequestTypes.GET,activity, Urls.URL_JsonArray,null,mCallback);
 
     }
 

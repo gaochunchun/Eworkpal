@@ -47,7 +47,7 @@
         <!-- 服务器地址 -->
         <meta-data
             android:name="app.server"
-            android:value="http://server.jeasonlzy.com/OkHttpUtils"/>
+            android:value="http://10.99.2.70:9093/public"/>
 
 
         <!--<activity

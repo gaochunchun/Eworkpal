@@ -2,8 +2,8 @@ package com.mw.eworkpal.callback;
 
 
 import com.google.gson.stream.JsonReader;
-import com.mw.eworkpal.model.ResultResponse;
-import com.mw.eworkpal.model.CommonResponse;
+import com.mw.eworkpal.model.BaseResponse;
+import com.mw.eworkpal.model.BaseResultResponse;
 import com.mw.eworkpal.utils.GsonConvertUtil;
 import com.mw.okhttp.convert.Converter;
 
@@ -13,6 +13,7 @@ import java.lang.reflect.Type;
 import okhttp3.Response;
 
 public class JsonConvert<T> implements Converter<T> {
+
 
     private Type type;
 
@@ -36,16 +37,31 @@ public class JsonConvert<T> implements Converter<T> {
 
         //无数据类型
         if (rawType == Void.class) {
-            CommonResponse baseWbgResponse = GsonConvertUtil.fromJson(jsonReader, CommonResponse.class);
+            BaseResultResponse baseResultResponse = GsonConvertUtil.fromJson(jsonReader, BaseResultResponse.class);
             //noinspection unchecked
-            return (T) baseWbgResponse.toJsonResponse();
+            return (T) baseResultResponse.toJsonResponse();
         }
 
 
         //有数据类型
-        if (rawType == ResultResponse.class) {
-            ResultResponse jsonResponse = GsonConvertUtil.fromJson(jsonReader, type);
-            int code = jsonResponse.code;
+        if (rawType == BaseResponse.class) {
+
+            BaseResponse jsonResponse = GsonConvertUtil.fromJson(jsonReader, type);
+            boolean isSuccessed = jsonResponse.successed;
+
+            //isSuccessed为true表示请求成功，false表示请求失败
+            if (isSuccessed) {
+                return (T) jsonResponse;
+            }else {
+                //false时可能需要取status码来判断，如：4001表示token过期，处理跳入登录界面或其他
+                if (jsonResponse.status == 4001){
+
+                }
+                throw new IllegalStateException("错误码：" + jsonResponse.status);
+            }
+
+
+            /*int code = jsonResponse.code;
             if (code == 0) {
                 //noinspection unchecked
                 return (T) jsonResponse;
@@ -63,7 +79,7 @@ public class JsonConvert<T> implements Converter<T> {
                 throw new IllegalStateException("其他乱七八糟的等");
             } else {
                 throw new IllegalStateException("错误代码：" + code + "，错误信息：" + jsonResponse.msg);
-            }
+            }*/
         }
         throw new IllegalStateException("基类错误无法解析!");
     }

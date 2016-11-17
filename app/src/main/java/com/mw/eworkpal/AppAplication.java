@@ -43,7 +43,6 @@ public class AppAplication extends Application {
         // 初始化用户配置信息
         //ConfigManager.initialize(getApplicationContext());
 
-
         // 初始化网络配置
         //final GlobalConfigManager globalConfigManager = GlobalConfigManager.getInstance();
         //GenericRequestManager.initialize(getApplicationContext(), globalConfigManager.getServerHost());
