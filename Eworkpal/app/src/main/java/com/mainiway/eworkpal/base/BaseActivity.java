@@ -1,6 +1,5 @@
 package com.mainiway.eworkpal.base;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.zhy.autolayout.AutoLayoutActivity;
@@ -13,6 +12,7 @@ public  class BaseActivity extends AutoLayoutActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //mSVProgressHUD = new SVProgressHUD(this);
         //initWindow();
     }

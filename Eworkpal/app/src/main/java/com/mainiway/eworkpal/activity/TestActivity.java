@@ -1,6 +1,5 @@
 package com.mainiway.eworkpal.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,8 +24,9 @@ import okhttp3.Response;
 
 public class TestActivity extends AppCompatActivity {
 
-    // UI references.
+
     @Bind(R.id.tvContent) TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

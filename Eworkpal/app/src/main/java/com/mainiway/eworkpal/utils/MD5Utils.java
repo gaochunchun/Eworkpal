@@ -6,7 +6,7 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 
 /**
- * 描    述：MD5加密工具类
+ * 描述：MD5加密工具类
  */
 public class MD5Utils {
 

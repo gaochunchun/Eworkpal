@@ -8,6 +8,10 @@ import com.google.gson.stream.JsonReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
 
+/**
+ * Gson解析Util类
+ * Created by gao_chun on 2016-11-16.
+ */
 public class GsonConvertUtil {
 
     private static Gson create() {
