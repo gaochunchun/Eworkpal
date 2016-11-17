@@ -4,7 +4,7 @@ android {                           // 配置所有android构建过程需要的�
     compileSdkVersion 23            // 用于编译的SDK版本
     buildToolsVersion "24.0.2"      // 用于Gradle编译项目的工具版本
     defaultConfig {
-        applicationId "com.mw.eworkpal" // 应用程序包名
+        applicationId 'com.mainiway.eworkpal' // 应用程序包名
         minSdkVersion 14                // 最低支持Android版本
         targetSdkVersion 23             // 目标版本
         versionCode 1                   // 版本号
@@ -12,12 +12,13 @@ android {                           // 配置所有android构建过程需要的�
 
         //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {                    // 编译类型。默认两个：release和debug
         release {
             minifyEnabled false     // 设置是否使用混淆、混淆文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 
@@ -30,4 +31,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.google.code.gson:gson:2.5'
+    compile 'com.zhy:autolayout:1.4.5'
 }
