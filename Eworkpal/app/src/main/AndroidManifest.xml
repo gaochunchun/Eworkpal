@@ -65,6 +65,14 @@
             android:label="测试界面"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.RegisterActivity"
+            android:label="用户注册"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.CreateEnterpriseActivity"
+            android:label="创建企业"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 
