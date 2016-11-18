@@ -32,8 +32,7 @@
         android:name=".AppAplication"
         android:theme="@style/AppTheme">
 
-        <!-- 登录模块-->
-        <activity android:name=".activity.LoginActivity"
+        <activity android:name=".activity.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -57,9 +56,14 @@
             android:value="1280"/>
 
 
-       <!-- <activity android:name=".activity.TestActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"/>-->
+        <!-- 登录模块-->
+        <activity android:name=".activity.LoginActivity"
+            android:label="用户登录"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.TestActivity"
+            android:label="测试界面"
+            android:screenOrientation="portrait"/>
 
 
     </application>
