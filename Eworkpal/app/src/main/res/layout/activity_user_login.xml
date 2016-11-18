@@ -18,13 +18,11 @@
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:text="登录"
-                android:textColor="@android:color/white"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:drawableBottom="@mipmap/ic_user_triangle"
                 android:layout_alignParentBottom="true"
-                android:textSize="30px"
-                android:drawablePadding="24px"/>
+                android:textSize="30px"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -44,6 +42,26 @@
                 android:textColor="@color/gray_757588"
                 android:textSize="30px"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_user_triangle"
+                android:layout_alignParentBottom="true"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_user_triangle"
+                android:visibility="invisible"
+                android:layout_alignParentBottom="true"/>
+
+        </LinearLayout>
+
     </RelativeLayout>
     <EditText
         android:layout_width="match_parent"
@@ -53,10 +71,12 @@
         android:paddingLeft="50px"
         android:drawableLeft="@mipmap/ic_user_account"
         android:drawablePadding="54px"
-        android:textColorHint="@color/black66"
-        android:textSize="16sp"
-        android:hint="ddddd"
-        android:background="@drawable/rectangle_30dp_gray"
+        android:inputType="number"
+        android:textColorHint="@color/gray_666666"
+        android:textSize="28px"
+        android:hint="手机号"
+        android:textColor="@color/gray_666666"
+        android:background="@drawable/rectangle_27dp_white_FAFAFA"
         android:layout_marginRight="30px"/>
     <EditText
         android:layout_width="match_parent"
@@ -64,12 +84,14 @@
         android:layout_marginTop="20px"
         android:layout_marginLeft="30px"
         android:paddingLeft="50px"
-        android:textColorHint="@color/black66"
-        android:textSize="16sp"
-        android:hint="ddd"
+        android:textColorHint="@color/gray_666666"
+        android:textSize="28px"
+        android:hint="密码"
         android:drawableLeft="@mipmap/ic_user_password"
         android:drawablePadding="54px"
-        android:background="@drawable/rectangle_30dp_gray"
+        android:inputType="textPassword"
+        android:textColor="@color/gray_666666"
+        android:background="@drawable/rectangle_27dp_white_FAFAFA"
         android:layout_marginRight="30px"/>
     <TextView
         android:layout_width="match_parent"
@@ -77,10 +99,10 @@
         android:layout_marginRight="30px"
         android:layout_marginLeft="30px"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="30px"
         android:layout_marginTop="40px"
         android:gravity="center"
-        android:background="@drawable/rectangle_30dp_blue85"
+        android:background="@drawable/rectangle_27dp_blue_85B2F6_selected"
         android:text="登录"/>
     <TextView
         android:layout_width="wrap_content"
@@ -88,12 +110,14 @@
         android:text="忘记密码?"
         android:textSize="24px"
         android:layout_gravity="center"
+        android:textColor="@color/gray_999999"
         android:layout_marginTop="30px"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="申请加入企业"
         android:textSize="30px"
+        android:textColor="@color/blue_85B2F6"
         android:layout_gravity="center"
         android:layout_marginTop="60px"/>
 
