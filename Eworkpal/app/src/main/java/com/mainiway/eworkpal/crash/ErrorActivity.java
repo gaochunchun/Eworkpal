@@ -32,7 +32,7 @@ public  class ErrorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.default_error_activity);
+        setContentView(R.layout.error_default__activity);
 
         errorInformation = CrashManager.getAllErrorDetailsFromIntent(ErrorActivity.this, getIntent());
 

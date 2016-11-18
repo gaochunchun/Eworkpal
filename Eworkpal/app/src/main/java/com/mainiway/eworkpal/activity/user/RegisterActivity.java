@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.activity;
+package com.mainiway.eworkpal.activity.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,6 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.widgets.TimeCount;
 
-import org.w3c.dom.Text;
-
 /**
  * ===========================================
  * 作    者：zhsh
@@ -22,7 +20,9 @@ import org.w3c.dom.Text;
  */
 
 public class RegisterActivity extends BaseTitleActivity{
+
     private TextView tv_register_get_code;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +34,7 @@ public class RegisterActivity extends BaseTitleActivity{
 
     private void initView() {
         findView(R.id.tv_register_next).setOnClickListener(new FastClickListener());
-        tv_register_get_code=findView(R.id.tv_register_get_code);
+        tv_register_get_code = findView(R.id.tv_register_get_code);
         tv_register_get_code.setOnClickListener(new FastClickListener());
 
     }
@@ -48,12 +48,12 @@ public class RegisterActivity extends BaseTitleActivity{
                 case R.id.tv_register_next://下一步
                     startActivity(new Intent(RegisterActivity.this,CreateEnterpriseActivity.class));
                     break;
+
                 case R.id.tv_register_get_code://获取验证码
                     TimeCount timeCount = new TimeCount(60000, 1000);//60000, 1000
                     timeCount.setBtn(tv_register_get_code, "重新获取");
                     timeCount.start();
                     break;
-
 
             }
         }

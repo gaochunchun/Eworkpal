@@ -19,7 +19,7 @@
     <string name="customactivityoncrash_error_activity_error_details_clipboard_label">错误信息</string>
 
     <!--登录注册模块-->
-    <string name="sign_in">登录</string>
+    <string name="sign_in">登 录</string>
     <string name="registration_of_new_enterprises">注册新企业</string>
     <string name="phone_number">手机号</string>
     <string name="password">密码</string>

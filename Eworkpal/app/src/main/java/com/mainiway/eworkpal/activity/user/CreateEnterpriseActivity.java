@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.activity;
+package com.mainiway.eworkpal.activity.user;
 
 import android.os.Bundle;
 

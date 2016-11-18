@@ -1,15 +1,17 @@
-package com.mainiway.eworkpal.activity;
+package com.mainiway.eworkpal.activity.user;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.mainiway.alertview.AlertView;
+import com.mainiway.alertview.ItemClick;
+import com.mainiway.eworkpal.AppAplication;
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
-import com.mainiway.eworkpal.utils.ToastUtils;
 
 /**
  * ===========================================
@@ -31,7 +33,9 @@ public class LoginActivity extends BaseActivity {
 
     private void initView() {
         findView(R.id.tv_register_enterprises).setOnClickListener(new FastClickListener());
+        findView(R.id.tv_login).setOnClickListener(new FastClickListener());
     }
+
 
     private class FastClickListener extends OnClickFastListener {
 
@@ -44,6 +48,18 @@ public class LoginActivity extends BaseActivity {
                      startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
                     break;
 
+                case R.id.tv_login:
+                    new AlertView("Eworkpal提示", "账号密码错误请重新输入", null, new String[]{"确定"}, null,LoginActivity.this,
+                            AlertView.Style.Alert,new ItemClick() {
+
+                        @Override
+                        public void onItemClick(Object o, int position) {
+
+                            //...
+
+                        }
+                    }).show();
+                    break;
 
             }
         }

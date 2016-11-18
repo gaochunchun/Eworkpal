@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.user.LoginActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 
 /**
@@ -24,7 +25,7 @@ public class SplashActivity extends BaseActivity {
         final View view = View.inflate(this, R.layout.activity_splash,null);
         setContentView(view);
         AlphaAnimation mAa = new AlphaAnimation(0.2f, 1.0f);
-        mAa.setDuration(1800);
+        mAa.setDuration(1900);
         view.startAnimation(mAa);
         mAa.setAnimationListener(new AnimationListener() {
             @Override

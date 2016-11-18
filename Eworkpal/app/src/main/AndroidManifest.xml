@@ -64,15 +64,15 @@
             android:value="1280"/>
 
         <!-- 登录模块-->
-        <activity android:name=".activity.LoginActivity"
+        <activity android:name=".activity.user.LoginActivity"
             android:label="用户登录"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.RegisterActivity"
+        <activity android:name=".activity.user.RegisterActivity"
             android:label="用户注册"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.CreateEnterpriseActivity"
+        <activity android:name=".activity.user.CreateEnterpriseActivity"
             android:label="创建企业"
             android:screenOrientation="portrait"/>
 
