@@ -1,11 +1,11 @@
 package com.mainiway.eworkpal.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.model.A;
 import com.mainiway.eworkpal.model.BaseResponse;
@@ -22,7 +22,7 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends BaseTitleActivity {
 
 
     @Bind(R.id.tvContent) TextView textView;
@@ -34,6 +34,7 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this); // --- 初始化ButterKnife
+        setTitle("测试界面");
     }
 
     @OnClick(R.id.btn1)
