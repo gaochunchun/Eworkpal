@@ -16,7 +16,4 @@
     <color name="white_FAFAFA">#FAFAFA</color>
     <color name="black">#000000</color>
 
-    <color name="btn_press_color">#66000000</color>
-    <color name="btn_unpress_color">#22000000</color>
-
 </resources>
