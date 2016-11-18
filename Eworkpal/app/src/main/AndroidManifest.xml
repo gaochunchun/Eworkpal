@@ -38,11 +38,7 @@
         <activity android:name="com.mainiway.eworkpal.activity.TestActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <!-- 服务器地址 -->
@@ -60,7 +56,11 @@
         <!-- 登录模块-->
         <activity android:name=".activity.LoginActivity"
             android:label="登录页面">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!--<activity
             android:name=".TestActivity"

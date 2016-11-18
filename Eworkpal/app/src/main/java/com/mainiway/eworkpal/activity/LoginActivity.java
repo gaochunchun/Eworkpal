@@ -3,7 +3,7 @@ package com.mainiway.eworkpal.activity;
 import android.os.Bundle;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.base.BaseActivity;
 
 /**
  * ===========================================
@@ -14,7 +14,7 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
  * ===========================================
  */
 
-public class LoginActivity extends BaseTitleActivity{
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
