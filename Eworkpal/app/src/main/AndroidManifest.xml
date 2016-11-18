@@ -32,6 +32,14 @@
         android:name=".AppAplication"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".activity.TestActivity"
+            android:label="测试界面"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.MainActivity"
+            android:label="测试界面"/>
+
+
         <activity android:name=".activity.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
@@ -55,20 +63,18 @@
             android:name="design_height"
             android:value="1280"/>
 
-
         <!-- 登录模块-->
         <activity android:name=".activity.LoginActivity"
             android:label="用户登录"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.TestActivity"
-            android:label="测试界面"
+        <activity android:name=".activity.RegisterActivity"
+            android:label="用户注册"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.MainActivity"
-            android:label="测试界面"
+        <activity android:name=".activity.CreateEnterpriseActivity"
+            android:label="创建企业"
             android:screenOrientation="portrait"/>
-
 
     </application>
 
