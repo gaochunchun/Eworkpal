@@ -3,6 +3,7 @@ package com.mainiway.eworkpal.listener;
 import android.view.View;
 
 import com.mainiway.eworkpal.base.BaseClickListener;
+import com.mainiway.eworkpal.utils.ValidateUtils;
 
 /**
  * @author gao_chun
@@ -32,6 +33,11 @@ public abstract class OnClickFastListener extends BaseClickListener {
             return;
         }
 
+        boolean isNetworkOk = ValidateUtils.isNetworkConnected(v.getContext());
+        if (!isNetworkOk) {
+            return;
+        }
+
         onFastClick(v);
     }
 
@@ -41,9 +47,7 @@ public abstract class OnClickFastListener extends BaseClickListener {
      * @return
      */
     public OnClickFastListener setLastClickTime(long delay_time) {
-
         this.DELAY_TIME = delay_time;
-
         return this;
     }
 
