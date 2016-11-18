@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import com.mainiway.eworkpal.crash.CrashManager;
 import com.mainiway.okhttp.GenericRequestManager;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
@@ -38,7 +39,7 @@ public class AppAplication extends Application {
         mContext = this;
 
         // 崩溃信息
-        //CrashManager.install(getApplicationContext());
+        CrashManager.install(getApplicationContext());
 
         // 初始化用户配置信息
         //ConfigManager.initialize(getApplicationContext());
