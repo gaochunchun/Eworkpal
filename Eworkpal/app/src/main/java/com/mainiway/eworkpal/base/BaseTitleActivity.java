@@ -1,12 +1,4 @@
-package com.mainiway.eworkpal.base; /**
- * ===========================================
- * 作    者：zhsh
- * 版    本：1.0
- * 创建日期：2016/11/18.
- * 描    述：
- * ===========================================
- */
-
+package com.mainiway.eworkpal.base;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -21,10 +13,13 @@ import android.widget.TextView;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.utils.HideIMEUtil;
 
-
 /**
- *
- * 自定义顶部标题栏
+ * ===========================================
+ * 作    者：zhsh
+ * 版    本：1.0
+ * 创建日期：2016/11/18.
+ * 描    述：自定义顶部标题栏
+ * ===========================================
  */
 public class BaseTitleActivity extends BaseActivity implements OnClickListener{
 
@@ -35,9 +30,6 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
     private FrameLayout mContentLayout;
 
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreate(android.os.Bundle)
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,9 +141,6 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
             }
         } // else ignored
     }
-
-
-
 
 
     protected void onBackward(View backwardView) {

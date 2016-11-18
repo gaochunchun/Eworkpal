@@ -32,6 +32,21 @@ public  class BaseActivity extends AutoLayoutActivity {
         return false;
     }
 
+    /** 获取主题色 */
+    public int getColorPrimary() {
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        return typedValue.data;
+    }
+
+    /** 获取深主题色 */
+    public int getDarkColorPrimary() {
+        TypedValue typedValue = new TypedValue();
+        getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
+        return typedValue.data;
+    }
+
+
     /** 设置状态栏颜色 */
     protected void initSystemBarTint() {
         Window window = getWindow();
@@ -47,6 +62,8 @@ public  class BaseActivity extends AutoLayoutActivity {
             }
             return;
         }
+
+
         // 沉浸式状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //5.0以上使用原生方法
@@ -82,20 +99,6 @@ public  class BaseActivity extends AutoLayoutActivity {
         }
     }*/
 
-
-    /** 获取主题色 */
-    public int getColorPrimary() {
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        return typedValue.data;
-    }
-
-    /** 获取深主题色 */
-    public int getDarkColorPrimary() {
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
-        return typedValue.data;
-    }
 
     /*private ProgressDialog dialog;
     public void showLoading() {

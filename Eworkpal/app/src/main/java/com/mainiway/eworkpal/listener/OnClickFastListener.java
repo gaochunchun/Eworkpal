@@ -32,12 +32,6 @@ public abstract class OnClickFastListener extends BaseClickListener {
         if (isFastDoubleClick()) {
             return;
         }
-
-        boolean isNetworkOk = ValidateUtils.isNetworkConnected(v.getContext());
-        if (!isNetworkOk) {
-            return;
-        }
-
         onFastClick(v);
     }
 
@@ -56,4 +50,5 @@ public abstract class OnClickFastListener extends BaseClickListener {
      * @param v
      */
     public abstract void onFastClick(View v);
+
 }
