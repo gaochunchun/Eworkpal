@@ -23,9 +23,11 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
 
     //private RelativeLayout mLayoutTitleBar;
     @Bind(R.id.text_title)TextView mTitleTextView;
-    @Bind(R.id.layout_content)Button mBackwardbButton;
-    @Bind(R.id.button_backward)TextView mForwardButton;
-    @Bind(R.id.button_forward)FrameLayout mContentLayout;
+    @Bind(R.id.button_backward)Button mBackwardbButton;
+    @Bind(R.id.button_forward)Button mForwardButton;
+    @Bind(R.id.layout_content)FrameLayout mContentLayout;
+
+
 
 
     /* (non-Javadoc)
