@@ -30,35 +30,38 @@ public class TestActivity extends BaseTitleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setTitle("测试界面");
+        setTitle("测试界面标题");
+        showBackwardView(true);
         textView = (TextView)findView(R.id.tvcontent);
 
-        findView(R.id.btn1).setOnClickListener(new OnClickFastListener() {
-            @Override
-            public void onFastClick(View v) {
-
-                //访问网络测试(第一个this用于取消当前请求的Tag必须传，第二个this用于是否需要显示Dialog)
-                UserRequestManager.getInstance().testReturnJsonObject(TestActivity.this,new DialogCallback<BaseResponse<A>>(TestActivity.this){
-                    @Override
-                    public void onSuccess(BaseResponse<A> responseData, Call call, Response response) {
-                        textView.setText(responseData.successed + " -- "+ responseData.status+ " -- "+responseData.message.get(0).msg+ " -- "+responseData.data);
-                    }
-
-                    @Override
-                    public void onError(Call call, Response response, Exception e) {
-                        super.onError(call, response, e);
-                        OkLogger.i("onError",e.getMessage());
-                    }
-                });
-            }
-        });
-
+        findView(R.id.btn1).setOnClickListener(new OnClickFastOrIsNetworkListener());
+        findView(R.id.btn2).setOnClickListener(new OnClickFastOrIsNetworkListener());
     }
 
-    /*public void btn1OnClick(View view){
 
+    private class OnClickFastOrIsNetworkListener extends  OnClickFastListener {
+
+        @Override
+        public void onFastClick(View v) {
+
+            switch (v.getId()) {
+
+                case R.id.btn1:
+                    testJsonObject();
+                    break;
+
+                case R.id.btn2:
+                    testJsonArray();
+                    break;
+
+            }
+        }
+    }
+
+
+    private void testJsonObject(){
         //访问网络测试(第一个this用于取消当前请求的Tag必须传，第二个this用于是否需要显示Dialog)
-        UserRequestManager.getInstance().testReturnJsonObject(this,new DialogCallback<BaseResponse<A>>(this){
+        UserRequestManager.getInstance().testReturnJsonObject(TestActivity.this,new DialogCallback<BaseResponse<A>>(TestActivity.this){
             @Override
             public void onSuccess(BaseResponse<A> responseData, Call call, Response response) {
                 textView.setText(responseData.successed + " -- "+ responseData.status+ " -- "+responseData.message.get(0).msg+ " -- "+responseData.data);
@@ -70,11 +73,10 @@ public class TestActivity extends BaseTitleActivity {
                 OkLogger.i("onError",e.getMessage());
             }
         });
+    }
 
-    }*/
 
-    public void btn2OnClick(View View){
-
+    private void testJsonArray(){
         UserRequestManager.getInstance().testReturnJsonArray(this,new DialogCallback<BaseResponse<List<A>>>(this){
             @Override
             public void onSuccess(BaseResponse<List<A>> responseData, Call call, Response response) {
@@ -87,8 +89,8 @@ public class TestActivity extends BaseTitleActivity {
                 OkLogger.i("onError",e.getMessage());
             }
         });
-
     }
+
 
     @Override
     protected void onDestroy() {

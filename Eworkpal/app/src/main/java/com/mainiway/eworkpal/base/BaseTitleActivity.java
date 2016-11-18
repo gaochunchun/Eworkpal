@@ -35,9 +35,6 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
     private FrameLayout mContentLayout;
 
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#onCreate(android.os.Bundle)
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,9 +146,6 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
             }
         } // else ignored
     }
-
-
-
 
 
     protected void onBackward(View backwardView) {

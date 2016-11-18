@@ -3,7 +3,7 @@
     android:id="@+id/layout_titlebar"
     android:layout_width="match_parent"
     android:layout_height="90px"
-    android:background="@color/blue" >
+    android:background="@color/white" >
 
     <TextView
         android:id="@+id/text_title"
@@ -38,5 +38,11 @@
         android:onClick="onClick"
         android:paddingRight="30px"
         android:visibility="invisible" />
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#EEEEEB" />
 
 </RelativeLayout>

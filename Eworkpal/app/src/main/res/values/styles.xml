@@ -23,7 +23,7 @@
 
     <!-- BaseTitleActivity  layout_titlebar.style-->
     <style name="Text.Title" parent="@style/Text">
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
