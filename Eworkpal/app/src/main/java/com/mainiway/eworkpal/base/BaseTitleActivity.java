@@ -1,9 +1,18 @@
-package com.mainiway.eworkpal.base;
+package com.mainiway.eworkpal.base; /**
+ * ===========================================
+ * 作    者：zhsh
+ * 版    本：1.0
+ * 创建日期：2016/11/18.
+ * 描    述：
+ * ===========================================
+ */
+
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -12,22 +21,18 @@ import android.widget.TextView;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.utils.HideIMEUtil;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
- * Created by zhsh on 2016/11/17.
+ *
+ * 自定义顶部标题栏
  */
-
-public class BaseTitleActivity  extends BaseActivity implements View.OnClickListener{
+public class BaseTitleActivity extends BaseActivity implements OnClickListener{
 
     //private RelativeLayout mLayoutTitleBar;
-    @Bind(R.id.text_title)TextView mTitleTextView;
-    @Bind(R.id.button_backward)Button mBackwardbButton;
-    @Bind(R.id.button_forward)Button mForwardButton;
-    @Bind(R.id.layout_content)FrameLayout mContentLayout;
-
-
+    private TextView mTitleTextView;
+    private Button mBackwardbButton;
+    private Button mForwardButton;
+    private FrameLayout mContentLayout;
 
 
     /* (non-Javadoc)
@@ -38,7 +43,6 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setupViews();
         getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-        ButterKnife.bind(this);// --- 初始化ButterKnife
         HideIMEUtil.wrap(this);
     }
 
@@ -56,7 +60,7 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
         }
     }*/
 
-    //ic_back,显示图标和文字
+    //back,显示图标和文字
     /*protected void showBackwardView(int backwardResid, boolean show) {
         if (mBackwardbButton != null) {
             if (show) {
@@ -68,7 +72,7 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
         } // else ignored
     }*/
 
-    //ic_back，只显示图标
+    //back，只显示图标
     protected void showBackwardView(boolean show) {
         if (mBackwardbButton != null) {
             if (show) {
@@ -82,7 +86,7 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
 
 
     /**
-     * ic_forward 右侧标题栏 图标 - 文字
+     * forward 右侧标题栏 图标 - 文字
      * @param mtext
      * @param drawableId
      * @param leftOrRight 0表示图标在左边  其他表示在右边
@@ -106,7 +110,7 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
 
 
     /**
-     * ic_forward 右侧标题栏 图标
+     * forward 右侧标题栏 图标
      * @param drawableId
      */
     protected void showForwardView(int drawableId) {
@@ -135,7 +139,7 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
     }
 
 
-    //ic_forward,显示图标
+    //forward,显示图标
     protected void showForwardView(boolean show) {
         if (mForwardButton != null) {
             if (show) {
@@ -209,7 +213,7 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
      * @see android.app.Activity#setContentView(android.view.View, android.view.ViewGroup.LayoutParams)
      */
     @Override
-    public void setContentView(View view, ViewGroup.LayoutParams params) {
+    public void setContentView(View view, LayoutParams params) {
         mContentLayout.removeAllViews();
         mContentLayout.addView(view, params);
         onContentChanged();
@@ -218,8 +222,6 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
     /* (non-Javadoc)
      * @see android.view.View.OnClickListener#onClick(android.view.View)
      */
-
-
     @Override
     public void onClick(View v) {
 
@@ -240,6 +242,10 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
     private void setupViews() {
         super.setContentView(R.layout.activity_title);
         //mLayoutTitleBar = (RelativeLayout)findViewById(R.id.layout_titlebar);
+        mTitleTextView = (TextView) findViewById(R.id.text_title);
+        mContentLayout = (FrameLayout) findViewById(R.id.layout_content);
+        mBackwardbButton = (Button) findViewById(R.id.button_backward);
+        mForwardButton = (Button) findViewById(R.id.button_forward);
         //mProgress = (ProgressBar) findViewById(R.id.progress);
     }
 
@@ -248,5 +254,4 @@ public class BaseTitleActivity  extends BaseActivity implements View.OnClickList
     protected void onDestroy() {
         super.onDestroy();
     }
-
 }
