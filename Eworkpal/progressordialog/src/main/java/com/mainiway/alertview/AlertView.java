@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 
 /**
- * 精仿iOSAlertViewController控件
+ * AlertView提示控件
  * 点击取消按钮返回 －1，其他按钮从0开始算
  */
 public class AlertView {

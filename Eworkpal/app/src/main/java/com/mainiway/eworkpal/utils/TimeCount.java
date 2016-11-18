@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.widgets;
+package com.mainiway.eworkpal.utils;
 
 import android.os.CountDownTimer;
 import android.widget.TextView;

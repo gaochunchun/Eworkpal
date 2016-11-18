@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
-import com.mainiway.eworkpal.widgets.TimeCount;
+import com.mainiway.eworkpal.utils.TimeCount;
 
 /**
  * ===========================================

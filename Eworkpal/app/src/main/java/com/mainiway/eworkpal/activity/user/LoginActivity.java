@@ -49,13 +49,13 @@ public class LoginActivity extends BaseActivity {
                     break;
 
                 case R.id.tv_login:
+
                     new AlertView("Eworkpal提示", "账号密码错误请重新输入", null, new String[]{"确定"}, null,LoginActivity.this,
                             AlertView.Style.Alert,new ItemClick() {
-
                         @Override
                         public void onItemClick(Object o, int position) {
 
-                            //...
+                            //...点击取消按钮返回 －1，其他按钮从0开始算
 
                         }
                     }).show();
