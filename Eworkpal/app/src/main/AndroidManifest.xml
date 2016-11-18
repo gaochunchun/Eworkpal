@@ -65,6 +65,10 @@
             android:label="测试界面"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.MainActivity"
+            android:label="测试界面"
+            android:screenOrientation="portrait"/>
+
 
     </application>
 

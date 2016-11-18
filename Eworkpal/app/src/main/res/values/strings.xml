@@ -17,6 +17,8 @@
     <string name="back">返回</string>
 
 
+    <string name="simple_view_behavior">com.mainiway.eworkpal.widgets.SimpleViewBehavior</string>
+
 
     <!-- crash信息 -->
     <string name="customactivityoncrash_error">抱歉，出现了不可预期的错误，您可重新启动应用，或者将错误信息反馈给我们，感谢您的理解与支持！</string>

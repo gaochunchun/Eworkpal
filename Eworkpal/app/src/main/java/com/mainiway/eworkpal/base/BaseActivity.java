@@ -3,6 +3,7 @@ package com.mainiway.eworkpal.base;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
@@ -46,6 +47,16 @@ public  class BaseActivity extends AutoLayoutActivity {
         return typedValue.data;
     }
 
+    /** 初始化 Toolbar */
+    public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {
+        toolbar.setTitle(title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
+    }
+
+    public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, int resTitle) {
+        initToolBar(toolbar, homeAsUpEnabled, getString(resTitle));
+    }
 
     /** 设置状态栏颜色 */
     protected void initSystemBarTint() {

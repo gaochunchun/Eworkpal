@@ -120,7 +120,7 @@
         android:layout_marginLeft="30px"
         android:textColor="@android:color/white"
         android:textSize="30px"
-        android:layout_marginTop="30px"
+        android:layout_marginTop="40px"
         android:gravity="center"
         android:background="@drawable/rectangle_27dp_blue_selected"
         android:text="登录"/>
