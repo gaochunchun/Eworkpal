@@ -63,7 +63,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity{
             switch (v.getId()) {
 
                 case R.id.tv_register_next://下一步
-                    startActivity(new Intent(CommonPhoneCodeActivity.this,RegisterEnterpriseActivity.class));
+                    startActivity(new Intent(CommonPhoneCodeActivity.this,CreateEnterpriseActivity.class));
                     break;
 
                 case R.id.tv_register_get_code://获取验证码

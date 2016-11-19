@@ -50,6 +50,13 @@
             </intent-filter>
         </activity>
 
+        <!-- 崩溃处理 -->
+        <activity
+            android:name=".activity.ErrorActivity"
+            android:process=":error_activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
         <!-- 服务器地址 -->
         <meta-data
             android:name="app.server"
@@ -72,7 +79,7 @@
             android:label="用户注册"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.RegisterEnterpriseActivity"
+        <activity android:name=".activity.user.CreateEnterpriseActivity"
             android:label="创建企业"
             android:screenOrientation="portrait"/>
 
@@ -80,6 +87,7 @@
             android:windowSoftInputMode="adjustPan"
             android:label="申请加入企业"
             android:screenOrientation="portrait"/>
+
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.crash;
+package com.mainiway.eworkpal.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.mainiway.alertview.AlertView;
 import com.mainiway.alertview.ItemClick;
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.eworkpal.utils.ToastUtils;
 
 

@@ -14,7 +14,7 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
  * ===========================================
  */
 
-public class RegisterEnterpriseActivity extends BaseTitleActivity{
+public class CreateEnterpriseActivity extends BaseTitleActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

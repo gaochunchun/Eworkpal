@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mainiway.eworkpal.crash;
+package com.mainiway.eworkpal.utils;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
@@ -29,6 +29,7 @@ import android.util.Log;
 
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.ErrorActivity;
 
 import java.io.PrintWriter;
 import java.io.Serializable;
