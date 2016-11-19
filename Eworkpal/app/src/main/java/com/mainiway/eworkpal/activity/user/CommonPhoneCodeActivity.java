@@ -12,16 +12,14 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.TimeCount;
 
 import static com.mainiway.eworkpal.R.id.tv_register_get_code;
-
 /**
  * ===========================================
- * 作    者：zhsh
+ * 作    者：gao_chun
  * 版    本：1.0
- * 创建日期：2016/11/18.
+ * 创建日期：2016-11-19.
  * 描    述：公用的获取手机验证码（需根据传递的Intent信息设置Title）
  * ===========================================
  */
-
 public class CommonPhoneCodeActivity extends BaseTitleActivity{
 
     private String label;

@@ -14,7 +14,6 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
  * ===========================================
  */
 
-
 public class ForgetPwdActivity extends BaseTitleActivity {
 
     @Override
