@@ -41,8 +41,9 @@
                 android:background="@drawable/rectangle_27dp_white" />
 
             <TextView
+                android:clickable="true"
                 android:textColor="@color/black"
-                android:id="@+id/tv_register_get_code"
+                android:id="@+id/tv_get_code"
                 android:layout_width="238px"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -52,7 +53,8 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_register_next"
+            android:clickable="true"
+            android:id="@+id/tv_getcode_next"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:textColor="@android:color/white"

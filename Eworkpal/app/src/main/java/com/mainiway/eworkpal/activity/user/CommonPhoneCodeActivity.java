@@ -11,6 +11,8 @@ import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.TimeCount;
 
+import static com.mainiway.eworkpal.R.id.tv_register_get_code;
+
 /**
  * ===========================================
  * 作    者：zhsh
@@ -23,7 +25,7 @@ import com.mainiway.eworkpal.utils.TimeCount;
 public class CommonPhoneCodeActivity extends BaseTitleActivity{
 
     private String label;
-    private TextView tv_register_get_code;
+    private TextView tv_get_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +42,6 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity{
 
     }
 
-    private void initView() {
-        findView(R.id.tv_register_next).setOnClickListener(new FastClickListener());
-        tv_register_get_code = findView(R.id.tv_register_get_code);
-        tv_register_get_code.setOnClickListener(new FastClickListener());
-
-    }
-
     //获取Intent传递的数据
     private void handlerIntent(){
 
@@ -55,6 +50,14 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity{
         }
     }
 
+    private void initView() {
+        findView(R.id.tv_getcode_next).setOnClickListener(new FastClickListener());
+        tv_get_code = findView(R.id.tv_get_code);
+        tv_get_code.setOnClickListener(new FastClickListener());
+
+    }
+
+
     private class FastClickListener extends OnClickFastListener {
 
         @Override
@@ -62,13 +65,24 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity{
 
             switch (v.getId()) {
 
-                case R.id.tv_register_next://下一步
-                    startActivity(new Intent(CommonPhoneCodeActivity.this,CreateEnterpriseActivity.class));
+                case R.id.tv_getcode_next:  //下一步
+
+                    if (label.equals(Constants.PHONE_CODE_ENTERPRISE)){
+                        //此处跳转到企业创建界面，可能需要携带参数
+                        startActivity(new Intent(CommonPhoneCodeActivity.this,CreateEnterpriseActivity.class));
+
+                    }else if (label.equals(Constants.PHONE_CODE_FORGET_PWD)){
+
+                        //此处跳转到找回密码界面，可能需要携带参数
+                        startActivity(new Intent(CommonPhoneCodeActivity.this,ForgetPwdActivity.class));
+
+                    }
+
                     break;
 
-                case R.id.tv_register_get_code://获取验证码
+                case R.id.tv_get_code://获取验证码
                     TimeCount timeCount = new TimeCount(60000, 1000);//60000, 1000
-                    timeCount.setBtn(tv_register_get_code, "重新获取");
+                    timeCount.setBtn(tv_get_code, "重新获取");
                     timeCount.start();
                     break;
 

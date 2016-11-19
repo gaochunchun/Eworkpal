@@ -79,6 +79,10 @@
             android:label="用户注册"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.user.ForgetPwdActivity"
+            android:label="找回密码"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".activity.user.CreateEnterpriseActivity"
             android:label="创建企业"
             android:screenOrientation="portrait"/>
