@@ -28,7 +28,7 @@ import com.mainiway.eworkpal.utils.ToastUtils;
 @SuppressLint("NewApi")
 public  class ErrorActivity extends Activity {
 
-    String errorInformation="";
+    private String errorInformation="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
