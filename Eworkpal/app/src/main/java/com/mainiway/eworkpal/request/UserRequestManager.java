@@ -55,7 +55,7 @@ public class UserRequestManager {
         map.put("MobilePhone",mobile);
         map.put("NewPassword",newPwd);
 
-        GenericDataManager.getInstance().dataRequest(AppConstant.REQUEST_CODE_0,RequestType.TYPE_JSON, activity,Urls.URL_CREATE_RESETPASSWORD, null,JSON.toJSONString(map), mCallback);
+        GenericDataManager.getInstance().dataRequest(Constants.REQUEST_CODE_0,RequestType.TYPE_JSON, activity,Urls.URL_CREATE_RESETPASSWORD, null,JSON.toJSONString(map), mCallback);
     }*/
 
 }

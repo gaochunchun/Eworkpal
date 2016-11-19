@@ -10,7 +10,7 @@ android {                           // 配置所有android构建过程需要的�
         versionCode 1                   // 版本号
         versionName "1.0"               // 版本名称
 
-        //testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "android.support.activity_test2.runner.AndroidJUnitRunner"
     }
     buildTypes {                    // 编译类型。默认两个：release和debug
         release {

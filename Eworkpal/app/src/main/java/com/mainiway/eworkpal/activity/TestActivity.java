@@ -28,7 +28,7 @@ public class TestActivity extends BaseTitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_test_network);
 
         setTitle("测试界面标题");
         showBackwardView(true);

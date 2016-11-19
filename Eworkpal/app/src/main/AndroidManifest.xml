@@ -68,11 +68,11 @@
             android:label="用户登录"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.RegisterActivity"
+        <activity android:name=".activity.user.CommonPhoneCodeActivity"
             android:label="用户注册"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.CreateEnterpriseActivity"
+        <activity android:name=".activity.user.RegisterEnterpriseActivity"
             android:label="创建企业"
             android:screenOrientation="portrait"/>
 

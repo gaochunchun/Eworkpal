@@ -112,7 +112,7 @@ public class AppAplication extends Application {
      * @return Token
      */
     /*public static String getToken(){
-        String mToken = ConfigManager.getInstance().get(AppConstant.PREF_NAME_TOKEN,"").toString();
+        String mToken = ConfigManager.getInstance().get(Constants.PREF_NAME_TOKEN,"").toString();
         if (!TextUtils.isEmpty(mToken)) {
             return mToken;
         }

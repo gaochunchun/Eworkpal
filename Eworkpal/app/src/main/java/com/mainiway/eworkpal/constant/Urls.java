@@ -26,7 +26,7 @@ package com.mainiway.eworkpal.constant;
 public class Urls {
 
 
-    public static String URL_JsonObject = "test";
+    public static String URL_JsonObject = "activity_test2";
     public static String URL_JsonArray = "testJsonArray";
 
 

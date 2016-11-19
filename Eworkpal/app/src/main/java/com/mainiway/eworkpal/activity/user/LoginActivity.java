@@ -1,16 +1,14 @@
 package com.mainiway.eworkpal.activity.user;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.mainiway.alertview.AlertView;
 import com.mainiway.alertview.ItemClick;
-import com.mainiway.eworkpal.AppAplication;
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
+import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 
 /**
@@ -47,8 +45,10 @@ public class LoginActivity extends BaseActivity {
 
             switch (v.getId()) {
 
-                case R.id.tv_register_enterprises://注册
-                     startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                case R.id.tv_register_enterprises://注册企业
+                    Intent mIntentRegisterEnterprise = new Intent(LoginActivity.this,CommonPhoneCodeActivity.class);
+                    mIntentRegisterEnterprise.putExtra(Constants.LABEL_PHONE_CODE,Constants.PHONE_CODE_ENTERPRISE);
+                    startActivity(mIntentRegisterEnterprise);
                     break;
 
                 case R.id.tv_login:
@@ -68,8 +68,10 @@ public class LoginActivity extends BaseActivity {
                     startActivity(new Intent(LoginActivity.this,JoinEnterpriseActivity.class));
                     break;
 
-                case R.id.tv_forgetpwd:
-                    //startActivity(new Intent(LoginActivity.this,JoinEnterpriseActivity.class));
+                case R.id.tv_forgetpwd: //找回密码
+                    Intent mIntentFowgetPwd = new Intent(LoginActivity.this,CommonPhoneCodeActivity.class);
+                    mIntentFowgetPwd.putExtra(Constants.LABEL_PHONE_CODE,Constants.PHONE_CODE_FORGET_PWD);
+                    startActivity(mIntentFowgetPwd);
                     break;
             }
         }
