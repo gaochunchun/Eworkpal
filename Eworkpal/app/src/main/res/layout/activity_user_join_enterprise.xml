@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_F7F9FC">
+
+    <!--请输入企业ID-->
+    <LinearLayout
+        android:id="@+id/ll_join_enterprise_id"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="80px"
+            android:paddingLeft="50px"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"
+            android:hint="@string/text_join_enterprise_id"
+            android:inputType="textPassword"
+            android:textColor="@color/gray_666666"
+            android:background="@drawable/rectangle_27dp_white"/>
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/tv_next_one"
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:textColor="@android:color/white"
+            android:textSize="30px"
+            android:layout_marginTop="50px"
+            android:gravity="center"
+            android:background="@drawable/rectangle_27dp_blue_selected"
+            android:text="@string/text_next"/>
+    </LinearLayout>
+
+
+
+
+    <!--申请加入企业-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_join_enterprise"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="70px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="您正在申请加入“曼威网络科技有限公司”"
+            android:gravity="center"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="50px"
+            android:paddingLeft="50px"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"
+            android:hint="@string/text_join_enterprise_name"
+            android:inputType="textPassword"
+            android:textColor="@color/gray_666666"
+            android:background="@drawable/rectangle_27dp_white"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px"
+            android:paddingLeft="50px"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"
+            android:hint="@string/text_join_enterprise_dep"
+            android:inputType="textPassword"
+            android:textColor="@color/gray_666666"
+            android:background="@drawable/rectangle_27dp_white"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px"
+            android:paddingLeft="50px"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"
+            android:hint="@string/text_join_enterprise_job"
+            android:inputType="textPassword"
+            android:textColor="@color/gray_666666"
+            android:background="@drawable/rectangle_27dp_white"
+            android:id="@+id/editText2" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px"
+            android:paddingLeft="50px"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"
+            android:hint="@string/text_please_enter_your_phone_number"
+            android:inputType="textPassword"
+            android:textColor="@color/gray_666666"
+            android:background="@drawable/rectangle_27dp_white"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColorHint="@color/gray_666666"
+                android:textSize="28px"
+                android:hint="@string/text_please_enter_the_verification_code"
+                android:paddingLeft="50px"
+                android:inputType="number"
+                android:textColor="@color/gray_666666"
+                android:background="@drawable/rectangle_27dp_white" />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/tv_register_get_code"
+                android:layout_width="238px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:text="@string/text_get_verification_code"
+                android:background="@drawable/rectangle_27dp_white"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/tv_next_two"
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:textColor="@android:color/white"
+            android:textSize="30px"
+            android:layout_marginTop="50px"
+            android:gravity="center"
+            android:background="@drawable/rectangle_27dp_blue_selected"
+            android:text="@string/text_next"/>
+    </LinearLayout>
+
+
+    <!--申请验证-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_join_enterprise_verify"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:lineSpacingExtra="15px"
+            android:textSize="30px"
+            android:layout_marginTop="100px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/text_join_enterprise_review"
+            android:gravity="center"/>
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/tv_next_three"
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:textColor="@android:color/white"
+            android:textSize="30px"
+            android:layout_marginTop="80px"
+            android:gravity="center"
+            android:background="@drawable/rectangle_27dp_blue_selected"
+            android:text="@string/text_back"/>
+    </LinearLayout>
+</LinearLayout>

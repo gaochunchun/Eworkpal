@@ -31,9 +31,12 @@ public class LoginActivity extends BaseActivity {
         initView();
     }
 
+
     private void initView() {
         findView(R.id.tv_register_enterprises).setOnClickListener(new FastClickListener());
         findView(R.id.tv_login).setOnClickListener(new FastClickListener());
+        findView(R.id.tv_join_enterprise).setOnClickListener(new FastClickListener());
+        findView(R.id.tv_forgetpwd).setOnClickListener(new FastClickListener());
     }
 
 
@@ -61,6 +64,13 @@ public class LoginActivity extends BaseActivity {
                     }).show();
                     break;
 
+                case R.id.tv_join_enterprise:   //申请加入企业
+                    startActivity(new Intent(LoginActivity.this,JoinEnterpriseActivity.class));
+                    break;
+
+                case R.id.tv_forgetpwd:
+                    //startActivity(new Intent(LoginActivity.this,JoinEnterpriseActivity.class));
+                    break;
             }
         }
     }

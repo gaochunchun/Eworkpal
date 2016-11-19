@@ -44,7 +44,6 @@ public class SplashActivity extends BaseActivity {
 
     }
 
-
     private void redirectTo() {
 
         //描述：判断第一次进入时是否存在UserId，无则跳转到登录界面，存在则直接进入主页。
@@ -53,9 +52,9 @@ public class SplashActivity extends BaseActivity {
 
         Intent mIntent = new Intent();
         //if(!TextUtils.isEmpty(mUserId)){
-         mIntent.setClass(this, MainActivity.class);
+         //mIntent.setClass(this, MainActivity.class);
         // }else{
-        //mIntent.setClass(this, LoginActivity.class);
+        mIntent.setClass(this, LoginActivity.class);
         // }
         startActivity(mIntent);
         finish();

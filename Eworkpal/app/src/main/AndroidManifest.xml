@@ -63,8 +63,8 @@
             android:name="design_height"
             android:value="1280"/>
 
-        <!-- 登录模块-->
         <activity android:name=".activity.user.LoginActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="用户登录"
             android:screenOrientation="portrait"/>
 
@@ -74,6 +74,11 @@
 
         <activity android:name=".activity.user.CreateEnterpriseActivity"
             android:label="创建企业"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".activity.user.JoinEnterpriseActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label="申请加入企业"
             android:screenOrientation="portrait"/>
 
     </application>
