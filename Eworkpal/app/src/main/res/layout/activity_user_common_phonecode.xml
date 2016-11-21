@@ -42,13 +42,13 @@
 
             <TextView
                 android:clickable="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:id="@+id/tv_get_code"
                 android:layout_width="238px"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:text="@string/text_get_verification_code"
-                android:background="@drawable/rectangle_27dp_white"
+                android:background="@drawable/rectangle_27dp_blue_selected"
                 android:gravity="center"/>
         </RelativeLayout>
 

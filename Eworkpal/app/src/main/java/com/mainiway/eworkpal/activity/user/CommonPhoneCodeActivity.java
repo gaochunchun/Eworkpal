@@ -68,6 +68,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity{
                     if (label.equals(Constants.PHONE_CODE_ENTERPRISE)){
                         //此处跳转到企业创建界面，可能需要携带参数
                         startActivity(new Intent(CommonPhoneCodeActivity.this,CreateEnterpriseActivity.class));
+                        overridePendingTransition(R.anim.push_right_in,R.anim.push_right_out);
 
                     }else if (label.equals(Constants.PHONE_CODE_FORGET_PWD)){
 
