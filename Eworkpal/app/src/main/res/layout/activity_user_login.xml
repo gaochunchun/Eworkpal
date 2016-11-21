@@ -118,7 +118,6 @@
         android:layout_height="96px"
         android:layout_marginTop="20px"
         android:layout_marginLeft="30px"
-        android:visibility="gone"
         android:layout_marginRight="30px">
 
         <EditText
@@ -139,8 +138,8 @@
             android:background="@drawable/rectangle_27dp_white">
             <ImageView
                 android:id="@+id/iv_picture_code"
-                android:layout_width="235px"
-                android:layout_height="80px"/>
+                android:layout_width="234px"
+                android:layout_height="79px"/>
         </LinearLayout>
     </RelativeLayout>
 

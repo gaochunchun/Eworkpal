@@ -55,7 +55,7 @@ public class ImageCodeView {
     //variables  
     private String code;  
     private int padding_left, padding_top;  
-    private Random random = new Random();  
+    private Random random = new Random();
     //验证码图片  
     public Bitmap createBitmap() {  
         padding_left = 0;  
@@ -65,8 +65,9 @@ public class ImageCodeView {
   
         code = createCode();
 
-        c.drawColor(Color.WHITE);
-        Paint paint = new Paint();  
+        //c.drawColor(Color.WHITE);
+        c.drawColor(Color.parseColor("#FAFAFA"));
+        Paint paint = new Paint();
         paint.setTextSize(font_size);  
           
         for (int i = 0; i < code.length(); i++) {  
