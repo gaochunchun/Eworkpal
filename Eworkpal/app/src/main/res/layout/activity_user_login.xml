@@ -78,6 +78,7 @@
              android:orientation="vertical">-->
 
     <EditText
+        android:id="@+id/et_phone_number"
         android:layout_width="match_parent"
         android:layout_height="96px"
         android:layout_marginTop="60px"
@@ -94,6 +95,7 @@
         android:layout_marginRight="30px"/>
 
     <EditText
+        android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="96px"
         android:layout_marginTop="20px"
@@ -107,26 +109,39 @@
         android:inputType="textPassword"
         android:textColor="@color/gray_666666"
         android:background="@drawable/rectangle_27dp_white"
-        android:layout_marginRight="30px"
-        android:id="@+id/editText" />
+        android:layout_marginRight="30px"/>
 
 
-    <EditText
+    <RelativeLayout
+        android:id="@+id/rl_picture_code_layout"
         android:layout_width="match_parent"
         android:layout_height="96px"
         android:layout_marginTop="20px"
         android:layout_marginLeft="30px"
-        android:background="@drawable/rectangle_27dp_white"
-        android:paddingLeft="50px"
-        android:textColorHint="@color/gray_666666"
-        android:textSize="28px"
-        android:hint="密码"
-        android:drawableLeft="@mipmap/ic_user_password"
-        android:drawablePadding="54px"
-        android:inputType="textPassword"
-        android:textColor="@color/gray_666666"
-        android:layout_marginRight="30px"
-        android:id="@+id/a" />
+        android:visibility="gone"
+        android:layout_marginRight="30px">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"
+            android:hint="@string/text_please_enter_the_verification_code"
+            android:paddingLeft="50px"
+            android:textColor="@color/gray_666666"
+            android:background="@drawable/rectangle_27dp_white" />
+        <LinearLayout
+            android:layout_width="238px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:background="@drawable/rectangle_27dp_white">
+            <ImageView
+                android:id="@+id/iv_picture_code"
+                android:layout_width="235px"
+                android:layout_height="80px"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_login"
@@ -138,7 +153,7 @@
         android:textSize="30px"
         android:layout_marginTop="35px"
         android:gravity="center"
-        android:background="@drawable/rectangle_27dp_blue_selected"
+        android:background="@drawable/rectangle_27dp_blue"
         android:text="@string/text_sign_in"/>
 
     <TextView
