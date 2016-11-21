@@ -92,6 +92,9 @@
             android:label="申请加入企业"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.attendance.RightPositionActivity"
+            android:label="联系人界面"
+            android:screenOrientation="portrait"/>
 
     </application>
 

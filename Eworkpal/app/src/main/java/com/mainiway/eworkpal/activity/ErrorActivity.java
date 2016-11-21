@@ -107,6 +107,7 @@ public  class ErrorActivity extends Activity {
             @Override
             public void run() {
                 md.dismiss();
+
                 Toast.makeText(ErrorActivity.this, "上传完成", Toast.LENGTH_SHORT).show();
             }
         },1500);
