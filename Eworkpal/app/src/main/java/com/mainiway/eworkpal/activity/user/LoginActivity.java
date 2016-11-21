@@ -32,7 +32,7 @@ public class LoginActivity extends BaseActivity {
 
     private ImageView iv_picture_code;
     private TextView tv_login;
-    private EditText et_phone_number,et_password;
+    private EditText et_phone_number,et_password,et_picture_code;
     private RelativeLayout rl_picture_code_layout;
     private int count=0;//测试用的计量点击登录按钮次数的变量，以后删掉
     @Override
@@ -55,6 +55,9 @@ public class LoginActivity extends BaseActivity {
         et_password=findView(R.id.et_password);
         et_password.addTextChangedListener(textWatcher);
 
+        et_picture_code=findView(R.id.et_picture_code);
+        et_picture_code.addTextChangedListener(textWatcher);
+
         findView(R.id.tv_join_enterprise).setOnClickListener(new FastClickListener());
         findView(R.id.tv_forgetpwd).setOnClickListener(new FastClickListener());
 
@@ -63,6 +66,7 @@ public class LoginActivity extends BaseActivity {
         iv_picture_code.setOnClickListener(new FastClickListener());
 
         rl_picture_code_layout=findView(R.id.rl_picture_code_layout);
+
     }
 
     /**
@@ -87,6 +91,13 @@ public class LoginActivity extends BaseActivity {
             }else{
                 tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
                 tv_login.setClickable(false);
+            }
+
+            if(et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())){
+                rl_picture_code_layout.setVisibility(View.GONE);
+                tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+                tv_login.setClickable(true);
+                count=0;
             }
         }
     };
