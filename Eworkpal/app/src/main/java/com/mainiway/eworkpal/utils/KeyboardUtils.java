@@ -21,6 +21,11 @@ import android.widget.TextView;
  */
 public class KeyboardUtils {
 
+    private KeyboardUtils() {
+        /* cannot be instantiated */
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
+
     private static final String EXTRA_DEF_KEYBOARDHEIGHT = "DEF_KEYBOARDHEIGHT";
     private static final int DEF_KEYBOARD_HEAGH_WITH_DP = 300;
     private static int sDefKeyboardHeight = -1;
