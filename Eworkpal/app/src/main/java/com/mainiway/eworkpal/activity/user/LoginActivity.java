@@ -53,8 +53,6 @@ public class LoginActivity extends BaseActivity {
 
 
 
-
-
     @TargetApi(19)
     private void initWindow(){
 
@@ -74,28 +72,29 @@ public class LoginActivity extends BaseActivity {
 
 
     private void initView() {
-        findView(R.id.tv_register_enterprises).setOnClickListener(new FastClickListener());
-        tv_login=findView(R.id.tv_login);
+
+        tv_login = findView(R.id.tv_login);
         tv_login.setOnClickListener(new FastClickListener());
         tv_login.setClickable(false);
 
-        et_phone_number=findView(R.id.et_phone_number);
+        et_phone_number = findView(R.id.et_phone_number);
         et_phone_number.addTextChangedListener(textWatcher);
 
-        et_password=findView(R.id.et_password);
+        et_password = findView(R.id.et_password);
         et_password.addTextChangedListener(textWatcher);
 
-        et_picture_code=findView(R.id.et_picture_code);
+        et_picture_code = findView(R.id.et_picture_code);
         et_picture_code.addTextChangedListener(textWatcher);
 
+        findView(R.id.tv_register_enterprises).setOnClickListener(new FastClickListener());
         findView(R.id.tv_join_enterprise).setOnClickListener(new FastClickListener());
         findView(R.id.tv_forgetpwd).setOnClickListener(new FastClickListener());
 
-        iv_picture_code= findView(R.id.iv_picture_code);
+        iv_picture_code = findView(R.id.iv_picture_code);
         iv_picture_code.setImageBitmap(ImageCodeView.getInstance().createBitmap());
         iv_picture_code.setOnClickListener(new FastClickListener());
 
-        rl_picture_code_layout=findView(R.id.rl_picture_code_layout);
+        rl_picture_code_layout = findView(R.id.rl_picture_code_layout);
 
     }
 
