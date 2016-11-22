@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mainiway.eworkpal.utils;
+package com.mainiway.eworkpal.widgets;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

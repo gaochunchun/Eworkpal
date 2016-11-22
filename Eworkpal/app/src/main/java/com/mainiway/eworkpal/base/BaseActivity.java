@@ -10,7 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.utils.SystemBarTintManager;
+import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 public  class BaseActivity extends AutoLayoutActivity {
@@ -74,7 +74,6 @@ public  class BaseActivity extends AutoLayoutActivity {
             return;
         }
 
-
         // 沉浸式状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //5.0以上使用原生方法
@@ -89,26 +88,6 @@ public  class BaseActivity extends AutoLayoutActivity {
             tintManager.setStatusBarTintColor(setStatusBarColor());
         }
     }
-
-
-    //private SystemBarTintManager tintManager;
-
-        /*@TargetApi(19)
-    private void initWindow(){
-
-        //Build.VERSION.SDK_INT  判断当前版本号是否大于19
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
-            tintManager = new SystemBarTintManager(this);
-            //tintManager.setTintColor(Color.parseColor("#FF9900"));	//仅设置任务栏颜色
-            tintManager.setStatusBarTintColor(getResources().getColor(R.color.blue));
-            //tintManager.setStatusBarTintColor(Color.parseColor("#3272DE"));
-            tintManager.setStatusBarTintEnabled(true);
-            //tintManager.setNavigationBarTintEnabled(true);
-        }
-    }*/
 
 
     /*private ProgressDialog dialog;

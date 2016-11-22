@@ -1,23 +1,27 @@
 package com.mainiway.eworkpal.activity.user;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mainiway.alertview.AlertView;
-import com.mainiway.alertview.ItemClick;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
+import com.mainiway.okhttp.utils.OkLogger;
 
 /**
  * ===========================================
@@ -30,6 +34,8 @@ import com.mainiway.eworkpal.widgets.ImageCodeView;
 
 public class LoginActivity extends BaseActivity {
 
+    private SystemBarTintManager tintManager;   //单独设置登录界面bar的颜色
+
     private ImageView iv_picture_code;
     private TextView tv_login;
     private EditText et_phone_number,et_password,et_picture_code;
@@ -38,9 +44,33 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initWindow();
+
         setContentView(R.layout.activity_user_login);
         initView();
     }
+
+
+
+
+
+    @TargetApi(19)
+    private void initWindow(){
+
+        //Build.VERSION.SDK_INT  判断当前版本号是否大于19
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
+            tintManager = new SystemBarTintManager(this);
+            //tintManager.setTintColor(Color.parseColor("#444764"));
+            tintManager.setStatusBarTintColor(Color.parseColor("#354361"));
+            tintManager.setStatusBarTintEnabled(true);
+            //tintManager.setNavigationBarTintEnabled(true);
+        }
+    }
+
 
 
     private void initView() {
@@ -85,7 +115,7 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            if(!TextUtils.isEmpty(et_phone_number.getText())&&!TextUtils.isEmpty(et_password.getText())){
+            if(!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText())){
                 tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
                 tv_login.setClickable(true);
             }else{
