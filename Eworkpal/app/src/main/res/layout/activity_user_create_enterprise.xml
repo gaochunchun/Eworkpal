@@ -14,7 +14,6 @@
         android:textColorHint="@color/gray_666666"
         android:textSize="28px"
         android:hint="@string/text_please_fill_in_the_name_of_the_enterprise"
-        android:inputType="textPassword"
         android:textColor="@color/gray_666666"
         android:background="@drawable/rectangle_27dp_white"
         android:layout_marginRight="30px"/>
@@ -27,7 +26,6 @@
         android:textColorHint="@color/gray_666666"
         android:textSize="28px"
         android:hint="@string/text_full_name"
-        android:inputType="textPassword"
         android:textColor="@color/gray_666666"
         android:background="@drawable/rectangle_27dp_white"
         android:layout_marginRight="30px"/>

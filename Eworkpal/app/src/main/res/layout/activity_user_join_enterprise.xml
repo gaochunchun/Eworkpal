@@ -22,7 +22,7 @@
             android:textColorHint="@color/gray_666666"
             android:textSize="28px"
             android:hint="@string/text_join_enterprise_id"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white"/>
 
@@ -69,7 +69,6 @@
             android:textColorHint="@color/gray_666666"
             android:textSize="28px"
             android:hint="@string/text_join_enterprise_name"
-            android:inputType="textPassword"
             android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white"/>
         <EditText
@@ -80,7 +79,6 @@
             android:textColorHint="@color/gray_666666"
             android:textSize="28px"
             android:hint="@string/text_join_enterprise_dep"
-            android:inputType="textPassword"
             android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white"/>
 
@@ -92,7 +90,6 @@
             android:textColorHint="@color/gray_666666"
             android:textSize="28px"
             android:hint="@string/text_join_enterprise_job"
-            android:inputType="textPassword"
             android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white"
             android:id="@+id/editText2" />
@@ -105,7 +102,7 @@
             android:textColorHint="@color/gray_666666"
             android:textSize="28px"
             android:hint="@string/text_please_enter_your_phone_number"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white"/>
 
@@ -127,13 +124,13 @@
                 android:background="@drawable/rectangle_27dp_white" />
 
             <TextView
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:id="@+id/tv_register_get_code"
                 android:layout_width="238px"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:text="@string/text_get_verification_code"
-                android:background="@drawable/rectangle_27dp_white"
+                android:background="@drawable/rectangle_27dp_blue_selected"
                 android:gravity="center"/>
         </RelativeLayout>
 
