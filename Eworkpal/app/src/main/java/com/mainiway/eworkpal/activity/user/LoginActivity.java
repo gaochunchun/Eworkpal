@@ -19,6 +19,7 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.okhttp.utils.OkLogger;
@@ -40,6 +41,7 @@ public class LoginActivity extends BaseActivity {
     private TextView tv_login;
     private EditText et_phone_number,et_password,et_picture_code;
     private RelativeLayout rl_picture_code_layout;
+    private View ll_login_layout;
     private int count=0;//测试用的计量点击登录按钮次数的变量，以后删掉
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +52,6 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_user_login);
         initView();
     }
-
-
 
     @TargetApi(19)
     private void initWindow(){
@@ -95,6 +95,11 @@ public class LoginActivity extends BaseActivity {
         iv_picture_code.setOnClickListener(new FastClickListener());
 
         rl_picture_code_layout = findView(R.id.rl_picture_code_layout);
+
+        ll_login_layout = findView(R.id.ll_login_layout);
+
+        //处理弹出软键盘遮挡输入框的问题
+        KeyboardUtils.controlKeyboardLayout(ll_login_layout,et_password);
 
     }
 
@@ -160,7 +165,7 @@ public class LoginActivity extends BaseActivity {
 //                        }
 //                    }).show();
                     count++;
-                    if(count>3){
+                    if(count>1){
                         rl_picture_code_layout.setVisibility(View.VISIBLE);
                         tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
                         tv_login.setClickable(false);
