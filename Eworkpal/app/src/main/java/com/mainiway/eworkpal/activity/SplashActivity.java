@@ -55,6 +55,7 @@ public class SplashActivity extends BaseActivity {
          //mIntent.setClass(this, MainActivity.class);
         // }else{
         mIntent.setClass(this, LoginActivity.class);
+        //mIntent.setClass(this, TestActivity.class);
         //mIntent.setClass(this, RightPositionActivity.class);
         // }
         startActivity(mIntent);

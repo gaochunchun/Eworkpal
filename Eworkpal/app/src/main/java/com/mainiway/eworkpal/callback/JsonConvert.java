@@ -2,8 +2,8 @@ package com.mainiway.eworkpal.callback;
 
 
 import com.google.gson.stream.JsonReader;
-import com.mainiway.eworkpal.model.BaseResponse;
-import com.mainiway.eworkpal.model.BaseResultResponse;
+import com.mainiway.eworkpal.base.BaseResponse;
+import com.mainiway.eworkpal.base.BaseResultResponse;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.okhttp.convert.Converter;
 
