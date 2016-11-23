@@ -20,6 +20,7 @@ import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
+import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.okhttp.utils.OkLogger;
@@ -119,20 +120,27 @@ public class LoginActivity extends BaseActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            if(!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText())){
-                tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                tv_login.setClickable(true);
-            }else{
-                tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                tv_login.setClickable(false);
+
+            int visibility = rl_picture_code_layout.getVisibility();
+            if(visibility==0){//返回值为0，visible,弹出图片验证码布局
+                //如果弹出图片验证码，则判断手机号、密码、图片验证码不为空，登录按钮可点击
+                if(!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_picture_code.getText())){
+                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+                    tv_login.setClickable(true);
+                }else{
+                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+                    tv_login.setClickable(false);
+                }
+            }else{//只有用户名，密码,没有图片验证码布局
+                if(!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText())){
+                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+                    tv_login.setClickable(true);
+                }else{
+                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+                    tv_login.setClickable(false);
+                }
             }
 
-            if(et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())){
-                rl_picture_code_layout.setVisibility(View.GONE);
-                tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                tv_login.setClickable(true);
-                count=0;
-            }
         }
     };
 
@@ -164,11 +172,25 @@ public class LoginActivity extends BaseActivity {
 //
 //                        }
 //                    }).show();
-                    count++;
-                    if(count>1){
-                        rl_picture_code_layout.setVisibility(View.VISIBLE);
-                        tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_login.setClickable(false);
+
+
+                    int visibility = rl_picture_code_layout.getVisibility();
+                    if(visibility==0){//返回值为0，visible,弹出图片验证码布局
+                        if(et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())){
+                            rl_picture_code_layout.setVisibility(View.GONE);
+                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+                            tv_login.setClickable(true);
+                            count=0;
+                        }else{
+                            ToastUtils.showToastShort("图片验证码错误");
+                        }
+                    }else{
+                        count++;
+                        if(count>1){
+                            rl_picture_code_layout.setVisibility(View.VISIBLE);
+                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+                            tv_login.setClickable(false);
+                        }
                     }
                     break;
 

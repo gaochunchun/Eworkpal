@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -130,6 +130,7 @@
             android:textSize="28px"
             android:hint="@string/text_please_enter_the_verification_code"
             android:paddingLeft="50px"
+            android:inputType="textVisiblePassword"
             android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white" />
         <LinearLayout
@@ -181,5 +182,4 @@
         android:layout_marginTop="30px"/>
     <!--        </LinearLayout>
     </ScrollView>-->
-
 </LinearLayout>
