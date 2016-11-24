@@ -82,6 +82,7 @@
             android:layout_marginTop="30px"
             android:background="@drawable/rectangle_16dp_white"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="340px"
                 android:layout_height="match_parent"
@@ -89,11 +90,13 @@
                 android:textSize="28px"
                 android:gravity="center"
                 android:textColor="@color/black_4A4A4A"/>
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_mian_line"/>
+
             <TextView
                 android:layout_width="340px"
                 android:layout_height="match_parent"
@@ -114,12 +117,14 @@
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:layout_below="@+id/ll_job_alert">
+
             <TextView
-                android:textSize="28px"
+                android:textSize="26px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="你的考勤正在统计中"
                 android:textColor="@color/gray_9B9B9B"/>
+
             <TextView
                 android:paddingTop="15px"
                 android:layout_width="wrap_content"
@@ -145,12 +150,14 @@
             android:orientation="vertical"
             android:layout_below="@+id/ll_job_alert"
             android:layout_toRightOf="@+id/ll_my_attendance">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="小伙伴们都在这"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="28px"/>
+                android:textSize="26px"/>
+
             <TextView
                 android:paddingTop="15px"
                 android:layout_width="wrap_content"
@@ -269,7 +276,9 @@
                 android:drawableLeft="@mipmap/ic_main_approval"
                 android:drawablePadding="20px"
                 android:layout_marginTop="35px"/>
+
             <TextView
+                android:textSize="26px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="再也不要等待了"
@@ -289,13 +298,15 @@
             android:layout_marginTop="30px"
             android:background="@drawable/rectangle_4dp_white"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="工作的同事要学会享受假期"
                 android:textColor="@color/gray_9B9B9B"
                 android:layout_marginTop="20px"
-                android:textSize="28px"/>
+                android:textSize="26px"/>
+
             <TextView
                 android:paddingTop="15px"
                 android:layout_width="wrap_content"
@@ -320,13 +331,15 @@
             android:layout_marginLeft="10px"
             android:paddingLeft="20px"
             android:orientation="vertical">
+
             <TextView
                 android:layout_marginTop="20px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="快速学习提升工作效率"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="28px"/>
+                android:textSize="26px"/>
+
             <TextView
                 android:paddingTop="15px"
                 android:layout_width="wrap_content"
@@ -348,6 +361,7 @@
             android:background="@drawable/rectangle_4dp_white"
             android:layout_marginTop="30px"
             android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -358,7 +372,9 @@
                 android:gravity="center_vertical"
                 android:drawableLeft="@mipmap/ic_main_icon"
                 android:drawablePadding="20px"/>
+
         </LinearLayout>
+
         <TextView
             android:layout_below="@+id/ll_application_center"
             android:layout_width="wrap_content"
