@@ -11,12 +11,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_layout);
         //TextView textView = findView(R.id.appbar);
     }
 
-    @Override
-    protected boolean translucentStatusBar() {
-        return true;
-    }
 }

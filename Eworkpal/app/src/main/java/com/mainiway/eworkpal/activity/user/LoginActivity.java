@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
@@ -174,24 +175,25 @@ public class LoginActivity extends BaseActivity {
 //                    }).show();
 
 
-                    int visibility = rl_picture_code_layout.getVisibility();
-                    if(visibility==0){//返回值为0，visible,弹出图片验证码布局
-                        if(et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())){
-                            rl_picture_code_layout.setVisibility(View.GONE);
-                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                            tv_login.setClickable(true);
-                            count=0;
-                        }else{
-                            ToastUtils.showToastShort("图片验证码错误");
-                        }
-                    }else{
-                        count++;
-                        if(count>1){
-                            rl_picture_code_layout.setVisibility(View.VISIBLE);
-                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                            tv_login.setClickable(false);
-                        }
-                    }
+//                    int visibility = rl_picture_code_layout.getVisibility();
+//                    if(visibility==0){//返回值为0，visible,弹出图片验证码布局
+//                        if(et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())){
+//                            rl_picture_code_layout.setVisibility(View.GONE);
+//                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+//                            tv_login.setClickable(true);
+//                            count=0;
+//                        }else{
+//                            ToastUtils.showToastShort("图片验证码错误");
+//                        }
+//                    }else{
+//                        count++;
+//                        if(count>1){
+//                            rl_picture_code_layout.setVisibility(View.VISIBLE);
+//                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+//                            tv_login.setClickable(false);
+//                        }
+//                    }
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业
