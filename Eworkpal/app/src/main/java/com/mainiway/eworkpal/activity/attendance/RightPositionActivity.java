@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * 作    者：gao_chun
  * 版    本：1.0
  * 创建日期：2016-11-21.
- * 描    述：
+ * 描    述：测试通讯录界面
  * ===========================================
  */
 public class RightPositionActivity extends BaseTitleActivity {
@@ -32,12 +32,14 @@ public class RightPositionActivity extends BaseTitleActivity {
         super.onCreate(savedInstanceState);
 
         setTitle("联系人");
+        showBackwardView(true);
+
         initData();
         initView();
     }
 
     private void initView() {
-        setContentView(R.layout.activity_contacts);
+        setContentView(R.layout.test_activity_contacts);
         rvContacts = (RecyclerView) findViewById(R.id.rv_contacts);
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
         rvContacts.setAdapter(new ContactsAdapter(contacts, R.layout.item_contacts));

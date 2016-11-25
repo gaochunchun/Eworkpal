@@ -32,12 +32,20 @@
         android:name=".AppAplication"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.TestActivity"
+
+        <activity android:name=".activity.test.TestActivity"
             android:label="网络请求测试"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.MainActivity"
-            android:label="测试界面"/>
+        <activity android:name=".activity.test.MainActivity"
+            android:label="测试主页"/>
+
+        <activity android:name=".activity.test.AnimationUseActivity"
+            android:label="动画测试"/>
+
+        <activity android:name=".activity.test.PullToRefreshUseActivity"
+            android:label="pulltorefresh测试"/>
+
 
 
         <activity android:name=".activity.SplashActivity"

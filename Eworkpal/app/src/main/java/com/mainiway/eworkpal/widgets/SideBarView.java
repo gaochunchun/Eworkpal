@@ -17,10 +17,15 @@ import com.mainiway.eworkpal.R;
 import java.util.Arrays;
 
 /**
- * Created by gjz on 8/23/16.
+ * ===========================================
+ * 作    者：gao_chun
+ * 版    本：1.0
+ * 创建日期：2016-11-19.
+ * 描    述：SideBarView
+ * ===========================================
  */
 public class SideBarView extends View {
-    private final static int DEFAULT_TEXT_SIZE = 14; // sp
+    private final static int DEFAULT_TEXT_SIZE = 15; // sp
     private final static int DEFAULT_MAX_OFFSET = 80; //dp
 
     private final static String[] DEFAULT_INDEX_ITEMS = {"↑","A", "B", "C", "D", "E", "F", "G", "H", "I",
