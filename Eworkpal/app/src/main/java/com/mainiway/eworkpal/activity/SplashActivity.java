@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.attendance.RightPositionActivity;
 import com.mainiway.eworkpal.activity.user.LoginActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 
@@ -57,6 +58,7 @@ public class SplashActivity extends BaseActivity {
         mIntent.setClass(this, LoginActivity.class);
         //mIntent.setClass(this, TestActivity.class);
         //mIntent.setClass(this, RightPositionActivity.class);
+        //mIntent.setClass(this, PullToZoomScrollActivity.class);
         // }
         startActivity(mIntent);
         finish();

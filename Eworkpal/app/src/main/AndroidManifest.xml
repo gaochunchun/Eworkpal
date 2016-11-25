@@ -33,7 +33,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".activity.TestActivity"
-            android:label="测试界面"
+            android:label="网络请求测试"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".activity.MainActivity"
