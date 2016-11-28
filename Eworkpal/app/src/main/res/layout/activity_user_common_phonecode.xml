@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/et_phone_number"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:layout_marginTop="80px"
@@ -23,34 +24,6 @@
             android:textColor="@color/gray_666666"
             android:textColorHint="@color/gray_666666"
             android:textSize="28px" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="96px"
-            android:layout_marginTop="40px">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/rectangle_27dp_white"
-                android:hint="@string/text_please_enter_the_verification_code"
-                android:inputType="number"
-                android:paddingLeft="50px"
-                android:textColor="@color/gray_666666"
-                android:textColorHint="@color/gray_666666"
-                android:textSize="28px" />
-
-            <TextView
-                android:id="@+id/tv_get_code"
-                android:layout_width="238px"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/rectangle_27dp_blue_selected"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="@string/text_get_verification_code"
-                android:textColor="@color/white" />
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_picture_code_layout"
@@ -85,12 +58,41 @@
             </LinearLayout>
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px">
+
+            <EditText
+                android:id="@+id/et_phone_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_27dp_white"
+                android:hint="@string/text_please_enter_the_verification_code"
+                android:inputType="number"
+                android:paddingLeft="50px"
+                android:textColor="@color/gray_666666"
+                android:textColorHint="@color/gray_666666"
+                android:textSize="28px" />
+
+            <TextView
+                android:id="@+id/tv_get_code"
+                android:layout_width="238px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/rectangle_27dp_blue_selected"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/text_get_verification_code"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/tv_getcode_next"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:layout_marginTop="50px"
-            android:background="@drawable/rectangle_27dp_blue_selected"
+            android:background="@drawable/rectangle_27dp_blue"
             android:clickable="true"
             android:gravity="center"
             android:text="@string/text_next"
