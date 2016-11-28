@@ -1,111 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_F7F9FC">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_F7F9FC"
+              android:orientation="vertical">
 
     <!--请输入企业ID-->
     <LinearLayout
         android:id="@+id/ll_join_enterprise_id"
-        android:layout_marginRight="30px"
-        android:layout_marginLeft="30px"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:orientation="vertical">
 
         <EditText
+            android:id="@+id/et_enterprise_id"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:layout_marginTop="80px"
-            android:paddingLeft="50px"
-            android:textColorHint="@color/gray_666666"
-            android:textSize="28px"
+            android:background="@drawable/rectangle_27dp_white"
             android:hint="@string/text_join_enterprise_id"
             android:inputType="number"
+            android:paddingLeft="50px"
             android:textColor="@color/gray_666666"
-            android:background="@drawable/rectangle_27dp_white"/>
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"/>
 
         <TextView
-            android:clickable="true"
             android:id="@+id/tv_next_one"
             android:layout_width="match_parent"
             android:layout_height="96px"
-            android:textColor="@android:color/white"
-            android:textSize="30px"
             android:layout_marginTop="50px"
+            android:background="@drawable/rectangle_27dp_blue"
+            android:clickable="true"
             android:gravity="center"
-            android:background="@drawable/rectangle_27dp_blue_selected"
-            android:text="@string/text_next"/>
+            android:text="@string/text_next"
+            android:textColor="@android:color/white"
+            android:textSize="30px"/>
     </LinearLayout>
-
-
 
 
     <!--申请加入企业-->
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/ll_join_enterprise"
-        android:layout_marginRight="30px"
-        android:layout_marginLeft="30px"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
-            android:layout_marginTop="70px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="您正在申请加入“曼威网络科技有限公司”"
-            android:gravity="center"/>
+            android:layout_marginTop="70px"
+            android:gravity="center"
+            android:text="您正在申请加入“曼威网络科技有限公司”"/>
 
 
         <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:layout_marginTop="50px"
-            android:paddingLeft="50px"
-            android:textColorHint="@color/gray_666666"
-            android:textSize="28px"
-            android:hint="@string/text_join_enterprise_name"
-            android:textColor="@color/gray_666666"
-            android:background="@drawable/rectangle_27dp_white"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="96px"
-            android:layout_marginTop="40px"
-            android:paddingLeft="50px"
-            android:textColorHint="@color/gray_666666"
-            android:textSize="28px"
-            android:hint="@string/text_join_enterprise_dep"
-            android:textColor="@color/gray_666666"
-            android:background="@drawable/rectangle_27dp_white"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="96px"
-            android:layout_marginTop="40px"
-            android:paddingLeft="50px"
-            android:textColorHint="@color/gray_666666"
-            android:textSize="28px"
-            android:hint="@string/text_join_enterprise_job"
-            android:textColor="@color/gray_666666"
             android:background="@drawable/rectangle_27dp_white"
-            android:id="@+id/editText2" />
+            android:hint="@string/text_join_enterprise_name"
+            android:paddingLeft="50px"
+            android:textColor="@color/gray_666666"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"/>
 
         <EditText
+            android:id="@+id/et_department"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:layout_marginTop="40px"
+            android:background="@drawable/rectangle_27dp_white"
+            android:hint="@string/text_join_enterprise_dep"
             android:paddingLeft="50px"
+            android:textColor="@color/gray_666666"
             android:textColorHint="@color/gray_666666"
-            android:textSize="28px"
+            android:textSize="28px"/>
+
+        <EditText
+            android:id="@+id/et_position"
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px"
+            android:background="@drawable/rectangle_27dp_white"
+            android:hint="@string/text_join_enterprise_job"
+            android:paddingLeft="50px"
+            android:textColor="@color/gray_666666"
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"/>
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px"
+            android:background="@drawable/rectangle_27dp_white"
             android:hint="@string/text_please_enter_your_phone_number"
             android:inputType="number"
+            android:paddingLeft="50px"
             android:textColor="@color/gray_666666"
-            android:background="@drawable/rectangle_27dp_white"/>
+            android:textColorHint="@color/gray_666666"
+            android:textSize="28px"/>
 
+        <RelativeLayout
+            android:id="@+id/rl_picture_code_layout"
+            android:layout_width="match_parent"
+            android:layout_height="96px"
+            android:layout_marginTop="40px"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_picture_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_27dp_white"
+                android:hint="@string/text_please_enter_the_verification_code"
+                android:inputType="textVisiblePassword"
+                android:paddingLeft="50px"
+                android:textColor="@color/gray_666666"
+                android:textColorHint="@color/gray_666666"
+                android:textSize="28px"/>
+
+            <LinearLayout
+                android:layout_width="238px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/rectangle_27dp_white"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_picture_code"
+                    android:layout_width="234px"
+                    android:layout_height="79px"/>
+            </LinearLayout>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -113,71 +148,72 @@
             android:layout_marginTop="40px">
 
             <EditText
+                android:id="@+id/et_phone_code"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColorHint="@color/gray_666666"
-                android:textSize="28px"
+                android:background="@drawable/rectangle_27dp_white"
                 android:hint="@string/text_please_enter_the_verification_code"
-                android:paddingLeft="50px"
                 android:inputType="number"
+                android:paddingLeft="50px"
                 android:textColor="@color/gray_666666"
-                android:background="@drawable/rectangle_27dp_white" />
+                android:textColorHint="@color/gray_666666"
+                android:textSize="28px"/>
 
             <TextView
-                android:textColor="@color/white"
                 android:id="@+id/tv_register_get_code"
                 android:layout_width="238px"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
+                android:background="@drawable/rectangle_27dp_blue"
+                android:gravity="center"
                 android:text="@string/text_get_verification_code"
-                android:background="@drawable/rectangle_27dp_blue_selected"
-                android:gravity="center"/>
+                android:textColor="@color/white"/>
         </RelativeLayout>
 
         <TextView
-            android:clickable="true"
             android:id="@+id/tv_next_two"
             android:layout_width="match_parent"
             android:layout_height="96px"
-            android:textColor="@android:color/white"
-            android:textSize="30px"
             android:layout_marginTop="50px"
+            android:background="@drawable/rectangle_27dp_blue"
+            android:clickable="true"
             android:gravity="center"
-            android:background="@drawable/rectangle_27dp_blue_selected"
-            android:text="@string/text_next"/>
+            android:text="@string/text_next"
+            android:textColor="@android:color/white"
+            android:textSize="30px"/>
     </LinearLayout>
 
 
     <!--申请验证-->
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/ll_join_enterprise_verify"
-        android:layout_marginRight="30px"
-        android:layout_marginLeft="30px"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
-            android:lineSpacingExtra="15px"
-            android:textSize="30px"
-            android:layout_marginTop="100px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="100px"
+            android:gravity="center"
+            android:lineSpacingExtra="15px"
             android:text="@string/text_join_enterprise_review"
-            android:gravity="center"/>
+            android:textSize="30px"/>
 
         <TextView
-            android:clickable="true"
             android:id="@+id/tv_next_three"
             android:layout_width="match_parent"
             android:layout_height="96px"
-            android:textColor="@android:color/white"
-            android:textSize="30px"
             android:layout_marginTop="80px"
-            android:gravity="center"
             android:background="@drawable/rectangle_27dp_blue_selected"
-            android:text="@string/text_back"/>
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/text_back"
+            android:textColor="@android:color/white"
+            android:textSize="30px"/>
     </LinearLayout>
 </LinearLayout>
