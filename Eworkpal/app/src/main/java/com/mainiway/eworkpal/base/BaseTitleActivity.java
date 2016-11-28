@@ -21,12 +21,12 @@ import com.mainiway.eworkpal.utils.HideIMEUtil;
  * 描    述：自定义顶部标题栏
  * ===========================================
  */
-public class BaseTitleActivity extends BaseActivity implements OnClickListener{
+public class BaseTitleActivity extends BaseActivity implements OnClickListener {
 
     //private RelativeLayout mLayoutTitleBar;
     private TextView mTitleTextView;
     private Button mBackwardbButton;
-    private Button mForwardButton;
+    private Button mForwardButton,mForwardButton2;
     private FrameLayout mContentLayout;
 
 
@@ -34,11 +34,11 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupViews();
-        getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         HideIMEUtil.wrap(this);
     }
 
-    /*  protected void isHideTitleBar(boolean show)
+    /*protected void isHideTitleBar(boolean show)
     {
         if(mLayoutTitleBar != null)
         {
@@ -52,8 +52,12 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
         }
     }*/
 
-    //back,显示图标和文字
-    /*protected void showBackwardView(int backwardResid, boolean show) {
+    /**
+     * 显示标题栏返回图标、文字
+     * @param backwardResid
+     * @param show
+     */
+    protected void showBackwardView(int backwardResid, boolean show) {
         if (mBackwardbButton != null) {
             if (show) {
                 mBackwardbButton.setText(backwardResid);
@@ -62,9 +66,13 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
                 mBackwardbButton.setVisibility(View.INVISIBLE);
             }
         } // else ignored
-    }*/
+    }
 
-    //back，只显示图标
+
+    /**
+     * 仅显示标题栏返回图标
+     * @param show
+     */
     protected void showBackwardView(boolean show) {
         if (mBackwardbButton != null) {
             if (show) {
@@ -79,22 +87,23 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
 
     /**
      * forward 右侧标题栏 图标 - 文字
+     *
      * @param mtext
      * @param drawableId
-     * @param leftOrRight 0表示图标在左边  其他表示在右边
+     * @param leftOrRight 0 表示图标在左边  其他表示在右边
      */
-    protected void showForwardView(CharSequence mtext, int drawableId,int leftOrRight) {
+    protected void showForwardView(CharSequence mtext, int drawableId, int leftOrRight) {
         if (mForwardButton != null) {
 
             mForwardButton.setVisibility(View.VISIBLE);
             mForwardButton.setText(mtext);
 
             Drawable drawable = getResources().getDrawable(drawableId);
-            drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
-            if (leftOrRight ==0) {
-                mForwardButton.setCompoundDrawables(drawable,null,null,null);
-            }else {
-                mForwardButton.setCompoundDrawables(null,null,drawable,null);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            if (leftOrRight == 0) {
+                mForwardButton.setCompoundDrawables(drawable, null, null, null);
+            } else {
+                mForwardButton.setCompoundDrawables(null, null, drawable, null);
             }
 
         }// else ignored
@@ -102,7 +111,8 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
 
 
     /**
-     * forward 右侧标题栏 图标
+     * 只显示右侧标题栏图标
+     *
      * @param drawableId
      */
     protected void showForwardView(int drawableId) {
@@ -111,14 +121,14 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
             mForwardButton.setVisibility(View.VISIBLE);
 
             Drawable drawable = getResources().getDrawable(drawableId);
-            drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
-            mForwardButton.setCompoundDrawables(null,null,drawable,null);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            mForwardButton.setCompoundDrawables(null, null, drawable, null);
 
         }// else ignored
     }
 
     /**
-     * 只显示文字
+     * 显示标题栏右侧文字
      * @param mtext
      */
     protected void showForwardView(CharSequence mtext) {
@@ -126,13 +136,13 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
 
             mForwardButton.setVisibility(View.VISIBLE);
             mForwardButton.setText(mtext);
-            mForwardButton.setCompoundDrawables(null,null,null,null);
+            mForwardButton.setCompoundDrawables(null, null, null, null);
         }// else ignored
     }
 
 
     //forward,显示图标
-    protected void showForwardView(boolean show) {
+    /*protected void showForwardView(boolean show) {
         if (mForwardButton != null) {
             if (show) {
                 mForwardButton.setVisibility(View.VISIBLE);
@@ -140,6 +150,30 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
                 mForwardButton.setVisibility(View.INVISIBLE);
             }
         } // else ignored
+    }*/
+
+    /**
+     * 设置标题栏右侧显示两个图标
+     * @param mDrawable1
+     * @param mDrawable2
+     */
+    protected void showForwardView(int mDrawable1,int mDrawable2) {
+
+        //设置第一个图标位置
+        if (mForwardButton != null) {
+            mForwardButton.setVisibility(View.VISIBLE);
+            Drawable drawable = getResources().getDrawable(mDrawable1);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            mForwardButton.setCompoundDrawables(null, null,drawable, null);
+        }
+
+        //设置第二个图标位置
+        if (mForwardButton2 != null) {
+            mForwardButton2.setVisibility(View.VISIBLE);
+            Drawable drawable = getResources().getDrawable(mDrawable2);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            mForwardButton2.setCompoundDrawables(drawable, null,null, null);
+        }
     }
 
 
@@ -152,25 +186,33 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
 
     }
 
+    protected void onForward2(View forwardView2){
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#setTitle(int)
+    }
+
+    /**
+     * 设置标题
+     * @param titleId
      */
     @Override
     public void setTitle(int titleId) {
         mTitleTextView.setText(titleId);
     }
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#setTitle(java.lang.CharSequence)
+
+    /**
+     * 设置标题
+     * @param title
      */
     @Override
     public void setTitle(CharSequence title) {
         mTitleTextView.setText(title);
     }
 
-    /* (non-Javadoc)
-     * @see android.app.Activity#setTitleColor(int)
+
+    /**
+     * 设置标题颜色
+     * @param textColor
      */
     @Override
     public void setTitleColor(int textColor) {
@@ -187,6 +229,7 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
         View.inflate(this, layoutResID, mContentLayout);
         onContentChanged();
     }
+
 
     /* (non-Javadoc)
      * @see android.app.Activity#setContentView(android.view.View)
@@ -208,8 +251,10 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
         onContentChanged();
     }
 
-    /* (non-Javadoc)
-     * @see android.view.View.OnClickListener#onClick(android.view.View)
+
+    /**
+     * 标题栏点击事件处理
+     * @param v
      */
     @Override
     public void onClick(View v) {
@@ -223,10 +268,14 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
                 onForward(v);
                 break;
 
+            case R.id.button_forward2:
+                onForward2(v);
+                break;
             default:
                 break;
         }
     }
+
 
     private void setupViews() {
         super.setContentView(R.layout.activity_title);
@@ -235,6 +284,7 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener{
         mContentLayout = (FrameLayout) findViewById(R.id.layout_content);
         mBackwardbButton = (Button) findViewById(R.id.button_backward);
         mForwardButton = (Button) findViewById(R.id.button_forward);
+        mForwardButton2 = (Button) findViewById(R.id.button_forward2);
         //mProgress = (ProgressBar) findViewById(R.id.progress);
     }
 
