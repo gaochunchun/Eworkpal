@@ -50,7 +50,7 @@ public class AppAplication extends Application {
         GenericRequestManager.initialize(this);
 
         // 初始化ImageLoader
-        initImageLoader(getApplicationContext());
+        //initImageLoader(getApplicationContext());
 
         //初始化百度Map
         //SDKInitializer.initialize(getApplicationContext());

@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.activity;
+package com.mainiway.eworkpal.activity.test;
 
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +28,7 @@ public class TestActivity extends BaseTitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_network);
+        setContentView(R.layout.test_activity_test_network);
 
         setTitle("测试界面标题");
         showBackwardView(true);

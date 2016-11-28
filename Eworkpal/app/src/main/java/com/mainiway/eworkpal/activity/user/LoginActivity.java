@@ -16,15 +16,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.MainActivity;
+import com.mainiway.eworkpal.activity.test.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
-import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
-import com.mainiway.okhttp.utils.OkLogger;
 
 /**
  * ===========================================

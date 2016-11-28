@@ -1,73 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_F7F9FC">
+    android:background="@color/white_F7F9FC"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300px"
         android:background="@mipmap/ic_main_top_background">
+
         <ImageView
             android:id="@+id/iv_head_portrait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_main_head_portrait"
             android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"/>
+            android:layout_marginTop="30px"
+            android:src="@mipmap/ic_main_head_portrait" />
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="呵呵呵"
-            android:textSize="28px"
-            android:textColor="@color/yellow_F8E71C"
             android:layout_marginLeft="60px"
             android:layout_marginTop="70px"
-            android:layout_toRightOf="@+id/iv_head_portrait"/>
+            android:layout_toRightOf="@+id/iv_head_portrait"
+            android:text="抠脚大汉"
+            android:textColor="@color/yellow_F8E71C"
+            android:textSize="28px" />
+
         <TextView
             android:id="@+id/tv_department"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="云办公产品部"
-            android:textSize="28px"
-            android:textColor="@color/white"
+            android:layout_below="@+id/tv_name"
             android:layout_marginLeft="30px"
             android:layout_marginTop="20px"
             android:layout_toRightOf="@+id/iv_head_portrait"
-            android:layout_below="@+id/tv_name"/>
+            android:text="云办公产品部"
+            android:textColor="@color/white"
+            android:textSize="28px" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2016年11月24日 周四"
-            android:textColor="@color/white"
-            android:textSize="32px"
+            android:layout_below="@+id/tv_department"
             android:layout_marginLeft="30px"
             android:layout_marginTop="30px"
-            android:layout_below="@+id/tv_department"/>
+            android:text="2016年11月24日 周四"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+
         <TextView
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9 : 30"
-            android:textSize="66px"
-            android:textColor="@color/white"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="74px"
             android:layout_marginTop="38px"
-            android:layout_marginRight="74px"/>
+            android:text="9 : 30"
+            android:textColor="@color/white"
+            android:textSize="66px" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/ic_main_sign_bg"
-            android:text="签到"
-            android:textSize="30px"
-            android:textColor="@color/white"
-            android:gravity="center"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="85px"
             android:layout_below="@+id/tv_time"
-            android:layout_marginTop="30px"/>
+            android:layout_marginRight="85px"
+            android:layout_marginTop="30px"
+            android:background="@mipmap/ic_main_sign_bg"
+            android:gravity="center"
+            android:text="签到"
+            android:textColor="@color/white"
+            android:textSize="30px" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -75,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20px"
         android:layout_marginRight="20px">
+
         <LinearLayout
             android:id="@+id/ll_job_alert"
             android:layout_width="match_parent"
@@ -86,89 +94,89 @@
             <TextView
                 android:layout_width="340px"
                 android:layout_height="match_parent"
-                android:text="待我审批"
-                android:textSize="28px"
                 android:gravity="center"
-                android:textColor="@color/black_4A4A4A"/>
+                android:text="待我审批"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="28px" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_mian_line"/>
+                android:src="@mipmap/ic_mian_line" />
 
             <TextView
                 android:layout_width="340px"
                 android:layout_height="match_parent"
-                android:text="工作提醒"
-                android:textSize="28px"
                 android:gravity="center"
-                android:textColor="@color/black_4A4A4A"/>
+                android:text="工作提醒"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="28px" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_my_attendance"
             android:layout_width="330px"
             android:layout_height="154px"
-            android:background="@drawable/rectangle_4dp_white"
-            android:paddingLeft="20px"
-            android:layout_marginTop="30px"
+            android:layout_below="@+id/ll_job_alert"
             android:layout_marginRight="10px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_below="@+id/ll_job_alert">
+            android:paddingLeft="20px">
 
             <TextView
-                android:textSize="26px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="你的考勤正在统计中"
-                android:textColor="@color/gray_9B9B9B"/>
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
 
             <TextView
-                android:paddingTop="15px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_attendance"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
                 android:text="我的考勤"
                 android:textColor="@color/black_4A4A4A"
-                android:textStyle="bold"
                 android:textSize="30px"
-                android:gravity="center_vertical"
-                android:drawablePadding="20px"
-                android:drawableLeft="@mipmap/ic_main_attendance"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_mail_list"
             android:layout_width="330px"
             android:layout_height="154px"
-            android:background="@drawable/rectangle_4dp_white"
-            android:paddingLeft="20px"
+            android:layout_below="@+id/ll_job_alert"
             android:layout_marginLeft="10px"
             android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_my_attendance"
+            android:background="@drawable/rectangle_4dp_white"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:layout_below="@+id/ll_job_alert"
-            android:layout_toRightOf="@+id/ll_my_attendance">
+            android:paddingLeft="20px">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="小伙伴们都在这"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
+                android:textSize="26px" />
 
             <TextView
-                android:paddingTop="15px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_mian_mail_list"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
                 android:text="通讯录"
                 android:textColor="@color/black_4A4A4A"
-                android:textStyle="bold"
                 android:textSize="30px"
-                android:gravity="center_vertical"
-                android:drawablePadding="20px"
-                android:drawableLeft="@mipmap/ic_mian_mail_list"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -176,42 +184,45 @@
             android:layout_width="214px"
             android:layout_height="105px"
             android:layout_below="@+id/ll_my_attendance"
-            android:background="@drawable/rectangle_4dp_white"
-            android:gravity="center"
             android:layout_marginBottom="10px"
             android:layout_marginRight="10px"
-            android:layout_marginTop="30px">
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="出差"
-                android:gravity="center_vertical"
-                android:textSize="28px"
+                android:drawableLeft="@mipmap/ic_main_business_travel"
                 android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="出差"
                 android:textColor="@color/blue_85B2F6"
-                android:drawableLeft="@mipmap/ic_main_business_travel"/>
+                android:textSize="28px" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_leave"
             android:layout_width="214px"
             android:layout_height="105px"
             android:layout_below="@+id/ll_my_attendance"
-            android:layout_toRightOf="@+id/ll_business_travel"
-            android:background="@drawable/rectangle_4dp_white"
-            android:gravity="center"
+            android:layout_marginBottom="10px"
             android:layout_marginLeft="10px"
             android:layout_marginRight="10px"
             android:layout_marginTop="30px"
-            android:layout_marginBottom="10px">
+            android:layout_toRightOf="@+id/ll_business_travel"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="请假"
-                android:gravity="center_vertical"
-                android:textSize="28px"
+                android:drawableLeft="@mipmap/ic_main_leave"
                 android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="请假"
                 android:textColor="@color/blue_85B2F6"
-                android:drawableLeft="@mipmap/ic_main_leave"/>
+                android:textSize="28px" />
         </LinearLayout>
 
         <LinearLayout
@@ -219,170 +230,172 @@
             android:layout_width="214px"
             android:layout_height="105px"
             android:layout_below="@+id/ll_business_travel"
-            android:background="@drawable/rectangle_4dp_white"
-            android:gravity="center"
+            android:layout_marginRight="10px"
             android:layout_marginTop="10px"
-            android:layout_marginRight="10px">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="加班"
-                android:gravity="center_vertical"
-                android:textSize="28px"
-                android:drawablePadding="20px"
-                android:textColor="@color/blue_85B2F6"
-                android:drawableLeft="@mipmap/ic_main_overtime"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="214px"
-            android:layout_height="105px"
-            android:layout_below="@+id/ll_leave"
-            android:layout_toRightOf="@+id/ll_overtime"
             android:background="@drawable/rectangle_4dp_white"
-            android:gravity="center"
-            android:layout_marginLeft="10px"
-            android:layout_marginRight="10px"
-            android:layout_marginTop="10px">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="更多"
-                android:gravity="center_vertical"
-                android:textSize="28px"
-                android:drawablePadding="20px"
-                android:textColor="@color/blue_85B2F6"
-                android:drawableLeft="@mipmap/ic_main_more"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="212px"
-            android:layout_height="230px"
-            android:orientation="vertical"
-            android:background="@drawable/rectangle_4dp_white"
-            android:paddingLeft="10px"
-            android:layout_marginTop="30px"
-            android:layout_marginLeft="10px"
-            android:layout_below="@+id/ll_mail_list"
-            android:layout_toRightOf="@+id/ll_leave">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="审批"
-                android:textColor="@color/black_4A4A4A"
-                android:textStyle="bold"
-                android:textSize="30px"
-                android:gravity="center_vertical"
-                android:drawableLeft="@mipmap/ic_main_approval"
-                android:drawablePadding="20px"
-                android:layout_marginTop="35px"/>
-
-            <TextView
-                android:textSize="26px"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="再也不要等待了"
-                android:textColor="@color/gray_9B9B9B"
-                android:layout_marginTop="30px"/>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:id="@+id/ll_annual_leave"
-            android:layout_below="@+id/ll_overtime"
-            android:layout_marginRight="10px"
-            android:paddingLeft="20px"
-            android:layout_width="380px"
-            android:layout_height="154px"
-            android:layout_marginTop="30px"
-            android:background="@drawable/rectangle_4dp_white"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="工作的同事要学会享受假期"
-                android:textColor="@color/gray_9B9B9B"
-                android:layout_marginTop="20px"
-                android:textSize="26px"/>
-
-            <TextView
-                android:paddingTop="15px"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的假期"
-                android:textColor="@color/black_4A4A4A"
-                android:textStyle="bold"
-                android:textSize="30px"
-                android:gravity="center_vertical"
-                android:drawablePadding="20px"
-                android:drawableLeft="@mipmap/ic_main_annual_leave"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_below="@+id/ll_overtime"
-            android:layout_toRightOf="@+id/ll_annual_leave"
-            android:layout_width="match_parent"
-            android:layout_height="154px"
-            android:layout_marginTop="30px"
-            android:background="@drawable/rectangle_4dp_white"
-            android:layout_marginLeft="10px"
-            android:paddingLeft="20px"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_marginTop="20px"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="快速学习提升工作效率"
-                android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
-
-            <TextView
-                android:paddingTop="15px"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="帮助中心"
-                android:textColor="@color/black_4A4A4A"
-                android:textStyle="bold"
-                android:textSize="30px"
-                android:gravity="center_vertical"
-                android:drawablePadding="20px"
-                android:drawableLeft="@mipmap/ic_main_help_center"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_application_center"
-            android:layout_below="@+id/ll_annual_leave"
-            android:layout_width="match_parent"
-            android:layout_height="80px"
-            android:background="@drawable/rectangle_4dp_white"
-            android:layout_marginTop="30px"
             android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_overtime"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="加班"
+                android:textColor="@color/blue_85B2F6"
+                android:textSize="28px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="214px"
+            android:layout_height="105px"
+            android:layout_below="@+id/ll_leave"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/ll_overtime"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_more"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="更多"
+                android:textColor="@color/blue_85B2F6"
+                android:textSize="28px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="212px"
+            android:layout_height="230px"
+            android:layout_below="@+id/ll_mail_list"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_leave"
+            android:background="@drawable/rectangle_4dp_white"
+            android:orientation="vertical"
+            android:paddingLeft="10px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35px"
+                android:drawableLeft="@mipmap/ic_main_approval"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="审批"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:text="再也不要等待了"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_annual_leave"
+            android:layout_width="380px"
+            android:layout_height="154px"
+            android:layout_below="@+id/ll_overtime"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="工作的同事要学会享受假期"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_annual_leave"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
+                android:text="我的假期"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="154px"
+            android:layout_below="@+id/ll_overtime"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_annual_leave"
+            android:background="@drawable/rectangle_4dp_white"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="快速学习提升工作效率"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_help_center"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
+                android:text="帮助中心"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_application_center"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_below="@+id/ll_annual_leave"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_icon"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
                 android:text="应用中心"
                 android:textColor="@color/yellow_F5A263"
                 android:textSize="28px"
-                android:textStyle="bold"
-                android:gravity="center_vertical"
-                android:drawableLeft="@mipmap/ic_main_icon"
-                android:drawablePadding="20px"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
         <TextView
-            android:layout_below="@+id/ll_application_center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ll_application_center"
             android:layout_marginTop="40px"
             android:text="新版上线啦，有意见快来提哦！！"
             android:textColor="@color/blue_85B2F6"
-            android:textSize="28px"
-            android:layout_alignParentRight="true"/>
+            android:textSize="28px" />
     </RelativeLayout>
 </LinearLayout>
