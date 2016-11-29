@@ -2,9 +2,9 @@
  *
  * Copyright (c) Weaver Info Tech Co. Ltd
  *
- * MainActivity
+ * MainTestActivity
  *
- * app.ui.MainActivity.java
+ * app.ui.MainTestActivity.java
  * TODO: File description or class description.
  *
  * @author: Administrator

@@ -3,14 +3,13 @@ package com.mainiway.eworkpal.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.attendance.RightPositionActivity;
-import com.mainiway.eworkpal.activity.test.AnimationUseActivity;
-import com.mainiway.eworkpal.activity.test.MainActivity;
 import com.mainiway.eworkpal.activity.user.LoginActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 
@@ -24,8 +23,10 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //启动时移除状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN ,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        final View view = View.inflate(this, R.layout.activity_splash,null);
+        final View view = View.inflate(this,R.layout.activity_splash,null);
         setContentView(view);
         AlphaAnimation mAa = new AlphaAnimation(0.2f, 1.0f);
         mAa.setDuration(1900);
@@ -55,7 +56,7 @@ public class SplashActivity extends BaseActivity {
 
         Intent mIntent = new Intent();
         //if(!TextUtils.isEmpty(mUserId)){
-       // mIntent.setClass(this, MainActivity.class);
+       // mIntent.setClass(this, MainTestActivity.class);
         // }else{
         mIntent.setClass(this, LoginActivity.class);
         // }

@@ -37,7 +37,7 @@
             android:label="网络请求测试"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.test.MainActivity"
+        <activity android:name=".activity.test.MainTestActivity"
             android:label="测试主页"/>
 
         <activity android:name=".activity.test.AnimationUseActivity"
@@ -83,6 +83,10 @@
             android:label="用户登录"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.user.MainActivity"
+            android:label="主页"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".activity.user.CommonPhoneCodeActivity"
             android:label="用户注册"
             android:screenOrientation="portrait"/>
@@ -98,6 +102,10 @@
         <activity android:name=".activity.user.JoinEnterpriseActivity"
             android:windowSoftInputMode="adjustPan"
             android:label="申请加入企业"
+            android:screenOrientation="portrait"/>
+
+       <activity android:name=".activity.user.EnterpriseListActivity"
+            android:label="企业列表选择界面"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".activity.attendance.RightPositionActivity"
