@@ -2,35 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/white_F7F9FC"
     android:orientation="vertical" >
-
-    <RelativeLayout
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/blue_3272DE" >
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/customactivityoncrash_error_activity_error_details_title"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/customactivityoncrash_activity_vertical_margin"
-        android:paddingLeft="@dimen/customactivityoncrash_activity_horizontal_margin"
-        android:paddingRight="@dimen/customactivityoncrash_activity_horizontal_margin"
-        android:paddingTop="@dimen/customactivityoncrash_activity_vertical_margin" >
+        android:padding="30px">
 
         <ImageView
             android:id="@+id/customactivityoncrash_error_activity_image"
@@ -39,6 +19,7 @@
             android:src="@mipmap/error_image" />
 
         <TextView
+            android:textColor="@color/gray_666666"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -49,20 +30,20 @@
 
         <Button
             android:id="@+id/btn_check"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_selector"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:layout_marginTop="20px"
+            android:background="@drawable/rectangle_27dp_blue_selected"
             android:text="@string/customactivityoncrash_error_activity_error_details"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/customactivityoncrash_error_activity_more_info_button"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/btn_selector"
+            android:layout_width="match_parent"
+            android:layout_height="92px"
+            android:layout_marginTop="25px"
+            android:background="@drawable/rectangle_27dp_blue_selected"
             android:text="@string/customactivityoncrash_error_activity_error_upload"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />

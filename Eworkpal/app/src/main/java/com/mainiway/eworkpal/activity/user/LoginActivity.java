@@ -1,5 +1,6 @@
 package com.mainiway.eworkpal.activity.user;
 
+
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -76,6 +78,8 @@ public class LoginActivity extends BaseActivity {
         tv_login = findView(R.id.tv_login);
         tv_login.setOnClickListener(new FastClickListener());
         tv_login.setClickable(false);
+
+        tv_login = (Button)findView(R.id.tv_login);
 
         et_phone_number = findView(R.id.et_phone_number);
         et_phone_number.addTextChangedListener(textWatcher);

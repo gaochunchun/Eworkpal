@@ -32,7 +32,7 @@ public class TestActivity extends BaseTitleActivity {
 
         setTitle("测试界面标题");
         showBackwardView(true);
-        textView = (TextView)findView(R.id.tvcontent);
+        textView = findView(R.id.tvcontent);
 
         findView(R.id.btn1).setOnClickListener(new OnClickFastOrIsNetworkListener());
         findView(R.id.btn2).setOnClickListener(new OnClickFastOrIsNetworkListener());
