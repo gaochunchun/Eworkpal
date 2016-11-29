@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.DealViewUtils;
 
 /**
  * ===========================================
@@ -86,12 +87,9 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
 
             if (!TextUtils.isEmpty(et_enterprise_name.getText()) && !TextUtils.isEmpty(et_name.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_confirm_password.getText())) {
 
-                tv_create_enterprise.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                tv_create_enterprise.setClickable(true);
+                DealViewUtils.buttonState(tv_create_enterprise, R.drawable.rectangle_27dp_blue_selected, true);
 
             }
-
-
         }
     };
 

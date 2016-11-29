@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.TimeCount;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
@@ -121,11 +122,9 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
             int visibility_one = ll_join_enterprise_id.getVisibility();
             if (visibility_one == 0) {
                 if (!TextUtils.isEmpty(et_enterprise_id.getText())) {
-                    tv_next_one.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_next_one.setClickable(true);
+                    DealViewUtils.buttonState(tv_next_one, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    tv_next_one.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                    tv_next_one.setClickable(false);
+                    DealViewUtils.buttonState(tv_next_one, R.drawable.rectangle_27dp_blue, false);
                 }
             }
 
@@ -134,8 +133,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
             if (visibility_two == 0) {
                 //如果手机号不为空，验证码按钮可点击
                 if (!TextUtils.isEmpty(et_phone_number.getText())) {
-                    tv_register_get_code.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_register_get_code.setClickable(true);
+                    DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                 }
 
                 //判断图片验证码布局是否显示
@@ -144,19 +142,16 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
                     //显示图片验证码时
                     if (!TextUtils.isEmpty(et_name.getText()) && !TextUtils.isEmpty(et_department.getText()) && !TextUtils.isEmpty(et_position.getText())
                             && !TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
-                        tv_next_two.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                        tv_next_two.setClickable(true);
+                        DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue_selected, true);
                     } else {
-                        tv_next_two.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_next_two.setClickable(false);
+                        DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue, false);
                     }
 
                     //如果弹出图片验证码，则判断验图片证码正确，获取验证码按钮可点击
                     if (et_picture_code.getText().length() == 4) {
                         if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                             rl_picture_code_layout.setVisibility(View.GONE);
-                            tv_register_get_code.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                            tv_register_get_code.setClickable(true);
+                            DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                             count = 0;
                         } else {
                             ToastUtils.showToastShort("图片验证码错误");
@@ -167,11 +162,9 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
                     //不显示图片验证码时
                     if (!TextUtils.isEmpty(et_name.getText()) && !TextUtils.isEmpty(et_department.getText()) && !TextUtils.isEmpty(et_position.getText())
                             && !TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText())) {
-                        tv_next_two.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                        tv_next_two.setClickable(true);
+                        DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue_selected, true);
                     } else {
-                        tv_next_two.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_next_two.setClickable(false);
+                        DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue, false);
                     }
                 }
 
@@ -225,11 +218,9 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
                     if (count > 3) {
                         rl_picture_code_layout.setVisibility(View.VISIBLE);
                         //获取验证码不可点击
-                        tv_register_get_code.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_register_get_code.setClickable(false);
+                        DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue, false);
                         //下一步不可点击
-                        tv_next_two.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_next_two.setClickable(false);
+                        DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue, false);
                     } else {
 
                         TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
