@@ -55,9 +55,9 @@ public class SplashActivity extends BaseActivity {
 
         Intent mIntent = new Intent();
         //if(!TextUtils.isEmpty(mUserId)){
-        mIntent.setClass(this, MainActivity.class);
+       // mIntent.setClass(this, MainActivity.class);
         // }else{
-        //mIntent.setClass(this, LoginActivity.class);
+        mIntent.setClass(this, LoginActivity.class);
         // }
         startActivity(mIntent);
         finish();
