@@ -19,6 +19,7 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
@@ -123,19 +124,15 @@ public class LoginActivity extends BaseActivity {
             if (visibility == 0) {//返回值为0，visible,弹出图片验证码布局
                 //如果弹出图片验证码，则判断手机号、密码、图片验证码不为空，登录按钮可点击
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
-                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_login.setClickable(true);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                    tv_login.setClickable(false);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue, false);
                 }
             } else {//只有用户名，密码,没有图片验证码布局
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText())) {
-                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_login.setClickable(true);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                    tv_login.setClickable(false);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue, false);
                 }
             }
 

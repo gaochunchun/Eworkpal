@@ -16,6 +16,7 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.TimeCount;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
@@ -69,6 +70,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
         tv_get_code = findView(R.id.tv_get_code);
         tv_get_code.setOnClickListener(new FastClickListener());
+        tv_get_code.setClickable(false);
         rl_picture_code_layout = findView(R.id.rl_picture_code_layout);
 
         et_phone_number = findView(R.id.et_phone_number);
@@ -116,8 +118,23 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
                     } else if (label.equals(Constants.PHONE_CODE_FORGET_PWD)) {
 
-                        //此处跳转到找回密码界面，可能需要携带参数
-                        startActivity(new Intent(CommonPhoneCodeActivity.this, ForgetPwdActivity.class));
+                        int visibility = rl_picture_code_layout.getVisibility();
+                        if (visibility == 0) {//返回值为0，visible,当显示图片验证码布局时
+                            if (et_picture_code.getText().length() == 4) {
+                                if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
+                                    //此处跳转到找回密码界面，可能需要携带参数
+                                    startActivity(new Intent(CommonPhoneCodeActivity.this, ForgetPwdActivity.class));
+                                    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                                }
+                            } else {
+                                ToastUtils.showToastShort("图片验证码错误");
+                            }
+                        } else {
+                            //此处跳转到找回密码界面，可能需要携带参数
+                            startActivity(new Intent(CommonPhoneCodeActivity.this, ForgetPwdActivity.class));
+                            overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                        }
+
 
                     }
 
@@ -129,11 +146,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                     if (count > 3) {
                         rl_picture_code_layout.setVisibility(View.VISIBLE);
                         //获取验证码不可点击
-                        tv_get_code.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_get_code.setClickable(false);
+                        DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
                         //下一步不可点击
-                        tv_getcode_next.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_getcode_next.setClickable(false);
+                        DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue, false);
                     } else {
 
                         TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
@@ -171,11 +186,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
                 //显示图片验证码时，判断手机号、验证码、图片验证码是否为空
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
-                    tv_getcode_next.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_getcode_next.setClickable(true);
+                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    tv_getcode_next.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                    tv_getcode_next.setClickable(false);
+                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue, false);
                 }
 
 
@@ -183,8 +196,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                 if (et_picture_code.getText().length() == 4) {
                     if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                         rl_picture_code_layout.setVisibility(View.GONE);
-                        tv_get_code.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                        tv_get_code.setClickable(true);
+                        DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                         count = 0;
                     } else {
                         ToastUtils.showToastShort("图片验证码错误");
@@ -193,17 +205,21 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
 
             } else {//不显示图片验证码时，只判断手机号、验证码是否为空
-                if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText())) {
-                    tv_getcode_next.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_getcode_next.setClickable(true);
+                if (!TextUtils.isEmpty(et_phone_number.getText())) {
+                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    tv_getcode_next.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                    tv_getcode_next.setClickable(false);
+                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
+                }
+
+                if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText())) {
+                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue_selected, true);
+                } else {
+                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue, false);
                 }
             }
 
-
         }
+
     };
 
 
