@@ -36,13 +36,19 @@ public class EnterpriseListActivity extends BaseTitleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_enterprise_list);
 
-        setTitle("选择企业");
+        setTitle(R.string.text_select_enterprise);
         showBackwardView(true);
+
+        initView();
+        initAdapter();
+    }
+
+    private void initView(){
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        initAdapter();
+
     }
 
 
@@ -61,6 +67,7 @@ public class EnterpriseListActivity extends BaseTitleActivity {
         });
         mRecyclerView.setAdapter(mEnterpriseListAdapter);
     }
+
 
     @Override
     protected void onDestroy() {

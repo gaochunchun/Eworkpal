@@ -112,6 +112,10 @@
             android:label="联系人界面"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".activity.user.NoJoinEnterpriseActivity"
+            android:label="未加入任何企业"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

@@ -187,7 +187,7 @@ public class LoginActivity extends BaseActivity {
 //                            tv_login.setClickable(false);
 //                        }
 //                    }
-                    startActivity(new Intent(LoginActivity.this, EnterpriseListActivity.class));
+                    startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业
