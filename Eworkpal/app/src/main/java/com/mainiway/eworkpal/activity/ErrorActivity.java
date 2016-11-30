@@ -21,19 +21,21 @@ import android.widget.Toast;
 import com.mainiway.alertview.AlertView;
 import com.mainiway.alertview.ItemClick;
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.eworkpal.utils.ToastUtils;
 
 
 @SuppressLint("NewApi")
-public  class ErrorActivity extends Activity {
+public class ErrorActivity extends BaseTitleActivity {
 
-    private String errorInformation="";
+    private String errorInformation = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.error_default__activity);
+        setTitle("错误提示");
 
         errorInformation = CrashManager.getAllErrorDetailsFromIntent(ErrorActivity.this, getIntent());
 
@@ -42,18 +44,18 @@ public  class ErrorActivity extends Activity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(ErrorActivity.this)
-                .setTitle("错误详情")
-                .setCancelable(true)
-                .setMessage(errorInformation)
-                .setPositiveButton("返回", null)
-                .setNeutralButton("复制", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        copyErrorToClipboard();
-                        ToastUtils.showToastCenter("已复制到剪切板");
-                    }
-                })
-                .show();
+                        .setTitle("错误详情")
+                        .setCancelable(true)
+                        .setMessage(errorInformation)
+                        .setPositiveButton("返回", null)
+                        .setNeutralButton("复制", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                copyErrorToClipboard();
+                                ToastUtils.showToastCenter("已复制到剪切板");
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -98,8 +100,8 @@ public  class ErrorActivity extends Activity {
     /**
      * 上传错误信息
      */
-    void uploadErrorMessage(){
-        final ProgressDialog md=new ProgressDialog(this);
+    void uploadErrorMessage() {
+        final ProgressDialog md = new ProgressDialog(this);
         md.setMessage("正在上传，请稍后...");
         md.setCancelable(false);
         md.show();
@@ -107,10 +109,9 @@ public  class ErrorActivity extends Activity {
             @Override
             public void run() {
                 md.dismiss();
-
-                Toast.makeText(ErrorActivity.this, "上传完成", Toast.LENGTH_SHORT).show();
+                ToastUtils.showToastCenter("上传成功");
             }
-        },1500);
+        }, 1500);
     }
 
     @Override
@@ -118,7 +119,7 @@ public  class ErrorActivity extends Activity {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
 
             new AlertView("提示", "是否确认退出 ？", "退出", new String[]{"重新启动"}, null,
-                    this, AlertView.Style.Alert,new ItemClick() {
+                    this, AlertView.Style.Alert, new ItemClick() {
 
                 @Override
                 public void onItemClick(Object o, int position) {
@@ -126,7 +127,7 @@ public  class ErrorActivity extends Activity {
                     //position等于-1则退出，否则重新启动
                     if (position == -1) {
                         finish();
-                    }else{
+                    } else {
                         final Class<? extends Activity> restartActivityClass = CrashManager.getRestartActivityClassFromIntent(getIntent());
                         if (restartActivityClass != null) {
                             Intent intent = new Intent(ErrorActivity.this, restartActivityClass);

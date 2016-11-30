@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.ToastUtils;
 
 /**
@@ -67,11 +68,9 @@ public class ForgetPwdActivity extends BaseTitleActivity {
         @Override
         public void afterTextChanged(Editable s) {
             if (!TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_confirm_password.getText())) {
-                tv_commit.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                tv_commit.setClickable(true);
+                DealViewUtils.buttonState(tv_commit, R.drawable.rectangle_27dp_blue_selected, true);
             } else {
-                tv_commit.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                tv_commit.setClickable(false);
+                DealViewUtils.buttonState(tv_commit, R.drawable.rectangle_27dp_blue, false);
             }
 
         }

@@ -14,7 +14,7 @@ import com.mainiway.eworkpal.utils.ToastUtils;
  * 测试主页
  */
 
-public class MainActivity extends BaseTitleActivity{
+public class MainTestActivity extends BaseTitleActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
