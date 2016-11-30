@@ -25,7 +25,6 @@ import com.mainiway.eworkpal.utils.ToastUtils;
  * ===========================================
  */
 
-
 public class EnterpriseListActivity extends BaseTitleActivity {
 
     private RecyclerView mRecyclerView;

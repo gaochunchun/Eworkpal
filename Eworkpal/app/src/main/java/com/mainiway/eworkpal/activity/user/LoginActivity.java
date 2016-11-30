@@ -24,6 +24,7 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
+import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 
 /**
@@ -38,6 +39,8 @@ import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 public class LoginActivity extends BaseActivity {
 
     private SystemBarTintManager tintManager;   //单独设置登录界面bar的颜色
+
+    SecretTextView secretTextView;
 
     private ImageView iv_picture_code;
     private TextView tv_login;
@@ -54,6 +57,23 @@ public class LoginActivity extends BaseActivity {
 
         setContentView(R.layout.activity_user_login);
         initView();
+
+
+        /*
+        secretTextView = findView(R.id.textview);
+        secretTextView.setDuration(4000);
+        secretTextView.setIsVisible(true);
+        secretTextView.show();
+
+        secretTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //secretTextView.toggle();
+                secretTextView.show();
+                //secretTextView.hide();
+            }
+        });*/
+
     }
 
     @TargetApi(19)
