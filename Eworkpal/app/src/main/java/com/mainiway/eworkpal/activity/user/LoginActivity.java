@@ -79,8 +79,6 @@ public class LoginActivity extends BaseActivity {
         tv_login.setOnClickListener(new FastClickListener());
         tv_login.setClickable(false);
 
-        tv_login = (Button)findView(R.id.tv_login);
-
         et_phone_number = findView(R.id.et_phone_number);
         et_phone_number.addTextChangedListener(textWatcher);
 

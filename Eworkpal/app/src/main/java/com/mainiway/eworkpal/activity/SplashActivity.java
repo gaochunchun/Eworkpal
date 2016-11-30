@@ -23,9 +23,8 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //启动时移除状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN ,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN ,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         final View view = View.inflate(this,R.layout.activity_splash,null);
         setContentView(view);
         AlphaAnimation mAa = new AlphaAnimation(0.2f, 1.0f);
