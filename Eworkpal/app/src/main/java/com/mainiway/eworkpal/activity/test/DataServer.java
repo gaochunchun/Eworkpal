@@ -7,9 +7,7 @@ import com.mainiway.eworkpal.model.Status;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
- */
+
 public class DataServer {
 
     private static final String HTTPS_AVATARS1_GITHUBUSERCONTENT_COM_LINK = "https://avatars1.githubusercontent.com/u/11451672?v=3&s=460";

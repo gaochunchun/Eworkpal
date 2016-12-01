@@ -22,16 +22,13 @@ public class DealViewUtils {
     /**
      * 设置按钮的点击状态和背景颜色
      *
-     * @param drawable 背景图片
-     * @param clicked  是否可点击
+     * @param drawableId 背景图片
+     * @param isClicked  是否可点击
      */
-    public static void buttonState(View view, int drawable, boolean clicked) {
-        if (clicked) {
-            view.setClickable(true);
-        } else {
-            view.setClickable(false);
-        }
-        view.setBackgroundResource(drawable);
+    public static void buttonState(View view, int drawableId, boolean isClicked) {
+
+        view.setClickable(isClicked);
+        view.setBackgroundResource(drawableId);
     }
 
 

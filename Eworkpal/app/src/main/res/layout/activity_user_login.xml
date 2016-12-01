@@ -11,6 +11,17 @@
         android:layout_height="610px"
         android:background="@mipmap/ic_user_login_background">
 
+        <!--<com.mainiway.eworkpal.widgets.SecretTextView
+            android:layout_alignParentTop="true"
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Eworkpal"
+            android:textColor="@color/white"
+            android:textSize="40sp" />-->
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

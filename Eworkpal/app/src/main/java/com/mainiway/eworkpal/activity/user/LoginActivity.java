@@ -24,6 +24,7 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
+import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 
 /**
@@ -38,6 +39,8 @@ import com.mainiway.eworkpal.widgets.SystemBarTintManager;
 public class LoginActivity extends BaseActivity {
 
     private SystemBarTintManager tintManager;   //单独设置登录界面bar的颜色
+
+    SecretTextView secretTextView;
 
     private ImageView iv_picture_code;
     private TextView tv_login;
@@ -54,6 +57,23 @@ public class LoginActivity extends BaseActivity {
 
         setContentView(R.layout.activity_user_login);
         initView();
+
+
+        /*
+        secretTextView = findView(R.id.textview);
+        secretTextView.setDuration(4000);
+        secretTextView.setIsVisible(true);
+        secretTextView.show();
+
+        secretTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //secretTextView.toggle();
+                secretTextView.show();
+                //secretTextView.hide();
+            }
+        });*/
+
     }
 
     @TargetApi(19)
@@ -122,8 +142,7 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void afterTextChanged(Editable s) {
 
-            int visibility = rl_picture_code_layout.getVisibility();
-            if (visibility == 0) {//返回值为0，visible,弹出图片验证码布局
+            if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//若布局可见,弹出图片验证码布局
                 //如果弹出图片验证码，则判断手机号、密码、图片验证码不为空，登录按钮可点击
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
                     DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
@@ -204,4 +223,5 @@ public class LoginActivity extends BaseActivity {
             }
         }
     }
+
 }

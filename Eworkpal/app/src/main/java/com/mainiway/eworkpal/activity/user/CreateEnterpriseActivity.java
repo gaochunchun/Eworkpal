@@ -14,6 +14,8 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 
+import static android.R.attr.label;
+
 /**
  * ===========================================
  * 作    者：zhsh

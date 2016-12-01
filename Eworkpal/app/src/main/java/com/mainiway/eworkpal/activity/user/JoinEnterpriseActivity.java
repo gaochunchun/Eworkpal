@@ -50,7 +50,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
 
     private void initView() {
         //输入企业ID布局
-        ll_join_enterprise_id = (View) findView(R.id.ll_join_enterprise_id);
+        ll_join_enterprise_id = findView(R.id.ll_join_enterprise_id);
 
         tv_next_one = findView(R.id.tv_next_one);
         tv_next_one.setOnClickListener(new FastClickListener());
@@ -60,7 +60,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
         et_enterprise_id.addTextChangedListener(textWatcher);
 
         //填写申请信息布局
-        ll_join_enterprise = (View) findView(R.id.ll_join_enterprise);
+        ll_join_enterprise = findView(R.id.ll_join_enterprise);
 
         tv_next_two = findView(R.id.tv_next_two);
         tv_next_two.setOnClickListener(new FastClickListener());
@@ -95,7 +95,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
         iv_picture_code.setOnClickListener(new FastClickListener());
 
         //等待审批布局
-        ll_join_enterprise_verify = (View) findView(R.id.ll_join_enterprise_verify);
+        ll_join_enterprise_verify = findView(R.id.ll_join_enterprise_verify);
         findView(R.id.tv_next_three).setOnClickListener(new FastClickListener());
 
 
@@ -119,8 +119,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
         @Override
         public void afterTextChanged(Editable s) {
             //输入企业ID布局显示时
-            int visibility_one = ll_join_enterprise_id.getVisibility();
-            if (visibility_one == 0) {
+            if (ll_join_enterprise_id.getVisibility() == View.VISIBLE) {
                 if (!TextUtils.isEmpty(et_enterprise_id.getText())) {
                     DealViewUtils.buttonState(tv_next_one, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
@@ -129,16 +128,14 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
             }
 
             //填写申请信息布局显示时
-            int visibility_two = ll_join_enterprise.getVisibility();
-            if (visibility_two == 0) {
+            if (ll_join_enterprise.getVisibility() == View.VISIBLE) {
                 //如果手机号不为空，验证码按钮可点击
                 if (!TextUtils.isEmpty(et_phone_number.getText())) {
                     DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                 }
 
                 //判断图片验证码布局是否显示
-                int visibility_picture = rl_picture_code_layout.getVisibility();
-                if (visibility_picture == 0) {
+                if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {
                     //显示图片验证码时
                     if (!TextUtils.isEmpty(et_name.getText()) && !TextUtils.isEmpty(et_department.getText()) && !TextUtils.isEmpty(et_position.getText())
                             && !TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
@@ -190,8 +187,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
 
                 case R.id.tv_next_two://下一步
 
-                    int visibility = rl_picture_code_layout.getVisibility();
-                    if (visibility == 0) {//返回值为0，visible,当显示图片验证码布局时
+                    if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//返回值为0，visible,当显示图片验证码布局时
                         if (et_picture_code.getText().length() == 4) {
                             if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                                 ll_join_enterprise.setVisibility(View.GONE);
