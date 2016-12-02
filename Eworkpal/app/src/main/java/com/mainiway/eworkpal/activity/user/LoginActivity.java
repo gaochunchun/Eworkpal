@@ -85,14 +85,14 @@ public class LoginActivity extends BaseActivity {
         //secretTextView.setIsVisible(true);
         secretTextView.show();
 
-        secretTextView.setOnClickListener(new View.OnClickListener() {
+        /*secretTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //secretTextView.toggle();
                 secretTextView.show();
                 //secretTextView.hide();
             }
-        });
+        });*/
 
 
         tv_login = findView(R.id.tv_login);
