@@ -57,23 +57,6 @@ public class LoginActivity extends BaseActivity {
 
         setContentView(R.layout.activity_user_login);
         initView();
-
-
-        /*
-        secretTextView = findView(R.id.textview);
-        secretTextView.setDuration(4000);
-        secretTextView.setIsVisible(true);
-        secretTextView.show();
-
-        secretTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //secretTextView.toggle();
-                secretTextView.show();
-                //secretTextView.hide();
-            }
-        });*/
-
     }
 
     @TargetApi(19)
@@ -94,6 +77,23 @@ public class LoginActivity extends BaseActivity {
 
 
     private void initView() {
+
+        //********************* 界面字体LOGO动画-暂定 *************************
+
+        secretTextView = findView(R.id.textview);
+        //secretTextView.setDuration(3000);
+        //secretTextView.setIsVisible(true);
+        secretTextView.show();
+
+        secretTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //secretTextView.toggle();
+                secretTextView.show();
+                //secretTextView.hide();
+            }
+        });
+
 
         tv_login = findView(R.id.tv_login);
         tv_login.setOnClickListener(new FastClickListener());
