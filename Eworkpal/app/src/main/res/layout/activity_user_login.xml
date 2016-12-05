@@ -12,11 +12,11 @@
         android:background="@mipmap/ic_user_login_background">
 
         <com.mainiway.eworkpal.widgets.SecretTextView
-            android:id="@+id/textview"
+            android:id="@+id/secret_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Eworkpal"
+            android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="76px" />
 

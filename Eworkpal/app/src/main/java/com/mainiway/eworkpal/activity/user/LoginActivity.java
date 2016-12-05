@@ -79,20 +79,11 @@ public class LoginActivity extends BaseActivity {
     private void initView() {
 
         //********************* 界面字体LOGO动画-暂定 *************************
-
-        secretTextView = findView(R.id.textview);
+        secretTextView = findView(R.id.secret_tv);
         //secretTextView.setDuration(3000);
         //secretTextView.setIsVisible(true);
         secretTextView.show();
-
-        /*secretTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //secretTextView.toggle();
-                secretTextView.show();
-                //secretTextView.hide();
-            }
-        });*/
+        secretTextView.setOnClickListener(new FastClickListener());
 
 
         tv_login = findView(R.id.tv_login);
@@ -219,6 +210,12 @@ public class LoginActivity extends BaseActivity {
                     Intent mIntentFowgetPwd = new Intent(LoginActivity.this, CommonPhoneCodeActivity.class);
                     mIntentFowgetPwd.putExtra(Constants.LABEL_PHONE_CODE, Constants.PHONE_CODE_FORGET_PWD);
                     startActivity(mIntentFowgetPwd);
+                    break;
+
+                case R.id.secret_tv:    //Logo显示
+                    //secretTextView.toggle();
+                    secretTextView.show();
+                    //secretTextView.hide();
                     break;
             }
         }
