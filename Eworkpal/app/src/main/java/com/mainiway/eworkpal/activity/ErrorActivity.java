@@ -25,6 +25,8 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.eworkpal.utils.ToastUtils;
 
+import java.util.ArrayList;
+
 
 @SuppressLint("NewApi")
 public class ErrorActivity extends BaseTitleActivity {
@@ -36,6 +38,7 @@ public class ErrorActivity extends BaseTitleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.error_default__activity);
         setTitle("错误提示");
+
 
         errorInformation = CrashManager.getAllErrorDetailsFromIntent(ErrorActivity.this, getIntent());
 
