@@ -56,11 +56,14 @@ public class MainTestActivity extends BaseTitleActivity {
                         Button btn = findView(R.id.btn_timeselect);
                         btn.setText(time);
                     }
-                }, "2000-01-30 00:00", "2050-12-31 00:00");
+                }, "2000-01-01 00:00", "2050-12-31 00:00");
 
                 //timeSelector.setIsLoop(false);
                 //timeSelector.disScrollUnit(TimeSelector.SCROLLTYPE.HOUR, TimeSelector.SCROLLTYPE.MINUTE);
                 timeSelector.setMode(TimeSelector.MODE.YMD);
+                //timeSelector.setMode(TimeSelector.MODE.YMDHM);
+                //timeSelector.setMode(TimeSelector.MODE.HM);
+                //timeSelector.setMode(TimeSelector.MODE.YM);
                 timeSelector.show();
                 break;
         }

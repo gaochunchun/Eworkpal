@@ -41,7 +41,7 @@ public class ValidateUtils {
 
     /**
      * 判断手机号码
-     * @param paramString
+     * @param mobiles
      * @return
      */
     /* public static boolean isMobileNO(String paramString) {

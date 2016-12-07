@@ -15,10 +15,13 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.utils.DateUtil;
 import com.mainiway.eworkpal.utils.ScreenUtil;
 import com.mainiway.eworkpal.utils.ValidateUtils;
+import com.mainiway.okhttp.utils.OkLogger;
 
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import static android.R.attr.mode;
 
 /**
  * Created by gao_chun on 2016/11/27.
@@ -30,29 +33,31 @@ public class TimeSelector {
     }
 
     public enum SCROLLTYPE {
-
         HOUR(1),
         MINUTE(2);
+
+        //YEAR(3),
+        //MONTH(4),
+        //DAY(5);
 
         private SCROLLTYPE(int value) {
             this.value = value;
         }
 
         public int value;
-
     }
 
     public enum MODE {
-
         YMD(1),
-        YMDHM(2);
+        YMDHM(2),
+        HM(3),
+        YM(4);
 
         private MODE(int value) {
             this.value = value;
         }
 
         public int value;
-
     }
 
 
@@ -86,9 +91,13 @@ public class TimeSelector {
     private Calendar endCalendar;
     private TextView tv_cancle;
     private TextView tv_select, tv_title;
+
+
+    private TextView year_text, month_text, day_text;
     private TextView hour_text;
     private TextView minute_text;
 
+    public static int mTimeType = 0;
 
     public TimeSelector(Context context, ResultHandler resultHandler, String startDate, String endDate) {
         this.context = context;
@@ -147,6 +156,11 @@ public class TimeSelector {
         tv_cancle = (TextView) seletorDialog.findViewById(R.id.tv_cancle);
         tv_select = (TextView) seletorDialog.findViewById(R.id.tv_select);
         tv_title = (TextView) seletorDialog.findViewById(R.id.tv_title);
+
+        year_text = (TextView) seletorDialog.findViewById(R.id.tv_year);
+        month_text = (TextView) seletorDialog.findViewById(R.id.tv_month);
+        day_text = (TextView) seletorDialog.findViewById(R.id.tv_day);
+
         hour_text = (TextView) seletorDialog.findViewById(R.id.hour_text);
         minute_text = (TextView) seletorDialog.findViewById(R.id.minute_text);
 
@@ -159,7 +173,19 @@ public class TimeSelector {
         tv_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                handler.handle(DateUtil.format(selectedCalender.getTime(), FORMAT_STR));
+
+                String mFormat = "yyyy-MM-dd HH:mm";
+                //OkLogger.e("---------" + mTimeType);
+                if (mTimeType == 1) { //显示年月日
+                    mFormat = "yyyy-MM-dd";
+                } else if (mTimeType == 2) { //显示年月日时分
+                    mFormat = "yyyy-MM-dd HH:mm";
+                } else if (mTimeType == 3) {//显示时分
+                    mFormat = "HH:mm";
+                } else if (mTimeType == 4) {//显示年月
+                    mFormat = "yyyy-MM";
+                }
+                handler.handle(DateUtil.format(selectedCalender.getTime(), mFormat));
                 seletorDialog.dismiss();
             }
         });
@@ -338,7 +364,7 @@ public class TimeSelector {
 
 
             if (startTime.getTime().getTime() == endTime.getTime().getTime() || (startWorkTime.getTime().getTime() < startTime.getTime().getTime() && endWorkTime.getTime().getTime() < startTime.getTime().getTime())) {
-                Toast.makeText(context, "Wrong parames!", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "参数填写错误!", Toast.LENGTH_LONG).show();
                 return false;
             }
             startCalendar.setTime(startCalendar.getTime().getTime() < workStartCalendar.getTime().getTime() ? workStartCalendar.getTime() : startCalendar.getTime());
@@ -608,19 +634,47 @@ public class TimeSelector {
 
     public void setMode(MODE mode) {
         switch (mode.value) {
-            case 1:
+
+            case 1: //显示年月日
                 disScrollUnit(SCROLLTYPE.HOUR, SCROLLTYPE.MINUTE);
                 hour_pv.setVisibility(View.GONE);
                 minute_pv.setVisibility(View.GONE);
                 hour_text.setVisibility(View.GONE);
                 minute_text.setVisibility(View.GONE);
+                mTimeType = 1;
                 break;
-            case 2:
+
+            case 2: //显示年月日时分
                 disScrollUnit();
                 hour_pv.setVisibility(View.VISIBLE);
                 minute_pv.setVisibility(View.VISIBLE);
                 hour_text.setVisibility(View.VISIBLE);
                 minute_text.setVisibility(View.VISIBLE);
+                mTimeType = 2;
+                break;
+
+            case 3: //显示时分
+                //disScrollUnit(SCROLLTYPE.YEAR, SCROLLTYPE.MONTH,SCROLLTYPE.DAY);
+                year_pv.setVisibility(View.GONE);
+                month_pv.setVisibility(View.GONE);
+                day_pv.setVisibility(View.GONE);
+
+                year_text.setVisibility(View.GONE);
+                month_text.setVisibility(View.GONE);
+                day_text.setVisibility(View.GONE);
+                mTimeType = 3;
+                break;
+
+            case 4: //显示年月
+
+                disScrollUnit(SCROLLTYPE.HOUR, SCROLLTYPE.MINUTE);
+                day_pv.setVisibility(View.GONE);
+                day_text.setVisibility(View.GONE);
+                hour_pv.setVisibility(View.GONE);
+                minute_pv.setVisibility(View.GONE);
+                hour_text.setVisibility(View.GONE);
+                minute_text.setVisibility(View.GONE);
+                mTimeType = 4;
                 break;
 
         }
