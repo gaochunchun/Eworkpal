@@ -18,8 +18,10 @@ import com.mainiway.eworkpal.utils.ValidateUtils;
 import com.mainiway.okhttp.utils.OkLogger;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import static android.R.attr.mode;
 
@@ -104,8 +106,8 @@ public class TimeSelector {
         this.handler = resultHandler;
         startCalendar = Calendar.getInstance();
         endCalendar = Calendar.getInstance();
-        startCalendar.setTime(DateUtil.parse(startDate, FORMAT_STR));
-        endCalendar.setTime(DateUtil.parse(endDate, FORMAT_STR));
+        startCalendar.setTime(parse(startDate, FORMAT_STR));
+        endCalendar.setTime(parse(endDate, FORMAT_STR));
         initDialog();
         initView();
     }
@@ -686,5 +688,46 @@ public class TimeSelector {
         this.day_pv.setIsLoop(isLoop);
         this.hour_pv.setIsLoop(isLoop);
         this.minute_pv.setIsLoop(isLoop);
+    }
+
+
+
+    /**
+     * 使用用户格式提取字符串日期
+     *
+     * @param strDate 日期字符串
+     * @param pattern 日期格式
+     * @return
+     */
+
+    private static Date parse(String strDate, String pattern) {
+
+        if (ValidateUtils.isEmpty(strDate)) {
+            return null;
+        }
+        try {
+            SimpleDateFormat df = new SimpleDateFormat(pattern);
+            return df.parse(strDate);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 使用用户格式格式化日期
+     *
+     * @param date    日期
+     * @param pattern 日期格式
+     * @return
+     */
+
+    private static String format(Date date, String pattern) {
+        String returnValue = "";
+        if (date != null) {
+            SimpleDateFormat df = new SimpleDateFormat(pattern);
+            returnValue = df.format(date);
+        }
+        return (returnValue);
     }
 }

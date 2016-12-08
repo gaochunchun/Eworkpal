@@ -52,9 +52,6 @@ public class AppAplication extends Application {
         // 初始化ImageLoader
         //initImageLoader(getApplicationContext());
 
-        //初始化百度Map
-        //SDKInitializer.initialize(getApplicationContext());
-
         //初始化定位服务
         //locationService = new LocationService(getApplicationContext());
 
