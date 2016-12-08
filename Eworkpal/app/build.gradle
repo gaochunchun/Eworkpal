@@ -10,8 +10,6 @@ android {                           // 配置所有android构建过程需要的�
         targetSdkVersion 23             // 目标版本
         versionCode 1                   // 版本号
         versionName "1.0"               // 版本名称
-
-        //testInstrumentationRunner "android.support.activity_test2.runner.AndroidJUnitRunner"
     }
 
 
