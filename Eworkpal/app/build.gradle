@@ -3,6 +3,12 @@ apply plugin: 'com.android.application'    // 表示使用com.android.applicatio
 android {                           // 配置所有android构建过程需要的参数
     compileSdkVersion 23            // 用于编译的SDK版本
     buildToolsVersion "24.0.2"      // 用于Gradle编译项目的工具版本
+    sourceSets{                     //直接在libs里面添加so库，不用创建jniLibs文件夹
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+
+    }
     defaultConfig {
         applicationId 'com.mainiway.eworkpal' // 应用程序包名
         minSdkVersion 14                // 最低支持Android版本
@@ -37,4 +43,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.5'
     compile 'com.zhy:autolayout:1.4.5'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.6.1'
+
 }

@@ -1,60 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mainiway.eworkpal">
+          package="com.mainiway.eworkpal">
 
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!--地图的-->
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+
+    <!--定位的-->
+    <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
 
     <application
+        android:name=".AppAplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".AppAplication"
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".activity.test.TestActivity"
+        <activity
+            android:name=".activity.test.TestActivity"
             android:label="网络请求测试"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.test.MainTestActivity"
+        <activity
+            android:name=".activity.test.MainTestActivity"
             android:label="测试主页"/>
 
-        <activity android:name=".activity.test.AnimationUseActivity"
+        <activity
+            android:name=".activity.test.AnimationUseActivity"
             android:label="动画测试"/>
 
-        <activity android:name=".activity.test.PullToRefreshUseActivity"
+        <activity
+            android:name=".activity.test.PullToRefreshUseActivity"
             android:label="pulltorefresh测试"/>
 
 
-
-        <activity android:name=".activity.SplashActivity"
+        <activity
+            android:name=".activity.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -63,7 +92,7 @@
             android:name=".activity.ErrorActivity"
             android:process=":error_activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"/>
 
         <!-- 服务器地址 -->
         <meta-data
@@ -78,42 +107,64 @@
             android:name="design_height"
             android:value="1280"/>
 
-        <activity android:name=".activity.user.LoginActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:label="用户登录"
-            android:screenOrientation="portrait"/>
+        <!--地图申请的key-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="ddee2472ebc230bae37c98f13d46b9a1"/>
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService"></service>
 
-        <activity android:name=".activity.user.MainActivity"
+        <activity
+            android:name=".activity.user.LoginActivity"
+            android:label="用户登录"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity
+            android:name=".activity.user.MainActivity"
             android:label="主页"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.CommonPhoneCodeActivity"
+        <activity
+            android:name=".activity.user.CommonPhoneCodeActivity"
             android:label="用户注册"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.ForgetPwdActivity"
+        <activity
+            android:name=".activity.user.ForgetPwdActivity"
             android:label="找回密码"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.CreateEnterpriseActivity"
+        <activity
+            android:name=".activity.user.CreateEnterpriseActivity"
             android:label="创建企业"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.JoinEnterpriseActivity"
-            android:windowSoftInputMode="adjustPan"
+        <activity
+            android:name=".activity.user.JoinEnterpriseActivity"
             android:label="申请加入企业"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
 
-       <activity android:name=".activity.user.EnterpriseListActivity"
+        <activity
+            android:name=".activity.user.EnterpriseListActivity"
             android:label="企业列表选择界面"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.attendance.RightPositionActivity"
+        <activity
+            android:name=".activity.attendance.RightPositionActivity"
             android:label="联系人界面"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.user.NoJoinEnterpriseActivity"
+        <activity
+            android:name=".activity.user.NoJoinEnterpriseActivity"
             android:label="未加入任何企业"
+            android:screenOrientation="portrait"/>
+
+        <!--考勤模块-->
+        <activity
+            android:name=".activity.attendance.AttendanceSignActivity"
+            android:label="考勤地图打卡"
             android:screenOrientation="portrait"/>
 
     </application>
