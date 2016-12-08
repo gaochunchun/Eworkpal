@@ -41,6 +41,7 @@ public class DateUtil {
         Date today = new Date();
         return format(today);
     }
+
     /**
      * HH:mm:ss
      * 返回预设Format的当前时间字符串
@@ -49,6 +50,7 @@ public class DateUtil {
         Date today = new Date();
         return formatTime(today);
     }
+
     /**
      * @return yyyy-MM-dd HH:mm:ss
      */
@@ -186,79 +188,10 @@ public class DateUtil {
 
 
     /**
-     * * 将日期转化成 oracle 的 to_date('xxx','xxx') 格式
-     *
-     * @param d
-     *            日期
-     * @param format
-     *            日期格式，例如 "yyyy-MM-dd HH:mm"
-     * @param hqlFormat
-     *            oracle的日期格式，例如："yyyy-mm-dd hh24:mi"
-     * @return
-     */
-
-    public static String toDate(final Date d, final String format, final String hqlFormat) {
-        StringBuffer bf = new StringBuffer();
-        bf.append("to_date('");
-        bf.append(dateFormat(d, format));
-        bf.append("','");
-        bf.append(hqlFormat);
-        bf.append("')");
-        return bf.toString();
-    }
-
-    /**
-     * * 将日期转化成 oracle 的 to_date('xxx','xxx') 格式
-     *
-     * @param d
-     *            日期
-     *
-     * @param hqlFormat
-     *            oracle的日期格式，例如："yyyy-mm-dd hh24:mi"
-     * @return
-     */
-
-    public static String toDate(final String date, final String hqlFormat) {
-        StringBuffer bf = new StringBuffer();
-        bf.append("to_date('");
-        bf.append(date);
-        bf.append("','");
-        bf.append(hqlFormat);
-        bf.append("')");
-        return bf.toString();
-    }
-
-    /**
-     * * 将日期转化成 oracle 的 to_date('xxx','xxx') 格式
-     *
-     * @param d
-     *            日期
-     *
-     * @param hqlFormat
-     *            oracle的日期格式，例如："yyyy-mm-dd hh24:mi"
-     *
-     * @param i
-     *            加一天或者减一天  如：i=-1;i=1
-     * @return
-     */
-
-    public static String toDate(final String date, final String hqlFormat,final int i) {
-        StringBuffer bf = new StringBuffer();
-        bf.append("to_date('");
-        bf.append(date);
-        bf.append("','");
-        bf.append(hqlFormat);
-        bf.append("')+"+i);
-        return bf.toString();
-    }
-
-    /**
      * 将日期转化成指定格式的字符串
      *
-     * @param d
-     *            日期
-     * @param formatStr
-     *            字符串格式
+     * @param d 日期
+     * @param formatStr 字符串格式
      * @return
      */
     private static String dateFormat(Date d, String formatStr) {
@@ -330,6 +263,7 @@ public class DateUtil {
         }
         return 0;
     }
+
     /**
      * 得到日期减一个月日期
      * @return
@@ -390,9 +324,6 @@ public class DateUtil {
         return dayAfter;
     }
 
-
-
-
     /**
      * 获得指定日期所在的星期六
      * @param time
@@ -420,7 +351,6 @@ public class DateUtil {
         //System.out.println("所在周星期日的日期："+imptimeEnd);
         return imptimeEnd;
     }
-
 
 
     /**
@@ -468,8 +398,6 @@ public class DateUtil {
             return h+"小时"+m+"分钟"+s+"秒";
         }
     }
-
-
 
 
     /**

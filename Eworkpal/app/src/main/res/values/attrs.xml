@@ -76,8 +76,20 @@
 
 
     <declare-styleable name="PickerView">
-
         <attr name="isLoop" format="boolean" />
-
     </declare-styleable>
+
+    <declare-styleable name="RoundedLetterView">
+        <attr name="titleText" format="string" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="titleColor" format="color" />
+        <attr name="backgroundColorValue" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+
 </resources>

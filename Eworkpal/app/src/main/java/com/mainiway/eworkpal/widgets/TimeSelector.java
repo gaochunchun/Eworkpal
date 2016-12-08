@@ -143,7 +143,7 @@ public class TimeSelector {
             Window window = seletorDialog.getWindow();
             window.setGravity(Gravity.BOTTOM);
             WindowManager.LayoutParams lp = window.getAttributes();
-            int width = ScreenUtil.getInstance(context).getScreenWidth();
+            int width = ScreenUtil.getScreenWidth(context);
             lp.width = width;
             window.setAttributes(lp);
         }
