@@ -14,7 +14,14 @@ import android.view.View;
 
 import com.mainiway.eworkpal.R;
 
-
+/**
+ * ===========================================
+ * 作    者：gao_chun
+ * 版    本：1.0
+ * 创建日期：2016-12-08.
+ * 描    述：圆形 RoundedLetterView
+ * ===========================================
+ */
 public class RoundedLetterView extends View {
 
     private static int DEFAULT_TITLE_COLOR = Color.WHITE;

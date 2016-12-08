@@ -17,11 +17,13 @@ import android.widget.ImageView;
 
 import com.mainiway.eworkpal.R;
 
-
 /**
- * 圆形ImageView，可设置最多两个宽度不同且颜色不同的圆形边框。
- *
- * @author gao_chun
+ * ===========================================
+ * 作    者：gao_chun
+ * 版    本：1.0
+ * 创建日期：2016-12-08.
+ * 描    述：圆形ImageView，可设置最多两个宽度不同且颜色不同的圆形边框
+ * ===========================================
  */
 public class RoundImageView extends ImageView {
     private int mBorderThickness = 0;
