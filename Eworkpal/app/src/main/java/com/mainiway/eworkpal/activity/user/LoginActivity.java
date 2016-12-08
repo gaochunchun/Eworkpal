@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -27,6 +28,9 @@ import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.eworkpal.widgets.SystemBarTintManager;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * ===========================================
@@ -81,10 +85,10 @@ public class LoginActivity extends BaseActivity {
 
         //********************* 界面字体LOGO动画-暂定 *************************
         secretTextView = findView(R.id.secret_tv);
-        //secretTextView.setDuration(3000);
+        secretTextView.setDuration(2000);
         //secretTextView.setIsVisible(true);
         secretTextView.show();
-        secretTextView.setOnClickListener(new FastClickListener());
+        //secretTextView.setOnClickListener(new FastClickListener());
 
 
         tv_login = findView(R.id.tv_login);
@@ -93,9 +97,11 @@ public class LoginActivity extends BaseActivity {
 
         et_phone_number = findView(R.id.et_phone_number);
         et_phone_number.addTextChangedListener(textWatcher);
+        et_phone_number.setFocusable(false);
 
         et_password = findView(R.id.et_password);
         et_password.addTextChangedListener(textWatcher);
+        et_password.setFocusable(false);
 
         et_picture_code = findView(R.id.et_picture_code);
         et_picture_code.addTextChangedListener(textWatcher);
@@ -112,11 +118,35 @@ public class LoginActivity extends BaseActivity {
 
         ll_login_layout = findView(R.id.ll_login_layout);
 
-        //处理弹出软键盘遮挡输入框的问题
-        KeyboardUtils.controlKeyboardLayout(ll_login_layout, et_password);
+        //设置一个定时器，处理软键盘上弹和TextView动画冲突的问题
+        if (secretTextView.getIsVisible()) {
+            Timer timer = new Timer();
+            timer.schedule(task, 2000);
+        }
+
 
     }
 
+    //TextView动画显示完，设置输入框的状态和软键盘弹出动态计算高度
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    et_phone_number.setFocusable(true);
+                    et_phone_number.setFocusableInTouchMode(true);
+                    et_phone_number.requestFocus();
+                    et_password.setFocusable(true);
+                    et_password.setFocusableInTouchMode(true);
+                    //处理弹出软键盘遮挡输入框的问题
+                    KeyboardUtils.controlKeyboardLayout(ll_login_layout, et_password);
+                }
+            });
+
+        }
+    };
     /**
      * Edittext监听事件
      */
@@ -214,11 +244,11 @@ public class LoginActivity extends BaseActivity {
                     startActivity(mIntentFowgetPwd);
                     break;
 
-                case R.id.secret_tv:    //Logo显示
-                    //secretTextView.toggle();
-                    secretTextView.show();
-                    //secretTextView.hide();
-                    break;
+                //case R.id.secret_tv:    //Logo显示
+                //secretTextView.toggle();
+                //   secretTextView.show();
+                //secretTextView.hide();
+                //   break;
             }
         }
     }

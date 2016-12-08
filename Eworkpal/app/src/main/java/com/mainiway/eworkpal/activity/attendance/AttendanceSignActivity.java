@@ -33,6 +33,15 @@ import com.mainiway.eworkpal.activity.user.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.okhttp.utils.OkLogger;
 
+/**
+ * ===========================================
+ * 作    者：zhsh
+ * 版    本：1.0
+ * 创建日期：2016/12/8.
+ * 描    述：考勤界面，关于地图定位的
+ * ===========================================
+ */
+
 public class AttendanceSignActivity extends BaseActivity implements AMapLocationListener, AMap.OnMapClickListener, LocationSource {
 
     private MapView mapView;
