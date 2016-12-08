@@ -3,6 +3,12 @@ apply plugin: 'com.android.application'    // 表示使用com.android.applicatio
 android {                           // 配置所有android构建过程需要的参数
     compileSdkVersion 23            // 用于编译的SDK版本
     buildToolsVersion "24.0.2"      // 用于Gradle编译项目的工具版本
+    sourceSets{                     //直接在libs里面添加so库，不用创建jniLibs文件夹
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+
+    }
     defaultConfig {
         applicationId 'com.mainiway.eworkpal' // 应用程序包名
         minSdkVersion 14                // 最低支持Android版本
@@ -28,9 +34,7 @@ dependencies {
     compile project(':okhttplibrary')
     compile project(':progressordialog')
     compile project(':image-gridview')
-
     compile project(':material-spinner-1.0.5')
-
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:cardview-v7:23.2.1'
     compile 'com.android.support:appcompat-v7:23.2.1'

@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.attendance.AttendanceSignActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
@@ -199,7 +200,8 @@ public class LoginActivity extends BaseActivity {
 //                            tv_login.setClickable(false);
 //                        }
 //                    }
-                    startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
+                    //startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
+                    startActivity(new Intent(LoginActivity.this, AttendanceSignActivity.class));
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业
