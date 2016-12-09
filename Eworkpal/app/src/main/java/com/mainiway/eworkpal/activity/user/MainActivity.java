@@ -1,9 +1,12 @@
 package com.mainiway.eworkpal.activity.user;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.base.BaseActivity;
+import com.mainiway.eworkpal.listener.OnClickFastListener;
 
 /**
  * ===========================================
@@ -15,17 +18,31 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
  */
 
 
-public class MainActivity extends BaseTitleActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_layout);
+        initView();
+    }
+
+    private void initView() {
+        findView(R.id.tv_application_center).setOnClickListener(new FastClickListener());
     }
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    private class FastClickListener extends OnClickFastListener {
+
+        @Override
+        public void onFastClick(View v) {
+            switch (v.getId()) {
+                case R.id.tv_application_center://应用中心
+                    startActivity(new Intent(MainActivity.this,ApplicationCenterActivity.class));
+                    break;
+            }
+        }
     }
+
+
 }

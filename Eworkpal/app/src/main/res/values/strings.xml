@@ -55,4 +55,27 @@
     <string name="customactivityoncrash_error_activity_error_details_copy">复制</string>
     <string name="customactivityoncrash_error_activity_error_details_copied">复制</string>
     <string name="customactivityoncrash_error_activity_error_details_clipboard_label">错误信息</string>
+
+    <!--首页-->
+
+    <string name="sign">签到</string>
+    <string name="waiting_for_my_approval">待我审批</string>
+    <string name="job_alert">工作提醒</string>
+    <string name="your_attendance_is_in_the_statistics">你的考勤正在统计中</string>
+    <string name="my_attendance">我的考勤</string>
+    <string name="quickly_check_your_application">快速查看你的申请</string>
+    <string name="my_application">我的申请</string>
+    <string name="a_business_travel">出差</string>
+    <string name="leave">请假</string>
+    <string name="approval">审批</string>
+    <string name="do_not_wait_any_longer">再也不要等待了</string>
+    <string name="overtime">加班</string>
+    <string name="more">更多</string>
+    <string name="small_partners_are_in_this">小伙伴们都在这</string>
+    <string name="mail_list">通讯录</string>
+    <string name="fast_learning_to_improve_work_efficiency">快速学习提升工作效率</string>
+    <string name="help_center">帮助中心</string>
+    <string name="application_center">应用中心</string>
+    <string name="the_new_version_of_the_line.there_are_comments_to_mention_oh">新版上线啦，有意见快来提哦！！</string>
+
 </resources>
