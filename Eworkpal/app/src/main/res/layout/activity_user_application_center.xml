@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:background="@color/white_F7F9FC"
+              android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="362px"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_application_banner"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40px">
+
+        <LinearLayout
+            android:id="@+id/ll_attendance"
+            android:layout_width="320px"
+            android:layout_height="154px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="10px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_application_fill_attendance"
+                android:drawablePadding="40px"
+                android:gravity="center_vertical"
+                android:text="考勤"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="28px"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320px"
+            android:layout_height="154px"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="30px"
+            android:layout_toRightOf="@+id/ll_attendance"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_application_approval"
+                android:drawablePadding="40px"
+                android:gravity="center_vertical"
+                android:text="审批"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="28px"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/ic_application_bottom"/>
+    </RelativeLayout>
 </LinearLayout>
