@@ -1,8 +1,16 @@
 package com.mainiway.eworkpal.activity.attendance;
 
+<<<<<<< HEAD
+=======
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,8 +32,14 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.mainiway.eworkpal.R;
+<<<<<<< HEAD
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+=======
+import com.mainiway.eworkpal.activity.user.MainActivity;
+import com.mainiway.eworkpal.base.BaseActivity;
+import com.mainiway.okhttp.utils.OkLogger;
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
 
 /**
  * ===========================================
@@ -51,6 +65,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
     private Boolean firsttouch = true;
     private LatLng mLatLng;//获取到的精度、纬度对象，要传给地图点击事件（地图3D）
 
+<<<<<<< HEAD
     //默认的中心点坐标对象，可改的
     private LatLng defaultLatLng;
 
@@ -58,6 +73,13 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
     private ImageView iv_center_of_clock;
 
     //根据有效的坐标范围，设置签到按钮的颜色和点击状态
+=======
+    //到时都要删掉的
+    private Button click_button;
+    private TextView text_one, text_two, text_three, location;
+    private LatLng defaultLatLng;
+
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -67,10 +89,21 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
             double longitude = data.getDouble("longitude");
             double latitude = data.getDouble("latitude");
 
+<<<<<<< HEAD
             if (distance > 100) {
                 tv_sign.setBackgroundColor(getResources().getColor(R.color.gray_C7C7CC));
             } else {
                 tv_sign.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+=======
+
+            text_one.setText("两点间的距离是：     " + distance);
+            text_two.setText("精度====" + longitude + "           " + "纬度====" + latitude);
+
+            if (distance > 100) {
+                click_button.setBackgroundColor(Color.GRAY);
+            } else {
+                click_button.setBackgroundColor(Color.GREEN);
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
             }
 
         }
@@ -121,7 +154,25 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
             //隐藏地图logo
             settings.setLogoBottomMargin(-200);
             settings.setLogoLeftMargin(-200);
+<<<<<<< HEAD
 
+=======
+            //测试有效范围的button，到时删掉
+            click_button = (Button) findViewById(R.id.click_button);
+            text_one = (TextView) findViewById(R.id.text_one);
+            text_two = (TextView) findViewById(R.id.text_two);
+            text_three = (TextView) findViewById(R.id.text_three);
+            location = (TextView) findViewById(R.id.location);
+            location.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    isFirst = true;
+                }
+            });
+            //默认的中心点坐标（31.163882, 121.40439）
+            defaultLatLng = new LatLng(31.163882, 121.40439);
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
 
         }
 
@@ -136,8 +187,10 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         //设置定位回调监听
         mLocationClient.setLocationListener(this);
         mLocationClient.setLocationOption(getDefaultOption());
+
         //启动定位
         mLocationClient.startLocation();
+
     }
 
 
@@ -221,6 +274,10 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                 }
                 //计算两点间距离的，默认的中心点坐标（31.163882, 121.40439）
                 float distance = AMapUtils.calculateLineDistance(latLng, defaultLatLng);
+<<<<<<< HEAD
+=======
+                text_three.setText("默认的基准精度===121.40439" + "          " + "默认的基准纬度===31.163882");
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
                 Message message = new Message();
                 Bundle bundle = new Bundle();
                 bundle.putDouble("distance", distance);
