@@ -3,8 +3,10 @@ package com.mainiway.eworkpal.activity.user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.attendance.AttendanceSignActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity {
 
     private void initView() {
         findView(R.id.tv_application_center).setOnClickListener(new FastClickListener());
+        findView(R.id.ll_my_attendance).setOnClickListener(new FastClickListener());
     }
 
 
@@ -37,8 +40,11 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onFastClick(View v) {
             switch (v.getId()) {
+                case R.id.ll_my_attendance://我的考勤
+                    startActivity(new Intent(MainActivity.this, AttendanceSignActivity.class));
+                    break;
                 case R.id.tv_application_center://应用中心
-                    startActivity(new Intent(MainActivity.this,ApplicationCenterActivity.class));
+                    startActivity(new Intent(MainActivity.this, ApplicationCenterActivity.class));
                     break;
             }
         }

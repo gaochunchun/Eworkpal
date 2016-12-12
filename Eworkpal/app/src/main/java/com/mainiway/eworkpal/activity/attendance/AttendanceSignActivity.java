@@ -1,8 +1,11 @@
 package com.mainiway.eworkpal.activity.attendance;
 
+<<<<<<< HEAD
+=======
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,7 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
@@ -29,9 +32,14 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.mainiway.eworkpal.R;
+<<<<<<< HEAD
+import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.listener.OnClickFastListener;
+=======
 import com.mainiway.eworkpal.activity.user.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.okhttp.utils.OkLogger;
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
 
 /**
  * ===========================================
@@ -42,7 +50,7 @@ import com.mainiway.okhttp.utils.OkLogger;
  * ===========================================
  */
 
-public class AttendanceSignActivity extends BaseActivity implements AMapLocationListener, AMap.OnMapClickListener, LocationSource {
+public class AttendanceSignActivity extends BaseTitleActivity implements AMapLocationListener, AMap.OnMapClickListener, LocationSource {
 
     private MapView mapView;
     private AMap aMap;
@@ -57,11 +65,21 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
     private Boolean firsttouch = true;
     private LatLng mLatLng;//获取到的精度、纬度对象，要传给地图点击事件（地图3D）
 
+<<<<<<< HEAD
+    //默认的中心点坐标对象，可改的
+    private LatLng defaultLatLng;
+
+    private TextView tv_location, tv_sign, tv_internal_clock, tv_field_personnel_clock;
+    private ImageView iv_center_of_clock;
+
+    //根据有效的坐标范围，设置签到按钮的颜色和点击状态
+=======
     //到时都要删掉的
     private Button click_button;
     private TextView text_one, text_two, text_three, location;
     private LatLng defaultLatLng;
 
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -71,6 +89,12 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
             double longitude = data.getDouble("longitude");
             double latitude = data.getDouble("latitude");
 
+<<<<<<< HEAD
+            if (distance > 100) {
+                tv_sign.setBackgroundColor(getResources().getColor(R.color.gray_C7C7CC));
+            } else {
+                tv_sign.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+=======
 
             text_one.setText("两点间的距离是：     " + distance);
             text_two.setText("精度====" + longitude + "           " + "纬度====" + latitude);
@@ -79,6 +103,7 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
                 click_button.setBackgroundColor(Color.GRAY);
             } else {
                 click_button.setBackgroundColor(Color.GREEN);
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
             }
 
         }
@@ -88,13 +113,35 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_sign);
+        setTitle("考勤");
+        showBackwardView(true);
+        showForwardView(R.mipmap.ic_attendance_record,R.mipmap.ic_attendance_statistics);
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
-        init();
+        initView();
+        initData();
         initLocation();
     }
 
-    private void init() {
+    private void initView() {
+        tv_location = findView(R.id.tv_location);
+        tv_location.setOnClickListener(new FastClickListener());
+
+        tv_sign = findView(R.id.tv_sign);
+        tv_sign.setOnClickListener(new FastClickListener());
+        //默认的中心点坐标（31.163882, 121.40439）
+        defaultLatLng = new LatLng(31.163882, 121.40439);
+
+        tv_internal_clock = findView(R.id.tv_internal_clock);
+        tv_internal_clock.setOnClickListener(new FastClickListener());
+
+        tv_field_personnel_clock = findView(R.id.tv_field_personnel_clock);
+        tv_field_personnel_clock.setOnClickListener(new FastClickListener());
+
+        iv_center_of_clock = findView(R.id.iv_center_of_clock);
+    }
+
+    private void initData() {
         if (aMap == null) {
             aMap = mapView.getMap();
             //初始化地点显示为上海
@@ -107,6 +154,9 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
             //隐藏地图logo
             settings.setLogoBottomMargin(-200);
             settings.setLogoLeftMargin(-200);
+<<<<<<< HEAD
+
+=======
             //测试有效范围的button，到时删掉
             click_button = (Button) findViewById(R.id.click_button);
             text_one = (TextView) findViewById(R.id.text_one);
@@ -122,6 +172,7 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
             });
             //默认的中心点坐标（31.163882, 121.40439）
             defaultLatLng = new LatLng(31.163882, 121.40439);
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
 
         }
 
@@ -223,7 +274,10 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
                 }
                 //计算两点间距离的，默认的中心点坐标（31.163882, 121.40439）
                 float distance = AMapUtils.calculateLineDistance(latLng, defaultLatLng);
+<<<<<<< HEAD
+=======
                 text_three.setText("默认的基准精度===121.40439" + "          " + "默认的基准纬度===31.163882");
+>>>>>>> 6c76bd6a2c451d3a94d24334d0089b798aa344d8
                 Message message = new Message();
                 Bundle bundle = new Bundle();
                 bundle.putDouble("distance", distance);
@@ -266,6 +320,30 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
 
         }
 
+    }
+
+    private class FastClickListener extends OnClickFastListener {
+
+        @Override
+        public void onFastClick(View v) {
+            switch (v.getId()) {
+                case R.id.tv_location://定位
+                    isFirst = true;
+                    break;
+
+                case R.id.tv_internal_clock://内勤打卡
+                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
+                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.white));
+                    iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_one);
+                    break;
+
+                case R.id.tv_field_personnel_clock://外勤打卡
+                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.white));
+                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
+                    iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_two);
+                    break;
+            }
+        }
     }
 
 
