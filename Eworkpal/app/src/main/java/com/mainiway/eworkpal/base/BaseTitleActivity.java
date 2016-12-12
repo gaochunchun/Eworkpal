@@ -186,7 +186,8 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener {
 
     }
 
-    protected void onForward2(View forwardView2){
+    //标题栏最右边的按钮事件回调
+    protected void onForwardRight(View forwardView){
 
     }
 
@@ -269,7 +270,7 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener {
                 break;
 
             case R.id.button_forward2:
-                onForward2(v);
+                onForwardRight(v);
                 break;
             default:
                 break;

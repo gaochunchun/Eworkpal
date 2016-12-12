@@ -76,8 +76,8 @@ public class MainTestActivity extends BaseTitleActivity {
     }
 
     @Override
-    protected void onForward2(View forwardView2) {
-        super.onForward2(forwardView2);
+    protected void onForwardRight(View forwardView) {
+        super.onForwardRight(forwardView);
         ToastUtils.showToastCenter("第二个图标");
     }
 }
