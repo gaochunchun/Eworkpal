@@ -231,7 +231,7 @@ public class LoginActivity extends BaseActivity {
 //                        }
 //                    }
                     //startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
-                    startActivity(new Intent(LoginActivity.this, AttendanceSignActivity.class));
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业

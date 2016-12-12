@@ -1,9 +1,13 @@
 package com.mainiway.eworkpal.activity.attendance;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +29,9 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.user.MainActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
+import com.mainiway.okhttp.utils.OkLogger;
 
 /**
  * ===========================================
@@ -53,10 +59,10 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
 
     //到时都要删掉的
     private Button click_button;
-    private TextView text_one,text_two,text_three,location;
+    private TextView text_one, text_two, text_three, location;
     private LatLng defaultLatLng;
 
-    private Handler handler=new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -66,17 +72,18 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
             double latitude = data.getDouble("latitude");
 
 
-            text_one.setText("两点间的距离是：     "+distance);
-            text_two.setText("精度===="+longitude+"           "+"纬度===="+latitude);
+            text_one.setText("两点间的距离是：     " + distance);
+            text_two.setText("精度====" + longitude + "           " + "纬度====" + latitude);
 
-            if(distance>100){
+            if (distance > 100) {
                 click_button.setBackgroundColor(Color.GRAY);
-            }else{
+            } else {
                 click_button.setBackgroundColor(Color.GREEN);
             }
 
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,20 +108,20 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
             settings.setLogoBottomMargin(-200);
             settings.setLogoLeftMargin(-200);
             //测试有效范围的button，到时删掉
-            click_button= (Button) findViewById(R.id.click_button);
-            text_one= (TextView) findViewById(R.id.text_one);
-            text_two= (TextView) findViewById(R.id.text_two);
-            text_three= (TextView) findViewById(R.id.text_three);
-            location= (TextView) findViewById(R.id.location);
+            click_button = (Button) findViewById(R.id.click_button);
+            text_one = (TextView) findViewById(R.id.text_one);
+            text_two = (TextView) findViewById(R.id.text_two);
+            text_three = (TextView) findViewById(R.id.text_three);
+            location = (TextView) findViewById(R.id.location);
             location.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    isFirst=true;
+                    isFirst = true;
                 }
             });
             //默认的中心点坐标（31.163882, 121.40439）
-             defaultLatLng = new LatLng(31.163882, 121.40439);
+            defaultLatLng = new LatLng(31.163882, 121.40439);
 
         }
 
@@ -129,8 +136,10 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
         //设置定位回调监听
         mLocationClient.setLocationListener(this);
         mLocationClient.setLocationOption(getDefaultOption());
+
         //启动定位
         mLocationClient.startLocation();
+
     }
 
 
@@ -191,9 +200,9 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
             if (aMapLocation.getErrorCode() == 0) {
                 LatLng latLng = new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude());
 
-                Log.i("zhsh","获取经度==="+aMapLocation.getLongitude());
-                Log.i("zhsh","获取纬度==="+aMapLocation.getLatitude());
-                Log.i("zhsh","地址信息==="+aMapLocation.getAddress());
+                Log.i("zhsh", "获取经度===" + aMapLocation.getLongitude());
+                Log.i("zhsh", "获取纬度===" + aMapLocation.getLatitude());
+                Log.i("zhsh", "地址信息===" + aMapLocation.getAddress());
 
 
                 if (isFirst) {
@@ -213,13 +222,13 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
                     mLatLng = latLng;
                 }
                 //计算两点间距离的，默认的中心点坐标（31.163882, 121.40439）
-                float distance = AMapUtils.calculateLineDistance(latLng,defaultLatLng);
-                text_three.setText("默认的基准精度===121.40439"+"          "+"默认的基准纬度===31.163882");
+                float distance = AMapUtils.calculateLineDistance(latLng, defaultLatLng);
+                text_three.setText("默认的基准精度===121.40439" + "          " + "默认的基准纬度===31.163882");
                 Message message = new Message();
                 Bundle bundle = new Bundle();
-                bundle.putDouble("distance",distance);
-                bundle.putDouble("longitude",aMapLocation.getLongitude());
-                bundle.putDouble("latitude",aMapLocation.getLatitude());
+                bundle.putDouble("distance", distance);
+                bundle.putDouble("longitude", aMapLocation.getLongitude());
+                bundle.putDouble("latitude", aMapLocation.getLatitude());
                 message.setData(bundle);
                 handler.sendMessage(message);
             } else {
@@ -272,7 +281,6 @@ public class AttendanceSignActivity extends BaseActivity implements AMapLocation
     public void deactivate() {
         onLocationChangedListener = null;
     }
-
 
 
 }

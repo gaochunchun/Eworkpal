@@ -161,6 +161,12 @@
             android:label="未加入任何企业"
             android:screenOrientation="portrait"/>
 
+        <!--应用中心-->
+        <activity
+            android:name=".activity.user.ApplicationCenterActivity"
+            android:label="应用中心"
+            android:screenOrientation="portrait"/>
+
         <!--考勤模块-->
         <activity
             android:name=".activity.attendance.AttendanceSignActivity"

@@ -5,30 +5,31 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.base.BaseActivity;
+import com.mainiway.eworkpal.activity.attendance.AttendanceSignActivity;
+import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 
 /**
  * ===========================================
- * 作    者：gao_chun
+ * 作    者：zhsh
  * 版    本：1.0
- * 创建日期：2016-11-29.
- * 描    述：主页
+ * 创建日期：2016/12/9.
+ * 描    述：应用中心
  * ===========================================
  */
 
-
-public class MainActivity extends BaseActivity {
-
+public class ApplicationCenterActivity extends BaseTitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_layout);
+        setContentView(R.layout.activity_user_application_center);
+        setTitle("应用中心");
+        showBackwardView(true);
         initView();
     }
 
     private void initView() {
-        findView(R.id.tv_application_center).setOnClickListener(new FastClickListener());
+        findView(R.id.ll_attendance).setOnClickListener(new FastClickListener());
     }
 
 
@@ -37,8 +38,8 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onFastClick(View v) {
             switch (v.getId()) {
-                case R.id.tv_application_center://应用中心
-                    startActivity(new Intent(MainActivity.this,ApplicationCenterActivity.class));
+                case R.id.ll_attendance://考勤
+                    startActivity(new Intent(ApplicationCenterActivity.this,AttendanceSignActivity.class));
                     break;
             }
         }
