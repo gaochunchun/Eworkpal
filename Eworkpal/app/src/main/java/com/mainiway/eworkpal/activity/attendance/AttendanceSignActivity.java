@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,7 +59,8 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
     //默认的中心点坐标对象，可改的
     private LatLng defaultLatLng;
 
-    private TextView tv_location, tv_sign, tv_internal_clock, tv_field_personnel_clock;
+    private TextView tv_location, tv_sign;
+    private Button tv_internal_clock, tv_field_personnel_clock;
     private ImageView iv_center_of_clock;
     //根据有效的打卡距离，设置签到按钮的背景颜色和点击状态
     private Handler handler = new Handler() {
@@ -284,8 +286,8 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     tv_field_personnel_clock.setTextColor(getResources().getColor(R.color.gray_7B7B7B));
                     tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                     tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
-                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.white));
+//                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
+//                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.white));
                     iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_one);
                     findView(R.id.tv_reported_position).setVisibility(View.GONE);
                     break;
@@ -295,8 +297,8 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     tv_field_personnel_clock.setTextColor(getResources().getColor(R.color.white));
                     tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
                     tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.white));
-                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
+//                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.white));
+//                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
                     iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_two);
                     findView(R.id.tv_reported_position).setVisibility(View.VISIBLE);
                     break;
