@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.adapter.attendance;
+package com.mainiway.eworkpal.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
  * 迟到适配器
  */
 
-public class LateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AttendanceLateAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return null;
