@@ -15,6 +15,21 @@
             android:layout_height="match_parent"/>
 
         <TextView
+            android:id="@+id/tv_reported_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/tv_location"
+            android:drawableLeft="@mipmap/ic_attendance_map_location"
+            android:drawablePadding="20px"
+            android:gravity="center_vertical"
+            android:paddingBottom="15px"
+            android:paddingRight="30px"
+            android:text="上报位置"
+            android:textColor="@color/black"
+            android:visibility="gone"/>
+
+        <TextView
             android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

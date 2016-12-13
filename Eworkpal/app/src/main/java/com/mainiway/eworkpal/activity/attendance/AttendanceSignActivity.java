@@ -1,6 +1,7 @@
 package com.mainiway.eworkpal.activity.attendance;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -108,6 +109,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         tv_field_personnel_clock.setOnClickListener(new FastClickListener());
 
         iv_center_of_clock = findView(R.id.iv_center_of_clock);
+
     }
 
     private void initData() {
@@ -278,15 +280,25 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     break;
 
                 case R.id.tv_internal_clock://内勤打卡
+                    tv_internal_clock.setTextColor(getResources().getColor(R.color.white));
+                    tv_field_personnel_clock.setTextColor(getResources().getColor(R.color.gray_7B7B7B));
+                    tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
                     tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
                     tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.white));
                     iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_one);
+                    findView(R.id.tv_reported_position).setVisibility(View.GONE);
                     break;
 
                 case R.id.tv_field_personnel_clock://外勤打卡
+                    tv_internal_clock.setTextColor(getResources().getColor(R.color.gray_7B7B7B));
+                    tv_field_personnel_clock.setTextColor(getResources().getColor(R.color.white));
+                    tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                     tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.white));
                     tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
                     iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_two);
+                    findView(R.id.tv_reported_position).setVisibility(View.VISIBLE);
                     break;
             }
         }
