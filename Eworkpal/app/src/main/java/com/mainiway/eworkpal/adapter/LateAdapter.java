@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.adapter.attendance;
+package com.mainiway.eworkpal.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
