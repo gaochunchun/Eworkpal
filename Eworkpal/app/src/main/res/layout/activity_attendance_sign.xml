@@ -97,7 +97,6 @@
             android:src="@mipmap/ic_attendance_home_btn_one"/>
 
         <Button
-
             android:id="@+id/tv_field_personnel_clock"
             android:layout_width="324px"
             android:layout_height="match_parent"
