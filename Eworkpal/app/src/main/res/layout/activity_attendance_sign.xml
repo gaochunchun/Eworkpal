@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/tv_location"
+            android:clickable="true"
             android:drawableLeft="@mipmap/ic_attendance_map_location"
             android:drawablePadding="20px"
             android:gravity="center_vertical"
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:clickable="true"
             android:drawableLeft="@mipmap/ic_attendance_location"
             android:drawablePadding="20px"
             android:gravity="center_vertical"
@@ -81,11 +83,11 @@
             android:layout_width="324px"
             android:layout_height="match_parent"
             android:background="@drawable/color_white_blue_selector"
+            android:clickable="true"
             android:gravity="center"
             android:text="内勤打卡"
             android:textColor="@drawable/color_gray_white_selector"
             android:textSize="28px"
-            android:clickable="true"
             android:textStyle="bold"/>
 
         <ImageView
@@ -95,14 +97,15 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_attendance_home_btn_one"/>
 
+
         <TextView
             android:id="@+id/tv_field_personnel_clock"
             android:layout_width="324px"
             android:layout_height="match_parent"
+            android:background="@drawable/color_white_blue_selector"
+            android:clickable="true"
             android:gravity="center"
             android:text="外勤打卡"
-            android:clickable="true"
-            android:background="@drawable/color_white_blue_selector"
             android:textColor="@drawable/color_gray_white_selector"
             android:textSize="28px"/>
 
