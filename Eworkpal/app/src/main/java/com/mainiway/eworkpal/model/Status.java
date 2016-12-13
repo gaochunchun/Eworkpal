@@ -1,7 +1,7 @@
 package com.mainiway.eworkpal.model;
 
 /**
- * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+ * 测试
  */
 public class Status {
     private boolean isRetweet;

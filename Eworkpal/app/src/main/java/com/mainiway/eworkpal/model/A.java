@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by gao_chun on 2016-11-16.
+ * 测试Model
  */
 
 public class A implements Serializable {
