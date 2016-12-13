@@ -1,13 +1,13 @@
 package com.mainiway.eworkpal.activity.attendance;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,14 +54,13 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
     private boolean isFirst = true;//地图标记mark只定位在第一次定位的位置
     private Boolean firsttouch = true;
     private LatLng mLatLng;//获取到的精度、纬度对象，要传给地图点击事件（地图3D）
-
-
     //默认的中心点坐标对象，可改的
     private LatLng defaultLatLng;
-
-    private TextView tv_location, tv_sign;
-    private Button tv_internal_clock, tv_field_personnel_clock;
+    private TextView tv_location, tv_sign, tv_internal_clock, tv_field_personnel_clock, tv_reported_position;
     private ImageView iv_center_of_clock;
+    private String city, district, street, streetNum;//往"上报位置"界面传递的省信息、城区信息、街道信息、街道门牌号信息
+
+
     //根据有效的打卡距离，设置签到按钮的背景颜色和点击状态
     private Handler handler = new Handler() {
         @Override
@@ -105,12 +104,16 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         defaultLatLng = new LatLng(31.163882, 121.40439);
 
         tv_internal_clock = findView(R.id.tv_internal_clock);
-        tv_internal_clock.setOnClickListener(new FastClickListener());
+        tv_internal_clock.setOnClickListener(new clickListener());
+        tv_internal_clock.setSelected(true);
 
         tv_field_personnel_clock = findView(R.id.tv_field_personnel_clock);
-        tv_field_personnel_clock.setOnClickListener(new FastClickListener());
+        tv_field_personnel_clock.setOnClickListener(new clickListener());
 
         iv_center_of_clock = findView(R.id.iv_center_of_clock);
+
+        tv_reported_position = findView(R.id.tv_reported_position);
+        tv_reported_position.setOnClickListener(new FastClickListener());
 
     }
 
@@ -208,7 +211,10 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                 Log.i("zhsh", "获取经度===" + aMapLocation.getLongitude());
                 Log.i("zhsh", "获取纬度===" + aMapLocation.getLatitude());
                 Log.i("zhsh", "地址信息===" + aMapLocation.getAddress());
-
+                city = aMapLocation.getCity();
+                district = aMapLocation.getDistrict();
+                street = aMapLocation.getStreet();
+                streetNum = aMapLocation.getStreetNum();
 
                 if (isFirst) {
                     //设置缩放级别
@@ -219,7 +225,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     MarkerOptions markerOption = new MarkerOptions().icon(BitmapDescriptorFactory
                             .defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                             .position(latLng)
-                            .title(aMapLocation.getProvince() + aMapLocation.getDistrict() + aMapLocation.getStreet() + aMapLocation.getStreetNum())
+                            .title(aMapLocation.getCity() + aMapLocation.getDistrict() + aMapLocation.getStreet() + aMapLocation.getStreetNum())
                             .draggable(true);
                     Marker marker = aMap.addMarker(markerOption);
                     marker.showInfoWindow();
@@ -272,6 +278,9 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
 
     }
 
+    /**
+     * 防止快速点击事件
+     */
     private class FastClickListener extends OnClickFastListener {
 
         @Override
@@ -280,32 +289,50 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                 case R.id.tv_location://定位
                     isFirst = true;
                     break;
-
-                case R.id.tv_internal_clock://内勤打卡
-                    tv_internal_clock.setTextColor(getResources().getColor(R.color.white));
-                    tv_field_personnel_clock.setTextColor(getResources().getColor(R.color.gray_7B7B7B));
-                    tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-                    tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-//                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
-//                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.white));
-                    iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_one);
-                    findView(R.id.tv_reported_position).setVisibility(View.GONE);
-                    break;
-
-                case R.id.tv_field_personnel_clock://外勤打卡
-                    tv_internal_clock.setTextColor(getResources().getColor(R.color.gray_7B7B7B));
-                    tv_field_personnel_clock.setTextColor(getResources().getColor(R.color.white));
-                    tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
-                    tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
-//                    tv_internal_clock.setBackgroundColor(getResources().getColor(R.color.white));
-//                    tv_field_personnel_clock.setBackgroundColor(getResources().getColor(R.color.blue_86B8F3));
-                    iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_two);
-                    findView(R.id.tv_reported_position).setVisibility(View.VISIBLE);
+                case R.id.tv_reported_position://上报位置
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("city", city);
+                    bundle.putString("district", district);
+                    bundle.putString("street", street);
+                    bundle.putString("streetNum", streetNum);
+                    intent.putExtras(bundle);
+                    intent.setClass(AttendanceSignActivity.this, ReportedPositionActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
     }
 
+    /**
+     * 点击事件
+     */
+    private class clickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.tv_internal_clock://内勤打卡
+                    tv_internal_clock.setSelected(true);
+                    tv_field_personnel_clock.setSelected(false);
+                    tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_one);
+                    tv_reported_position.setVisibility(View.GONE);
+                    break;
+
+                case R.id.tv_field_personnel_clock://外勤打卡
+                    tv_internal_clock.setSelected(false);
+                    tv_field_personnel_clock.setSelected(true);
+                    tv_internal_clock.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    tv_field_personnel_clock.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    iv_center_of_clock.setImageResource(R.mipmap.ic_attendance_home_btn_two);
+                    tv_reported_position.setVisibility(View.VISIBLE);
+                    break;
+            }
+
+        }
+    }
 
     //激活位置接口
     @Override

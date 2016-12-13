@@ -76,17 +76,16 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
+        <TextView
             android:id="@+id/tv_internal_clock"
             android:layout_width="324px"
             android:layout_height="match_parent"
             android:background="@drawable/color_white_blue_selector"
             android:gravity="center"
             android:text="内勤打卡"
-            android:textColor="@color/white"
+            android:textColor="@drawable/color_gray_white_selector"
             android:textSize="28px"
             android:clickable="true"
-            android:focusable="true"
             android:textStyle="bold"/>
 
         <ImageView
@@ -96,15 +95,15 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_attendance_home_btn_one"/>
 
-        <Button
-
+        <TextView
             android:id="@+id/tv_field_personnel_clock"
             android:layout_width="324px"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="外勤打卡"
+            android:clickable="true"
             android:background="@drawable/color_white_blue_selector"
-            android:textColor="@color/gray_7B7B7B"
+            android:textColor="@drawable/color_gray_white_selector"
             android:textSize="28px"/>
 
 
