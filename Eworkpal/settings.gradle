@@ -1,1 +1,1 @@
-include ':app', ':okhttplibrary', ':progressordialog', ':material-spinner-1.0.5', ':image-gridview'
+include ':app', ':okhttplibrary', ':progressordialog', ':material-spinner-1.0.5', ':image-gridview', ':imagepicker'
