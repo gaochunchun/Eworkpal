@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="510px">
+        android:layout_height="550px">
 
         <com.amap.api.maps.MapView
             android:id="@+id/map"
@@ -47,11 +47,12 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30px"
         android:layout_marginTop="20px"
-        android:text="2016年12月20日      星期一"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="26px"
         android:textStyle="bold"/>

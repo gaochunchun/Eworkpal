@@ -29,6 +29,9 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.DateUtil;
+
+import java.util.Date;
 
 
 /**
@@ -56,7 +59,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
     private LatLng mLatLng;//获取到的精度、纬度对象，要传给地图点击事件（地图3D）
     //默认的中心点坐标对象，可改的
     private LatLng defaultLatLng;
-    private TextView tv_location, tv_sign, tv_internal_clock, tv_field_personnel_clock, tv_reported_position;
+    private TextView tv_location, tv_sign, tv_internal_clock, tv_field_personnel_clock, tv_reported_position, tv_date;
     private ImageView iv_center_of_clock;
     private String city, district, street, streetNum;//往"上报位置"界面传递的省信息、城区信息、街道信息、街道门牌号信息
 
@@ -90,8 +93,9 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
         initView();
-        initData();
+        initMap();
         initLocation();
+        initData();
     }
 
     private void initView() {
@@ -115,9 +119,11 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         tv_reported_position = findView(R.id.tv_reported_position);
         tv_reported_position.setOnClickListener(new FastClickListener());
 
+        tv_date = findView(R.id.tv_date);
+
     }
 
-    private void initData() {
+    private void initMap() {
         if (aMap == null) {
             aMap = mapView.getMap();
             //初始化地点显示为上海
@@ -148,6 +154,14 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         //启动定位
         mLocationClient.startLocation();
 
+    }
+
+
+    private void initData() {
+        //显示当前时间
+        String[] date = DateUtil.getToday().split("-");//yyyy-MM-dd
+        String week = DateUtil.getWeek(new Date());
+        tv_date.setText(date[0] + "年" + date[1] + "月" + date[2] + "日" + "　　" + week);
     }
 
 

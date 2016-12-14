@@ -1,9 +1,14 @@
 package com.mainiway.eworkpal.activity.attendance;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.utils.DateUtil;
+
+import java.util.Date;
 
 /**
  * ===========================================
@@ -15,11 +20,35 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
  */
 
 public class ReportedPositionActivity extends BaseTitleActivity {
+
+    private TextView tv_position, tv_date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_reported_position);
         setTitle("上报位置");
         showBackwardView(true);
+        initView();
+        initData();
     }
+
+    private void initView() {
+        tv_position = findView(R.id.tv_position);
+        tv_date = findView(R.id.tv_date);
+    }
+
+    private void initData() {
+        //显示当前位置信息
+        if (getIntent() != null) {
+            Bundle bundle = getIntent().getExtras();
+            tv_position.setText(bundle.getString("city") + bundle.getString("district") + bundle.getString("street") + bundle.getString("streetNum"));
+        }
+        //显示当前时间
+        String[] date = DateUtil.getToday().split("-");//yyyy-MM-dd
+        String[] time = DateUtil.getTime().split(":");//HH:mm:ss
+        String week = DateUtil.getWeek(new Date());
+        tv_date.setText(date[0] + "年" + date[1] + "月" + date[2] + "日" + "　　" + week + "　　" + time[0] + ":" + time[1]);
+    }
+
 }
