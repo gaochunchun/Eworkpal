@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.activity.attendance.RightPositionActivity;
-import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.TimeSelector;
@@ -27,7 +25,7 @@ public class MainTestActivity extends BaseTitleActivity {
         setContentView(R.layout.test_activity_main);
         setTitle("功能测试界面");
         showBackwardView(true);
-        showForwardView(R.mipmap.ic_back, R.mipmap.ic_back);
+        showForwardView(R.mipmap.ic_back_arrow, R.mipmap.ic_back_arrow);
     }
 
     @Override
