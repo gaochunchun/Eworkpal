@@ -24,8 +24,7 @@ android {                           // 配置所有android构建过程需要的�
     // 签名文件
     /*signingConfigs {
         release {
-            // relase签名
-            //在local.properties 文件里面配置
+            // relase签名----在local.properties 文件里面配置
             storeFile file(properties.getProperty("keystroe_storeFile"))
             storePassword properties.getProperty("keystroe_storePassword")
             keyAlias properties.getProperty("keystroe_keyAlias")
@@ -41,11 +40,56 @@ android {                           // 配置所有android构建过程需要的�
 
     buildTypes {
         release {
-            minifyEnabled MINIFY_DISABLED
+            // 版本名前缀
+            //versionNameSuffix "-relase"
+            // 开启ZipAlign优化
+            //zipAlignEnabled true
+            // 移除无用的resource文件
+            //shrinkResources true
+            // 使用release签名
+            //signingConfig signingConfigs.release
+
+            minifyEnabled MINIFY_DISABLED   //是否开启混淆 -- 暂为false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 渠道Flavors，配置不同的渠道
     productFlavors {
+       /* GooglePaly {
+            //指定这个渠道的版本号
+            versionCode 2
+            versionName "2.0"
+            //指定区别于其他渠道的 applicationId
+            applicationId "com.mainiway.eworkpal.hd"
+        }
+        xiaomi {}
+        umeng {}
+        qihu360 {}
+        wandoujia {}
+        yingyongbao {}*/
+        //其他...
+    }
+
+
+    android{
+
+        /*applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    File outputDirectory = new File(outputFile.parent);
+                    def fileName
+                    if (variant.buildType.name == "release") {
+                        fileName = "app_v${defaultConfig.versionName}_${packageTime()}_${variant.productFlavors[0].name}.apk"
+                    } else {
+                        fileName = "app_v${defaultConfig.versionName}_${packageTime()}_debug.apk"
+                    }
+                    output.outputFile = new File(outputDirectory, fileName)
+                }
+            }
+        }*/
+
     }
 }
 
