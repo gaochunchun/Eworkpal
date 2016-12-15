@@ -85,6 +85,7 @@ android {                           // 配置所有android构建过程需要的�
                     } else {
                         fileName = "app_v${defaultConfig.versionName}_${packageTime()}_debug.apk"
                     }
+                    fileName = "app_v${defaultConfig.versionName}_${packageTime()}.apk"
                     output.outputFile = new File(outputDirectory, fileName)
                 }
             }
