@@ -178,6 +178,11 @@
             android:label="上报位置"
             android:screenOrientation="portrait"/>
 
+        <activity
+            android:name=".activity.attendance.AttendanceRecordActivity"
+            android:label="记录"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

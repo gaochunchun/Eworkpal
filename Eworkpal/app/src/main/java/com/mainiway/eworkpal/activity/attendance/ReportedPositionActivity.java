@@ -1,11 +1,14 @@
 package com.mainiway.eworkpal.activity.attendance;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DateUtil;
 
 import java.util.Date;
@@ -36,6 +39,8 @@ public class ReportedPositionActivity extends BaseTitleActivity {
     private void initView() {
         tv_position = findView(R.id.tv_position);
         tv_date = findView(R.id.tv_date);
+
+        findView(R.id.tv_submit).setOnClickListener(new FastClickListener());
     }
 
     private void initData() {
@@ -51,4 +56,19 @@ public class ReportedPositionActivity extends BaseTitleActivity {
         tv_date.setText(date[0] + "年" + date[1] + "月" + date[2] + "日" + "　　" + week + "　　" + time[0] + ":" + time[1]);
     }
 
+    /**
+     * 防止快速点击事件
+     */
+    private class FastClickListener extends OnClickFastListener {
+
+        @Override
+        public void onFastClick(View v) {
+            switch (v.getId()) {
+                case R.id.tv_submit://提交
+                    startActivity(new Intent(ReportedPositionActivity.this, AttendanceRecordActivity.class));
+                    break;
+
+            }
+        }
+    }
 }
