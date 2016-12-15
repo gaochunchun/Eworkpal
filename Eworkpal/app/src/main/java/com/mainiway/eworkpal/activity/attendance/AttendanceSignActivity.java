@@ -74,7 +74,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
 //            double longitude = data.getDouble("longitude");
 //            double latitude = data.getDouble("latitude");
             if (distance > 100) {
-                tv_sign.setBackgroundColor(getResources().getColor(R.color.gray_C7C7CC));
+                tv_sign.setBackgroundResource(R.drawable.rectangle_27dp_light_gray);
             } else {
                 tv_sign.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
 
