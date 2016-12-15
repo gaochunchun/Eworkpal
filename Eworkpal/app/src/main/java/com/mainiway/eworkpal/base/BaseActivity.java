@@ -20,7 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.widgets.SystemBarTintManager;
+import com.mainiway.imagepicker.view.SystemBarTintManager;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;

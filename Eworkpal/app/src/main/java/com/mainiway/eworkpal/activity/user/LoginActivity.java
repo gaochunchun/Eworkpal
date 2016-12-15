@@ -9,17 +9,14 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.attendance.AttendanceSignActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
@@ -27,7 +24,7 @@ import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SecretTextView;
-import com.mainiway.eworkpal.widgets.SystemBarTintManager;
+import com.mainiway.imagepicker.view.SystemBarTintManager;
 
 import java.util.Timer;
 import java.util.TimerTask;

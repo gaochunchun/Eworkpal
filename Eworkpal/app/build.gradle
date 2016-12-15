@@ -1,5 +1,14 @@
 apply plugin: 'com.android.application'    // 使用com.android.application插件
 
+//定义打包时间函数
+/*def packageTime() {
+    return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getTimeZone("UTC"))
+}*/
+
+//获取local.properties的内容
+/*Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())*/
+
 android {                           // 配置所有android构建过程需要的参数
     compileSdkVersion COMPILE_SDK_VERSION
     buildToolsVersion BUILD_TOOLS_VERSION
@@ -11,6 +20,18 @@ android {                           // 配置所有android构建过程需要的�
         versionCode 1
         versionName "1.0"
     }
+
+    // 签名文件
+    /*signingConfigs {
+        release {
+            // relase签名
+            //在local.properties 文件里面配置
+            storeFile file(properties.getProperty("keystroe_storeFile"))
+            storePassword properties.getProperty("keystroe_storePassword")
+            keyAlias properties.getProperty("keystroe_keyAlias")
+            keyPassword properties.getProperty("keystroe_keyPassword")
+        }
+    }*/
 
     sourceSets{                     //直接在libs里面添加so库，不用创建jniLibs文件夹
         main {
