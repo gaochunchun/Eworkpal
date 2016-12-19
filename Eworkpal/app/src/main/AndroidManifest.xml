@@ -192,6 +192,10 @@
             android:name=".activity.attendance.AttendanceRecordActivity"
             android:label="记录"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.attendance.AttendanceAppealActivity"
+            android:label="申诉"
+            android:screenOrientation="portrait"/>
 
     </application>
 
