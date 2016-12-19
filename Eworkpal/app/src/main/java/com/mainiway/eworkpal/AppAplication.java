@@ -26,7 +26,6 @@ public class AppAplication extends Application {
     private static Context mContext;
     private  DisplayImageOptions options;
 
-    //public LocationService locationService; //定位
 
     //图片缓存路径
     public static File cacheDir;
@@ -50,7 +49,7 @@ public class AppAplication extends Application {
         GenericRequestManager.initialize(this);
 
         // 初始化ImageLoader
-        //initImageLoader(getApplicationContext());
+        initImageLoader(getApplicationContext());
 
         //初始化定位服务
         //locationService = new LocationService(getApplicationContext());
@@ -76,7 +75,7 @@ public class AppAplication extends Application {
 
         cacheDir = StorageUtils.getOwnCacheDirectory(this, CACHE_DIR + CACHE_IMG_DOC);//图像缓存路径
 
-        //配置图像加载Option
+        //配置加载Option
         options = new DisplayImageOptions.Builder()
         .showImageOnLoading(R.mipmap.ic_default)  //加载过程中
         .showImageForEmptyUri(R.mipmap.ic_default)//uri为空时
