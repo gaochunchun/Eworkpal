@@ -54,7 +54,7 @@
 
 
         <activity
-            android:name=".activity.SplashActivity"
+            android:name=".activity.attendance.StatisticsActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -140,6 +140,7 @@
 
         <!--应用中心-->
         <activity
+
             android:name=".activity.user.ApplicationCenterActivity"
             android:label="应用中心"
             android:screenOrientation="portrait"/>
@@ -151,6 +152,15 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".activity.attendance.LeaveListActivity"
+            android:label="请假列表"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.attendance.LateListActivity"
+            android:label="迟到列表"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".activity.attendance.ReportedPositionActivity"
             android:label="上报位置"
             android:screenOrientation="portrait"/>
@@ -158,6 +168,10 @@
         <activity
             android:name=".activity.attendance.AttendanceRecordActivity"
             android:label="记录"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.attendance.AttendanceAppealActivity"
+            android:label="申诉"
             android:screenOrientation="portrait"/>
 
         <activity
