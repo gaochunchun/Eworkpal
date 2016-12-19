@@ -24,8 +24,15 @@
     <color name="black_030303">#030303</color>
     <color name="black_202020">#202020</color>
     <color name="black_4A4A4A">#4A4A4A</color>
+    <color name="black_868686">#868686</color>
+    <color name="black_9B9B9B">#9B9B9B</color>
     <color name="yellow_F5A263">#F5A263</color>
     <color name="yellow_F8E71C">#F8E71C</color>
+    <color name="white_D9E7FB">#D9E7FB</color>
+    <color name="white_9ABEF5">#9ABEF5</color>
+    <color name="red_E14072">#E14072</color>
+    <color name="red_D0021B">#D0021B</color>
+    <color name="orangey_F5A623">#F5A623</color>
     <color name="red_D9384D">#D9384D</color>
 
 </resources>
