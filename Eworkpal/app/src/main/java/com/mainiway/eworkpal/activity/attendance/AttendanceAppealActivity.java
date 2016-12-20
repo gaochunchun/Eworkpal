@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.utils.DateUtil;
 import com.mainiway.eworkpal.widgets.TimeSelector;
 
 /**
@@ -27,14 +28,21 @@ public class AttendanceAppealActivity extends BaseTitleActivity implements View.
         setTitle("申诉");
         showBackwardView(true);
         initView();
+        initData();
     }
 
     private void initView() {
         findView(R.id.iv_time_select_button).setOnClickListener(this);
 
         tv_time = findView(R.id.tv_time);
+
     }
 
+    private void initData() {
+        //显示当前时间
+        String[] time = DateUtil.getTime().split(":");//HH:mm:ss
+        tv_time.setText(time[0] + ":" + time[1]);
+    }
 
     @Override
     public void onClick(View view) {
@@ -58,5 +66,5 @@ public class AttendanceAppealActivity extends BaseTitleActivity implements View.
         }
     }
 
-    
+
 }
