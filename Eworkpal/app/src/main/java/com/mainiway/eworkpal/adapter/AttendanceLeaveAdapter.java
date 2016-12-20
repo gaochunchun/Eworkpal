@@ -1,7 +1,7 @@
 package com.mainiway.eworkpal.adapter;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.mainiway.library.adapter.base.BaseQuickAdapter;
+import com.mainiway.library.adapter.base.BaseViewHolder;
 import com.mainiway.eworkpal.model.AttendanceLeaveModle;
 
 import java.util.List;

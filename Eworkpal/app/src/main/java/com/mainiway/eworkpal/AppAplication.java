@@ -6,14 +6,6 @@ import android.graphics.Bitmap;
 
 import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.okhttp.GenericRequestManager;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
-import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import java.io.File;
 /**
@@ -24,14 +16,13 @@ import java.io.File;
 public class AppAplication extends Application {
 
     private static Context mContext;
-    private  DisplayImageOptions options;
+    //private  DisplayImageOptions options;
 
-    //public LocationService locationService; //定位
 
     //图片缓存路径
-    public static File cacheDir;
-    public static final String CACHE_DIR = "MW/";
-    public static final String CACHE_IMG_DOC = "ImageCache";
+    //public static File cacheDir;
+    //public static final String CACHE_DIR = "MW/";
+    //public static final String CACHE_IMG_DOC = "ImageCache";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -70,13 +61,13 @@ public class AppAplication extends Application {
      * init the ImageLoader
      * @param context
      */
-    public void initImageLoader(Context context) {
+    /*public void initImageLoader(Context context) {
 
         com.nostra13.universalimageloader.utils.L.writeLogs(false);// 关闭ImageLoaderLog日志
 
         cacheDir = StorageUtils.getOwnCacheDirectory(this, CACHE_DIR + CACHE_IMG_DOC);//图像缓存路径
 
-        //配置图像加载Option
+        //配置加载Option
         options = new DisplayImageOptions.Builder()
         .showImageOnLoading(R.mipmap.ic_default)  //加载过程中
         .showImageForEmptyUri(R.mipmap.ic_default)//uri为空时
@@ -101,7 +92,7 @@ public class AppAplication extends Application {
 
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config);
-    }
+    }*/
 
 
     /**
@@ -115,5 +106,4 @@ public class AppAplication extends Application {
         }
         return "";
     }*/
-
 }

@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
+import com.mainiway.library.adapter.base.BaseQuickAdapter;
+import com.mainiway.library.adapter.base.listener.OnItemChildClickListener;
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.test.AnimationUseActivity;
 import com.mainiway.eworkpal.adapter.EnterpriseListAdapter;
-import com.mainiway.eworkpal.adapter.QuickAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.model.Status;
 import com.mainiway.eworkpal.utils.ToastUtils;

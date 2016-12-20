@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.mainiway.library.adapter.base.BaseQuickAdapter;
+import com.mainiway.library.adapter.base.listener.OnItemClickListener;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.adapter.QuickAdapter;
 

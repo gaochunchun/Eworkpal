@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.view.View;
 
-import com.chad.library.adapter.base.animation.BaseAnimation;
+import com.mainiway.library.adapter.base.animation.BaseAnimation;
 
 /**
  * 自定义动画

@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.activity.attendance.RightPositionActivity;
+import com.mainiway.eworkpal.activity.user.EnterpriseListActivity;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.TimeSelector;
@@ -63,6 +64,14 @@ public class MainTestActivity extends BaseTitleActivity {
                 //timeSelector.setMode(TimeSelector.MODE.HM);
                 //timeSelector.setMode(TimeSelector.MODE.YM);
                 timeSelector.show();
+                break;
+
+            case R.id.btn_1:
+                startActivity(new Intent(this, EnterpriseListActivity.class));
+                break;
+
+            case R.id.btn_2:
+                //startActivity(new Intent(this, EnterpriseListActivity2.class));
                 break;
         }
     }
