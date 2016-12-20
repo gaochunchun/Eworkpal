@@ -71,7 +71,7 @@ public class MainTestActivity extends BaseTitleActivity {
                 break;
 
             case R.id.btn_2:
-                startActivity(new Intent(this, EnterpriseListActivity2.class));
+                //startActivity(new Intent(this, EnterpriseListActivity2.class));
                 break;
         }
     }
