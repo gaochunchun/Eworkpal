@@ -49,8 +49,4 @@ public class Urls {
     public static String URL_GET_MYDEPARTMENT = "api/organization/dept-users";//我的部门
     public static String URL_GET_CONTACT_USERINFO = "api/user/info";//用户信息
 
-
-    private String versionCode(String mVersion) {
-        return mVersion;
-    }
 }
