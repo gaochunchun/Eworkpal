@@ -1,22 +1,17 @@
 /*******************************************************************************
- *
  * Copyright (c) Weaver Info Tech Co. Ltd
- *
+ * <p>
  * RequestConstant
- *
+ * <p>
  * app.backend.manager.RequestConstant.java
  * TODO: File description or class description.
  *
  * @author: gao_chun
- * @since:  2016-1-12
+ * @since: 2016-1-12
  * @version: 1.0.0
- *
- * @changeLogs:
- *     1.0.0: First created this class.
- *
+ * @changeLogs: 1.0.0: First created this class.
  ******************************************************************************/
 package com.mainiway.eworkpal.constant;
-
 
 
 /**
@@ -29,12 +24,13 @@ public class Urls {
     public static String URL_JsonObject = "testJsonObject";
     public static String URL_JsonArray = "testJsonArray";
 
-
+    //登录
+    public static String URL_LOGIN = "Account/V1.0/loginGo";//用户登录
 
     //用户模块
-    public static String URL_LOGIN = "api/account/login";                       //用户登录
+    //public static String URL_LOGIN = "api/account/login";                       //用户登录
     public static String URL_CODE = "api/validcode/mobile/send/enterprise-found";//发送手机验证码，在企业注册时
-    public static String URL_FIND_PAS_CODE="api/validcode/mobile/send/password-found";//发送手机验证码，找回密码
+    public static String URL_FIND_PAS_CODE = "api/validcode/mobile/send/password-found";//发送手机验证码，找回密码
     public static String URL_PHONE_CODE = "api/validcode/mobile/checking";      //验证手机验证码
     public static String URL_VERIFIY_CODE = "api/platsys/isverificationcode";   //验证图片验证码
     public static String URL_CREATE_ENTERPRISE = "api/login/enterprise-found";  //创建企业
@@ -48,8 +44,8 @@ public class Urls {
     public static String URL_GETBYDAY_LIST = "api/attendance/getbyday-list";//获取当天考勤详情-需要参数
     //public static String URL_UPDATE_APPEAL_TYPE ="api/attendance/update-type";//处理签到申述
     public static String URL_GET_ATTENDANCE_LIST = "api/attendance/getperson-list";//个人考勤模块- 我的申述
-    public static String URL_ATTENDANCE="api/attendance/personappeal";//个人中心 -- 考勤申述
-    public static String URL_LEAVE_THE_QUERY="api/holiday/query";//查询调休、年假
+    public static String URL_ATTENDANCE = "api/attendance/personappeal";//个人中心 -- 考勤申述
+    public static String URL_LEAVE_THE_QUERY = "api/holiday/query";//查询调休、年假
 
     //通讯录模块
     public static String URL_GET_ORGANIZATION = "api/organization/company-org";//组织架构
