@@ -6,7 +6,12 @@ import android.os.Environment;
 import android.os.StatFs;
 
 /**
- * SD卡相关的辅助类
+ * ===========================================
+ * 作    者：gao_chun
+ * 版    本：1.0
+ * 创建日期：2016-11-29.
+ * 描    述：SDCard 相关的辅助类
+ * ===========================================
  */
 public class SDCardUtils {
 
@@ -28,9 +33,7 @@ public class SDCardUtils {
      * @return
      */
     public static boolean isSDCardEnable() {
-        return Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED);
-
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
     }
 
     /**

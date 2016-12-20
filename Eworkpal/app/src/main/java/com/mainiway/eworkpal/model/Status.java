@@ -4,6 +4,7 @@ package com.mainiway.eworkpal.model;
  * 测试
  */
 public class Status {
+
     private boolean isRetweet;
     private String text;
     private String userName;
