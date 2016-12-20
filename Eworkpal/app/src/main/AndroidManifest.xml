@@ -77,7 +77,7 @@
 
 
         <activity
-            android:name=".activity.attendance.StatisticsActivity"
+            android:name=".activity.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -172,6 +172,11 @@
         <activity
             android:name=".activity.attendance.AttendanceSignActivity"
             android:label="考勤地图打卡"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.attendance.StatisticsActivity"
+            android:label="考勤统计"
             android:screenOrientation="portrait"/>
 
         <activity

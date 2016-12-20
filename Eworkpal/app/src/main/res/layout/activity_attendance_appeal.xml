@@ -65,6 +65,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
@@ -75,12 +76,13 @@
             android:textStyle="bold"/>
 
         <ImageView
+            android:id="@+id/iv_time_select_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="30px"
-            android:src="@mipmap/ic_attendance_down_arrow"/>
+            android:src="@mipmap/ic_attendance_time_select_down"/>
     </RelativeLayout>
 
     <EditText
@@ -89,7 +91,7 @@
         android:layout_marginTop="20px"
         android:background="@color/white"
         android:gravity="left"
-        android:hint="请填写上报说明"
+        android:hint="请填写申诉理由"
         android:paddingLeft="30px"
         android:paddingTop="20px"
         android:textSize="30px"/>
