@@ -20,15 +20,15 @@ public class AttendanceLateAdapter extends BaseQuickAdapter<AttendanceLateModle,
 
     @Override
     protected void convert(BaseViewHolder baseViewHolder, AttendanceLateModle item) {
-        if (item.getAppeal_state().equals("未申诉")) {
+        if (item.appeal_state.equals("未申诉")) {
             baseViewHolder.setVisible(R.id.appeal_state_tv, false);
             baseViewHolder.setVisible(R.id.appeal_tv, true);
             baseViewHolder.setText(R.id.appeal_tv, "申诉");
-        } else if (item.getAppeal_state().equals("处理中")) {
+        } else if (item.appeal_state.equals("处理中")) {
             baseViewHolder.setVisible(R.id.appeal_state_tv, true);
             baseViewHolder.setVisible(R.id.appeal_tv, false);
             baseViewHolder.setText(R.id.appeal_state_tv, "申诉待处理");
-        } else if (item.getAppeal_state().equals("驳回")) {
+        } else if (item.appeal_state.equals("驳回")) {
             baseViewHolder.setVisible(R.id.appeal_state_tv, true);
             baseViewHolder.setVisible(R.id.appeal_tv, true);
             baseViewHolder.setText(R.id.appeal_state_tv, "申诉被驳回");
