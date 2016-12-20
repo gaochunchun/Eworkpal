@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +13,6 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DateUtil;
 import com.mainiway.eworkpal.utils.GlideImageLoader;
-import com.mainiway.eworkpal.utils.UILImageLoader;
 import com.mainiway.imagepicker.ImagePicker;
 import com.mainiway.imagepicker.model.ImageItem;
 import com.mainiway.imagepicker.ui.ImageGridActivity;
@@ -33,7 +31,7 @@ import java.util.Date;
  * ===========================================
  */
 
-public class ReportedPositionActivity extends BaseTitleActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener{
+public class ReportedPositionActivity extends BaseTitleActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener {
 
 
     public static final int IMAGE_ITEM_ADD = -1;
@@ -43,10 +41,6 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
     private ImagePickerAdapter adapter;
     private ArrayList<ImageItem> selImageList; //当前选择的所有图片
     private int maxImgCount = 8;               //允许选择图片最大数
-
-
-
-
 
 
     private TextView tv_position, tv_date;
@@ -59,7 +53,6 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
         showBackwardView(true);
         initView();
         initData();
-
 
 
         //放到Application oncreate执行
@@ -134,17 +127,6 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     private void initView() {
