@@ -138,7 +138,6 @@ public class LoginActivity extends BaseActivity {
             timer.schedule(task, 2000);
         }
 
-
     }
 
     //TextView动画显示完，设置输入框的状态和软键盘弹出动态计算高度
@@ -275,7 +274,7 @@ public class LoginActivity extends BaseActivity {
     private void login() {
 
         Map<String, Object> mapList = new HashMap<String, Object>();
-        mapList.put("phone", "13811112222");
+        mapList.put("phone", "string");
         mapList.put("password", "123456");
         mapList.put("type", "1");
         mapList.put("ispass", "1");
