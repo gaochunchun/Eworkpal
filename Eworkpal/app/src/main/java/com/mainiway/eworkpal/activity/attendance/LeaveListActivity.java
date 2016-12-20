@@ -21,6 +21,7 @@ public class LeaveListActivity extends BaseTitleActivity {
     private RecyclerView mRecycleView;
     private AttendanceLeaveAdapter mAdapter;
     private List<AttendanceLeaveModle> data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +30,15 @@ public class LeaveListActivity extends BaseTitleActivity {
         showBackwardView(true);
         init();
     }
-    private void init(){
-        data=new ArrayList<>();
-        data.add(new AttendanceLeaveModle("事假",8,"2016-12-15 09:30","2017-01-01 17:30"));
-        data.add(new AttendanceLeaveModle("事假",8,"2016-12-15 09:30","2017-01-01 17:30"));
-        data.add(new AttendanceLeaveModle("事假",8,"2016-12-15 09:30","2017-01-01 17:30"));
-        mRecycleView=findView(R.id.mRecycleView);
+
+    private void init() {
+        data = new ArrayList<>();
+        data.add(new AttendanceLeaveModle("事假", 8, "2016-12-15 09:30", "2017-01-01 17:30"));
+        data.add(new AttendanceLeaveModle("事假", 8, "2016-12-15 09:30", "2017-01-01 17:30"));
+        data.add(new AttendanceLeaveModle("事假", 8, "2016-12-15 09:30", "2017-01-01 17:30"));
+        mRecycleView = findView(R.id.mRecycleView);
         mRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter=new AttendanceLeaveAdapter(R.layout.item_statistics_leave,data);
+        mAdapter = new AttendanceLeaveAdapter(R.layout.item_statistics_leave, data);
         mRecycleView.setAdapter(mAdapter);
     }
 }
