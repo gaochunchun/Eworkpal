@@ -29,8 +29,7 @@ import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
 /**
- *@author gao_chun
- *
+ * @author gao_chun
  */
 public class ValidateUtils {
 
@@ -41,6 +40,7 @@ public class ValidateUtils {
 
     /**
      * 判断手机号码
+     *
      * @param mobiles
      * @return
      */
@@ -54,7 +54,21 @@ public class ValidateUtils {
     }
 
     /**
+     * 判断手机号码,只判断是否是11位，首位数是1。
+     *
+     * @param mobiles
+     * @return
+     */
+    public static boolean isMobile(String mobiles) {
+        if (mobiles.substring(0, 1) == "1" && mobiles.length() == 11) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 判断邮编
+     *
      * @param zipString
      * @return
      */
@@ -65,6 +79,7 @@ public class ValidateUtils {
 
     /**
      * 打电话
+     *
      * @param context
      * @param phone_num
      */
@@ -88,6 +103,7 @@ public class ValidateUtils {
 
     /**
      * 判断邮箱是否合法
+     *
      * @param email
      * @return
      */
@@ -102,6 +118,7 @@ public class ValidateUtils {
 
     /**
      * 验证输入密码长度 (6-18位)
+     *
      * @param password
      * @return
      */
@@ -114,6 +131,7 @@ public class ValidateUtils {
 
     /**
      * 获取WiFi Mac地址
+     *
      * @param context
      * @return
      */
@@ -141,6 +159,7 @@ public class ValidateUtils {
 
     /**
      * 网络连接是否正常
+     *
      * @param context
      * @return
      */
@@ -150,7 +169,7 @@ public class ValidateUtils {
                     .getSystemService(Context.CONNECTIVITY_SERVICE);
             if (mConnectivityManager == null) {
                 return false;
-            }else {
+            } else {
                 NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
                 if (mNetworkInfo != null) {
                     return mNetworkInfo.isAvailable();
