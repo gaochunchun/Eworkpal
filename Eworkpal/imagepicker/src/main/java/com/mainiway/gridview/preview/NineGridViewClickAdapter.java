@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-
 import com.mainiway.gridview.ImageInfo;
 import com.mainiway.gridview.NineGridView;
 import com.mainiway.gridview.NineGridViewAdapter;

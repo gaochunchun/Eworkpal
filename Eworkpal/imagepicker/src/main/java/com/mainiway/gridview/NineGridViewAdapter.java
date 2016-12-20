@@ -3,6 +3,8 @@ package com.mainiway.gridview;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.mainiway.imagepicker.R;
+
 import java.io.Serializable;
 import java.util.List;
 

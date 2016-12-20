@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.mainiway.imagepicker.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
