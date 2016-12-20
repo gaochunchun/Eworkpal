@@ -3,8 +3,8 @@ package com.mainiway.eworkpal.adapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.mainiway.library.adapter.base.BaseQuickAdapter;
+import com.mainiway.library.adapter.base.BaseViewHolder;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.activity.test.DataServer;
 import com.mainiway.eworkpal.activity.test.GlideCircleTransform;

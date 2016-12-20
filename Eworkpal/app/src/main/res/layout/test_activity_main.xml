@@ -44,4 +44,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_1"
+        android:text="样式1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_2"
+        android:text="样式2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

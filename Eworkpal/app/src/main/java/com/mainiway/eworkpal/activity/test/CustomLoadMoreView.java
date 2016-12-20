@@ -1,7 +1,7 @@
 package com.mainiway.eworkpal.activity.test;
 
 
-import com.chad.library.adapter.base.loadmore.LoadMoreView;
+import com.mainiway.library.adapter.base.loadmore.LoadMoreView;
 import com.mainiway.eworkpal.R;
 
 

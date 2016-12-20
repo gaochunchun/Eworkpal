@@ -19,9 +19,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.mainiway.autolayout.AutoLayoutActivity;
 import com.mainiway.eworkpal.R;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;

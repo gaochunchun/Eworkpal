@@ -6,14 +6,6 @@ import android.graphics.Bitmap;
 
 import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.okhttp.GenericRequestManager;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
-import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import java.io.File;
 /**
@@ -24,13 +16,13 @@ import java.io.File;
 public class AppAplication extends Application {
 
     private static Context mContext;
-    private  DisplayImageOptions options;
+    //private  DisplayImageOptions options;
 
 
     //图片缓存路径
-    public static File cacheDir;
-    public static final String CACHE_DIR = "MW/";
-    public static final String CACHE_IMG_DOC = "ImageCache";
+    //public static File cacheDir;
+    //public static final String CACHE_DIR = "MW/";
+    //public static final String CACHE_IMG_DOC = "ImageCache";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -49,7 +41,7 @@ public class AppAplication extends Application {
         GenericRequestManager.initialize(this);
 
         // 初始化ImageLoader
-        initImageLoader(getApplicationContext());
+        //initImageLoader(getApplicationContext());
 
         //初始化定位服务
         //locationService = new LocationService(getApplicationContext());
@@ -69,7 +61,7 @@ public class AppAplication extends Application {
      * init the ImageLoader
      * @param context
      */
-    public void initImageLoader(Context context) {
+    /*public void initImageLoader(Context context) {
 
         com.nostra13.universalimageloader.utils.L.writeLogs(false);// 关闭ImageLoaderLog日志
 
@@ -100,7 +92,7 @@ public class AppAplication extends Application {
 
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config);
-    }
+    }*/
 
 
     /**
@@ -114,5 +106,4 @@ public class AppAplication extends Application {
         }
         return "";
     }*/
-
 }
