@@ -30,15 +30,19 @@ public class GlideCircleTransform extends BitmapTransformation {
         Bitmap squared = Bitmap.createBitmap(source, x, y, size, size);
 
         Bitmap result = pool.get(size, size, Bitmap.Config.ARGB_8888);
+        // 如果BitmapPool中找不到符合该条件的Bitmap，get()方法会返回null，就需要我们自己创建Bitmap
         if (result == null) {
+            // 如果想让Bitmap支持透明度，就需要使用ARGB_8888
             result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         }
 
+        //创建最终Bitmap的Canvas.
         Canvas canvas = new Canvas(result);
         Paint paint = new Paint();
         paint.setShader(new BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
         paint.setAntiAlias(true);
         float r = size / 2f;
+        // 将原始Bitmap处理后画到最终Bitmap中
         canvas.drawCircle(r, r, r, paint);
         return result;
     }

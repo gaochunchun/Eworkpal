@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="52dp">
+              android:layout_height="45dp">
     <!--用于未签到 未签退 暂定-->
   <LinearLayout
       android:layout_width="match_parent"
@@ -47,6 +47,7 @@
               android:text="申诉被驳回"
               android:textSize="15sp"/>
           <TextView
+              android:layout_marginTop="5dp"
               android:id="@+id/appeal_tv"
               android:textColor="@color/blue_85B2F6"
               android:layout_width="wrap_content"

@@ -37,7 +37,12 @@ public class QuickAdapter extends BaseQuickAdapter<Status, BaseViewHolder> {
                 .addOnClickListener(R.id.tweetName)
                 .linkify(R.id.tweetText);
 
-        Glide.with(mContext).load(item.getUserAvatar()).crossFade().placeholder(R.mipmap.def_head).transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.tweetAvatar));
+        Glide.with(mContext)
+                .load(item.getUserAvatar())
+                .crossFade()
+                .placeholder(R.mipmap.def_head)
+                .transform(new GlideCircleTransform(mContext))
+                .into((ImageView) helper.getView(R.id.tweetAvatar));
     }
 
 

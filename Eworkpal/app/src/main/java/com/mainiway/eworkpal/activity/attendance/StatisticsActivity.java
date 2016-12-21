@@ -64,7 +64,7 @@ public class StatisticsActivity extends BaseTitleActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-
+        Intent intent=null;
         //请假
         if (v.equals(leave_tv)) {
             startActivity(new Intent(this, LeaveListActivity.class));
@@ -82,20 +82,25 @@ public class StatisticsActivity extends BaseTitleActivity {
         switch (v.getId()) {
             case R.id.late_tv://迟到
                 SIGN_TYPE = "迟到";
+                break;
             case R.id.leave_early_tv://早退
                 SIGN_TYPE = "早退";
+                break;
             case R.id.un_sign_in_tv://未签到
                 SIGN_TYPE = "未签到";
+                break;
             case R.id.un_sign_out_tv://未签退
                 SIGN_TYPE = "未签退";
+                break;
             case R.id.field_tv://外勤
                 SIGN_TYPE = "外勤";
+                break;
             case R.id.equipment_abnorma_tv://设备异常
                 SIGN_TYPE = "设备异常";
-            default:
-                Intent intent = new Intent(this, LateListActivity.class);
-                intent.putExtra("SIGN_TYPE", SIGN_TYPE);
-                startActivity(intent);
+                break;
         }
+        intent = new Intent(this, LateListActivity.class);
+        intent.putExtra("SIGN_TYPE", SIGN_TYPE);
+        startActivity(intent);
     }
 }
