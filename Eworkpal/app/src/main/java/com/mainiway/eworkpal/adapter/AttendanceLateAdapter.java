@@ -20,6 +20,7 @@ public class AttendanceLateAdapter extends BaseMultiItemQuickAdapter<AttendanceL
         addItemType(1, R.layout.item_statistics_late);//早退
         addItemType(2, R.layout.item_statistics_un_sign);//未签到
         addItemType(3, R.layout.item_statistics_un_sign);//未签退
+        addItemType(4, R.layout.item_attendance_statistics_field);//外勤
 
     }
 
@@ -41,6 +42,8 @@ public class AttendanceLateAdapter extends BaseMultiItemQuickAdapter<AttendanceL
                 baseViewHolder.setText(R.id.appeal_tv, "重新申诉");
             }
         }else if(item.state==2||item.state==3){//未签退 未签到
+
+        }else if(item.state==4){//外勤
 
         }
     }
