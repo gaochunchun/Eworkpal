@@ -1,5 +1,7 @@
 package com.mainiway.eworkpal.model;
 
+import com.mainiway.library.adapter.base.entity.MultiItemEntity;
+
 import java.io.Serializable;
 
 /**
@@ -9,17 +11,19 @@ import java.io.Serializable;
  * 名字暂时不改了
  */
 
-public class AttendanceLateModle implements Serializable {
+public class AttendanceLateModle implements Serializable ,MultiItemEntity {
     private static final long serialVersionUID = 2591223968426329498L;
     public  String  date;
     public String day_of_week;
     public  String time;
     public String address;
-    public String  state;//打卡状态  迟到  早退  设备异常  外勤  设备异常等
+    public int  state;//打卡状态  迟到  早退  设备异常  外勤  设备异常等
     public String  type;//打卡类型  签到 签退
     public String appeal_state;//申诉状态  未申诉 申诉处理中 申诉被驳回
+    public String imag_url;
+    public String field_matter;//外勤事由
 
-    public AttendanceLateModle(String date, String day_of_week, String time, String address, String state, String type, String appeal_state) {
+    public AttendanceLateModle(String date, String day_of_week, String time, String address, int state, String type, String appeal_state) {
         this.date = date;
         this.day_of_week = day_of_week;
         this.time = time;
@@ -30,4 +34,8 @@ public class AttendanceLateModle implements Serializable {
     }
 
 
+    @Override
+    public int getItemType() {
+        return state;
+    }
 }

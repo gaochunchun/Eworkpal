@@ -28,24 +28,27 @@ public class LateListActivity extends BaseTitleActivity {
     private RecyclerView mRecycleView;
     private AttendanceLateAdapter mAdapter;
     private List<AttendanceLateModle> data;
+    private String SIGN_TYPE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_late_list);
-        setTitle("迟到(3)");
+        SIGN_TYPE=getIntent().getStringExtra("SIGN_TYPE");
+        setTitle(SIGN_TYPE);
         showBackwardView(true);
         init();
     }
 
     private void init() {
         data = new ArrayList<>();
-        data.add(new AttendanceLateModle("", "", "", "", "迟到", "签到", "未申诉"));
-        data.add(new AttendanceLateModle("", "", "", "", "迟到", "签到", "处理中"));
-        data.add(new AttendanceLateModle("", "", "", "", "迟到", "签到", "驳回"));
+        data.add(new AttendanceLateModle("", "", "", "", 2, "签到", "未申诉"));
+        data.add(new AttendanceLateModle("", "", "", "", 2, "签到", "处理中"));
+        data.add(new AttendanceLateModle("", "", "", "", 2, "签到", "驳回"));
+
         mRecycleView = findView(R.id.mRecycleView);
         mRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new AttendanceLateAdapter(R.layout.item_statistics_late, data);
+        mAdapter = new AttendanceLateAdapter(data);
         mRecycleView.setAdapter(mAdapter);
 
         mRecycleView.addOnItemTouchListener(new OnItemChildClickListener() {
