@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/tweetAvatar"
-            android:layout_width="@dimen/avatarSize"
+            android:layout_width="50dp"
             android:layout_height="@dimen/avatarSize"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"

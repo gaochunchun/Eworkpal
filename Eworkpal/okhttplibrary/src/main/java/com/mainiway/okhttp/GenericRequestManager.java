@@ -1,19 +1,15 @@
 /*******************************************************************************
- *
  * Copyright (c) Weaver Info Tech Co. Ltd
- *
+ * <p>
  * DataManager
- *
+ * <p>
  * app.backend.manager.GenericRequestManager.java
  * 用来访问服务器上的数据
  *
  * @author: gao_chun
- * @since:  Jul 23, 2014
+ * @since: Jul 23, 2014
  * @version: 1.0.0
- *
- * @changeLogs:
- *     1.0.0: First created this class.
- *
+ * @changeLogs: 1.0.0: First created this class.
  ******************************************************************************/
 package com.mainiway.okhttp;
 
@@ -27,6 +23,8 @@ import com.mainiway.okhttp.model.HttpParams;
 import com.mainiway.okhttp.utils.OkLogger;
 
 import java.io.File;
+
+import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 
 /**
@@ -117,31 +115,31 @@ public class GenericRequestManager {
     /**
      * GET/POST请求(若带有参数 -- 参数为具体的字段)
      * 描述：HttpParams 参数可为空
-     * @param requestType	请求类型
+     * @param requestType    请求类型
      * @param activity 取消请求的Tag
-     * @param mUrl	请求地址
-     * @param mParams	请求参数(无可不传)
+     * @param mUrl    请求地址
+     * @param mParams    请求参数(无可不传)
      * @param mCallback
      */
     public <T> void dataRequestByParamsOrNull(String requestType, Activity activity, String mUrl,
-                                              HttpParams mParams,AbsCallback<T> mCallback){
+                                              HttpParams mParams, AbsCallback<T> mCallback) {
 
-        final String URL = mServerHost + File.separator + mUrl;	//URL
+        final String URL = mServerHost + File.separator + mUrl;    //URL
 
         switch (requestType) {
 
-            case RequestTypes.GET:	//get
+            case RequestTypes.GET:    //get
                 if (mParams != null) {
                     OkHttpUtils.get(URL).tag(activity).params(mParams).execute(mCallback);
-                }else {
+                } else {
                     OkHttpUtils.get(URL).tag(activity).execute(mCallback);
                 }
                 break;
 
-            case RequestTypes.POST:	//post
+            case RequestTypes.POST:    //post
                 if (mParams != null) {
                     OkHttpUtils.post(URL).tag(activity).params(mParams).execute(mCallback);
-                }else {
+                } else {
                     OkHttpUtils.post(URL).tag(activity).execute(mCallback);
                 }
                 break;
@@ -159,24 +157,29 @@ public class GenericRequestManager {
      * @param mCallback
      */
     public <T> void dataRequestByJsonOrStr(String requestType, Activity activity, String mUrl,
-                                           String mJsonOrStr, AbsCallback<T> mCallback){
+                                           String mJsonOrStr, AbsCallback<T> mCallback) {
 
-        if (!TextUtils.isEmpty(mJsonOrStr)) {
+        if (TextUtils.isEmpty(mJsonOrStr)) {
             return;
         }
 
-        final String URL = mServerHost + File.separator + mUrl;	//URL
+        final String URL = mServerHost + File.separator + mUrl;    //URL
+
+        OkLogger.e("------->URL地址："+URL);
 
         switch (requestType) {
 
-            case RequestTypes.UP_STRING:	//上传String串
+            case RequestTypes.UP_STRING:    //上传String串
                 OkHttpUtils.post(URL).tag(activity).upString(mJsonOrStr).execute(mCallback);
                 break;
 
-            case RequestTypes.UP_JSON:	//上传Json串
+            case RequestTypes.UP_JSON:    //上传Json串
                 OkHttpUtils.post(URL).tag(activity).upJson(mJsonOrStr).execute(mCallback);
                 break;
-            //default ignored.
+
+            default:
+                OkLogger.e("------->params is null .");
+                break;
         }
     }
 
@@ -188,10 +191,9 @@ public class GenericRequestManager {
      * @param mParams   请求参数（没有可以不填）
      * @param mCallback
      */
-    public <T> void downloadFile(Activity activity,String mUrl,HttpParams mParams,AbsCallback<T> mCallback)
-    {
-        final String URL = mServerHost + File.separator + mUrl;	//URL
-        if (mParams != null){
+    public <T> void downloadFile(Activity activity, String mUrl, HttpParams mParams, AbsCallback<T> mCallback) {
+        final String URL = mServerHost + File.separator + mUrl;    //URL
+        if (mParams != null) {
             OkHttpUtils.get(URL).tag(activity).params(mParams).execute(mCallback);
         } else {
             OkHttpUtils.get(URL).tag(activity).execute(mCallback);

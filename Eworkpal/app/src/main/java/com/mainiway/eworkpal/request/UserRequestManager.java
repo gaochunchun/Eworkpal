@@ -6,6 +6,7 @@ import com.mainiway.eworkpal.constant.Urls;
 import com.mainiway.okhttp.GenericRequestManager;
 import com.mainiway.okhttp.RequestTypes;
 import com.mainiway.okhttp.callback.AbsCallback;
+import com.mainiway.okhttp.model.HttpParams;
 
 public class UserRequestManager {
 
@@ -26,18 +27,18 @@ public class UserRequestManager {
      * 功能：测试，返回JsonObject对象
      */
 
-    public <T> void testReturnJsonObject(Activity activity,AbsCallback<T> mCallback) {
+    public <T> void testReturnJsonObject(Activity activity, AbsCallback<T> mCallback) {
 
-        GenericRequestManager.getInstance().dataRequestByParamsOrNull(RequestTypes.GET,activity, Urls.URL_JsonObject,null,mCallback);
+        GenericRequestManager.getInstance().dataRequestByParamsOrNull(RequestTypes.GET, activity, Urls.URL_JsonObject, null, mCallback);
 
     }
 
     /**
      * 功能：测试，返回JsonArray数组
      */
-    public <T> void testReturnJsonArray(Activity activity , AbsCallback<T> mCallback) {
+    public <T> void testReturnJsonArray(Activity activity, AbsCallback<T> mCallback) {
 
-        GenericRequestManager.getInstance().dataRequestByParamsOrNull(RequestTypes.GET,activity, Urls.URL_JsonArray,null,mCallback);
+        GenericRequestManager.getInstance().dataRequestByParamsOrNull(RequestTypes.GET, activity, Urls.URL_JsonArray, null, mCallback);
 
     }
 
@@ -57,5 +58,16 @@ public class UserRequestManager {
 
         GenericDataManager.getInstance().dataRequest(Constants.REQUEST_CODE_0,RequestType.TYPE_JSON, activity,Urls.URL_CREATE_RESETPASSWORD, null,JSON.toJSONString(map), mCallback);
     }*/
+
+    /**
+     * 功能：登录
+     */
+
+    public <T> void login(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_LOGIN, mParams, mCallback);
+
+    }
+
 
 }

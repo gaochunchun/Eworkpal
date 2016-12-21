@@ -9,25 +9,42 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
+import com.mainiway.eworkpal.base.BaseResponse;
+import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.constant.Constants;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.model.UserLoginModle;
+import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
+import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
+import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
+import com.mainiway.okhttp.model.HttpParams;
+import com.mainiway.okhttp.utils.OkLogger;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * ===========================================
@@ -120,7 +137,6 @@ public class LoginActivity extends BaseActivity {
             Timer timer = new Timer();
             timer.schedule(task, 2000);
         }
-
 
     }
 
@@ -228,8 +244,8 @@ public class LoginActivity extends BaseActivity {
 //                        }
 //                    }
                     //startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
+                    // startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    login();
 
                     break;
 
@@ -250,6 +266,34 @@ public class LoginActivity extends BaseActivity {
                 //   break;
             }
         }
+    }
+
+    /**
+     * 登录请求
+     */
+    private void login() {
+
+        Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("phone", "string");
+        mapList.put("password", "123456");
+        mapList.put("type", "1");
+        mapList.put("ispass", "1");
+        String str = GsonConvertUtil.toJson(mapList);
+        Log.i("zhsh","str====="+str);
+
+        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(LoginActivity.this) {
+            @Override
+            public void onSuccess(BaseResponse baseResponse, Call call, Response response) {
+                OkLogger.e(baseResponse.status+" ---" + baseResponse.message);
+            }
+
+            @Override
+            public void onError(Call call, Response response, Exception e) {
+                super.onError(call, response, e);
+                ToastUtils.showToastShort(e.toString());
+            }
+        });
+
     }
 
 }

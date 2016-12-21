@@ -12,7 +12,7 @@ import com.mainiway.eworkpal.adapter.ImagePickerAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DateUtil;
-import com.mainiway.eworkpal.utils.GlideImageLoader;
+import com.mainiway.eworkpal.cache.GlideImageLoader;
 import com.mainiway.imagepicker.ImagePicker;
 import com.mainiway.imagepicker.model.ImageItem;
 import com.mainiway.imagepicker.ui.ImageGridActivity;
@@ -63,7 +63,6 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
 
     private void initImagePicker() {
         ImagePicker imagePicker = ImagePicker.getInstance();
-        //imagePicker.setImageLoader(new UILImageLoader());   //设置图片加载器
         imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
         imagePicker.setShowCamera(true);                      //显示拍照按钮
         imagePicker.setCrop(false);                           //允许裁剪（单选才有效）
