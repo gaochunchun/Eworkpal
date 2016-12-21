@@ -22,6 +22,7 @@ public class AttendanceLateModle implements Serializable ,MultiItemEntity {
     public String appeal_state;//申诉状态  未申诉 申诉处理中 申诉被驳回
     public String imag_url;
     public String field_matter;//外勤事由
+    public String equipment_type;//设备型号
 
     public AttendanceLateModle(String date, String day_of_week, String time, String address, int state, String type, String appeal_state) {
         this.date = date;
