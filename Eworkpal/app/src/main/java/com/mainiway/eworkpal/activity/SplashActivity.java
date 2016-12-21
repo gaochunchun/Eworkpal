@@ -3,14 +3,12 @@ package com.mainiway.eworkpal.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.test.MainTestActivity;
 import com.mainiway.eworkpal.activity.user.LoginActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 
