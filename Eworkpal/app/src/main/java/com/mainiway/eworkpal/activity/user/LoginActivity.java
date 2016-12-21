@@ -244,8 +244,8 @@ public class LoginActivity extends BaseActivity {
 //                        }
 //                    }
                     //startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
-                    // startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    login();
+                   startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    //login();
 
                     break;
 
