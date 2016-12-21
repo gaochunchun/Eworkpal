@@ -40,7 +40,7 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
 
     private ImagePickerAdapter adapter;
     private ArrayList<ImageItem> selImageList; //当前选择的所有图片
-    private int maxImgCount = 8;               //允许选择图片最大数
+    private int maxImgCount = 9;               //允许选择图片最大数
 
 
     private TextView tv_position, tv_date;
@@ -81,7 +81,7 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
         adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
         adapter.setOnItemClickListener(this);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
     }
