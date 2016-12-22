@@ -29,7 +29,7 @@ import com.amap.api.maps.model.MarkerOptions;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
-import com.mainiway.eworkpal.utils.DateUtil;
+import com.mainiway.eworkpal.utils.DateUtils;
 
 import java.util.Date;
 
@@ -159,8 +159,8 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
 
     private void initData() {
         //显示当前时间
-        String[] date = DateUtil.getToday().split("-");//yyyy-MM-dd
-        String week = DateUtil.getWeek(new Date());
+        String[] date = DateUtils.getToday().split("-");//yyyy-MM-dd
+        String week = DateUtils.getWeek(new Date());
         tv_date.setText(date[0] + "年" + date[1] + "月" + date[2] + "日" + "　　" + week);
     }
 

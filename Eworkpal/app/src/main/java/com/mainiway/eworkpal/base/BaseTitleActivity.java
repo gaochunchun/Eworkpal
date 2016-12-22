@@ -135,6 +135,7 @@ public class BaseTitleActivity extends BaseActivity implements OnClickListener {
         if (mForwardButton != null) {
 
             mForwardButton.setVisibility(View.VISIBLE);
+            mForwardButton2.setVisibility(View.GONE);
             mForwardButton.setText(mtext);
             mForwardButton.setCompoundDrawables(null, null, null, null);
         }// else ignored

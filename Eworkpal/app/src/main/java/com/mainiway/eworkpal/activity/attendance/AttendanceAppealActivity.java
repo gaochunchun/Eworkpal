@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
-import com.mainiway.eworkpal.utils.DateUtil;
+import com.mainiway.eworkpal.utils.DateUtils;
 import com.mainiway.eworkpal.widgets.TimeSelector;
 
 /**
@@ -40,7 +40,7 @@ public class AttendanceAppealActivity extends BaseTitleActivity implements View.
 
     private void initData() {
         //显示当前时间
-        String[] time = DateUtil.getTime().split(":");//HH:mm:ss
+        String[] time = DateUtils.getTime().split(":");//HH:mm:ss
         tv_time.setText(time[0] + ":" + time[1]);
     }
 

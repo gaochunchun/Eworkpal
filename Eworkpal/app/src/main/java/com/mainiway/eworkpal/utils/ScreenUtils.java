@@ -12,9 +12,9 @@ import android.view.WindowManager;
 /**
  * Created by gao_chun on 2016/11/27.
  */
-public class ScreenUtil {
+public class ScreenUtils {
 
-	private ScreenUtil() {
+	private ScreenUtils() {
         /* cannot be instantiated */
 		throw new UnsupportedOperationException("cannot be instantiated");
 	}

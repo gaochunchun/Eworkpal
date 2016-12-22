@@ -51,16 +51,16 @@
         android:orientation="horizontal">
 
         <Button
+            android:visibility="invisible"
             android:id="@+id/button_forward"
-            android:layout_width="50dp"
+            android:layout_width="75dp"
             android:layout_height="match_parent"
             android:background="@null"
             android:drawableRight="@mipmap/ic_back_arrow"
             android:gravity="center"
             android:onClick="onClick"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:visibility="invisible" />
+            android:textSize="16sp"/>
 
         <Button
             android:id="@+id/button_forward2"
@@ -70,9 +70,9 @@
             android:drawableLeft="@mipmap/ic_back_arrow"
             android:gravity="center"
             android:onClick="onClick"
-            android:paddingLeft="30px"
+            android:paddingLeft="25px"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:visibility="invisible" />
 
     </LinearLayout>
