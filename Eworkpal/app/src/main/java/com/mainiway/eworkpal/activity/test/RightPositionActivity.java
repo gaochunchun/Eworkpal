@@ -1,13 +1,11 @@
-package com.mainiway.eworkpal.activity.attendance;
+package com.mainiway.eworkpal.activity.test;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.adapter.ContactsAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
-import com.mainiway.eworkpal.model.Contact;
 import com.mainiway.eworkpal.widgets.SideBarView;
 
 import java.util.ArrayList;

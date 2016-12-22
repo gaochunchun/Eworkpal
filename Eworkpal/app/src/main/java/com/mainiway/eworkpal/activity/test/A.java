@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.model;
+package com.mainiway.eworkpal.activity.test;
 
 import java.io.Serializable;
 
@@ -8,8 +8,6 @@ import java.io.Serializable;
  */
 
 public class A implements Serializable {
-
-
     private static final long serialVersionUID = 3212079394312949760L;
 
     public String token;

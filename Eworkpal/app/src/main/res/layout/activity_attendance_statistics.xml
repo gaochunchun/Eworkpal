@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white_F7F9FC"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_F7F9FC"
+              android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:gravity="center"
                 android:text="曹操"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 android:text="曹操"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:text="24小时"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
                         android:layout_marginTop="20px"
                         android:text="调休额度"
                         android:textColor="@color/gray_CCCCCC"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:text="24小时"
                         android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -84,11 +84,10 @@
                         android:layout_marginTop="20px"
                         android:text="年假额度"
                         android:textColor="@color/gray_CCCCCC"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
 
         <View
             android:layout_width="match_parent"
@@ -116,14 +115,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2017年"
-                        android:textColor="@color/gray_CCCCCC" />
+                        android:textColor="@color/gray_CCCCCC"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20px"
                         android:text="02月"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <ImageView
@@ -131,14 +130,14 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/ic_attendance_down_arrow" />
+                    android:src="@mipmap/ic_attendance_down_arrow"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="1px"
                 android:layout_height="76px"
                 android:layout_gravity="center_vertical"
-                android:background="@color/white_9ABEF5" />
+                android:background="@color/white_9ABEF5"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -151,21 +150,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="应出勤天数"
-                    android:textColor="@color/gray_CCCCCC" />
+                    android:textColor="@color/gray_CCCCCC"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20px"
                     android:text="21天"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <View
                 android:layout_width="1px"
                 android:layout_height="76px"
                 android:layout_gravity="center_vertical"
-                android:background="@color/white_9ABEF5" />
+                android:background="@color/white_9ABEF5"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -178,14 +177,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="出勤天数"
-                    android:textColor="@color/gray_CCCCCC" />
+                    android:textColor="@color/gray_CCCCCC"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20px"
                     android:text="21天"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -205,7 +204,7 @@
             android:gravity="center_vertical|right"
             android:text="迟到"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/late_tv"
@@ -215,12 +214,12 @@
             android:gravity="center"
             android:text="10次"
             android:textColor="@color/red_E14072"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_attendance_backslashes" />
+            android:src="@mipmap/ic_attendance_backslashes"/>
 
         <TextView
             android:layout_width="0dp"
@@ -229,7 +228,7 @@
             android:gravity="center"
             android:text="早退"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/leave_early_tv"
@@ -239,7 +238,7 @@
             android:gravity="center_vertical"
             android:text="10次"
             android:textColor="@color/red_E14072"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
@@ -258,7 +257,7 @@
             android:gravity="center_vertical|right"
             android:text="未签到"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/un_sign_in_tv"
@@ -268,12 +267,12 @@
             android:gravity="center"
             android:text="0次"
             android:textColor="@color/black_868686"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_attendance_backslashes" />
+            android:src="@mipmap/ic_attendance_backslashes"/>
 
         <TextView
             android:layout_width="0dp"
@@ -282,7 +281,7 @@
             android:gravity="center"
             android:text="未签退"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/un_sign_out_tv"
@@ -292,7 +291,7 @@
             android:gravity="center_vertical"
             android:text="10次"
             android:textColor="@color/red_E14072"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
@@ -310,7 +309,7 @@
             android:gravity="center_vertical|right"
             android:text="外勤"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/field_tv"
@@ -320,12 +319,12 @@
             android:gravity="center"
             android:text="10次"
             android:textColor="@color/red_E14072"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_attendance_backslashes" />
+            android:src="@mipmap/ic_attendance_backslashes"/>
 
         <TextView
             android:layout_width="0dp"
@@ -334,7 +333,7 @@
             android:gravity="center"
             android:text="设备异常"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/equipment_abnorma_tv"
@@ -344,7 +343,7 @@
             android:gravity="center_vertical"
             android:text="10次"
             android:textColor="@color/red_E14072"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
@@ -354,7 +353,7 @@
         android:layout_marginLeft="20px"
         android:gravity="center_vertical"
         android:text="统计"
-        android:textSize="15sp" />
+        android:textSize="15sp"/>
 
 
     <LinearLayout
@@ -370,7 +369,7 @@
             android:gravity="center_vertical|right"
             android:text="请假"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/leave_tv"
@@ -380,13 +379,13 @@
             android:gravity="center"
             android:text="3次"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/ic_attendance_backslashes"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
         <TextView
             android:layout_width="0dp"
@@ -395,7 +394,7 @@
             android:gravity="center"
             android:text="23小时 (2.4天)"
             android:textColor="@color/orangey_F5A623"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
@@ -426,13 +425,13 @@
             android:gravity="center"
             android:text="3次"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/ic_attendance_backslashes"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
         <TextView
             android:layout_width="0dp"
@@ -441,7 +440,7 @@
             android:gravity="center"
             android:text="23小时 (2.4天)"
             android:textColor="@color/orangey_F5A623"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </LinearLayout>
 
@@ -460,7 +459,7 @@
             android:gravity="center_vertical|right"
             android:text="出差"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <TextView
             android:id="@+id/business_travel_tv"
@@ -470,13 +469,13 @@
             android:gravity="center"
             android:text="3次"
             android:textColor="@color/black_4A4A4A"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/ic_attendance_backslashes"
-            android:visibility="invisible" />
+            android:visibility="invisible"/>
 
         <TextView
             android:layout_width="0dp"
@@ -485,7 +484,7 @@
             android:gravity="center"
             android:text="23小时 (2.4天)"
             android:textColor="@color/orangey_F5A623"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </LinearLayout>
 </LinearLayout>
