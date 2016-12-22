@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.adapter;
+package com.mainiway.eworkpal.activity.test;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.test.Contact;
 
 import java.util.List;
 

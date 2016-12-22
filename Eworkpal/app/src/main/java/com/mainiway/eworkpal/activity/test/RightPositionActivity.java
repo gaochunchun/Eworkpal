@@ -5,9 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.adapter.ContactsAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
-import com.mainiway.eworkpal.activity.test.Contact;
 import com.mainiway.eworkpal.widgets.SideBarView;
 
 import java.util.ArrayList;

@@ -11,7 +11,6 @@ import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemChildClickListener;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.adapter.QuickAdapter;
 
 /**
  * 动画使用示例
