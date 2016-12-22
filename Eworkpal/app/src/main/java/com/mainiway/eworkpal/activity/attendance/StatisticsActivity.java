@@ -2,6 +2,7 @@ package com.mainiway.eworkpal.activity.attendance;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,9 +21,9 @@ public class StatisticsActivity extends BaseTitleActivity {
     //请假 加班 出差
     private TextView leave_tv, over_time_tv, business_travel_tv;
     //签到状态
-    private String SIGN_TYPE = null;
+    private String SIGN_TYPE;
     //申请类型
-    private String APPLICATION_TYPE = null;
+    private String APPLICATION_TYPE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,8 @@ public class StatisticsActivity extends BaseTitleActivity {
     public void onClick(View v) {
         super.onClick(v);
         Intent intent = null;
+        APPLICATION_TYPE="";
+        SIGN_TYPE="";
         switch (v.getId()) {
             case R.id.late_tv:
                 SIGN_TYPE = "迟到";
@@ -84,6 +87,9 @@ public class StatisticsActivity extends BaseTitleActivity {
             case R.id.field_tv:
                 SIGN_TYPE = "外勤";
                 break;
+            case R.id.equipment_abnorma_tv:
+                SIGN_TYPE = "设备异常";
+                break;
             case R.id.leave_tv:
                 APPLICATION_TYPE = "请假";
                 break;
@@ -94,14 +100,17 @@ public class StatisticsActivity extends BaseTitleActivity {
                 APPLICATION_TYPE = "出差";
                 break;
         }
-        if (SIGN_TYPE != null) {
+        if (!TextUtils.isEmpty(SIGN_TYPE)) {
             intent = new Intent(this, LateListActivity.class);
             intent.putExtra("SIGN_TYPE", SIGN_TYPE);
             startActivity(intent);
-        } else if (APPLICATION_TYPE != null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(APPLICATION_TYPE)) {
             intent = new Intent(this, LeaveListActivity.class);
             intent.putExtra("APPLICATION_TYPE", APPLICATION_TYPE);
             startActivity(intent);
+            return;
         }
 
     }
