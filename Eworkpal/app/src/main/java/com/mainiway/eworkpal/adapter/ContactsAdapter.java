@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.model.Contact;
+import com.mainiway.eworkpal.activity.test.Contact;
 
 import java.util.List;
 

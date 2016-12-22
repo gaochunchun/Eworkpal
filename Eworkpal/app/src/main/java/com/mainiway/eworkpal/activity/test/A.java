@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.model;
+package com.mainiway.eworkpal.activity.test;
 
 import java.io.Serializable;
 

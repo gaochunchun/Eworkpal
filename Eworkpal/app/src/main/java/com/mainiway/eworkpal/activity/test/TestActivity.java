@@ -8,7 +8,6 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
-import com.mainiway.eworkpal.model.A;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.okhttp.OkHttpUtils;
