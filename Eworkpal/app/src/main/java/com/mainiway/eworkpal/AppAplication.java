@@ -2,13 +2,10 @@ package com.mainiway.eworkpal;
 
 import android.app.Application;
 import android.content.Context;
-import android.graphics.Bitmap;
 
 import com.mainiway.eworkpal.manager.ConfigManager;
 import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.okhttp.GenericRequestManager;
-
-import java.io.File;
 /**
  * Application
  * @author gao_chun
@@ -18,7 +15,6 @@ public class AppAplication extends Application {
 
     private static Context mContext;
     //private  DisplayImageOptions options;
-
 
     //图片缓存路径
     //public static File cacheDir;
