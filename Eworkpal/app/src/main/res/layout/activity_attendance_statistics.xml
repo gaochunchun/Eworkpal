@@ -89,7 +89,11 @@
             </LinearLayout>
         </LinearLayout>
 
-        <include layout="@layout/layout_line_horizonal"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/white_9ABEF5"/>
 
         <LinearLayout
             android:layout_width="match_parent"
