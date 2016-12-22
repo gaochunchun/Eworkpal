@@ -34,10 +34,25 @@ public class JsonConvert<T> implements Converter<T> {
             Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
             type = params[0];
         }
+
+
+
+
         if (!(type instanceof ParameterizedType)) throw new IllegalStateException("没有填写泛型参数");
 
-        Type rawType = ((ParameterizedType) type).getRawType();
+        /*if (!(type instanceof ParameterizedType)){
+            BaseResultResponse baseResultResponse = GsonConvertUtil.fromJson(jsonReader, BaseResultResponse.class);
+            //noinspection unchecked
+            return (T) baseResultResponse.toJsonResponse();
+        }*/
 
+
+
+
+
+
+
+        Type rawType = ((ParameterizedType) type).getRawType();
         //无数据类型
         if (rawType == Void.class) {
             BaseResultResponse baseResultResponse = GsonConvertUtil.fromJson(jsonReader, BaseResultResponse.class);

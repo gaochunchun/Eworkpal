@@ -279,7 +279,6 @@ public class LoginActivity extends BaseActivity {
         mapList.put("type", "1");
         mapList.put("ispass", "1");
         String str = GsonConvertUtil.toJson(mapList);
-        Log.i("zhsh","str====="+str);
 
         UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(LoginActivity.this) {
             @Override

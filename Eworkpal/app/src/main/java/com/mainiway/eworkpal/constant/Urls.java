@@ -21,7 +21,7 @@ package com.mainiway.eworkpal.constant;
 public class Urls {
 
 
-    private static final String VERSION_CODE = "V1.0";
+    private static final String VERSION_CODE = "v1.0";
 
     //测试使用  -- 待删除
     public static String URL_JsonObject = "testJsonObject";
@@ -29,6 +29,7 @@ public class Urls {
 
     //登录
     public static String URL_LOGIN = "Account/"+ VERSION_CODE +"/loginGo";//用户登录
+    public static String URL_SET_PHONE_CODE = "Mobile/"+ VERSION_CODE +"/sendMobileCode";//发送手机短信码
 
 
     //用户模块

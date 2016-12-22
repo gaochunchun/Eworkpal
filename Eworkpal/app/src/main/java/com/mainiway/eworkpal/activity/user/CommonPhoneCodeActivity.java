@@ -2,6 +2,7 @@ package com.mainiway.eworkpal.activity.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -13,13 +14,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.constant.Constants;
+import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.model.UserLoginModle;
+import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
+import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.TimeCount;
 import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.eworkpal.utils.ValidateUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
+import com.mainiway.okhttp.utils.OkLogger;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 import static com.mainiway.eworkpal.R.id.tv_register_get_code;
 
@@ -38,7 +53,8 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
     private RelativeLayout rl_picture_code_layout;
     private ImageView iv_picture_code;
     private EditText et_picture_code, et_phone_number, et_phone_code;
-    private int count;//测试用的点击验证码次数的变量
+    private boolean show_picture_code=false;//根据服务器返回的status值，判断是否显示图片验证码，默认为false
+    private int pass = 0;//判断是否进行过图片验证码验证，默认值为0。（0：未验证，1：验证）
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,8 +158,13 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
                 case R.id.tv_get_code://获取验证码
 
-                    count++;
-                    if (count > 3) {
+                    if(ValidateUtils.isMobile(et_phone_number.getText().toString())){
+                        setPhoneCode();
+                    }else{
+                        ToastUtils.showToastShort("请输入正确的手机号码");
+                        break;
+                    }
+                    if (show_picture_code) {
                         rl_picture_code_layout.setVisibility(View.VISIBLE);
                         //获取验证码不可点击
                         DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
@@ -162,6 +183,8 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
             }
         }
+
+
     }
 
     /**
@@ -197,7 +220,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                     if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                         rl_picture_code_layout.setVisibility(View.GONE);
                         DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
-                        count = 0;
+                        pass=1;//表示已经验证过图片验证码
                     } else {
                         ToastUtils.showToastShort("图片验证码错误");
                     }
@@ -221,6 +244,43 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
         }
 
     };
+
+    /**
+     *发送手机短信码
+     */
+    private void setPhoneCode() {
+        Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("phone",et_phone_number.getText().toString());
+        mapList.put("pass", pass);
+        mapList.put("type", ResultErrorCode.TYPE_CREATE_ENTERPRISE);
+        mapList.put("company_id", 0);
+
+        String str = GsonConvertUtil.toJson(mapList);
+
+        UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(CommonPhoneCodeActivity.this) {
+            @Override
+            public void onSuccess(BaseResponse<UserLoginModle> responseData, Call call, Response response) {
+                OkLogger.e(responseData.successed + " -- "+ responseData.status+ " -- "+responseData.message.get(0).msg+ " -- "+responseData.data);
+
+               // ToastUtils.showToastShort((BaseResponse.MsgInfo) baseResponse.message.get(0).get);
+                //如果服务器返回的status=403，显示图片验证码，否则不显示
+                Log.i("zhsh","baseResponse.status==="+responseData.status);
+                if(responseData.status==ResultErrorCode.CODE_SEND_CODE_THREE){
+                    show_picture_code=true;
+                }else{
+                    show_picture_code=false;
+                }
+            }
+
+            @Override
+            public void onError(Call call, Response response, Exception e) {
+                super.onError(call, response, e);
+                OkLogger.e(e.toString());
+                ToastUtils.showToastShort(e.toString());
+            }
+        });
+
+    }
 
 
 }

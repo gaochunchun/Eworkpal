@@ -69,5 +69,14 @@ public class UserRequestManager {
 
     }
 
+    /**
+     * 功能：发送手机短信码         页面:CommonPhoneCodeActivity.java
+     */
+
+    public <T> void setPhoneCode(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_SET_PHONE_CODE, mParams, mCallback);
+
+    }
 
 }

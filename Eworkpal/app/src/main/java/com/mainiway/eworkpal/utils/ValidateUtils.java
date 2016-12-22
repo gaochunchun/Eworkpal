@@ -56,12 +56,14 @@ public class ValidateUtils {
     /**
      * 判断手机号码,只判断是否是11位，首位数是1。
      *
-     * @param mobiles
+     * @param mobile
      * @return
      */
-    public static boolean isMobile(String mobiles) {
-        if (mobiles.substring(0, 1) == "1" && mobiles.length() == 11) {
-            return true;
+    public static boolean isMobile(String mobile) {
+        if (mobile.length() >= 1) {
+            if (mobile.startsWith("1") && mobile.length() == 11) {
+                return true;
+            }
         }
         return false;
     }
