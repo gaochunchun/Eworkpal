@@ -25,6 +25,7 @@ import java.util.List;
  */
 
 public class LateListActivity extends BaseTitleActivity {
+
     private RecyclerView mRecycleView;
     private AttendanceLateAdapter mAdapter;
     private List<AttendanceLateModle> data;
