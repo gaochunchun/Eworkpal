@@ -11,7 +11,7 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.adapter.ImagePickerAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
-import com.mainiway.eworkpal.utils.DateUtil;
+import com.mainiway.eworkpal.utils.DateUtils;
 import com.mainiway.eworkpal.cache.GlideImageLoader;
 import com.mainiway.imagepicker.ImagePicker;
 import com.mainiway.imagepicker.model.ImageItem;
@@ -142,9 +142,9 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
             tv_position.setText(bundle.getString("city") + bundle.getString("district") + bundle.getString("street") + bundle.getString("streetNum"));
         }
         //显示当前时间
-        String[] date = DateUtil.getToday().split("-");//yyyy-MM-dd
-        String[] time = DateUtil.getTime().split(":");//HH:mm:ss
-        String week = DateUtil.getWeek(new Date());
+        String[] date = DateUtils.getToday().split("-");//yyyy-MM-dd
+        String[] time = DateUtils.getTime().split(":");//HH:mm:ss
+        String week = DateUtils.getWeek(new Date());
         tv_date.setText(date[0] + "年" + date[1] + "月" + date[2] + "日" + "　　" + week + "　　" + time[0] + ":" + time[1]);
     }
 

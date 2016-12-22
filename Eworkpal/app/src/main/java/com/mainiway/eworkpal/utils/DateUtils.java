@@ -10,9 +10,9 @@ import java.util.GregorianCalendar;
 /**
  * Created by gao_chun on 2016/11/27.
  */
-public class DateUtil {
+public class DateUtils {
 
-    private DateUtil() {
+    private DateUtils() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
@@ -296,11 +296,11 @@ public class DateUtil {
     public static String getdayAfter(String dates,int days) throws Exception {
         Calendar c = Calendar.getInstance();
         Date date=null;
-        date = DateUtil.parse(dates);
+        date = DateUtils.parse(dates);
         c.setTime(date);
         int day=c.get(Calendar.DATE);
         c.set(Calendar.DATE,day + days);
-        String dayAfter = DateUtil.format(c.getTime());
+        String dayAfter = DateUtils.format(c.getTime());
         return dayAfter;
     }
 
@@ -316,11 +316,11 @@ public class DateUtil {
     public static String getdaybefore(String dates,int days) throws Exception {
         Calendar c = Calendar.getInstance();
         Date date=null;
-        date = DateUtil.parse(dates);
+        date = DateUtils.parse(dates);
         c.setTime(date);
         int day=c.get(Calendar.DATE);
         c.set(Calendar.DATE,day - days);
-        String dayAfter = DateUtil.format(c.getTime());
+        String dayAfter = DateUtils.format(c.getTime());
         return dayAfter;
     }
 

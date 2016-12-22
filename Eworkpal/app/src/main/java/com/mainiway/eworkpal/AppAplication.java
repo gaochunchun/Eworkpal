@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 
+import com.mainiway.eworkpal.manager.ConfigManager;
 import com.mainiway.eworkpal.utils.CrashManager;
 import com.mainiway.okhttp.GenericRequestManager;
 
@@ -33,7 +34,7 @@ public class AppAplication extends Application {
         CrashManager.install(getApplicationContext());
 
         // 初始化用户配置信息
-        //ConfigManager.initialize(getApplicationContext());
+        ConfigManager.initialize(getApplicationContext());
 
         // 初始化网络配置
         //final GlobalConfigManager globalConfigManager = GlobalConfigManager.getInstance();
@@ -43,11 +44,8 @@ public class AppAplication extends Application {
         // 初始化ImageLoader
         //initImageLoader(getApplicationContext());
 
-        //初始化定位服务
-        //locationService = new LocationService(getApplicationContext());
-
         //初始化SDcard目录
-        //FileUtil.initFileDir();
+        //FileUtils.initFileDir();
 
     }
 

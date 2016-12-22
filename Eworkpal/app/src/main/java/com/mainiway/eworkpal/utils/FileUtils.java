@@ -31,9 +31,9 @@ import android.util.Log;
  * 描    述：File 操作类
  * ===========================================
  */
-public class FileUtil {
+public class FileUtils {
 
-    private FileUtil() {
+    private FileUtils() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }

@@ -12,18 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.utils.DateUtil;
-import com.mainiway.eworkpal.utils.ScreenUtil;
+import com.mainiway.eworkpal.utils.DateUtils;
+import com.mainiway.eworkpal.utils.ScreenUtils;
 import com.mainiway.eworkpal.utils.ValidateUtils;
-import com.mainiway.okhttp.utils.OkLogger;
 
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
-import static android.R.attr.mode;
 
 /**
  * Created by gao_chun on 2016/11/27.
@@ -143,7 +140,7 @@ public class TimeSelector {
             Window window = seletorDialog.getWindow();
             window.setGravity(Gravity.BOTTOM);
             WindowManager.LayoutParams lp = window.getAttributes();
-            int width = ScreenUtil.getScreenWidth(context);
+            int width = ScreenUtils.getScreenWidth(context);
             lp.width = width;
             window.setAttributes(lp);
         }
@@ -187,7 +184,7 @@ public class TimeSelector {
                 } else if (mTimeType == 4) {//显示年月
                     mFormat = "yyyy-MM";
                 }
-                handler.handle(DateUtil.format(selectedCalender.getTime(), mFormat));
+                handler.handle(DateUtils.format(selectedCalender.getTime(), mFormat));
                 seletorDialog.dismiss();
             }
         });
