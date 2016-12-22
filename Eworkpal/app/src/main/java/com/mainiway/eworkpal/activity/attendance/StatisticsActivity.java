@@ -21,7 +21,7 @@ public class StatisticsActivity extends BaseTitleActivity {
     private TextView late_tv, leave_early_tv, un_sign_in_tv, un_sign_out_tv, field_tv, equipment_abnorma_tv;
     //请假 加班 出差
     private TextView leave_tv, over_time_tv, business_travel_tv;
-    //签到状态
+    //打卡状态
     private String SIGN_TYPE;
     //申请类型
     private String APPLICATION_TYPE;

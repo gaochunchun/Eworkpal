@@ -21,7 +21,7 @@ public class AttendanceLateAdapter extends BaseMultiItemQuickAdapter<AttendanceL
         addItemType(2, R.layout.item_statistics_un_sign);//未签到
         addItemType(3, R.layout.item_statistics_un_sign);//未签退
         addItemType(4, R.layout.item_attendance_statistics_field);//外勤
-        addItemType(5, R.layout.item_attendance_statistics_equipment_abnorma);//外勤
+        addItemType(5, R.layout.item_attendance_statistics_equipment_abnorma);//设备异常
 
     }
 
