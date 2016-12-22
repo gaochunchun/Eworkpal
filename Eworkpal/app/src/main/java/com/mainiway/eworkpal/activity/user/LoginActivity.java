@@ -280,7 +280,7 @@ public class LoginActivity extends BaseActivity {
         mapList.put("ispass", "1");
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(LoginActivity.this) {
+        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse>(this) {
             @Override
             public void onSuccess(BaseResponse baseResponse, Call call, Response response) {
                 OkLogger.e(baseResponse.status+" ---" + baseResponse.message);
