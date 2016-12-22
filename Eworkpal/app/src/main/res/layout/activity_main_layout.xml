@@ -64,6 +64,7 @@
             android:textSize="66px"/>
 
         <TextView
+            android:id="@+id/tv_sign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

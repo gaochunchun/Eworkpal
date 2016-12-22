@@ -21,12 +21,14 @@ public class LeaveListActivity extends BaseTitleActivity {
     private RecyclerView mRecycleView;
     private AttendanceLeaveAdapter mAdapter;
     private List<AttendanceLeaveModle> data;
+    private String APPLICATION_TYPE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_leave_list);
-        setTitle("请假(4)");
+        APPLICATION_TYPE = getIntent().getStringExtra("APPLICATION_TYPE");
+        setTitle(APPLICATION_TYPE);
         showBackwardView(true);
         init();
     }

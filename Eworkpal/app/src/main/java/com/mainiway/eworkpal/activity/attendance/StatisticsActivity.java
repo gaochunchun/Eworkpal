@@ -2,6 +2,7 @@ package com.mainiway.eworkpal.activity.attendance;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,6 +22,9 @@ public class StatisticsActivity extends BaseTitleActivity {
     private TextView leave_tv, over_time_tv, business_travel_tv;
     //签到状态
     private String SIGN_TYPE;
+    //申请类型
+    private String APPLICATION_TYPE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,43 +68,50 @@ public class StatisticsActivity extends BaseTitleActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        Intent intent=null;
-        //请假
-        if (v.equals(leave_tv)) {
-            startActivity(new Intent(this, LeaveListActivity.class));
+        Intent intent = null;
+        APPLICATION_TYPE="";
+        SIGN_TYPE="";
+        switch (v.getId()) {
+            case R.id.late_tv:
+                SIGN_TYPE = "迟到";
+                break;
+            case R.id.leave_early_tv:
+                SIGN_TYPE = "早退";
+                break;
+            case R.id.un_sign_in_tv:
+                SIGN_TYPE = "未签到";
+                break;
+            case R.id.un_sign_out_tv:
+                SIGN_TYPE = "未签退";
+                break;
+            case R.id.field_tv:
+                SIGN_TYPE = "外勤";
+                break;
+            case R.id.equipment_abnorma_tv:
+                SIGN_TYPE = "设备异常";
+                break;
+            case R.id.leave_tv:
+                APPLICATION_TYPE = "请假";
+                break;
+            case R.id.over_time_tv:
+                APPLICATION_TYPE = "加班";
+                break;
+            case R.id.business_travel_tv:
+                APPLICATION_TYPE = "出差";
+                break;
+        }
+        if (!TextUtils.isEmpty(SIGN_TYPE)) {
+            intent = new Intent(this, LateListActivity.class);
+            intent.putExtra("SIGN_TYPE", SIGN_TYPE);
+            startActivity(intent);
             return;
         }
-        //加班
-        if (v.equals(over_time_tv)) {
-            return;
-        }
-        //出差
-        if (v.equals(business_travel_tv)) {
+        if (!TextUtils.isEmpty(APPLICATION_TYPE)) {
+            intent = new Intent(this, LeaveListActivity.class);
+            intent.putExtra("APPLICATION_TYPE", APPLICATION_TYPE);
+            startActivity(intent);
             return;
         }
 
-        switch (v.getId()) {
-            case R.id.late_tv://迟到
-                SIGN_TYPE = "迟到";
-                break;
-            case R.id.leave_early_tv://早退
-                SIGN_TYPE = "早退";
-                break;
-            case R.id.un_sign_in_tv://未签到
-                SIGN_TYPE = "未签到";
-                break;
-            case R.id.un_sign_out_tv://未签退
-                SIGN_TYPE = "未签退";
-                break;
-            case R.id.field_tv://外勤
-                SIGN_TYPE = "外勤";
-                break;
-            case R.id.equipment_abnorma_tv://设备异常
-                SIGN_TYPE = "设备异常";
-                break;
-        }
-        intent = new Intent(this, LateListActivity.class);
-        intent.putExtra("SIGN_TYPE", SIGN_TYPE);
-        startActivity(intent);
     }
 }
