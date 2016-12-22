@@ -10,7 +10,7 @@ import com.mainiway.library.adapter.base.listener.OnItemChildClickListener;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.adapter.EnterpriseListAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
-import com.mainiway.eworkpal.model.Status;
+import com.mainiway.eworkpal.activity.test.Status;
 import com.mainiway.eworkpal.utils.ToastUtils;
 
 /**

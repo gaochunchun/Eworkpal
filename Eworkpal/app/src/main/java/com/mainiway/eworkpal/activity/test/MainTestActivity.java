@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.attendance.RightPositionActivity;
 import com.mainiway.eworkpal.activity.user.EnterpriseListActivity;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.ToastUtils;

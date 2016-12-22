@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemClickListener;
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.adapter.QuickAdapter;
 
 
 /**

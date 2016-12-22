@@ -1,4 +1,4 @@
-package com.mainiway.eworkpal.adapter;
+package com.mainiway.eworkpal.activity.test;
 
 import android.widget.ImageView;
 
@@ -8,7 +8,7 @@ import com.mainiway.library.adapter.base.BaseViewHolder;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.activity.test.DataServer;
 import com.mainiway.eworkpal.activity.test.GlideCircleTransform;
-import com.mainiway.eworkpal.model.Status;
+import com.mainiway.eworkpal.activity.test.Status;
 
 /**
  * ===========================================
