@@ -14,6 +14,7 @@ import okhttp3.Response;
 
 /**
  * Json解析
+ *
  * @param <T>
  */
 public class JsonConvert<T> implements Converter<T> {
@@ -28,32 +29,19 @@ public class JsonConvert<T> implements Converter<T> {
     public T convertSuccess(Response response) throws Exception {
         JsonReader jsonReader = new JsonReader(response.body().charStream());
 
+        //type为空判断。注：在JsonCallback中已通过setType(Type type)设置过一次
         if (type == null) {
-            //以下代码是通过泛型解析实际参数,泛型必须传
             Type genType = getClass().getGenericSuperclass();
             Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
             type = params[0];
         }
 
-
-
-
-        if (!(type instanceof ParameterizedType)) throw new IllegalStateException("没有填写泛型参数");
-
-        /*if (!(type instanceof ParameterizedType)){
-            BaseResultResponse baseResultResponse = GsonConvertUtil.fromJson(jsonReader, BaseResultResponse.class);
-            //noinspection unchecked
-            return (T) baseResultResponse.toJsonResponse();
-        }*/
-
-
-
-
-
+        if (!(type instanceof ParameterizedType))
+            throw new IllegalStateException("没有填写泛型参数，请指定BaseResponse<String>");
 
 
         Type rawType = ((ParameterizedType) type).getRawType();
-        //无数据类型
+        //无指定数据类型 注：此处也需要传递String类型，由于后端返回的message为一个集合
         if (rawType == Void.class) {
             BaseResultResponse baseResultResponse = GsonConvertUtil.fromJson(jsonReader, BaseResultResponse.class);
             //noinspection unchecked
@@ -61,18 +49,18 @@ public class JsonConvert<T> implements Converter<T> {
         }
 
 
-        //有数据类型
+        //有数据类型 注：对象 or  集合
         if (rawType == BaseResponse.class) {
 
             BaseResponse jsonResponse = GsonConvertUtil.fromJson(jsonReader, type);
-            boolean isSuccessed = jsonResponse.successed;
+            //boolean isSuccessed = jsonResponse.successed;
 
             //isSuccessed为true表示请求成功，false表示请求失败
-            if (isSuccessed) {
+            if (jsonResponse.successed) {
                 return (T) jsonResponse;
-            }else {
+            } else {
                 //false时可能需要取status码来判断，如：4001表示token过期，处理跳入登录界面或其他
-                if (jsonResponse.status == 4001){
+                if (jsonResponse.status == 4001) {
 
                 }
                 throw new IllegalStateException("错误码：" + jsonResponse.status);

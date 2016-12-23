@@ -8,7 +8,7 @@ import com.mainiway.okhttp.cache.CacheManager;
 import com.mainiway.okhttp.cache.CacheMode;
 import com.mainiway.okhttp.callback.AbsCallback;
 import com.mainiway.okhttp.callback.AbsCallbackWrapper;
-import com.mainiway.okhttp.exception.OkGoException;
+import com.mainiway.okhttp.exception.OkHttpException;
 import com.mainiway.okhttp.model.HttpHeaders;
 import com.mainiway.okhttp.model.Response;
 import com.mainiway.okhttp.request.BaseRequest;
@@ -82,13 +82,13 @@ public class CacheCall<T> implements Call<T> {
                 HttpHeaders headers = cacheEntity.getResponseHeaders();
                 if (data == null || headers == null) {
                     //由于没有序列化等原因,可能导致数据为空
-                    sendFailResultCallback(true, rawCall, null, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                    sendFailResultCallback(true, rawCall, null, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
                 } else {
                     sendSuccessResultCallback(true, data, rawCall, null);
                     return;//获取缓存成功,不请求网络
                 }
             } else {
-                sendFailResultCallback(true, rawCall, null, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                sendFailResultCallback(true, rawCall, null, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
             }
         } else if (cacheMode == CacheMode.FIRST_CACHE_THEN_REQUEST) {
             //先使用缓存，不管是否存在，仍然请求网络
@@ -97,12 +97,12 @@ public class CacheCall<T> implements Call<T> {
                 HttpHeaders headers = cacheEntity.getResponseHeaders();
                 if (data == null || headers == null) {
                     //由于没有序列化等原因,可能导致数据为空
-                    sendFailResultCallback(true, rawCall, null, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                    sendFailResultCallback(true, rawCall, null, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
                 } else {
                     sendSuccessResultCallback(true, data, rawCall, null);
                 }
             } else {
-                sendFailResultCallback(true, rawCall, null, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                sendFailResultCallback(true, rawCall, null, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
             }
         }
 
@@ -133,13 +133,13 @@ public class CacheCall<T> implements Call<T> {
                 //304缓存数据
                 if (responseCode == 304 && cacheMode == CacheMode.DEFAULT) {
                     if (cacheEntity == null) {
-                        sendFailResultCallback(true, call, response, OkGoException.INSTANCE("服务器响应码304，但是客户端没有缓存！"));
+                        sendFailResultCallback(true, call, response, OkHttpException.INSTANCE("服务器响应码304，但是客户端没有缓存！"));
                     } else {
                         T data = cacheEntity.getData();
                         HttpHeaders headers = cacheEntity.getResponseHeaders();
                         if (data == null || headers == null) {
                             //由于没有序列化等原因,可能导致数据为空
-                            sendFailResultCallback(true, call, response, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                            sendFailResultCallback(true, call, response, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
                         } else {
                             sendSuccessResultCallback(true, data, call, response);
                         }
@@ -148,7 +148,7 @@ public class CacheCall<T> implements Call<T> {
                 }
                 //响应失败，一般为服务器内部错误，或者找不到页面等
                 if (responseCode == 404 || responseCode >= 500) {
-                    sendFailResultCallback(false, call, response, OkGoException.INSTANCE("服务器数据异常!"));
+                    sendFailResultCallback(false, call, response, OkHttpException.INSTANCE("服务器数据异常!"));
                     return;
                 }
 
@@ -217,12 +217,12 @@ public class CacheCall<T> implements Call<T> {
                 HttpHeaders headers = cacheEntity.getResponseHeaders();
                 if (data == null || headers == null) {
                     //由于没有序列化等原因,可能导致数据为空
-                    sendFailResultCallback(true, call, response, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                    sendFailResultCallback(true, call, response, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
                 } else {
                     sendSuccessResultCallback(true, data, call, response);
                 }
             } else {
-                sendFailResultCallback(true, call, response, OkGoException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
+                sendFailResultCallback(true, call, response, OkHttpException.INSTANCE("没有获取到缓存,或者缓存已经过期!"));
             }
         }
     }

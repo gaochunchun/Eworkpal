@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.test.MainTestActivity;
 import com.mainiway.eworkpal.activity.user.LoginActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 

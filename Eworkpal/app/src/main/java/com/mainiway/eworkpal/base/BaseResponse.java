@@ -1,5 +1,7 @@
 package com.mainiway.eworkpal.base;
 
+import com.mainiway.okhttp.utils.OkLogger;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class BaseResponse<T> implements Serializable {
     public int status;
     public T data;
 
-    public class  MsgInfo implements Serializable {
+    public class MsgInfo implements Serializable {
 
         public String key;
         public String msg;
