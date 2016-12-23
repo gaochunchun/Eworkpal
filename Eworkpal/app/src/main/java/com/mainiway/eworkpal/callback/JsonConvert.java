@@ -53,17 +53,17 @@ public class JsonConvert<T> implements Converter<T> {
         if (rawType == BaseResponse.class) {
 
             BaseResponse jsonResponse = GsonConvertUtil.fromJson(jsonReader, type);
-            //boolean isSuccessed = jsonResponse.successed;
 
-            //isSuccessed为true表示请求成功，false表示请求失败
+            //true表示请求成功，false表示请求失败
             if (jsonResponse.successed) {
                 return (T) jsonResponse;
             } else {
                 //false时可能需要取status码来判断，如：4001表示token过期，处理跳入登录界面或其他
-                if (jsonResponse.status == 4001) {
-
+                /*if (jsonResponse.status == 4001) {
                 }
-                throw new IllegalStateException("错误码：" + jsonResponse.status);
+                throw new IllegalStateException("错误码：" + jsonResponse.status);*/
+
+                return (T) jsonResponse;
             }
 
 

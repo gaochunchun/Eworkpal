@@ -110,7 +110,7 @@ public class TestActivity extends BaseTitleActivity {
 
     private void setPhoneCode() {
         Map<String, Object> mapList = new HashMap<String, Object>();
-        mapList.put("phone","18804272191");
+        mapList.put("phone","1880427291");
         mapList.put("pass", 1);
         mapList.put("type", ResultErrorCode.TYPE_CREATE_ENTERPRISE);
         mapList.put("company_id", 0);

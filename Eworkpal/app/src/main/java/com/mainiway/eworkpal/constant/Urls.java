@@ -29,8 +29,8 @@ public class Urls {
 
     //登录
     public static String URL_LOGIN = "Account/"+ VERSION_CODE +"/loginGo";//用户登录
-    public static String URL_SET_PHONE_CODE = "Mobile/"+ VERSION_CODE +"/sendMobileCode";//发送手机短信码
-
+    public static String URL_SET_PHONE_CODE = "Mobile/"+ VERSION_CODE +"/sendMobileCode";//发送手机短信码、
+    public static String URL_CREATE_ENTERPRISE= "AccountCommon/V1.0/registCompany";//注册提交企业【Web端Mobile共用】
 
     //用户模块
     //public static String URL_LOGIN = "api/account/login";                       //用户登录
