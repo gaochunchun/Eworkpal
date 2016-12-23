@@ -10,9 +10,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.callback.DialogCallback;
+import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
+import com.mainiway.eworkpal.utils.GsonConvertUtil;
+import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.okhttp.utils.OkLogger;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 import static android.R.attr.label;
 
@@ -30,6 +43,8 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
     private TextView tv_create_enterprise;
     private EditText et_enterprise_name, et_name, et_password, et_confirm_password;
 
+    private String mobile;//往服务器传的手机号码
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +52,7 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
         setTitle("注册");
         showBackwardView(true);
         initView();
+        initData();
     }
 
     private void initView() {
@@ -58,16 +74,30 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
 
     }
 
+
+    private void initData() {
+        if (getIntent() != null) {
+            mobile = getIntent().getStringExtra("mobile");
+        }
+    }
+
     private class FastClickListener extends OnClickFastListener {
 
         @Override
         public void onFastClick(View v) {
             switch (v.getId()) {
                 case R.id.tv_create_enterprise://创建企业
-                    startActivity(new Intent(CreateEnterpriseActivity.this, LoginActivity.class));
+                    if (!et_password.getText().toString().equals(et_confirm_password.getText().toString())) {
+                        ToastUtils.showToastShort("两次密码不统一，请重新输入");
+                        break;
+                    } else {
+                        createEnterprise();
+                    }
                     break;
             }
         }
+
+
     }
 
     /**
@@ -95,5 +125,37 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
         }
     };
 
+    /**
+     * 创建企业网络请求
+     */
+    private void createEnterprise() {
+        Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("mobile", mobile);
+        mapList.put("companyName", et_enterprise_name.getText().toString());
+        mapList.put("name", et_name.getText().toString());
+        mapList.put("password", et_password.getText().toString());
+
+        String str = GsonConvertUtil.toJson(mapList);
+
+        UserRequestManager.getInstance().createEnterprise(this, str, new DialogCallback<BaseResponse<String>>(CreateEnterpriseActivity.this) {
+            @Override
+            public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+                if (responseData.successed) {
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                    startActivity(new Intent(CreateEnterpriseActivity.this, LoginActivity.class));
+                    finish();
+                } else {
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                }
+            }
+
+            @Override
+            public void onError(Call call, Response response, Exception e) {
+                super.onError(call, response, e);
+                OkLogger.e(e.toString());
+                ToastUtils.showToastShort(e.toString());
+            }
+        });
+    }
 
 }

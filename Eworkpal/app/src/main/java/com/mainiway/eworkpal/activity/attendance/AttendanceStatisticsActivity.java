@@ -16,7 +16,7 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
  * 考勤统计
  */
 
-public class StatisticsActivity extends BaseTitleActivity {
+public class AttendanceStatisticsActivity extends BaseTitleActivity {
     //迟到 早退 未签到 未签退 外勤 设备异常
     private TextView late_tv, leave_early_tv, un_sign_in_tv, un_sign_out_tv, field_tv, equipment_abnorma_tv;
     //请假 加班 出差
@@ -104,13 +104,13 @@ public class StatisticsActivity extends BaseTitleActivity {
                     break;
             }
             if (!TextUtils.isEmpty(SIGN_TYPE)) {
-                intent = new Intent(StatisticsActivity.this, LateListActivity.class);
+                intent = new Intent(AttendanceStatisticsActivity.this, AttendanceLateListActivity.class);
                 intent.putExtra("SIGN_TYPE", SIGN_TYPE);
                 startActivity(intent);
                 return;
             }
             if (!TextUtils.isEmpty(APPLICATION_TYPE)) {
-                intent = new Intent(StatisticsActivity.this, LeaveListActivity.class);
+                intent = new Intent(AttendanceStatisticsActivity.this, AttendanceLeaveListActivity.class);
                 intent.putExtra("APPLICATION_TYPE", APPLICATION_TYPE);
                 startActivity(intent);
                 return;

@@ -162,21 +162,21 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.attendance.StatisticsActivity"
+            android:name=".activity.attendance.AttendanceStatisticsActivity"
             android:label="考勤统计"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.attendance.LeaveListActivity"
+            android:name=".activity.attendance.AttendanceLeaveListActivity"
             android:label="请假列表"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.attendance.LateListActivity"
+            android:name=".activity.attendance.AttendanceLateListActivity"
             android:label="迟到列表"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.attendance.ReportedPositionActivity"
+            android:name=".activity.attendance.AttendanceReportedPositionActivity"
             android:label="上报位置"
             android:screenOrientation="portrait" />
 
