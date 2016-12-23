@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
+import com.mainiway.eworkpal.activity.test.PullToRefreshUseActivity;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemChildClickListener;
 import com.mainiway.eworkpal.R;
@@ -12,6 +14,7 @@ import com.mainiway.eworkpal.adapter.EnterpriseListAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.activity.test.Status;
 import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.library.adapter.base.listener.OnItemClickListener;
 
 /**
  * ===========================================
@@ -52,14 +55,15 @@ public class EnterpriseListActivity extends BaseTitleActivity {
 
         mEnterpriseListAdapter = new EnterpriseListAdapter();
         mEnterpriseListAdapter.openLoadAnimation();
-        mRecyclerView.addOnItemTouchListener(new OnItemChildClickListener() {
+        mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
+
             @Override
-            public void SimpleOnItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Status status = (Status) adapter.getItem(position);
-
                 ToastUtils.showToastCenter(status.getUserName());
+
             }
+
         });
         mRecyclerView.setAdapter(mEnterpriseListAdapter);
     }
