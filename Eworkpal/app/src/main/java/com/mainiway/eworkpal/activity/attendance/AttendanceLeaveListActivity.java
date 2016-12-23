@@ -17,7 +17,7 @@ import java.util.List;
  * 考勤-统计-请假列表
  */
 
-public class LeaveListActivity extends BaseTitleActivity {
+public class AttendanceLeaveListActivity extends BaseTitleActivity {
     private RecyclerView mRecycleView;
     private AttendanceLeaveAdapter mAdapter;
     private List<AttendanceLeaveModle> data;

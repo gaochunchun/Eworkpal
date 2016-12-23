@@ -311,7 +311,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     bundle.putString("street", street);
                     bundle.putString("streetNum", streetNum);
                     intent.putExtras(bundle);
-                    intent.setClass(AttendanceSignActivity.this, ReportedPositionActivity.class);
+                    intent.setClass(AttendanceSignActivity.this, AttendanceReportedPositionActivity.class);
                     startActivity(intent);
                     break;
             }
