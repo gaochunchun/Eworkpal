@@ -257,12 +257,13 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(CommonPhoneCodeActivity.this) {
+        UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse>(CommonPhoneCodeActivity.this) {
             @Override
-            public void onSuccess(BaseResponse<UserLoginModle> responseData, Call call, Response response) {
-                OkLogger.e(responseData.successed + " -- "+ responseData.status+ " -- "+responseData.message.get(0).msg+ " -- "+responseData.data);
+            public void onSuccess(BaseResponse responseData, Call call, Response response) {
 
-               // ToastUtils.showToastShort((BaseResponse.MsgInfo) baseResponse.message.get(0).get);
+                //OkLogger.e(responseData.successed + " -- "+ responseData.status+ " -- "+responseData.message.get(0).msg+ " -- "+responseData.data);
+
+                // ToastUtils.showToastShort((BaseResponse.MsgInfo) baseResponse.message.get(0).get);
                 //如果服务器返回的status=403，显示图片验证码，否则不显示
                 Log.i("zhsh","baseResponse.status==="+responseData.status);
                 if(responseData.status==ResultErrorCode.CODE_SEND_CODE_THREE){
