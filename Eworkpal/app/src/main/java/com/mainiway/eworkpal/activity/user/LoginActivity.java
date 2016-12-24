@@ -312,7 +312,7 @@ public class LoginActivity extends BaseActivity {
                         tv_login.setClickable(false);
                         pass = 1;
                     }
-                    if (baseResponse.data.size() == 1) {
+                    if (baseResponse.data.size() == 0) {
                         startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
 
                     } else if (baseResponse.data.size() == 1) {

@@ -75,7 +75,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
     }
 
     private void initView() {
-        tv_get_code_next = findView(R.id.tv_getcode_next);
+        tv_get_code_next = findView(R.id.tv_get_code_next);
         tv_get_code_next.setOnClickListener(new FastClickListener());
         tv_get_code_next.setClickable(false);
 
