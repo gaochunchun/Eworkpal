@@ -34,6 +34,7 @@ import com.mainiway.eworkpal.utils.ValidateUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
+import com.mainiway.okhttp.OkHttpUtils;
 import com.mainiway.okhttp.utils.OkLogger;
 
 import java.io.Serializable;
@@ -384,5 +385,6 @@ public class UserLoginActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
     }
 }

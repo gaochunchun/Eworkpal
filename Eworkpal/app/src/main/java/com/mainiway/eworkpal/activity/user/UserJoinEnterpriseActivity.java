@@ -23,6 +23,7 @@ import com.mainiway.eworkpal.utils.TimeCount;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.utils.ValidateUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
+import com.mainiway.okhttp.OkHttpUtils;
 import com.mainiway.okhttp.utils.OkLogger;
 
 import java.util.HashMap;
@@ -359,6 +360,7 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
     }
 
 }

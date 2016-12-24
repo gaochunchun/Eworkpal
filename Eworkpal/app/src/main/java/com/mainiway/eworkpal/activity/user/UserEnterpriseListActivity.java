@@ -18,6 +18,7 @@ import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemClickListener;
+import com.mainiway.okhttp.OkHttpUtils;
 import com.mainiway.okhttp.utils.OkLogger;
 
 import java.util.HashMap;
@@ -120,6 +121,7 @@ public class UserEnterpriseListActivity extends BaseTitleActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
     }
 
 }

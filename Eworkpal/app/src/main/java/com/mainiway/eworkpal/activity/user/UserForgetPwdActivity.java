@@ -18,6 +18,7 @@ import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.okhttp.OkHttpUtils;
 import com.mainiway.okhttp.utils.OkLogger;
 
 import java.util.HashMap;
@@ -147,6 +148,7 @@ public class UserForgetPwdActivity extends BaseTitleActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
     }
 
 }
