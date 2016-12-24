@@ -43,8 +43,11 @@ public class AttendanceLateListActivity extends BaseTitleActivity {
 
     private void init() {
         data = new ArrayList<>();
-        data.add(new AttendanceLateModle("", "", "", "", 5, "签到", "未申诉"));
-        data.add(new AttendanceLateModle("", "", "", "", 5, "签到", "处理中"));
+        data.add(new AttendanceLateModle("", "", "", "", 0, "签到", "未申诉"));
+        data.add(new AttendanceLateModle("", "", "", "", 1, "签到", "处理中"));
+        data.add(new AttendanceLateModle("", "", "", "", 2, "签到", "未申诉"));
+        data.add(new AttendanceLateModle("", "", "", "", 3, "签到", "驳回"));
+        data.add(new AttendanceLateModle("", "", "", "", 4, "签到", "驳回"));
         data.add(new AttendanceLateModle("", "", "", "", 5, "签到", "驳回"));
 
         mRecycleView = findView(R.id.mRecycleView);

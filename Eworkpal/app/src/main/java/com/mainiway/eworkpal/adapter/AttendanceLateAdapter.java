@@ -51,9 +51,9 @@ public class AttendanceLateAdapter extends BaseMultiItemQuickAdapter<AttendanceL
                 baseViewHolder.setText(R.id.appeal_state_tv, "申诉被驳回");
                 baseViewHolder.setText(R.id.appeal_tv, "重新申诉");
             }
-            baseViewHolder.setText(R.id.type_tv, "签到类型");
-            baseViewHolder.setText(R.id.time_tv, "签到时间");
-            baseViewHolder.setText(R.id.address_tv, "签到地址");
+            baseViewHolder.setText(R.id.type_tv, "打卡类型");
+            baseViewHolder.setText(R.id.time_tv, "打卡时间");
+            baseViewHolder.setText(R.id.address_tv, "打卡地址");
         }else if(item.state==2||item.state==3){//未签退 未签到
 
             if (item.appeal_state.equals("未申诉")) {
@@ -72,16 +72,17 @@ public class AttendanceLateAdapter extends BaseMultiItemQuickAdapter<AttendanceL
             }
 
         }else if(item.state==4){//外勤
-            baseViewHolder.setText(R.id.time_tv, "签到时间");
-            baseViewHolder.setText(R.id.address_tv, "签到地址");
+
+            baseViewHolder.setText(R.id.time_tv, "打卡时间");
+            baseViewHolder.setText(R.id.address_tv, "打卡地址");
             baseViewHolder.setText(R.id.field_matter_tv, "外勤事由");
             //如果有图片
             RecyclerView recyclerView=baseViewHolder.getView(R.id.field_matter_recycleview);
             RecyclerView.LayoutManager layoutManager=new GridLayoutManager(context,3);
             recyclerView.setLayoutManager(layoutManager);
         }else if(item.state==5){//设备异常
-            baseViewHolder.setText(R.id.time_tv, "签到时间");
-            baseViewHolder.setText(R.id.address_tv, "签到地址");
+            baseViewHolder.setText(R.id.time_tv, "打卡时间");
+            baseViewHolder.setText(R.id.address_tv, "打卡地址");
             baseViewHolder.setText(R.id.equipment_type_tv, "设备名");
         }
     }
