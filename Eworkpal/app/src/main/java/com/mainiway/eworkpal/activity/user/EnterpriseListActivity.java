@@ -6,18 +6,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.adapter.EnterpriseListAdapter;
 import com.mainiway.eworkpal.base.BaseResponse;
+import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.model.UserLoginModle;
 import com.mainiway.eworkpal.model.UserLoginToModle;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
-import com.mainiway.library.adapter.base.BaseQuickAdapter;
-import com.mainiway.library.adapter.base.listener.OnItemChildClickListener;
-import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.adapter.EnterpriseListAdapter;
-import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemClickListener;
 import com.mainiway.okhttp.utils.OkLogger;
 
@@ -27,6 +26,7 @@ import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Response;
+
 
 /**
  * ===========================================
@@ -81,6 +81,7 @@ public class EnterpriseListActivity extends BaseTitleActivity {
                 UserLoginToModle userLoginModle = (UserLoginToModle) adapter.getItem(position);
                 login(userLoginModle.companyID);
             }
+
         });
         mRecyclerView.setAdapter(mEnterpriseListAdapter);
     }

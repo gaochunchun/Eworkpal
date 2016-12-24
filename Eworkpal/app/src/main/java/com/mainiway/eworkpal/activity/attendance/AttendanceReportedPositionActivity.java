@@ -31,7 +31,7 @@ import java.util.Date;
  * ===========================================
  */
 
-public class ReportedPositionActivity extends BaseTitleActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener {
+public class AttendanceReportedPositionActivity extends BaseTitleActivity implements ImagePickerAdapter.OnRecyclerViewItemClickListener {
 
 
     public static final int IMAGE_ITEM_ADD = -1;
@@ -157,7 +157,7 @@ public class ReportedPositionActivity extends BaseTitleActivity implements Image
         public void onFastClick(View v) {
             switch (v.getId()) {
                 case R.id.tv_submit://提交
-                    startActivity(new Intent(ReportedPositionActivity.this, AttendanceRecordActivity.class));
+                    startActivity(new Intent(AttendanceReportedPositionActivity.this, AttendanceRecordActivity.class));
                     break;
 
             }

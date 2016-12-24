@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.attendance.ReportedPositionActivity;
+import com.mainiway.eworkpal.activity.attendance.AttendanceReportedPositionActivity;
 import com.mainiway.imagepicker.ImagePicker;
 import com.mainiway.imagepicker.model.ImageItem;
 
@@ -97,7 +97,7 @@ public class ImagePickerAdapter extends RecyclerView.Adapter<ImagePickerAdapter.
             ImageItem item = mData.get(position);
             if (isAdded && position == getItemCount() - 1) {
                 iv_img.setImageResource(R.drawable.selector_image_add);
-                clickPosition = ReportedPositionActivity.IMAGE_ITEM_ADD;
+                clickPosition = AttendanceReportedPositionActivity.IMAGE_ITEM_ADD;
             } else {
                 ImagePicker.getInstance().getImageLoader().displayImage((Activity) mContext, item.path, iv_img, 0, 0);
                 clickPosition = position;

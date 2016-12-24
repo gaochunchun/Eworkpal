@@ -24,7 +24,7 @@ import java.util.List;
  * 名字暂时不改了
  */
 
-public class LateListActivity extends BaseTitleActivity {
+public class AttendanceLateListActivity extends BaseTitleActivity {
 
     private RecyclerView mRecycleView;
     private AttendanceLateAdapter mAdapter;
@@ -56,7 +56,7 @@ public class LateListActivity extends BaseTitleActivity {
             @Override
             public void SimpleOnItemChildClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
                 if (view.getId() == R.id.appeal_tv) {
-                    Toast.makeText(LateListActivity.this, "点我干嘛", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AttendanceLateListActivity.this, "点我干嘛", Toast.LENGTH_SHORT).show();
                 }
             }
         });
