@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
                     startActivity(new Intent(MainActivity.this, AttendanceStatisticsActivity.class));
                     break;
                 case R.id.tv_application_center://应用中心
-                    startActivity(new Intent(MainActivity.this, ApplicationCenterActivity.class));
+                    startActivity(new Intent(MainActivity.this, ApplayCenterActivity.class));
                     break;
             }
         }

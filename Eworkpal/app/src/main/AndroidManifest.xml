@@ -151,7 +151,7 @@
         <!--应用中心-->
         <activity
 
-            android:name=".activity.user.ApplicationCenterActivity"
+            android:name=".activity.user.ApplayCenterActivity"
             android:label="应用中心"
             android:screenOrientation="portrait" />
 

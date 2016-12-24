@@ -18,7 +18,7 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
  * ===========================================
  */
 
-public class ApplicationCenterActivity extends BaseTitleActivity {
+public class ApplayCenterActivity extends BaseTitleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class ApplicationCenterActivity extends BaseTitleActivity {
         public void onFastClick(View v) {
             switch (v.getId()) {
                 case R.id.ll_attendance://考勤
-                    startActivity(new Intent(ApplicationCenterActivity.this, AttendanceSignActivity.class));
+                    startActivity(new Intent(ApplayCenterActivity.this, AttendanceSignActivity.class));
                     break;
             }
         }
