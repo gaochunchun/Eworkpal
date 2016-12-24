@@ -49,7 +49,7 @@ public class AttendanceLateListActivity extends BaseTitleActivity {
 
         mRecycleView = findView(R.id.mRecycleView);
         mRecycleView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new AttendanceLateAdapter(data);
+        mAdapter = new AttendanceLateAdapter(data,this);
         mRecycleView.setAdapter(mAdapter);
 
         mRecycleView.addOnItemTouchListener(new OnItemChildClickListener() {
