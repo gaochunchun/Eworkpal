@@ -55,7 +55,7 @@ import okhttp3.Response;
  * ===========================================
  */
 
-public class LoginActivity extends BaseActivity {
+public class UserLoginActivity extends BaseActivity {
 
     private SystemBarTintManager tintManager;   //单独设置登录界面bar的颜色
 
@@ -216,7 +216,7 @@ public class LoginActivity extends BaseActivity {
             switch (v.getId()) {
 
                 case R.id.tv_register_enterprises://注册企业
-                    Intent mIntentRegisterEnterprise = new Intent(LoginActivity.this, CommonPhoneCodeActivity.class);
+                    Intent mIntentRegisterEnterprise = new Intent(UserLoginActivity.this, UserCommonPhoneCodeActivity.class);
                     mIntentRegisterEnterprise.putExtra(AppConstant.LABEL_PHONE_CODE, AppConstant.PHONE_CODE_ENTERPRISE);
                     startActivity(mIntentRegisterEnterprise);
                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
@@ -227,7 +227,7 @@ public class LoginActivity extends BaseActivity {
                     break;
                 case R.id.tv_login://登录
 
-//                    new AlertView("Eworkpal提示", "账号密码错误请重新输入", null, new String[]{"确定"}, null,LoginActivity.this,
+//                    new AlertView("Eworkpal提示", "账号密码错误请重新输入", null, new String[]{"确定"}, null,UserLoginActivity.this,
 //                            AlertView.Style.Alert,new ItemClick() {
 //                        @Override
 //                        public void onItemClick(Object o, int position) {
@@ -256,8 +256,8 @@ public class LoginActivity extends BaseActivity {
 //                            tv_login.setClickable(false);
 //                        }
 //                    }
-                    //startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
-                    //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    //startActivity(new Intent(UserLoginActivity.this, UserNoJoinEnterpriseActivity.class));
+                    //startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
 
 
                     if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
@@ -270,11 +270,11 @@ public class LoginActivity extends BaseActivity {
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业
-                    startActivity(new Intent(LoginActivity.this, JoinEnterpriseActivity.class));
+                    startActivity(new Intent(UserLoginActivity.this, UserJoinEnterpriseActivity.class));
                     break;
 
                 case R.id.tv_forgetpwd: //找回密码
-                    Intent mIntentFowgetPwd = new Intent(LoginActivity.this, CommonPhoneCodeActivity.class);
+                    Intent mIntentFowgetPwd = new Intent(UserLoginActivity.this, UserCommonPhoneCodeActivity.class);
                     mIntentFowgetPwd.putExtra(AppConstant.LABEL_PHONE_CODE, AppConstant.PHONE_CODE_FORGET_PWD);
                     startActivityForResult(mIntentFowgetPwd, AppConstant.VALUE_COMMON_PHONE_CODE_ACTIVITY);
                     break;
@@ -312,7 +312,7 @@ public class LoginActivity extends BaseActivity {
                         pass = 1;
                     }
                     if (baseResponse.data.size() == 0) {
-                        startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
+                        startActivity(new Intent(UserLoginActivity.this, UserNoJoinEnterpriseActivity.class));
 
                     } else if (baseResponse.data.size() == 1) {
                         companyID = baseResponse.data.get(0).companyID;
@@ -320,7 +320,7 @@ public class LoginActivity extends BaseActivity {
                     } else {
                         Intent intent = new Intent();
                         intent.putExtra("infoList", (Serializable) baseResponse.data);
-                        intent.setClass(LoginActivity.this, EnterpriseListActivity.class);
+                        intent.setClass(UserLoginActivity.this, UserEnterpriseListActivity.class);
                         startActivity(intent);
                     }
 
@@ -353,7 +353,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onSuccess(BaseResponse<UserLoginModle> baseResponse, Call call, Response response) {
                 if (baseResponse.successed) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
                     finish();
                 } else {
                     ToastUtils.showToastShort(baseResponse.message.get(0).msg);
@@ -379,5 +379,10 @@ public class LoginActivity extends BaseActivity {
                 finish();
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

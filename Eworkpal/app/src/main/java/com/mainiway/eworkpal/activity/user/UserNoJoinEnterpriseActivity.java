@@ -18,7 +18,7 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
  */
 
 
-public class NoJoinEnterpriseActivity extends BaseTitleActivity {
+public class UserNoJoinEnterpriseActivity extends BaseTitleActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +42,14 @@ public class NoJoinEnterpriseActivity extends BaseTitleActivity {
 
             switch (v.getId()) {
                 case R.id.tv_join_enterprise://申请加入企业
-                    startActivity(new Intent(NoJoinEnterpriseActivity.this, JoinEnterpriseActivity.class));
+                    startActivity(new Intent(UserNoJoinEnterpriseActivity.this, UserJoinEnterpriseActivity.class));
                     break;
                 case R.id.tv_create_enterprise://创建企业
-                    startActivity(new Intent(NoJoinEnterpriseActivity.this, CreateEnterpriseActivity.class));
+                    startActivity(new Intent(UserNoJoinEnterpriseActivity.this, UserCreateEnterpriseActivity.class));
                     break;
             }
         }
     }
-
 
     @Override
     protected void onDestroy() {

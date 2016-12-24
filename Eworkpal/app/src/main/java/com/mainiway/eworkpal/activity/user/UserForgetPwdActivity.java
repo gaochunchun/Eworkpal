@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
-import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
@@ -37,7 +35,7 @@ import okhttp3.Response;
  * ===========================================
  */
 
-public class ForgetPwdActivity extends BaseTitleActivity {
+public class UserForgetPwdActivity extends BaseTitleActivity {
 
     private EditText et_password, et_confirm_password;
     private TextView tv_commit;
@@ -130,7 +128,7 @@ public class ForgetPwdActivity extends BaseTitleActivity {
                 if (responseData.successed) {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                     setResult(RESULT_OK);
-                    startActivity(new Intent(ForgetPwdActivity.this, LoginActivity.class));
+                    startActivity(new Intent(UserForgetPwdActivity.this, UserLoginActivity.class));
                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                     finish();
                 } else {

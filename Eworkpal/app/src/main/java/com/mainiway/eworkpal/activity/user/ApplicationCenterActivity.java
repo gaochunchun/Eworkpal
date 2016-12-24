@@ -45,5 +45,9 @@ public class ApplicationCenterActivity extends BaseTitleActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
 }

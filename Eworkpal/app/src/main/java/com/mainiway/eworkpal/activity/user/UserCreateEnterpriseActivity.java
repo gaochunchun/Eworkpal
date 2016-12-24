@@ -13,7 +13,6 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
-import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
@@ -27,8 +26,6 @@ import java.util.Map;
 import okhttp3.Call;
 import okhttp3.Response;
 
-import static android.R.attr.label;
-
 /**
  * ===========================================
  * 作    者：zhsh
@@ -38,7 +35,7 @@ import static android.R.attr.label;
  * ===========================================
  */
 
-public class CreateEnterpriseActivity extends BaseTitleActivity {
+public class UserCreateEnterpriseActivity extends BaseTitleActivity {
 
     private TextView tv_create_enterprise;
     private EditText et_enterprise_name, et_name, et_password, et_confirm_password;
@@ -137,12 +134,12 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
 
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().createEnterprise(this, str, new DialogCallback<BaseResponse<String>>(CreateEnterpriseActivity.this) {
+        UserRequestManager.getInstance().createEnterprise(this, str, new DialogCallback<BaseResponse<String>>(UserCreateEnterpriseActivity.this) {
             @Override
             public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
                 if (responseData.successed) {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
-                    startActivity(new Intent(CreateEnterpriseActivity.this, LoginActivity.class));
+                    startActivity(new Intent(UserCreateEnterpriseActivity.this, UserLoginActivity.class));
                     finish();
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
@@ -158,4 +155,8 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

@@ -9,7 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.user.LoginActivity;
+import com.mainiway.eworkpal.activity.user.UserLoginActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 
 /**
@@ -56,7 +56,7 @@ public class SplashActivity extends BaseActivity {
         //if(!TextUtils.isEmpty(mUserId)){
         //mIntent.setClass(this, MainTestActivity.class);
         // }else{
-        mIntent.setClass(this, LoginActivity.class);
+        mIntent.setClass(this, UserLoginActivity.class);
         // }
         startActivity(mIntent);
         finish();

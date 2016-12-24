@@ -40,7 +40,7 @@ import okhttp3.Response;
  * ===========================================
  */
 
-public class JoinEnterpriseActivity extends BaseTitleActivity {
+public class UserJoinEnterpriseActivity extends BaseTitleActivity {
 
     private View ll_join_enterprise_id;
     private View ll_join_enterprise;
@@ -356,5 +356,9 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
 }

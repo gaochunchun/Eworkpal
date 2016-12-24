@@ -37,7 +37,7 @@ import okhttp3.Response;
  * ===========================================
  */
 
-public class EnterpriseListActivity extends BaseTitleActivity {
+public class UserEnterpriseListActivity extends BaseTitleActivity {
 
     private RecyclerView mRecyclerView;
     private EnterpriseListAdapter mEnterpriseListAdapter;
@@ -99,7 +99,7 @@ public class EnterpriseListActivity extends BaseTitleActivity {
             @Override
             public void onSuccess(BaseResponse<UserLoginModle> baseResponse, Call call, Response response) {
                 if (baseResponse.successed) {
-                    startActivity(new Intent(EnterpriseListActivity.this, MainActivity.class));
+                    startActivity(new Intent(UserEnterpriseListActivity.this, MainActivity.class));
                     finish();
                 } else {
                     ToastUtils.showToastShort(baseResponse.message.get(0).msg);

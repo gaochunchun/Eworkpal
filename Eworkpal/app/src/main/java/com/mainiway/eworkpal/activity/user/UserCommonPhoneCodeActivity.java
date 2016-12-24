@@ -41,7 +41,7 @@ import okhttp3.Response;
  * 描    述：公用的获取手机验证码（需根据传递的Intent信息设置Title）
  * ===========================================
  */
-public class CommonPhoneCodeActivity extends BaseTitleActivity {
+public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
 
     private String label;
     private TextView tv_get_code, tv_get_code_next;
@@ -95,7 +95,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
         iv_picture_code = findView(R.id.iv_picture_code);
         iv_picture_code.setImageBitmap(ImageCodeView.getInstance().createBitmap());
-        iv_picture_code.setOnClickListener(new CommonPhoneCodeActivity.FastClickListener());
+        iv_picture_code.setOnClickListener(new UserCommonPhoneCodeActivity.FastClickListener());
 
     }
 
@@ -113,7 +113,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                             if (et_picture_code.getText().length() == 4) {
                                 if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                                     //此处跳转到企业创建界面，可能需要携带参数
-                                    startActivity(new Intent(CommonPhoneCodeActivity.this, CreateEnterpriseActivity.class));
+                                    startActivity(new Intent(UserCommonPhoneCodeActivity.this, UserCreateEnterpriseActivity.class));
                                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                                 }
                             } else {
@@ -123,7 +123,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                             //此处跳转到企业创建界面，可能需要携带参数
                             Intent intent = new Intent();
                             intent.putExtra("mobile", et_phone_number.getText().toString());
-                            intent.setClass(CommonPhoneCodeActivity.this, CreateEnterpriseActivity.class);
+                            intent.setClass(UserCommonPhoneCodeActivity.this, UserCreateEnterpriseActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                         }
@@ -137,7 +137,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                                     //此处跳转到找回密码界面
                                     Intent intent = new Intent();
                                     intent.putExtra("mobile", et_phone_number.getText().toString());
-                                    intent.setClass(CommonPhoneCodeActivity.this, ForgetPwdActivity.class);
+                                    intent.setClass(UserCommonPhoneCodeActivity.this, UserForgetPwdActivity.class);
                                     startActivity(intent);
                                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                                 }
@@ -148,7 +148,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                             //此处跳转到找回密码界面，可能需要携带参数
                             Intent intent = new Intent();
                             intent.putExtra("mobile", et_phone_number.getText().toString());
-                            intent.setClass(CommonPhoneCodeActivity.this, ForgetPwdActivity.class);
+                            intent.setClass(UserCommonPhoneCodeActivity.this, UserForgetPwdActivity.class);
                             startActivityForResult(intent, AppConstant.VALUE_FORGET_PWD_ACTIVITY);
                             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                         }
@@ -293,5 +293,10 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                 finish();
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

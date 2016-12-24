@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.user.EnterpriseListActivity;
+import com.mainiway.eworkpal.activity.user.UserEnterpriseListActivity;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.widgets.TimeSelector;
@@ -66,7 +66,7 @@ public class MainTestActivity extends BaseTitleActivity {
                 break;
 
             case R.id.btn_1:
-                startActivity(new Intent(this, EnterpriseListActivity.class));
+                startActivity(new Intent(this, UserEnterpriseListActivity.class));
                 break;
 
             case R.id.btn_2:
