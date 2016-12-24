@@ -1,9 +1,9 @@
 /*******************************************************************************
  * Copyright (c) Weaver Info Tech Co. Ltd
  * <p/>
- * Constants
+ * AppConstant
  * <p/>
- * app.backend.manager.Constants.java
+ * app.backend.manager.AppConstant.java
  * TODO: File description or class description.
  *
  * @author: gao_chun
@@ -22,10 +22,10 @@ package com.mainiway.eworkpal.constant;
  * 描    述：常量类
  * ===========================================
  */
-public class Constants {
+public class AppConstant {
 
     //保存的配置信息
-    public static final String PREF_NAME_TOKEN = "token";	//登录成功保存Token
+    public static final String PREF_NAME_TOKEN = "token";    //登录成功保存Token
     public static final String PREF_NAME_USERID = "userid";
     public static final String PREF_NAME_USERNAME = "username";
     public static final String PREF_NAME_SEX = "sex";
@@ -39,16 +39,23 @@ public class Constants {
     public static final String PREF_NAME_COMPANY = "company";
     public static final String PREF_NAME_PWD = "password";  //记住密码
 
-    public static final String PREF_NAME_VERSIONCODE = "versionCode";	//版本号
+    public static final String PREF_NAME_VERSIONCODE = "versionCode";    //版本号
     public static final String PREF_NAME_LAST_VERSION_CODE = "last_version_code";//上次安装的版本编号
 
 
-    /********* Intent 常量信息传递 *********/
+    /*********
+     * Intent 常量信息传递
+     *********/
 
     public static final String LABEL_PHONE_CODE = "phoneCodeLabel";
     public static final String PHONE_CODE_ENTERPRISE = "create_enterprise";
     public static final String PHONE_CODE_FORGET_PWD = "forgetpwd";
 
+    /*********
+     * startActivityForResult 常量值
+     *********/
+    public static final int VALUE_FORGET_PWD_ACTIVITY = 10001;//忘记密码界面
+    public static final int VALUE_COMMON_PHONE_CODE_ACTIVITY = 10002;
 
     //动态模块常亮
     public static final String DYNAMIC = "dynamic";

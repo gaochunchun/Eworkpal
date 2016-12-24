@@ -56,7 +56,7 @@ public class UserRequestManager {
         map.put("MobilePhone",mobile);
         map.put("NewPassword",newPwd);
 
-        GenericDataManager.getInstance().dataRequest(Constants.REQUEST_CODE_0,RequestType.TYPE_JSON, activity,Urls.URL_CREATE_RESETPASSWORD, null,JSON.toJSONString(map), mCallback);
+        GenericDataManager.getInstance().dataRequest(AppConstant.REQUEST_CODE_0,RequestType.TYPE_JSON, activity,Urls.URL_CREATE_RESETPASSWORD, null,JSON.toJSONString(map), mCallback);
     }*/
 
     /**
@@ -97,6 +97,16 @@ public class UserRequestManager {
     public <T> void createEnterprise(Activity activity, String mParams, AbsCallback<T> mCallback) {
 
         GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_CREATE_ENTERPRISE, mParams, mCallback);
+
+    }
+
+    /**
+     * 功能：找回密码(重置密码)         页面:ForgetPwdActivity.java
+     */
+
+    public <T> void retrievePassword(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_RETRIEVE_PASSWORD, mParams, mCallback);
 
     }
 }

@@ -5,15 +5,28 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.callback.DialogCallback;
+import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
+import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.okhttp.utils.OkLogger;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Response;
 
 /**
  * ===========================================
@@ -28,6 +41,7 @@ public class ForgetPwdActivity extends BaseTitleActivity {
 
     private EditText et_password, et_confirm_password;
     private TextView tv_commit;
+    private String mobile;//往服务器传的手机号码
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +50,7 @@ public class ForgetPwdActivity extends BaseTitleActivity {
         setTitle(R.string.retrieve_password);
         showBackwardView(true);
         initView();
+        initData();
     }
 
     private void initView() {
@@ -50,6 +65,11 @@ public class ForgetPwdActivity extends BaseTitleActivity {
         tv_commit.setOnClickListener(new FastClickListener());
     }
 
+    private void initData() {
+        if (getIntent() != null) {
+            mobile = getIntent().getStringExtra("mobile");
+        }
+    }
 
     /**
      * Edittext监听事件
@@ -85,8 +105,7 @@ public class ForgetPwdActivity extends BaseTitleActivity {
             switch (v.getId()) {
                 case R.id.tv_commit://提交
                     if (et_password.getText().toString().equals(et_confirm_password.getText().toString())) {
-                        startActivity(new Intent(ForgetPwdActivity.this, LoginActivity.class));
-                        overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                        retrievePassword();
                     } else {
                         ToastUtils.showToastShort(getString(R.string.the_two_password_is_not_uniform_please_re_enter));
                     }
@@ -95,6 +114,42 @@ public class ForgetPwdActivity extends BaseTitleActivity {
         }
     }
 
+
+    /**
+     * 找回密码（密码重置）
+     */
+    private void retrievePassword() {
+        Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("phone", mobile);
+        mapList.put("password", et_password.getText().toString());
+        String str = GsonConvertUtil.toJson(mapList);
+
+        UserRequestManager.getInstance().retrievePassword(this, str, new DialogCallback<BaseResponse<String>>(this) {
+            @Override
+            public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+                if (responseData.successed) {
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                    setResult(RESULT_OK);
+                    startActivity(new Intent(ForgetPwdActivity.this, LoginActivity.class));
+                    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                    finish();
+                } else {
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                }
+            }
+
+            @Override
+            public void onError(Call call, Response response, Exception e) {
+                super.onError(call, response, e);
+                OkLogger.e(e.toString());
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
 }
 
