@@ -15,7 +15,7 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
-import com.mainiway.eworkpal.constant.Constants;
+import com.mainiway.eworkpal.constant.AppConstant;
 import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.request.UserRequestManager;
@@ -56,9 +56,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_common_phonecode);
         handlerIntent();
-        if (label.equals(Constants.PHONE_CODE_ENTERPRISE)) {
+        if (label.equals(AppConstant.PHONE_CODE_ENTERPRISE)) {
             setTitle(getString(R.string.register));
-        } else if (label.equals(Constants.PHONE_CODE_FORGET_PWD)) {
+        } else if (label.equals(AppConstant.PHONE_CODE_FORGET_PWD)) {
             setTitle(getString(R.string.retrieve_password));
         }
         showBackwardView(true);
@@ -70,7 +70,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
     private void handlerIntent() {
 
         if (getIntent() != null) {
-            label = getIntent().getStringExtra(Constants.LABEL_PHONE_CODE);
+            label = getIntent().getStringExtra(AppConstant.LABEL_PHONE_CODE);
         }
     }
 
@@ -108,7 +108,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
             switch (v.getId()) {
 
                 case R.id.tv_get_code_next:  //下一步
-                    if (label.equals(Constants.PHONE_CODE_ENTERPRISE)) {
+                    if (label.equals(AppConstant.PHONE_CODE_ENTERPRISE)) {
                         if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//visible,当显示图片验证码布局时
                             if (et_picture_code.getText().length() == 4) {
                                 if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
@@ -129,14 +129,16 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                         }
 
 
-                    } else if (label.equals(Constants.PHONE_CODE_FORGET_PWD)) {
+                    } else if (label.equals(AppConstant.PHONE_CODE_FORGET_PWD)) {
 
-                        int visibility = rl_picture_code_layout.getVisibility();
-                        if (visibility == 0) {//返回值为0，visible,当显示图片验证码布局时
+                        if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//当显示图片验证码布局时
                             if (et_picture_code.getText().length() == 4) {
                                 if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
-                                    //此处跳转到找回密码界面，可能需要携带参数
-                                    startActivity(new Intent(CommonPhoneCodeActivity.this, ForgetPwdActivity.class));
+                                    //此处跳转到找回密码界面
+                                    Intent intent = new Intent();
+                                    intent.putExtra("mobile", et_phone_number.getText().toString());
+                                    intent.setClass(CommonPhoneCodeActivity.this, ForgetPwdActivity.class);
+                                    startActivity(intent);
                                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                                 }
                             } else {
@@ -144,7 +146,10 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                             }
                         } else {
                             //此处跳转到找回密码界面，可能需要携带参数
-                            startActivity(new Intent(CommonPhoneCodeActivity.this, ForgetPwdActivity.class));
+                            Intent intent = new Intent();
+                            intent.putExtra("mobile", et_phone_number.getText().toString());
+                            intent.setClass(CommonPhoneCodeActivity.this, ForgetPwdActivity.class);
+                            startActivityForResult(intent, AppConstant.VALUE_FORGET_PWD_ACTIVITY);
                             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                         }
 
@@ -279,4 +284,14 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case AppConstant.VALUE_FORGET_PWD_ACTIVITY://找回密码界面返回的
+                setResult(RESULT_OK);
+                finish();
+                break;
+        }
+    }
 }

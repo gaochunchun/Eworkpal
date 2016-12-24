@@ -32,23 +32,7 @@ public class Urls {
     public static String URL_LOGIN = "Account/V1.0/company";//登录,选择某个企业
     public static String URL_SET_PHONE_CODE = "Mobile/" + VERSION_CODE + "/sendMobileCode";//发送手机短信码、
     public static String URL_CREATE_ENTERPRISE = "AccountCommon/V1.0/registCompany";//注册提交企业【Web端Mobile共用】
+    public static String URL_RETRIEVE_PASSWORD = "AccountCommon/V1.0/resetPwd";//密码重置接口
 
-    //用户模块
-    //public static String URL_LOGIN = "api/account/login";                       //用户登录
-    public static String URL_CODE = "api/validcode/mobile/send/enterprise-found";//发送手机验证码，在企业注册时
-    public static String URL_FIND_PAS_CODE = "api/validcode/mobile/send/password-found";//发送手机验证码，找回密码
-    public static String URL_PHONE_CODE = "api/validcode/mobile/checking";      //验证手机验证码
-
-    //签到模块
-    public static String URL_GET_SIGNRECORD = "api/sign/getsignrecord-list";//获取签到信息
-    public static String URL_ADD_APPSIGN = "api/sign/addappsign";//签到
-    public static String URL_GETDAY_LIST = "api/attendance/getday-list";//获取当天考勤详情
-    public static String URL_GETBYDAY_LIST = "api/attendance/getbyday-list";//获取当天考勤详情-需要参数
-    public static String URL_LEAVE_THE_QUERY = "api/holiday/query";//查询调休、年假
-
-    //通讯录模块
-    public static String URL_GET_ORGANIZATION = "api/organization/company-org";//组织架构
-    public static String URL_GET_MYDEPARTMENT = "api/organization/dept-users";//我的部门
-    public static String URL_GET_CONTACT_USERINFO = "api/user/info";//用户信息
 
 }

@@ -34,11 +34,11 @@ public class IndexActivity extends BaseActivity {
         //根据版本号来判断是否进入引导页面
        /* int versionCode = ValidateUtils.getVersionCode(getApplicationContext());
 
-        int code = (int)ConfigManager.getInstance().get(Constants.PREF_NAME_VERSIONCODE,0);
+        int code = (int)ConfigManager.getInstance().get(AppConstant.PREF_NAME_VERSIONCODE,0);
 
         if (code < versionCode) {
             // 第一次进入程序，进入引导页，否则直接进入欢迎界面
-            ConfigManager.getInstance().put(Constants.PREF_NAME_VERSIONCODE,versionCode);
+            ConfigManager.getInstance().put(AppConstant.PREF_NAME_VERSIONCODE,versionCode);
             startActivity(new Intent(this, GuideActivity.class));
         } else {
             startActivity(new Intent(this, SplashActivity.class));

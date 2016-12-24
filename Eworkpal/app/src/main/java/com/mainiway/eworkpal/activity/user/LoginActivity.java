@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -21,7 +20,7 @@ import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.callback.DialogCallback;
-import com.mainiway.eworkpal.constant.Constants;
+import com.mainiway.eworkpal.constant.AppConstant;
 import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.model.UserLoginModle;
@@ -218,7 +217,7 @@ public class LoginActivity extends BaseActivity {
 
                 case R.id.tv_register_enterprises://注册企业
                     Intent mIntentRegisterEnterprise = new Intent(LoginActivity.this, CommonPhoneCodeActivity.class);
-                    mIntentRegisterEnterprise.putExtra(Constants.LABEL_PHONE_CODE, Constants.PHONE_CODE_ENTERPRISE);
+                    mIntentRegisterEnterprise.putExtra(AppConstant.LABEL_PHONE_CODE, AppConstant.PHONE_CODE_ENTERPRISE);
                     startActivity(mIntentRegisterEnterprise);
                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                     break;
@@ -276,8 +275,8 @@ public class LoginActivity extends BaseActivity {
 
                 case R.id.tv_forgetpwd: //找回密码
                     Intent mIntentFowgetPwd = new Intent(LoginActivity.this, CommonPhoneCodeActivity.class);
-                    mIntentFowgetPwd.putExtra(Constants.LABEL_PHONE_CODE, Constants.PHONE_CODE_FORGET_PWD);
-                    startActivity(mIntentFowgetPwd);
+                    mIntentFowgetPwd.putExtra(AppConstant.LABEL_PHONE_CODE, AppConstant.PHONE_CODE_FORGET_PWD);
+                    startActivityForResult(mIntentFowgetPwd, AppConstant.VALUE_COMMON_PHONE_CODE_ACTIVITY);
                     break;
 
                 //case R.id.secret_tv:    //Logo显示
@@ -371,4 +370,14 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case AppConstant.VALUE_COMMON_PHONE_CODE_ACTIVITY://找回密码界面（或注册界面）
+                finish();
+                break;
+        }
+    }
 }
