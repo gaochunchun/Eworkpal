@@ -17,7 +17,7 @@ public class AttendanceLateModle implements Serializable ,MultiItemEntity {
     public String day_of_week;
     public  String time;
     public String address;
-    public int  state;//打卡状态  迟到  早退  设备异常  外勤  设备异常等
+    public int  state;//打卡状态  迟到  早退  未签到 未签退  外勤  设备异常等
     public String  type;//打卡类型  签到 签退
     public String appeal_state;//申诉状态  未申诉 申诉处理中 申诉被驳回
     public String imag_url;
