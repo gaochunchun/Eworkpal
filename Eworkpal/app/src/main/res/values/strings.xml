@@ -29,6 +29,14 @@
     <string name="text_confirm_password">确认密码</string>
     <string name="text_create_enterprise">创建企业</string>
     <string name="text_no_join_enterprise">您当前还未加入任何企业哦</string>
+    <string name="register">注册</string>
+    <string name="retrieve_password">找回密码</string>
+    <string name="image_verification_code_error">图片验证码错误</string>
+    <string name="please_enter_the_correct_phone_number">请输入正确的手机号码</string>
+    <string name="re_acquisition">重新获取</string>
+    <string name="the_two_password_is_not_uniform_please_re_enter">两次密码不统一，请重新输入</string>
+    <string name="application_to_join_the_enterprise">申请加入企业</string>
+
 
     <!-- 申请加入企业 -->
     <string name="text_join_enterprise_id">请输入企业ID</string>
@@ -77,5 +85,7 @@
     <string name="help_center">帮助中心</string>
     <string name="application_center">应用中心</string>
     <string name="the_new_version_of_the_line.there_are_comments_to_mention_oh">新版上线啦，有意见快来提哦！！</string>
+
+
 
 </resources>

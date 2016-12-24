@@ -1,9 +1,12 @@
 package com.mainiway.eworkpal.activity.user;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.listener.OnClickFastListener;
 
 /**
  * ===========================================
@@ -23,6 +26,29 @@ public class NoJoinEnterpriseActivity extends BaseTitleActivity {
         setContentView(R.layout.activity_user_no_enterprise);
         setTitle(R.string.text_prompt);
         showBackwardView(true);
+        initView();
+    }
+
+    private void initView() {
+        findView(R.id.tv_join_enterprise).setOnClickListener(new FastClickListener());
+        findView(R.id.tv_create_enterprise).setOnClickListener(new FastClickListener());
+    }
+
+
+    private class FastClickListener extends OnClickFastListener {
+
+        @Override
+        public void onFastClick(View v) {
+
+            switch (v.getId()) {
+                case R.id.tv_join_enterprise://申请加入企业
+                    startActivity(new Intent(NoJoinEnterpriseActivity.this, JoinEnterpriseActivity.class));
+                    break;
+                case R.id.tv_create_enterprise://创建企业
+                    startActivity(new Intent(NoJoinEnterpriseActivity.this, CreateEnterpriseActivity.class));
+                    break;
+            }
+        }
     }
 
 

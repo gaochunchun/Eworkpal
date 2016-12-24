@@ -88,7 +88,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_getcode_next"
+            android:id="@+id/tv_get_code_next"
             android:layout_width="match_parent"
             android:layout_height="96px"
             android:layout_marginTop="50px"

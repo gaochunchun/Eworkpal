@@ -1,19 +1,15 @@
 package com.mainiway.eworkpal.activity.test;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.user.CommonPhoneCodeActivity;
-import com.mainiway.eworkpal.activity.user.LoginActivity;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.base.BaseResponse;
-import com.mainiway.eworkpal.model.UserLoginModle;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.ToastUtils;
@@ -26,8 +22,6 @@ import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Response;
-
-import static com.mainiway.eworkpal.R.id.et_phone_number;
 
 
 public class TestActivity extends BaseTitleActivity {
@@ -110,7 +104,7 @@ public class TestActivity extends BaseTitleActivity {
 
     private void setPhoneCode() {
         Map<String, Object> mapList = new HashMap<String, Object>();
-        mapList.put("phone","1880427291");
+        mapList.put("phone","15717176068");
         mapList.put("pass", 1);
         mapList.put("type", ResultErrorCode.TYPE_CREATE_ENTERPRISE);
         mapList.put("company_id", 0);

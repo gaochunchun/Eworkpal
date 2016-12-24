@@ -1,10 +1,11 @@
 package com.mainiway.eworkpal.adapter;
 
+import com.mainiway.eworkpal.model.UserLoginToModle;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.BaseViewHolder;
 import com.mainiway.eworkpal.R;
-import com.mainiway.eworkpal.activity.test.DataServer;
-import com.mainiway.eworkpal.activity.test.Status;
+
+import java.util.List;
 
 /**
  * ===========================================
@@ -14,16 +15,16 @@ import com.mainiway.eworkpal.activity.test.Status;
  * 描    述：选择企业列表Adapter
  * ===========================================
  */
-public class EnterpriseListAdapter extends BaseQuickAdapter<Status, BaseViewHolder> {
+public class EnterpriseListAdapter extends BaseQuickAdapter<UserLoginToModle, BaseViewHolder> {
 
-    public EnterpriseListAdapter() {
-        super(R.layout.item_enterprise_list, DataServer.getSampleData(8));
+    public EnterpriseListAdapter(List<UserLoginToModle> list) {
+        super(R.layout.item_enterprise_list, list);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, Status item) {
+    protected void convert(BaseViewHolder helper, UserLoginToModle item) {
 
-        helper.setText(R.id.tv_company, item.getUserName());
+        helper.setText(R.id.tv_company, item.name);
 
     }
 

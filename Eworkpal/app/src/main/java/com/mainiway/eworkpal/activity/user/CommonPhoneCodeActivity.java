@@ -44,7 +44,7 @@ import okhttp3.Response;
 public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
     private String label;
-    private TextView tv_get_code, tv_getcode_next;
+    private TextView tv_get_code, tv_get_code_next;
     private RelativeLayout rl_picture_code_layout;
     private ImageView iv_picture_code;
     private EditText et_picture_code, et_phone_number, et_phone_code;
@@ -57,9 +57,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
         setContentView(R.layout.activity_user_common_phonecode);
         handlerIntent();
         if (label.equals(Constants.PHONE_CODE_ENTERPRISE)) {
-            setTitle("注册");
+            setTitle(getString(R.string.register));
         } else if (label.equals(Constants.PHONE_CODE_FORGET_PWD)) {
-            setTitle("找回密码");
+            setTitle(getString(R.string.retrieve_password));
         }
         showBackwardView(true);
         initView();
@@ -75,9 +75,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
     }
 
     private void initView() {
-        tv_getcode_next = findView(R.id.tv_getcode_next);
-        tv_getcode_next.setOnClickListener(new FastClickListener());
-        tv_getcode_next.setClickable(false);
+        tv_get_code_next = findView(R.id.tv_getcode_next);
+        tv_get_code_next.setOnClickListener(new FastClickListener());
+        tv_get_code_next.setClickable(false);
 
         tv_get_code = findView(R.id.tv_get_code);
         tv_get_code.setOnClickListener(new FastClickListener());
@@ -107,7 +107,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
             switch (v.getId()) {
 
-                case R.id.tv_getcode_next:  //下一步
+                case R.id.tv_get_code_next:  //下一步
                     if (label.equals(Constants.PHONE_CODE_ENTERPRISE)) {
                         if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//visible,当显示图片验证码布局时
                             if (et_picture_code.getText().length() == 4) {
@@ -117,12 +117,12 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                                 }
                             } else {
-                                ToastUtils.showToastShort("图片验证码错误");
+                                ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                             }
                         } else {
                             //此处跳转到企业创建界面，可能需要携带参数
                             Intent intent = new Intent();
-                            intent.putExtra("mobile",et_phone_number.getText().toString());
+                            intent.putExtra("mobile", et_phone_number.getText().toString());
                             intent.setClass(CommonPhoneCodeActivity.this, CreateEnterpriseActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
@@ -140,7 +140,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                                 }
                             } else {
-                                ToastUtils.showToastShort("图片验证码错误");
+                                ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                             }
                         } else {
                             //此处跳转到找回密码界面，可能需要携带参数
@@ -158,12 +158,12 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                     if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
                         setPhoneCode();
                     } else {
-                        ToastUtils.showToastShort("请输入正确的手机号码");
+                        ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
                         break;
                     }
                     if (code_button_normal) {
                         TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
-                        timeCount.setBtn(tv_get_code, "重新获取");
+                        timeCount.setBtn(tv_get_code, getString(R.string.re_acquisition));
                         timeCount.start();
                     }
                     break;
@@ -198,9 +198,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
 
                 //显示图片验证码时，判断手机号、验证码、图片验证码是否为空
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
-                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
                 }
 
 
@@ -212,7 +212,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                         code_button_normal = true;
                         pass = 1;//表示已经验证过图片验证码
                     } else {
-                        ToastUtils.showToastShort("图片验证码错误");
+                        ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                         code_button_normal = false;
                     }
                 }
@@ -226,9 +226,9 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                 }
 
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText())) {
-                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
                 }
             }
 
@@ -259,7 +259,7 @@ public class CommonPhoneCodeActivity extends BaseTitleActivity {
                         //获取验证码不可点击
                         DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
                         //下一步不可点击
-                        DealViewUtils.buttonState(tv_getcode_next, R.drawable.rectangle_27dp_blue, false);
+                        DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
                         code_button_normal = false;
                     } else {
                         code_button_normal = true;
