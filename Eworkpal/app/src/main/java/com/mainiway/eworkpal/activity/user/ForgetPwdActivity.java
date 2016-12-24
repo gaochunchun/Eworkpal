@@ -33,7 +33,7 @@ public class ForgetPwdActivity extends BaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_forget_pwd);
-        setTitle("找回密码");
+        setTitle(R.string.retrieve_password);
         showBackwardView(true);
         initView();
     }
@@ -88,7 +88,7 @@ public class ForgetPwdActivity extends BaseTitleActivity {
                         startActivity(new Intent(ForgetPwdActivity.this, LoginActivity.class));
                         overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                     } else {
-                        ToastUtils.showToastShort("两次输入的密码不一致");
+                        ToastUtils.showToastShort(getString(R.string.the_two_password_is_not_uniform_please_re_enter));
                     }
                     break;
             }

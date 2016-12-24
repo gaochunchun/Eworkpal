@@ -15,6 +15,7 @@
         android:textSize="28px" />
 
     <TextView
+        android:id="@+id/tv_join_enterprise"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="96px"
@@ -29,6 +30,7 @@
 
 
     <TextView
+        android:id="@+id/tv_create_enterprise"
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="96px"

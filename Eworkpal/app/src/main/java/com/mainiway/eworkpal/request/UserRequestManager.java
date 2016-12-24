@@ -60,7 +60,17 @@ public class UserRequestManager {
     }*/
 
     /**
-     * 功能：登录
+     * 功能：提交登录,返回企业列表(企业Id,企业Name)   界面:LoginActivity.java
+     */
+
+    public <T> void loginGo(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_LOGIN_GO, mParams, mCallback);
+
+    }
+
+    /**
+     * 功能：登录,选择某个企业   界面:LoginActivity.java
      */
 
     public <T> void login(Activity activity, String mParams, AbsCallback<T> mCallback) {

@@ -16,7 +16,7 @@ package com.mainiway.eworkpal.constant;
 
 /**
  * @author gao_chun
- * 描述：接口URL地址
+ *         描述：接口URL地址
  */
 public class Urls {
 
@@ -28,9 +28,10 @@ public class Urls {
     public static String URL_JsonArray = "testJsonArray";
 
     //登录
-    public static String URL_LOGIN = "Account/"+ VERSION_CODE +"/loginGo";//用户登录
-    public static String URL_SET_PHONE_CODE = "Mobile/"+ VERSION_CODE +"/sendMobileCode";//发送手机短信码、
-    public static String URL_CREATE_ENTERPRISE= "AccountCommon/V1.0/registCompany";//注册提交企业【Web端Mobile共用】
+    public static String URL_LOGIN_GO = "Account/V1.0/loginGo";//提交登录,返回企业列表
+    public static String URL_LOGIN = "Account/V1.0/company";//登录,选择某个企业
+    public static String URL_SET_PHONE_CODE = "Mobile/" + VERSION_CODE + "/sendMobileCode";//发送手机短信码、
+    public static String URL_CREATE_ENTERPRISE = "AccountCommon/V1.0/registCompany";//注册提交企业【Web端Mobile共用】
 
     //用户模块
     //public static String URL_LOGIN = "api/account/login";                       //用户登录

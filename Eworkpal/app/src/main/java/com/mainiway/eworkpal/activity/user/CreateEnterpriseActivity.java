@@ -49,7 +49,7 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_create_enterprise);
-        setTitle("注册");
+        setTitle(R.string.register);
         showBackwardView(true);
         initView();
         initData();
@@ -88,7 +88,7 @@ public class CreateEnterpriseActivity extends BaseTitleActivity {
             switch (v.getId()) {
                 case R.id.tv_create_enterprise://创建企业
                     if (!et_password.getText().toString().equals(et_confirm_password.getText().toString())) {
-                        ToastUtils.showToastShort("两次密码不统一，请重新输入");
+                        ToastUtils.showToastShort(getString(R.string.the_two_password_is_not_uniform_please_re_enter));
                         break;
                     } else {
                         createEnterprise();

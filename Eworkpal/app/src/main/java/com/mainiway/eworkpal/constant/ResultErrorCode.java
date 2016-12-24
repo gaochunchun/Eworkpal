@@ -27,5 +27,8 @@ public class ResultErrorCode {
     public static int TYPE_RETRIEVE_PASSWORD = 3;//找回密码[密码重置]
     public static int TYPE_TRANSFER_MANAGEMENT = 4;//移交管理
 
+    //登录终端，默认PC登录:0，Mobile登录：1
+    public static int TYPE_LOGIN_TERMINAL = 1;//Mobile登录
+
 
 }

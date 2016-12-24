@@ -16,29 +16,30 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.constant.Constants;
+import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.model.UserLoginModle;
+import com.mainiway.eworkpal.model.UserLoginToModle;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.utils.ToastUtils;
+import com.mainiway.eworkpal.utils.ValidateUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
-import com.mainiway.okhttp.model.HttpParams;
 import com.mainiway.okhttp.utils.OkLogger;
 
-import org.json.JSONObject;
-
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -67,6 +68,8 @@ public class LoginActivity extends BaseActivity {
     private RelativeLayout rl_picture_code_layout;
     private View ll_login_layout;
     private int count = 0;//测试用的计量点击登录按钮次数的变量，以后删掉
+    private int pass = 0;//判断是否进行过图片验证码验证，默认值为0。（0：未验证，1：验证）
+    private String companyID;//往选择企业接口传递的公司Id
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,6 +195,17 @@ public class LoginActivity extends BaseActivity {
                 }
             }
 
+            //弹出图片验证码时，比对图片验证码
+            if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//弹出图片验证码布局
+                if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
+                    rl_picture_code_layout.setVisibility(View.GONE);
+                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+                    tv_login.setClickable(true);
+                    pass = 0;
+                } else {
+                    ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
+                }
+            }
         }
     };
 
@@ -244,8 +258,15 @@ public class LoginActivity extends BaseActivity {
 //                        }
 //                    }
                     //startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
-                   startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    //login();
+                    //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+
+                    if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
+                        loginGo();
+                    } else {
+                        ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
+                    }
+
 
                     break;
 
@@ -269,30 +290,85 @@ public class LoginActivity extends BaseActivity {
     }
 
     /**
-     * 登录请求
+     * 提交登录,返回企业列表(企业Id,企业Name)
      */
-    private void login() {
+    private void loginGo() {
 
         Map<String, Object> mapList = new HashMap<String, Object>();
-        mapList.put("phone", "string");
-        mapList.put("password", "123456");
-        mapList.put("type", "1");
-        mapList.put("ispass", "1");
+        mapList.put("phone", et_phone_number.getText().toString());
+        mapList.put("password", et_password.getText().toString());
+        mapList.put("type", ResultErrorCode.TYPE_LOGIN_TERMINAL);
+        mapList.put("ispass", pass);
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse>(this) {
+        UserRequestManager.getInstance().loginGo(this, str, new DialogCallback<BaseResponse<List<UserLoginToModle>>>(this) {
             @Override
-            public void onSuccess(BaseResponse baseResponse, Call call, Response response) {
-                OkLogger.e(baseResponse.status+" ---" + baseResponse.message);
+            public void onSuccess(BaseResponse<List<UserLoginToModle>> baseResponse, Call call, Response response) {
+                if (baseResponse.successed) {
+                    //如果服务器返回的status=403，显示图片验证码，否则不显示
+                    if (baseResponse.status == ResultErrorCode.CODE_LOGIN_THREE) {
+                        rl_picture_code_layout.setVisibility(View.VISIBLE);
+                        tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+                        tv_login.setClickable(false);
+                        pass = 1;
+                    }
+                    if (baseResponse.data.size() == 0) {
+                        startActivity(new Intent(LoginActivity.this, NoJoinEnterpriseActivity.class));
+
+                    } else if (baseResponse.data.size() == 1) {
+                        companyID = baseResponse.data.get(0).companyID;
+                        login();
+                    } else {
+                        Intent intent = new Intent();
+                        intent.putExtra("infoList", (Serializable) baseResponse.data);
+                        intent.setClass(LoginActivity.this, EnterpriseListActivity.class);
+                        startActivity(intent);
+                    }
+
+
+                } else {
+                    ToastUtils.showToastShort(baseResponse.message.get(0).msg);
+                }
+
             }
 
             @Override
             public void onError(Call call, Response response, Exception e) {
                 super.onError(call, response, e);
+                OkLogger.e(e.toString());
                 ToastUtils.showToastShort(e.toString());
             }
         });
+    }
 
+    /**
+     * 登录,选择某个企业
+     */
+    private void login() {
+
+        Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("companyID", companyID);
+        String str = GsonConvertUtil.toJson(mapList);
+
+        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(this) {
+            @Override
+            public void onSuccess(BaseResponse<UserLoginModle> baseResponse, Call call, Response response) {
+                if (baseResponse.successed) {
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
+                } else {
+                    ToastUtils.showToastShort(baseResponse.message.get(0).msg);
+                }
+
+            }
+
+            @Override
+            public void onError(Call call, Response response, Exception e) {
+                super.onError(call, response, e);
+                OkLogger.e(e.toString());
+                ToastUtils.showToastShort(e.toString());
+            }
+        });
     }
 
 }

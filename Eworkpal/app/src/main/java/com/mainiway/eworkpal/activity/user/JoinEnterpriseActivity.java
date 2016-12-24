@@ -42,7 +42,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_join_enterprise);
-        setTitle("申请加入企业");
+        setTitle(getString(R.string.application_to_join_the_enterprise));
         showBackwardView(true);
         initView();
     }
@@ -150,7 +150,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
                             DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                             count = 0;
                         } else {
-                            ToastUtils.showToastShort("图片验证码错误");
+                            ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                         }
                     }
 
@@ -193,7 +193,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
                                 ll_join_enterprise_verify.setVisibility(View.VISIBLE);
                             }
                         } else {
-                            ToastUtils.showToastShort("图片验证码错误");
+                            ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                         }
                     } else {
                         ll_join_enterprise.setVisibility(View.GONE);
@@ -219,7 +219,7 @@ public class JoinEnterpriseActivity extends BaseTitleActivity {
                     } else {
 
                         TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
-                        timeCount.setBtn(tv_register_get_code, "重新获取");
+                        timeCount.setBtn(tv_register_get_code, getString(R.string.re_acquisition));
                         timeCount.start();
                     }
 
