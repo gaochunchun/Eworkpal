@@ -68,6 +68,7 @@ public class AttendanceReportedPositionActivity extends BaseTitleActivity implem
         imagePicker.setCrop(false);                           //允许裁剪（单选才有效）
         imagePicker.setSaveRectangle(true);                   //是否按矩形区域保存
         imagePicker.setSelectLimit(maxImgCount);              //选中数量限制
+        //imagePicker.setStyle(CropImageView.Style.CIRCLE);  //裁剪框的形状
         imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
         imagePicker.setFocusWidth(800);                       //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
         imagePicker.setFocusHeight(800);                      //裁剪框的高度。单位像素（圆形自动取宽高最小值）
