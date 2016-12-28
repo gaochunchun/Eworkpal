@@ -18,7 +18,7 @@ import com.mainiway.eworkpal.widgets.TimeSelector;
  * ===========================================
  */
 
-public class AttendanceAppealActivity extends BaseTitleActivity implements View.OnClickListener {
+public class AttendanceAppealActivity extends BaseTitleActivity{
     private TextView tv_time;
 
     @Override
@@ -46,6 +46,7 @@ public class AttendanceAppealActivity extends BaseTitleActivity implements View.
 
     @Override
     public void onClick(View view) {
+        super.onClick(view);
         switch (view.getId()) {
             case R.id.iv_time_select_button://选择时间按钮
                 TimeSelector timeSelector = new TimeSelector(AttendanceAppealActivity.this, new TimeSelector.ResultHandler() {
@@ -65,6 +66,5 @@ public class AttendanceAppealActivity extends BaseTitleActivity implements View.
                 break;
         }
     }
-
 
 }
