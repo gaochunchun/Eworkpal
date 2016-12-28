@@ -243,7 +243,11 @@ public class UserLoginActivity extends BaseActivity {
                         }
                     } else {//未弹出图片验证码时
                         if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
-                            loginGo();
+
+                           String mPhone = et_phone_number.getText().toString().trim();
+                           String mPwd = et_password.getText().toString().trim();
+
+                            loginGo(mPhone,mPwd);
                         } else {
                             ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
                         }
@@ -274,11 +278,11 @@ public class UserLoginActivity extends BaseActivity {
     /**
      * 提交登录,返回企业列表(企业Id,企业Name)
      */
-    private void loginGo() {
+    private void loginGo(String phone,String password) {
 
         Map<String, Object> mapList = new HashMap<String, Object>();
-        mapList.put("phone", et_phone_number.getText().toString());
-        mapList.put("password", et_password.getText().toString());
+        mapList.put("phone", phone);
+        mapList.put("password",password);
         mapList.put("type", ResultErrorCode.TYPE_LOGIN_TERMINAL);
         mapList.put("ispass", pass);
         String str = GsonConvertUtil.toJson(mapList);
