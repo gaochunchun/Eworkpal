@@ -55,7 +55,8 @@ public class AppConstant {
      * startActivityForResult 常量值
      *********/
     public static final int VALUE_FORGET_PWD_ACTIVITY = 10001;//忘记密码界面
-    public static final int VALUE_COMMON_PHONE_CODE_ACTIVITY = 10002;
+    public static final int VALUE_COMMON_PHONE_CODE_ACTIVITY = 10002;//注册（找回密码）界面
+    public static final int VALUE_CREATE_ENTERPRISE= 10002;//注册企业界面
 
     //动态模块常亮
     public static final String DYNAMIC = "dynamic";

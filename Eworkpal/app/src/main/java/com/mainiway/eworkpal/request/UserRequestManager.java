@@ -91,6 +91,17 @@ public class UserRequestManager {
 
 
     /**
+     * 功能：验证手机号码(下一步或确认时候调用)        页面:UserCommonPhoneCodeActivity.java
+     */
+
+    public <T> void verifyPhoneNumber(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_VERIFY_PHONE_NUMBER, mParams, mCallback);
+
+    }
+
+
+    /**
      * 功能：创建企业         页面:UserCreateEnterpriseActivity.java
      */
 
@@ -109,4 +120,25 @@ public class UserRequestManager {
         GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_RETRIEVE_PASSWORD, mParams, mCallback);
 
     }
+
+    /**
+     * 功能：申请加入企业验证企业ID         页面:UserJoinEnterpriseActivity.java
+     */
+
+    public <T> void verificationEnterpriseId(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_VERIFICATIONENTERPRISEID, mParams, mCallback);
+
+    }
+
+    /**
+     * 功能：申请加入企业       页面:UserJoinEnterpriseActivity.java
+     */
+
+    public <T> void addCompany(Activity activity, String mParams, AbsCallback<T> mCallback) {
+
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_ADD_COMPANY, mParams, mCallback);
+
+    }
+
 }

@@ -49,8 +49,8 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
     private RelativeLayout rl_picture_code_layout;
     private ImageView iv_picture_code;
     private EditText et_picture_code, et_phone_number, et_phone_code;
-    private boolean code_button_normal = true;//根据服务器返回的status值，判断获取验证码按钮是否正常，默认为true
     private int pass = 0;//判断是否进行过图片验证码验证，默认值为0。（0：未验证，1：验证）
+    private int type;//往服务器传的模块名称
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,13 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
 
         if (getIntent() != null) {
             label = getIntent().getStringExtra(AppConstant.LABEL_PHONE_CODE);
+
+
+            if (label.equals(AppConstant.PHONE_CODE_ENTERPRISE)) {//创建企业
+                type = ResultErrorCode.TYPE_CREATE_ENTERPRISE;
+            } else if (label.equals(AppConstant.PHONE_CODE_FORGET_PWD)) {//找回密码
+                type = ResultErrorCode.TYPE_RETRIEVE_PASSWORD;
+            }
         }
     }
 
@@ -109,69 +116,39 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
             switch (v.getId()) {
 
                 case R.id.tv_get_code_next:  //下一步
-                    if (label.equals(AppConstant.PHONE_CODE_ENTERPRISE)) {
+                    if (label.equals(AppConstant.PHONE_CODE_ENTERPRISE)) {//创建企业
                         if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//visible,当显示图片验证码布局时
-                            if (et_picture_code.getText().length() == 4) {
-                                if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
-                                    //此处跳转到企业创建界面，可能需要携带参数
-                                    startActivity(new Intent(UserCommonPhoneCodeActivity.this, UserCreateEnterpriseActivity.class));
-                                    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
-                                }
-                            } else {
+                            if (!et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                                 ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                             }
                         } else {
-                            //此处跳转到企业创建界面，可能需要携带参数
-                            Intent intent = new Intent();
-                            intent.putExtra("mobile", et_phone_number.getText().toString());
-                            intent.setClass(UserCommonPhoneCodeActivity.this, UserCreateEnterpriseActivity.class);
-                            startActivity(intent);
-                            overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                            verifyPhoneNumber();
                         }
 
-
-                    } else if (label.equals(AppConstant.PHONE_CODE_FORGET_PWD)) {
+                    } else if (label.equals(AppConstant.PHONE_CODE_FORGET_PWD)) {//找回密码
 
                         if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//当显示图片验证码布局时
-                            if (et_picture_code.getText().length() == 4) {
-                                if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
-                                    //此处跳转到找回密码界面
-                                    Intent intent = new Intent();
-                                    intent.putExtra("mobile", et_phone_number.getText().toString());
-                                    intent.setClass(UserCommonPhoneCodeActivity.this, UserForgetPwdActivity.class);
-                                    startActivity(intent);
-                                    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
-                                }
-                            } else {
+                            if (!et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                                 ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                             }
                         } else {
-                            //此处跳转到找回密码界面，可能需要携带参数
-                            Intent intent = new Intent();
-                            intent.putExtra("mobile", et_phone_number.getText().toString());
-                            intent.setClass(UserCommonPhoneCodeActivity.this, UserForgetPwdActivity.class);
-                            startActivityForResult(intent, AppConstant.VALUE_FORGET_PWD_ACTIVITY);
-                            overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+                            verifyPhoneNumber();
                         }
-
-
                     }
 
                     break;
 
                 case R.id.tv_get_code://获取验证码
-
                     if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
+                        TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
+                        timeCount.setBtn(tv_get_code, getString(R.string.re_acquisition));
+                        timeCount.start();
                         setPhoneCode();
                     } else {
                         ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
                         break;
                     }
-                    if (code_button_normal) {
-                        TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
-                        timeCount.setBtn(tv_get_code, getString(R.string.re_acquisition));
-                        timeCount.start();
-                    }
+
                     break;
                 case R.id.iv_picture_code://动态验证码图片
                     iv_picture_code.setImageBitmap(ImageCodeView.getInstance().createBitmap());
@@ -210,27 +187,26 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
                 }
 
 
-                //如果弹出图片验证码，则判断验图片证码正确与否，获取验证码按钮可点击状态
+                //如果弹出图片验证码，则判断验图片证码正确与否，设置获取验证码按钮状态
                 if (et_picture_code.getText().length() == 4) {
                     if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                         rl_picture_code_layout.setVisibility(View.GONE);
                         DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
-                        code_button_normal = true;
-                        pass = 1;//表示已经验证过图片验证码
+                        pass = 1;
                     } else {
                         ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
-                        code_button_normal = false;
                     }
                 }
 
 
             } else {//不显示图片验证码时，只判断手机号、验证码是否为空
+                //获取验证码按钮的状态
                 if (!TextUtils.isEmpty(et_phone_number.getText())) {
                     DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
                     DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
                 }
-
+                //下一步按钮的状态
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText())) {
                     DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
@@ -249,7 +225,7 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
         Map<String, Object> mapList = new HashMap<String, Object>();
         mapList.put("phone", et_phone_number.getText().toString());
         mapList.put("pass", pass);
-        mapList.put("type", ResultErrorCode.TYPE_CREATE_ENTERPRISE);
+        mapList.put("type", type);
         mapList.put("company_id", 0);
 
         String str = GsonConvertUtil.toJson(mapList);
@@ -257,19 +233,17 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
         UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse<String>>(this) {
             @Override
             public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+                pass = 0;
                 if (responseData.successed) {
-                    pass = 0;
-                    //如果服务器返回的status=403，显示图片验证码，否则不显示
-                    if (responseData.status == ResultErrorCode.CODE_SEND_CODE_THREE) {
-                        rl_picture_code_layout.setVisibility(View.VISIBLE);
-                        //获取验证码不可点击
-                        DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
-                        //下一步不可点击
-                        DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
-                        code_button_normal = false;
-                    } else {
-                        code_button_normal = true;
-                    }
+
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                } else if (responseData.status == ResultErrorCode.CODE_SEND_CODE_THREE) {
+                    //如果服务器返回的status=403，显示图片验证码
+                    rl_picture_code_layout.setVisibility(View.VISIBLE);
+                    //获取验证码不可点击
+                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
+                    //下一步不可点击
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 }
@@ -285,13 +259,62 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
     }
 
 
+    /**
+     * 验证手机号码(下一步或确认时候调用)
+     */
+    private void verifyPhoneNumber() {
+        Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("phone", et_phone_number.getText().toString());
+        mapList.put("code", et_phone_code.getText().toString());
+        mapList.put("type", type);
+        mapList.put("company_id", 0);
+
+        String str = GsonConvertUtil.toJson(mapList);
+
+        UserRequestManager.getInstance().verifyPhoneNumber(this, str, new DialogCallback<BaseResponse<String>>(this) {
+            @Override
+            public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+                if (responseData.successed) {
+                    Intent intent = new Intent();
+                    intent.putExtra("mobile", et_phone_number.getText().toString());
+                    if (label.equals(AppConstant.PHONE_CODE_ENTERPRISE)) {//创建企业
+                        intent.setClass(UserCommonPhoneCodeActivity.this, UserCreateEnterpriseActivity.class);
+                        startActivityForResult(intent, AppConstant.VALUE_CREATE_ENTERPRISE);
+                    } else if (label.equals(AppConstant.PHONE_CODE_FORGET_PWD)) {//找回密码
+                        intent.setClass(UserCommonPhoneCodeActivity.this, UserForgetPwdActivity.class);
+                        startActivityForResult(intent, AppConstant.VALUE_FORGET_PWD_ACTIVITY);
+                    }
+                    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+
+                } else {
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                }
+            }
+
+            @Override
+            public void onError(Call call, Response response, Exception e) {
+                super.onError(call, response, e);
+                OkLogger.e(e.toString());
+            }
+        });
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
+
+            case AppConstant.VALUE_CREATE_ENTERPRISE://创建企业
+                if (resultCode == RESULT_OK) {
+                    setResult(RESULT_OK);
+                    finish();
+                }
             case AppConstant.VALUE_FORGET_PWD_ACTIVITY://找回密码界面返回的
-                setResult(RESULT_OK);
-                finish();
+                if (resultCode == RESULT_OK) {
+                    setResult(RESULT_OK);
+                    finish();
+                }
                 break;
         }
     }

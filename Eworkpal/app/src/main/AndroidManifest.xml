@@ -73,12 +73,13 @@
             android:theme="@style/AppTheme" />
 
         <!-- 服务器地址 -->
-        <!--<meta-data
-            android:name="app.server"
-            android:value="http://10.99.2.70:9093/public"/>-->
         <meta-data
             android:name="app.server"
-            android:value="http://10.99.2.70:8080"/>
+            android:value="http://172.16.8.247:8080"/>
+        <!--<meta-data-->
+            <!--android:name="app.server"-->
+            <!--android:value="http://10.99.2.70:8080"/>-->\
+
 
 
         <!-- 适配尺寸 -->

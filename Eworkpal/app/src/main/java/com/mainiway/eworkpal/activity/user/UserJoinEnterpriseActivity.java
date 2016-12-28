@@ -16,6 +16,7 @@ import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.constant.ResultErrorCode;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.model.UserLoginToModle;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
@@ -27,6 +28,7 @@ import com.mainiway.okhttp.OkHttpUtils;
 import com.mainiway.okhttp.utils.OkLogger;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import okhttp3.Call;
@@ -46,12 +48,12 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
     private View ll_join_enterprise_id;
     private View ll_join_enterprise;
     private View ll_join_enterprise_verify;
-    private TextView tv_next_one, tv_next_two, tv_register_get_code;
+    private TextView tv_next_one, tv_next_two, tv_register_get_code, tv_name_of_enterprise;
     private EditText et_enterprise_id, et_name, et_department, et_position, et_phone_number, et_phone_code, et_picture_code;
     private RelativeLayout rl_picture_code_layout;
     private ImageView iv_picture_code;
-    private boolean code_button_normal = true;//根据服务器返回的status值，判断获取验证码按钮是否正常，默认为true
     private int pass = 0;//判断是否进行过图片验证码验证，默认值为0。（0：未验证，1：验证）
+    private String companyID;//服务器返回的公司Id,要往发送验证码接口传的值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
 
         //填写申请信息布局
         ll_join_enterprise = findView(R.id.ll_join_enterprise);
+        tv_name_of_enterprise = findView(R.id.tv_name_of_enterprise);
 
         tv_next_two = findView(R.id.tv_next_two);
         tv_next_two.setOnClickListener(new FastClickListener());
@@ -193,12 +196,12 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
 
             switch (v.getId()) {
 
-                case R.id.tv_next_one://下一步
-
-                    //verificationEnterpriseId();
-                    ll_join_enterprise_id.setVisibility(View.GONE);
-                    ll_join_enterprise.setVisibility(View.VISIBLE);
-
+                case R.id.tv_next_one://下一步(输入企业Id)
+                    if (et_enterprise_id.getText().length() == 6) {
+                        verificationEnterpriseId();
+                    } else {
+                        ToastUtils.showToastShort("请输入6位企业Id");
+                    }
                     break;
 
                 case R.id.tv_next_two://下一步
@@ -215,9 +218,6 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
                         }
                     } else {
                         applicationToJoinTheEnterprise();
-                        //到时删掉
-                        ll_join_enterprise.setVisibility(View.GONE);
-                        ll_join_enterprise_verify.setVisibility(View.VISIBLE);
                     }
 
 
@@ -230,17 +230,15 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
                 case R.id.tv_register_get_code://获取验证码
 
                     if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
+                        TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
+                        timeCount.setBtn(tv_register_get_code, getString(R.string.re_acquisition));
+                        timeCount.start();
                         setPhoneCode();
                     } else {
                         ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
                         break;
                     }
-                    if (code_button_normal) {
 
-                        TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
-                        timeCount.setBtn(tv_register_get_code, getString(R.string.re_acquisition));
-                        timeCount.start();
-                    }
 
                     break;
 
@@ -261,12 +259,15 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
         mapList.put("code", et_enterprise_id.getText().toString());
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse<String>>(this) {
+        UserRequestManager.getInstance().verificationEnterpriseId(this, str, new DialogCallback<BaseResponse<UserLoginToModle>>(this) {
             @Override
-            public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+            public void onSuccess(BaseResponse<UserLoginToModle> responseData, Call call, Response response) {
                 if (responseData.successed) {
+                    String name = responseData.data.name;
+                    companyID = responseData.data.companyID;
                     ll_join_enterprise_id.setVisibility(View.GONE);
                     ll_join_enterprise.setVisibility(View.VISIBLE);
+                    tv_name_of_enterprise.setText("您正在申请加入" + "'" + name + "'");
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 }
@@ -289,26 +290,23 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
         mapList.put("phone", et_phone_number.getText().toString());
         mapList.put("pass", pass);
         mapList.put("type", ResultErrorCode.TYPE_JOIN_ENTERPRISE);
-        mapList.put("company_id", 0);
+        mapList.put("company_id", companyID);
 
         String str = GsonConvertUtil.toJson(mapList);
 
         UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse<String>>(this) {
             @Override
             public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+                pass = 0;
                 if (responseData.successed) {
-                    pass = 0;
+                    ToastUtils.showToastShort(responseData.message.get(0).msg);
+                } else if (responseData.status == ResultErrorCode.CODE_SEND_CODE_THREE) {
                     //如果服务器返回的status=403，显示图片验证码，否则不显示
-                    if (responseData.status == ResultErrorCode.CODE_SEND_CODE_THREE) {
-                        rl_picture_code_layout.setVisibility(View.VISIBLE);
-                        //获取验证码不可点击
-                        DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue, false);
-                        //下一步不可点击
-                        DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue, false);
-                        code_button_normal = false;
-                    } else {
-                        code_button_normal = true;
-                    }
+                    rl_picture_code_layout.setVisibility(View.VISIBLE);
+                    //获取验证码不可点击
+                    DealViewUtils.buttonState(tv_register_get_code, R.drawable.rectangle_27dp_blue, false);
+                    //下一步不可点击
+                    DealViewUtils.buttonState(tv_next_two, R.drawable.rectangle_27dp_blue, false);
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 }
@@ -329,19 +327,20 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
      */
     private void applicationToJoinTheEnterprise() {
         Map<String, Object> mapList = new HashMap<String, Object>();
+        mapList.put("phone", et_phone_number.getText().toString());
+        mapList.put("code", et_phone_code.getText().toString());
+        mapList.put("type", ResultErrorCode.TYPE_JOIN_ENTERPRISE);
         mapList.put("companyID", et_enterprise_id.getText().toString());
         mapList.put("name", et_name.getText().toString());
         mapList.put("departmentName", et_department.getText().toString());
         mapList.put("positionName", et_position.getText().toString());
-        mapList.put("phone", et_phone_number.getText().toString());
 
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().setPhoneCode(this, str, new DialogCallback<BaseResponse<String>>(this) {
+        UserRequestManager.getInstance().addCompany(this, str, new DialogCallback<BaseResponse<String>>(this) {
             @Override
             public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
                 if (responseData.successed) {
-                    ToastUtils.showToastShort(responseData.message.get(0).msg);
                     ll_join_enterprise.setVisibility(View.GONE);
                     ll_join_enterprise_verify.setVisibility(View.VISIBLE);
                 } else {

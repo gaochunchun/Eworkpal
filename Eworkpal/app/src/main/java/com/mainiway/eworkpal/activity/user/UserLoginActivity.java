@@ -67,7 +67,6 @@ public class UserLoginActivity extends BaseActivity {
     private EditText et_phone_number, et_password, et_picture_code;
     private RelativeLayout rl_picture_code_layout;
     private View ll_login_layout;
-    private int count = 0;//测试用的计量点击登录按钮次数的变量，以后删掉
     private int pass = 0;//判断是否进行过图片验证码验证，默认值为0。（0：未验证，1：验证）
     private String companyID;//往选择企业接口传递的公司Id
 
@@ -179,31 +178,30 @@ public class UserLoginActivity extends BaseActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-
-            if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//若布局可见,弹出图片验证码布局
-                //如果弹出图片验证码，则判断手机号、密码、图片验证码不为空，登录按钮可点击
+            //设置登录按钮的背景颜色和点击状态
+            if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {
+                //如果弹出图片验证码，则判断手机号、密码、图片验证码不为空，设置登录按钮的点击状态
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
                     DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
                     DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue, false);
+                }
+
+                //弹出图片验证码时，比对图片验证码
+                if (et_picture_code.getText().length() == 4) {
+                    if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
+                        rl_picture_code_layout.setVisibility(View.GONE);//隐藏图片验证码布局
+                        et_picture_code.setText("");
+                        pass = 1;
+                    } else {
+                        ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
+                    }
                 }
             } else {//只有用户名，密码,没有图片验证码布局
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText())) {
                     DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
                 } else {
                     DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue, false);
-                }
-            }
-
-            //弹出图片验证码时，比对图片验证码
-            if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//弹出图片验证码布局
-                if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
-                    rl_picture_code_layout.setVisibility(View.GONE);
-                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-                    tv_login.setClickable(true);
-                    pass = 0;
-                } else {
-                    ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
                 }
             }
         }
@@ -219,7 +217,7 @@ public class UserLoginActivity extends BaseActivity {
                 case R.id.tv_register_enterprises://注册企业
                     Intent mIntentRegisterEnterprise = new Intent(UserLoginActivity.this, UserCommonPhoneCodeActivity.class);
                     mIntentRegisterEnterprise.putExtra(AppConstant.LABEL_PHONE_CODE, AppConstant.PHONE_CODE_ENTERPRISE);
-                    startActivity(mIntentRegisterEnterprise);
+                    startActivityForResult(mIntentRegisterEnterprise, AppConstant.VALUE_COMMON_PHONE_CODE_ACTIVITY);
                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                     break;
 
@@ -237,36 +235,19 @@ public class UserLoginActivity extends BaseActivity {
 //
 //                        }
 //                    }).show();
+                    if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//弹出图片验证码时
+                        if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode()) && et_picture_code.getText().length() == 4) {
 
-
-//                    int visibility = rl_picture_code_layout.getVisibility();
-//                    if(visibility==0){//返回值为0，visible,弹出图片验证码布局
-//                        if(et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())){
-//                            rl_picture_code_layout.setVisibility(View.GONE);
-//                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
-//                            tv_login.setClickable(true);
-//                            count=0;
-//                        }else{
-//                            ToastUtils.showToastShort("图片验证码错误");
-//                        }
-//                    }else{
-//                        count++;
-//                        if(count>1){
-//                            rl_picture_code_layout.setVisibility(View.VISIBLE);
-//                            tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-//                            tv_login.setClickable(false);
-//                        }
-//                    }
-                    //startActivity(new Intent(UserLoginActivity.this, UserNoJoinEnterpriseActivity.class));
-                    //startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
-
-
-                    if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
-                        loginGo();
-                    } else {
-                        ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
+                        } else {
+                            ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
+                        }
+                    } else {//未弹出图片验证码时
+                        if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
+                            loginGo();
+                        } else {
+                            ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
+                        }
                     }
-
 
                     break;
 
@@ -278,6 +259,7 @@ public class UserLoginActivity extends BaseActivity {
                     Intent mIntentFowgetPwd = new Intent(UserLoginActivity.this, UserCommonPhoneCodeActivity.class);
                     mIntentFowgetPwd.putExtra(AppConstant.LABEL_PHONE_CODE, AppConstant.PHONE_CODE_FORGET_PWD);
                     startActivityForResult(mIntentFowgetPwd, AppConstant.VALUE_COMMON_PHONE_CODE_ACTIVITY);
+                    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                     break;
 
                 //case R.id.secret_tv:    //Logo显示
@@ -304,14 +286,8 @@ public class UserLoginActivity extends BaseActivity {
         UserRequestManager.getInstance().loginGo(this, str, new DialogCallback<BaseResponse<List<UserLoginToModle>>>(this) {
             @Override
             public void onSuccess(BaseResponse<List<UserLoginToModle>> baseResponse, Call call, Response response) {
+                pass = 0;
                 if (baseResponse.successed) {
-                    //如果服务器返回的status=403，显示图片验证码，否则不显示
-                    if (baseResponse.status == ResultErrorCode.CODE_LOGIN_THREE) {
-                        rl_picture_code_layout.setVisibility(View.VISIBLE);
-                        tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
-                        tv_login.setClickable(false);
-                        pass = 1;
-                    }
                     if (baseResponse.data.size() == 0) {
                         startActivity(new Intent(UserLoginActivity.this, UserNoJoinEnterpriseActivity.class));
 
@@ -325,18 +301,20 @@ public class UserLoginActivity extends BaseActivity {
                         startActivity(intent);
                     }
 
-
+                } else if (baseResponse.status == ResultErrorCode.CODE_LOGIN_THREE) {
+                    //如果服务器返回的status=402，显示图片验证码，否则不显示
+                    rl_picture_code_layout.setVisibility(View.VISIBLE);
+                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+                    tv_login.setClickable(false);
                 } else {
                     ToastUtils.showToastShort(baseResponse.message.get(0).msg);
                 }
-
             }
 
             @Override
             public void onError(Call call, Response response, Exception e) {
                 super.onError(call, response, e);
                 OkLogger.e(e.toString());
-                ToastUtils.showToastShort(e.toString());
             }
         });
     }
@@ -366,7 +344,6 @@ public class UserLoginActivity extends BaseActivity {
             public void onError(Call call, Response response, Exception e) {
                 super.onError(call, response, e);
                 OkLogger.e(e.toString());
-                ToastUtils.showToastShort(e.toString());
             }
         });
     }
@@ -377,7 +354,9 @@ public class UserLoginActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case AppConstant.VALUE_COMMON_PHONE_CODE_ACTIVITY://找回密码界面（或注册界面）
-                finish();
+                if (resultCode == RESULT_OK) {
+                    finish();
+                }
                 break;
         }
     }
