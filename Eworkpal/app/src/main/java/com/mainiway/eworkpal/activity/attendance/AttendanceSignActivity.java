@@ -301,6 +301,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         public void onFastClick(View v) {
             switch (v.getId()) {
                 case R.id.tv_location://定位
+                    mLocationClient.startLocation();
                     isFirst = true;
                     break;
                 case R.id.tv_reported_position://上报位置
