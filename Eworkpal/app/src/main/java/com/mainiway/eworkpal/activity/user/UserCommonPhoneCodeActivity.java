@@ -140,9 +140,6 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
 
                 case R.id.tv_get_code://获取验证码
                     if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
-                        TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
-                        timeCount.setBtn(tv_get_code, getString(R.string.re_acquisition));
-                        timeCount.start();
                         setPhoneCode();
                     } else {
                         ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
@@ -235,7 +232,9 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
             public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
                 pass = 0;
                 if (responseData.successed) {
-
+                    TimeCount timeCount = new TimeCount(60000, 1000);//60000, 1000
+                    timeCount.setBtn(tv_get_code, getString(R.string.re_acquisition));
+                    timeCount.start();
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 } else if (responseData.status == ResultErrorCode.CODE_SEND_CODE_THREE) {
                     //如果服务器返回的status=403，显示图片验证码

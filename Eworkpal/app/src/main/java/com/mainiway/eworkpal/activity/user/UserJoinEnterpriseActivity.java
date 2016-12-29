@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import com.mainiway.eworkpal.model.UserLoginToModle;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
+import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.utils.TimeCount;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.eworkpal.utils.ValidateUtils;
@@ -230,9 +232,6 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
                 case R.id.tv_register_get_code://获取验证码
 
                     if (ValidateUtils.isMobile(et_phone_number.getText().toString())) {
-                        TimeCount timeCount = new TimeCount(3000, 1000);//60000, 1000
-                        timeCount.setBtn(tv_register_get_code, getString(R.string.re_acquisition));
-                        timeCount.start();
                         setPhoneCode();
                     } else {
                         ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
@@ -267,6 +266,8 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
                     companyID = responseData.data.companyID;
                     ll_join_enterprise_id.setVisibility(View.GONE);
                     ll_join_enterprise.setVisibility(View.VISIBLE);
+                    //处理弹出软键盘遮挡输入框的问题
+                    //KeyboardUtils.controlKeyboardLayout(findView(R.id.ll_join_enterprise_layout), et_phone_code);
                     tv_name_of_enterprise.setText("您正在申请加入" + "'" + name + "'");
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
@@ -299,6 +300,9 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
             public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
                 pass = 0;
                 if (responseData.successed) {
+                    TimeCount timeCount = new TimeCount(60000, 1000);//60000, 1000
+                    timeCount.setBtn(tv_register_get_code, getString(R.string.re_acquisition));
+                    timeCount.start();
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 } else if (responseData.status == ResultErrorCode.CODE_SEND_CODE_THREE) {
                     //如果服务器返回的status=403，显示图片验证码，否则不显示
