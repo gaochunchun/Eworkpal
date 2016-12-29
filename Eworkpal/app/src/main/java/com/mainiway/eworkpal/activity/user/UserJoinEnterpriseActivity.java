@@ -268,7 +268,7 @@ public class UserJoinEnterpriseActivity extends BaseTitleActivity {
                     ll_join_enterprise.setVisibility(View.VISIBLE);
                     //处理弹出软键盘遮挡输入框的问题
                     //KeyboardUtils.controlKeyboardLayout(findView(R.id.ll_join_enterprise_layout), et_phone_code);
-                    tv_name_of_enterprise.setText("您正在申请加入" + "'" + name + "'");
+                    tv_name_of_enterprise.setText(getString(R.string.you_are_applying_to_join, name));
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 }

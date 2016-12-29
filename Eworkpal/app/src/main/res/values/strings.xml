@@ -44,6 +44,7 @@
     <string name="text_join_enterprise_dep">部门</string>
     <string name="text_join_enterprise_job">职位</string>
     <string name="text_join_enterprise_review">您的申请已提交，审批通过后，将以短信形式向您发送账户密码信息，请您耐心等待。</string>
+    <string name="you_are_applying_to_join">您正在申请加入"\""%1$s"\"" </string>
 
 
     <!-- 标题栏文字 -->
