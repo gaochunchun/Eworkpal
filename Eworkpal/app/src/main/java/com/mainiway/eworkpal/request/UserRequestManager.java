@@ -133,7 +133,7 @@ public class UserRequestManager {
 
     public <T> void verificationEnterpriseId(Activity activity, String mParams, AbsCallback<T> mCallback) {
 
-        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_VERIFICATIONENTERPRISEID, mParams, mCallback);
+        GenericRequestManager.getInstance().dataRequestByJsonOrStr(RequestTypes.UP_JSON, activity, Urls.URL_VERIFICATION_ENTERPRISE_ID, mParams, mCallback);
 
     }
 
