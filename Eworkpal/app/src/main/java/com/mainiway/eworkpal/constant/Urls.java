@@ -28,14 +28,14 @@ public class Urls {
     public static String URL_JsonArray = "testJsonArray";
 
     //登录
-    public static String URL_LOGIN_GO = "Account/V1.0/loginGo";//提交登录,返回企业列表
-    public static String URL_LOGIN = "Account/V1.0/company";//登录,选择某个企业
+    public static String URL_LOGIN_GO = "Account/" + VERSION_CODE + "/loginGo";//提交登录,返回企业列表
+    public static String URL_LOGIN = "Account/" + VERSION_CODE + "/company";//登录,选择某个企业
     public static String URL_SET_PHONE_CODE = "Mobile/" + VERSION_CODE + "/sendMobileCode";//发送手机短信码、
-    public static String URL_CREATE_ENTERPRISE = "AccountCommon/V1.0/registCompany";//注册提交企业【Web端Mobile共用】
-    public static String URL_RETRIEVE_PASSWORD = "AccountCommon/V1.0/resetPwd";//密码重置接口
-    public static String URL_VERIFY_PHONE_NUMBER = "Mobile/v1.0/verifyPhoneCode";//验证手机号码(下一步或确认时候调用)
-    public static String URL_VERIFICATIONENTERPRISEID = "Mobile/v1.0/verifyCompanyId";//申请加入企业验证企业ID
-    public static String URL_ADD_COMPANY = "Mobile/v1.0/addCompany";//申请加入企业
+    public static String URL_CREATE_ENTERPRISE = "AccountCommon/" + VERSION_CODE + "/registCompany";//注册提交企业【Web端Mobile共用】
+    public static String URL_RETRIEVE_PASSWORD = "AccountCommon/" + VERSION_CODE + "/resetPwd";//密码重置接口
+    public static String URL_VERIFY_PHONE_NUMBER = "Mobile/" + VERSION_CODE + "/verifyPhoneCode";//验证手机号码(下一步或确认时候调用)
+    public static String URL_VERIFICATION_ENTERPRISE_ID = "Mobile/“+ VERSION_CODE + ”/verifyCompanyId";//申请加入企业验证企业ID
+    public static String URL_ADD_COMPANY = "Mobile/“+ VERSION_CODE + ”/addCompany";//申请加入企业
 
 
 }
