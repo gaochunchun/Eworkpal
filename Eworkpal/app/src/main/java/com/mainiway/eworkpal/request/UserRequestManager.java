@@ -7,7 +7,13 @@ import com.mainiway.okhttp.GenericRequestManager;
 import com.mainiway.okhttp.RequestTypes;
 import com.mainiway.okhttp.callback.AbsCallback;
 import com.mainiway.okhttp.model.HttpParams;
-
+/**
+ * ===========================================
+ * 版    本：1.0
+ * 创建日期：2016-11-29.
+ * 描    述：用户模块数据访问
+ * ===========================================
+ */
 public class UserRequestManager {
 
     private static UserRequestManager sInstance;
