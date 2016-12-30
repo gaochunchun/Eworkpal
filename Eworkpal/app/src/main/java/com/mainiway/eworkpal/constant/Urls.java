@@ -34,8 +34,8 @@ public class Urls {
     public static String URL_CREATE_ENTERPRISE = "AccountCommon/" + VERSION_CODE + "/registCompany";//注册提交企业【Web端Mobile共用】
     public static String URL_RETRIEVE_PASSWORD = "AccountCommon/" + VERSION_CODE + "/resetPwd";//密码重置接口
     public static String URL_VERIFY_PHONE_NUMBER = "Mobile/" + VERSION_CODE + "/verifyPhoneCode";//验证手机号码(下一步或确认时候调用)
-    public static String URL_VERIFICATION_ENTERPRISE_ID = "Mobile/“+ VERSION_CODE + ”/verifyCompanyId";//申请加入企业验证企业ID
-    public static String URL_ADD_COMPANY = "Mobile/“+ VERSION_CODE + ”/addCompany";//申请加入企业
+    public static String URL_VERIFICATION_ENTERPRISE_ID = "Mobile/"+ VERSION_CODE + "/verifyCompanyId";//申请加入企业验证企业ID
+    public static String URL_ADD_COMPANY = "Mobile/"+ VERSION_CODE + "/addCompany";//申请加入企业
 
 
 }

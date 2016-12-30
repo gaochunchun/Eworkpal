@@ -6,6 +6,7 @@ import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseResultResponse;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.okhttp.convert.Converter;
+import com.mainiway.okhttp.utils.OkLogger;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -13,10 +14,15 @@ import java.lang.reflect.Type;
 import okhttp3.Response;
 
 /**
- * Json解析
- *
+ * ===========================================
+ * 作    者：gao_chun
+ * 版    本：1.0
+ * 创建日期：2016-11-30.
+ * 描    述：获取传递的类型，Json解析
  * @param <T>
+ * ===========================================
  */
+
 public class JsonConvert<T> implements Converter<T> {
 
     private Type type;
@@ -27,31 +33,32 @@ public class JsonConvert<T> implements Converter<T> {
 
     @Override
     public T convertSuccess(Response response) throws Exception {
+        //OkLogger.e("原始Json数据："+response.body().string());
+
         JsonReader jsonReader = new JsonReader(response.body().charStream());
 
         //type为空判断。注：在JsonCallback中已通过setType(Type type)设置过一次
-        if (type == null) {
+        /*if (type == null) {
             Type genType = getClass().getGenericSuperclass();
             Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
             type = params[0];
-        }
+        }*/
 
         if (!(type instanceof ParameterizedType))
-            throw new IllegalStateException("没有填写泛型参数，请指定BaseResponse<String>");
+            throw new IllegalStateException("没有填写泛型参数，请指定BaseResponse<PublicModel>");
 
 
         Type rawType = ((ParameterizedType) type).getRawType();
-        //无指定数据类型 注：此处也需要传递String类型，由于后端返回的message为一个集合
-        if (rawType == Void.class) {
+
+        /*if (rawType == Void.class) {
             BaseResultResponse baseResultResponse = GsonConvertUtil.fromJson(jsonReader, BaseResultResponse.class);
             //noinspection unchecked
             return (T) baseResultResponse.toJsonResponse();
-        }
+        }*/
 
 
         //有数据类型 注：对象 or  集合
         if (rawType == BaseResponse.class) {
-
             BaseResponse jsonResponse = GsonConvertUtil.fromJson(jsonReader, type);
 
             //true表示请求成功，false表示请求失败
