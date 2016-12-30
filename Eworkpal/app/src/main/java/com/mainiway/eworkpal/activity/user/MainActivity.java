@@ -30,9 +30,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
-        findView(R.id.tv_application_center).setOnClickListener(new FastClickListener());
         findView(R.id.ll_my_attendance).setOnClickListener(new FastClickListener());
         findView(R.id.tv_sign).setOnClickListener(new FastClickListener());
+        findView(R.id.ll_application_center).setOnClickListener(new FastClickListener());
     }
 
 
@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
                 case R.id.ll_my_attendance://我的考勤
                     startActivity(new Intent(MainActivity.this, AttendanceStatisticsActivity.class));
                     break;
-                case R.id.tv_application_center://应用中心
+                case R.id.ll_application_center://应用中心
                     startActivity(new Intent(MainActivity.this, ApplayCenterActivity.class));
                     break;
             }
