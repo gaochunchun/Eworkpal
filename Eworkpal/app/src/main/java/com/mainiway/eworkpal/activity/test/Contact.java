@@ -75,8 +75,8 @@ public class Contact {
 
     public static List<Contact> getChineseContacts() {
         List<Contact> contacts = new ArrayList<>();
-        contacts.add(new Contact("B", "白虎"));
-        contacts.add(new Contact("C", "常羲"));
+        contacts.add(new Contact("A", "白虎"));
+        contacts.add(new Contact("B", "常羲"));
         contacts.add(new Contact("C", "嫦娥"));
         contacts.add(new Contact("E", "二郎神"));
         contacts.add(new Contact("F", "伏羲"));
