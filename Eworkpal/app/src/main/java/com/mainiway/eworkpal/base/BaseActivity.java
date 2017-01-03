@@ -53,6 +53,7 @@ public  class BaseActivity extends AutoLayoutActivity implements ActivityCompat.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initSystemBarTint();
+
     }
 
 
@@ -279,14 +280,6 @@ public  class BaseActivity extends AutoLayoutActivity implements ActivityCompat.
         startActivity(intent);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            this.finish();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 /****************************************************************************************************/
 
 

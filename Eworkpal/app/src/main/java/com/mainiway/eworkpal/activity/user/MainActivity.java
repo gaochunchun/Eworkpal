@@ -2,6 +2,7 @@ package com.mainiway.eworkpal.activity.user;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.mainiway.eworkpal.R;
@@ -9,6 +10,7 @@ import com.mainiway.eworkpal.activity.attendance.AttendanceSignActivity;
 import com.mainiway.eworkpal.activity.attendance.AttendanceStatisticsActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.utils.ToastUtils;
 
 /**
  * ===========================================
@@ -21,6 +23,9 @@ import com.mainiway.eworkpal.listener.OnClickFastListener;
 
 
 public class MainActivity extends BaseActivity {
+
+
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,21 @@ public class MainActivity extends BaseActivity {
                     break;
             }
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 1800) {
+                ToastUtils.showToastShort("再按一次退出程序");
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

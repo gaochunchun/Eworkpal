@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/white_F7F9FC"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_F7F9FC"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30px"
             android:layout_marginTop="30px"
-            android:src="@mipmap/ic_main_head_portrait"/>
+            android:src="@mipmap/ic_main_head_portrait" />
 
         <TextView
             android:id="@+id/tv_name"
@@ -28,7 +28,7 @@
             android:text="抠脚大汉"
             android:textColor="@color/yellow_F8E71C"
             android:textSize="28px"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_department"
@@ -40,7 +40,7 @@
             android:layout_toRightOf="@+id/iv_head_portrait"
             android:text="云办公产品部"
             android:textColor="@color/white"
-            android:textSize="28px"/>
+            android:textSize="28px" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_marginTop="30px"
             android:text="2016年11月24日 周四"
             android:textColor="@color/white"
-            android:textSize="32px"/>
+            android:textSize="32px" />
 
         <TextView
             android:id="@+id/tv_time"
@@ -61,7 +61,7 @@
             android:layout_marginTop="38px"
             android:text="9 : 30"
             android:textColor="@color/white"
-            android:textSize="66px"/>
+            android:textSize="66px" />
 
         <TextView
             android:id="@+id/tv_sign"
@@ -75,7 +75,7 @@
             android:gravity="center"
             android:text="@string/sign"
             android:textColor="@color/white"
-            android:textSize="30px"/>
+            android:textSize="30px" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -104,21 +104,21 @@
                     android:gravity="center_vertical"
                     android:text="@string/waiting_for_my_approval"
                     android:textColor="@color/black_4A4A4A"
-                    android:textSize="28px"/>
+                    android:textSize="28px" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20px"
                     android:text="10"
-                    android:textColor="@android:color/holo_red_light"/>
+                    android:textColor="@android:color/holo_red_light" />
             </LinearLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_mian_line"/>
+                android:src="@mipmap/ic_mian_line" />
 
             <LinearLayout
                 android:layout_width="340px"
@@ -132,14 +132,14 @@
                     android:gravity="center"
                     android:text="@string/job_alert"
                     android:textColor="@color/black_4A4A4A"
-                    android:textSize="28px"/>
+                    android:textSize="28px" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20px"
                     android:text="10"
-                    android:textColor="@android:color/holo_red_light"/>
+                    android:textColor="@android:color/holo_red_light" />
             </LinearLayout>
 
 
@@ -162,7 +162,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/your_attendance_is_in_the_statistics"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
+                android:textSize="26px" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -174,7 +174,7 @@
                 android:text="@string/my_attendance"
                 android:textColor="@color/black_4A4A4A"
                 android:textSize="30px"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -195,7 +195,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/quickly_check_your_application"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
+                android:textSize="26px" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -207,7 +207,7 @@
                 android:text="@string/my_application"
                 android:textColor="@color/black_4A4A4A"
                 android:textSize="30px"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -229,7 +229,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/a_business_travel"
                 android:textColor="@color/blue_85B2F6"
-                android:textSize="28px"/>
+                android:textSize="28px" />
         </LinearLayout>
 
         <LinearLayout
@@ -253,7 +253,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/leave"
                 android:textColor="@color/blue_85B2F6"
-                android:textSize="28px"/>
+                android:textSize="28px" />
         </LinearLayout>
 
         <LinearLayout
@@ -274,7 +274,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/overtime"
                 android:textColor="@color/blue_85B2F6"
-                android:textSize="28px"/>
+                android:textSize="28px" />
         </LinearLayout>
 
         <LinearLayout
@@ -296,7 +296,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/more"
                 android:textColor="@color/blue_85B2F6"
-                android:textSize="28px"/>
+                android:textSize="28px" />
         </LinearLayout>
 
         <LinearLayout
@@ -320,7 +320,7 @@
                 android:text="@string/approval"
                 android:textColor="@color/black_4A4A4A"
                 android:textSize="30px"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -328,7 +328,7 @@
                 android:layout_marginTop="30px"
                 android:text="@string/do_not_wait_any_longer"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
+                android:textSize="26px" />
         </LinearLayout>
 
 
@@ -349,7 +349,7 @@
                 android:layout_marginTop="20px"
                 android:text="@string/small_partners_are_in_this"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
+                android:textSize="26px" />
 
             <TextView
                 android:id="@+id/textView"
@@ -362,7 +362,7 @@
                 android:text="@string/mail_list"
                 android:textColor="@color/black_4A4A4A"
                 android:textSize="30px"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -383,7 +383,7 @@
                 android:layout_marginTop="20px"
                 android:text="@string/fast_learning_to_improve_work_efficiency"
                 android:textColor="@color/gray_9B9B9B"
-                android:textSize="26px"/>
+                android:textSize="26px" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -395,7 +395,7 @@
                 android:text="@string/help_center"
                 android:textColor="@color/black_4A4A4A"
                 android:textSize="30px"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -408,7 +408,7 @@
             android:gravity="center">
 
             <TextView
-               android:id="@+id/tv_application_center"
+                android:id="@+id/tv_application_center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_main_icon"
@@ -417,7 +417,7 @@
                 android:text="@string/application_center"
                 android:textColor="@color/yellow_F5A263"
                 android:textSize="28px"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -429,6 +429,6 @@
             android:layout_marginTop="40px"
             android:text="@string/the_new_version_of_the_line.there_are_comments_to_mention_oh"
             android:textColor="@color/blue_85B2F6"
-            android:textSize="28px"/>
+            android:textSize="28px" />
     </RelativeLayout>
 </LinearLayout>

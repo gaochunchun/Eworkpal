@@ -1,11 +1,10 @@
 package com.mainiway.eworkpal.callback;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.support.annotation.Nullable;
-import android.view.Window;
 
 import com.mainiway.okhttp.request.BaseRequest;
+import com.mainiway.svprogresshud.SVProgressHUD;
 
 
 /**
@@ -13,14 +12,20 @@ import com.mainiway.okhttp.request.BaseRequest;
  */
 public abstract class DialogCallback<T> extends JsonCallback<T> {
 
-    private ProgressDialog dialog;
+    //private ProgressDialog dialog;
+    private SVProgressHUD dialog;
 
     private void initDialog(Activity activity) {
-        dialog = new ProgressDialog(activity);
+        /*dialog = new ProgressDialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage("请求中...");
+        dialog.setMessage("请求中...");*/
+        if (activity != null) {
+            if (dialog == null) {
+                dialog = new SVProgressHUD(activity);
+            }
+        }
     }
 
     public DialogCallback(Activity activity) {
@@ -34,7 +39,8 @@ public abstract class DialogCallback<T> extends JsonCallback<T> {
         super.onBefore(request);
         //网络请求前显示对话框
         if (dialog != null && !dialog.isShowing()) {
-            dialog.show();
+            //dialog.show();
+            dialog.showWithStatus("加载中...");
         }
     }
 

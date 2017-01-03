@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.mainiway.eworkpal.AppAplication;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.base.BaseResponse;
@@ -36,6 +37,7 @@ import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
 import com.mainiway.okhttp.OkHttpUtils;
 import com.mainiway.okhttp.utils.OkLogger;
+import com.mainiway.svprogresshud.SVProgressHUD;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -58,9 +60,10 @@ import okhttp3.Response;
 
 public class UserLoginActivity extends BaseActivity {
 
-    private SystemBarTintManager tintManager;   //单独设置登录界面bar的颜色
+    private SVProgressHUD mSVProgressHUD;
 
-    SecretTextView secretTextView;
+    private SystemBarTintManager tintManager;   //单独设置登录界面bar的颜色
+    private SecretTextView secretTextView;
 
     private ImageView iv_picture_code;
     private TextView tv_login;
@@ -73,11 +76,17 @@ public class UserLoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initWindow();
+        mSVProgressHUD = new SVProgressHUD(this);
 
         setContentView(R.layout.activity_user_login);
         initView();
+
+        //提示网络连接不可用
+        if (!ValidateUtils.isNetworkConnected(AppAplication.getContext())) {
+            mSVProgressHUD.showInfoWithStatus("网络不可用",SVProgressHUD.SVProgressHUDMaskType.None);
+            //mSVProgressHUD.showErrorWithStatus("网络未连接",SVProgressHUD.SVProgressHUDMaskType.None);
+        }
     }
 
     @TargetApi(19)
