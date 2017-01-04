@@ -28,16 +28,8 @@ public class AppConstant {
     public static final String PREF_NAME_TOKEN = "token";    //登录成功保存Token
     public static final String PREF_NAME_USERID = "userid";
     public static final String PREF_NAME_USERNAME = "username";
-    public static final String PREF_NAME_SEX = "sex";
-    public static final String PREF_NAME_DEPTID = "deptid";
-    public static final String PREF_NAME_DEPTNAME = "deptname";
-    public static final String PREF_NAME_POSTID = "postid";
-    public static final String PREF_NAME_POSTNAME = "postname";
     public static final String PREF_NAME_PHONE = "phone";
-    public static final String PREF_NAME_EMAIL = "email";
-    public static final String PREF_NAME_PIC = "pic";
-    public static final String PREF_NAME_COMPANY = "company";
-    public static final String PREF_NAME_PWD = "password";  //记住密码
+
 
     public static final String PREF_NAME_VERSIONCODE = "versionCode";    //版本号
     public static final String PREF_NAME_LAST_VERSION_CODE = "last_version_code";//上次安装的版本编号
@@ -58,19 +50,5 @@ public class AppConstant {
     public static final int VALUE_COMMON_PHONE_CODE_ACTIVITY = 10002;//注册（找回密码）界面
     public static final int VALUE_CREATE_ENTERPRISE= 10002;//注册企业界面
 
-    //动态模块常亮
-    public static final String DYNAMIC = "dynamic";
-
-    //动态模块文件上传权限
-    public static final String DYNAMIC_SOURCE = "12";
-    public static final String DYNAMIC_IS_PUBLIC = "0";
-
-    //文档模块常亮
-    public static final String DOCUMENT = "document";
-    public static final String DOCUMENT_ALL = "document_all";
-
-    public static final String DOCUMENT_UPLOAD = "document_upload";
-    public static final String DOCUMENT_SHARE = "document_share";
-    public static final String DOCUMENT_PUBLIC = "document_public";
 
 }
