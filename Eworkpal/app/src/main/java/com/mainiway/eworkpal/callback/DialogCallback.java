@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.annotation.Nullable;
 
 import com.mainiway.okhttp.request.BaseRequest;
+import com.mainiway.okhttp.utils.OkLogger;
 import com.mainiway.svprogresshud.SVProgressHUD;
 
 
@@ -16,22 +17,28 @@ public abstract class DialogCallback<T> extends JsonCallback<T> {
     private SVProgressHUD dialog;
 
     private void initDialog(Activity activity) {
+
         /*dialog = new ProgressDialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage("请求中...");*/
-        if (activity != null) {
-            if (dialog == null) {
-                dialog = new SVProgressHUD(activity);
-            }
+
+        if (dialog == null) {
+            dialog = new SVProgressHUD(activity);
         }
     }
 
     public DialogCallback(Activity activity) {
         super();
         //初始化Dialog
-        initDialog(activity);
+        if (activity != null) {
+            initDialog(activity);
+        }
+
+    }
+
+    public DialogCallback() {
     }
 
     @Override
@@ -51,5 +58,6 @@ public abstract class DialogCallback<T> extends JsonCallback<T> {
         if (dialog != null && dialog.isShowing()) {
             dialog.dismiss();
         }
+        dialog = null;
     }
 }

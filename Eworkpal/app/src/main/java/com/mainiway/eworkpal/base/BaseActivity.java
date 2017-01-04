@@ -22,6 +22,7 @@ import android.view.WindowManager;
 import com.mainiway.autolayout.AutoLayoutActivity;
 import com.mainiway.eworkpal.R;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
+import com.mainiway.svprogresshud.SVProgressHUD;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,6 @@ public  class BaseActivity extends AutoLayoutActivity implements ActivityCompat.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initSystemBarTint();
-
     }
 
 

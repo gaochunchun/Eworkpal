@@ -341,7 +341,7 @@ public class UserLoginActivity extends BaseActivity {
         mapList.put("companyID", companyID);
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse<UserLoginModle>>(this) {
+        UserRequestManager.getInstance().login(this, str, new DialogCallback<BaseResponse<UserLoginModle>>() {
             @Override
             public void onSuccess(BaseResponse<UserLoginModle> baseResponse, Call call, Response response) {
                 if (baseResponse.successed) {

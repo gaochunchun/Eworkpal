@@ -14,6 +14,7 @@ import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.callback.DialogCallback;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
+import com.mainiway.eworkpal.model.PublicModel;
 import com.mainiway.eworkpal.request.UserRequestManager;
 import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
@@ -135,9 +136,9 @@ public class UserCreateEnterpriseActivity extends BaseTitleActivity {
 
         String str = GsonConvertUtil.toJson(mapList);
 
-        UserRequestManager.getInstance().createEnterprise(this, str, new DialogCallback<BaseResponse<String>>(UserCreateEnterpriseActivity.this) {
+        UserRequestManager.getInstance().createEnterprise(this, str, new DialogCallback<BaseResponse<PublicModel>>(UserCreateEnterpriseActivity.this) {
             @Override
-            public void onSuccess(BaseResponse<String> responseData, Call call, Response response) {
+            public void onSuccess(BaseResponse<PublicModel> responseData, Call call, Response response) {
                 if (responseData.successed) {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                     startActivity(new Intent(UserCreateEnterpriseActivity.this, UserLoginActivity.class));
