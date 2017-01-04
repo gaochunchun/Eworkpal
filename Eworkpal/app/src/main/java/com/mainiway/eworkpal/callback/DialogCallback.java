@@ -9,7 +9,10 @@ import com.mainiway.svprogresshud.SVProgressHUD;
 
 
 /**
- * 描  述：对于网络请求是否需要弹出进度对话框
+ * 描  述：对于网络请求是否需要弹出Dialog 。
+ *
+ * 注：当界面中存在两个请求同时调用 或 第一个请求先，
+ * 第二个请求后 时，可以只显示第一个请求Dialog，第二个不显示
  */
 public abstract class DialogCallback<T> extends JsonCallback<T> {
 
