@@ -52,6 +52,16 @@
             android:name=".activity.test.PullToRefreshUseActivity"
             android:label="pulltorefresh测试" />
 
+        <activity
+            android:name=".activity.test.CActivity"
+            android:label="通讯录单选多选测试"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activity.test.CheckActivity2"
+            android:label="单选多选测试"
+            android:screenOrientation="portrait"/>
+
         <!-- 测试测试测试测试测试测试测试测试测试测试测试测试试测试测试测试测试测试测测试测试 -->
 
         <activity
@@ -137,11 +147,6 @@
         <activity
             android:name=".activity.user.UserEnterpriseListActivity"
             android:label="企业列表选择界面"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".activity.test.RightPositionActivity"
-            android:label="联系人界面"
             android:screenOrientation="portrait" />
 
         <activity

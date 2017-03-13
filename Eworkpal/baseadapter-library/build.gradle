@@ -1,18 +1,18 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion COMPILE_SDK_VERSION
-    buildToolsVersion BUILD_TOOLS_VERSION
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion  MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK_VERSION
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
     }
 }
 
 dependencies {
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:${APPCOMPAT_VERSION}"
-    provided "com.android.support:recyclerview-v7:${APPCOMPAT_VERSION}"
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    provided "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
 }

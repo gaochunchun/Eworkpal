@@ -7,8 +7,6 @@ import com.mainiway.library.adapter.base.BaseQuickAdapter;
 public abstract class OnItemLongClickListener extends SimpleClickListener {
 
 
-
-
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 

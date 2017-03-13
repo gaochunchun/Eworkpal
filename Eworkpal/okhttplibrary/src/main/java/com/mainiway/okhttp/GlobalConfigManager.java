@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 
+import com.mainiway.okhttp.utils.OkLogger;
+
 import java.io.File;
 
 /**
@@ -13,8 +15,6 @@ import java.io.File;
  * 读取MetaData中的服务器地址
  */
 public class GlobalConfigManager {
-
-    private static final String TAG = GlobalConfigManager.class.getSimpleName();
 
     private static final String META_NAME_SERVER = "app.server";
     private static GlobalConfigManager sInstance;
@@ -56,9 +56,9 @@ public class GlobalConfigManager {
 
         if (serverHost != null) {
             mServerHost = serverHost;
-            Log.i(TAG, "[meta-data] ServerHost=" + serverHost);
+            OkLogger.e("[meta-data] ServerHost=" + serverHost);
         } else {
-            Log.e(TAG, "Reading server host from AndroidManifest.xml failed.");
+            OkLogger.e("Reading server host from AndroidManifest.xml failed.");
         }
 
     }

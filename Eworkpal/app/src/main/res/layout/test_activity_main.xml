@@ -24,7 +24,7 @@
         android:onClick="onClick"
         android:textAllCaps="false"
         android:id="@+id/btn_contact"
-        android:text="通讯录界面"
+        android:text="----通讯录界面-----"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -21,7 +21,7 @@ public class ConfigManager{
     private static final String TAG = ConfigManager.class.getSimpleName();
 
     //保存在手机里面的文件名
-    public static final String PREF_FILE_NAME = "share_data";
+    public static final String PREF_FILE_NAME = "shared_data";
 
     private SharedPreferences mPreferences;
     private static ConfigManager sInstance;

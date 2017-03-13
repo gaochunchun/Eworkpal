@@ -25,7 +25,7 @@ public class MainTestActivity extends BaseTitleActivity {
         setContentView(R.layout.test_activity_main);
         setTitle("功能测试界面");
         showBackwardView(true);
-        showForwardView(R.mipmap.ic_back_arrow, R.mipmap.ic_back_arrow);
+        showForwardView(R.mipmap.ic_back, R.mipmap.ic_back);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class MainTestActivity extends BaseTitleActivity {
                 break;
 
             case R.id.btn_contact:
-                startActivity(new Intent(this, RightPositionActivity.class));
+                startActivity(new Intent(this, CActivity.class));
                 break;
 
             case R.id.btn_refresh:

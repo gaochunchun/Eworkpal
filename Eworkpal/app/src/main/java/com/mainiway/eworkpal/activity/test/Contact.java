@@ -15,6 +15,9 @@ public class Contact {
     private String index;
     private String name;
 
+    public Contact() {
+    }
+
     public Contact(String index, String name) {
         this.index = index;
         this.name = name;
@@ -26,6 +29,10 @@ public class Contact {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public static List<Contact> getEnglishContacts() {
