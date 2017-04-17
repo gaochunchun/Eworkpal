@@ -29,8 +29,8 @@ import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 /**
  * @author gao_chun
- * 通用数据通讯类，不涉及认证与授权的数据。
- * 这个类的任务：通过相应参数，解析并获取数据对象。
+ *         通用数据通讯类，不涉及认证与授权的数据。
+ *         这个类的任务：通过相应参数，解析并获取数据对象。
  */
 public class GenericRequestManager {
 
@@ -84,10 +84,13 @@ public class GenericRequestManager {
         //.setCacheMode(CacheMode.NO_CACHE)               //全局统一设置缓存模式,默认是不使用缓存,可以不传
         //.setCacheTime(CacheEntity.CACHE_NEVER_EXPIRE)   //可以全局统一设置缓存时间,默认永不过期
 
-        //--设置https的证书,方案根据需要设置,不需要不用设置
-        //.setCertificates()                                  //方法一：信任所有证书
-        //.setCertificates(getAssets().open("srca.cer"))      //方法二：也可以自己设置https证书
-        //.setCertificates(getAssets().open("aaaa.bks"), "123456",getAssets().open("srca.cer"))//方法三：传入bks证书,密码,和cer证书,支持双向加密
+
+        //-- 设置https的证书,方案根据需要设置,不需要不用设置
+        //.setCertificates()                                  //方法一：信任所有证书,不安全有风险
+        //.setCertificates(new SafeTrustManager())            //方法二：自定义信任规则，校验服务端证书
+        //.setCertificates(getAssets().open("srca.cer"))      //方法三：使用预埋证书，校验服务端证书（自签名证书）
+        //方法四：使用bks证书和密码管理客户端证书（双向认证），使用预埋证书，校验服务端证书（自签名证书）
+        //.setCertificates(getAssets().open("xxx.bks"), "123456", getAssets().open("yyy.cer"))
 
         //可以添加全局拦截器,不会用的千万不要传,错误写法直接导致任何回调不执行
                 /*.addInterceptor(new Interceptor() {
@@ -115,10 +118,11 @@ public class GenericRequestManager {
     /**
      * GET/POST请求(若带有参数 -- 参数为具体的字段)
      * 描述：HttpParams 参数可为空
-     * @param requestType    请求类型
-     * @param activity 取消请求的Tag
-     * @param mUrl    请求地址
-     * @param mParams    请求参数(无可不传)
+     *
+     * @param requestType 请求类型
+     * @param activity    取消请求的Tag
+     * @param mUrl        请求地址
+     * @param mParams     请求参数(无可不传)
      * @param mCallback
      */
     public <T> void dataRequestByParamsOrNull(String requestType, Activity activity, String mUrl,
@@ -150,10 +154,11 @@ public class GenericRequestManager {
 
     /**
      * POST请求（若带有参数 -- 参数为Json或String）
-     * @param requestType   请求类型
-     * @param activity  取消请求的Tag
-     * @param mUrl  请求地址
-     * @param mJsonOrStr   不能为空
+     *
+     * @param requestType 请求类型
+     * @param activity    取消请求的Tag
+     * @param mUrl        请求地址
+     * @param mJsonOrStr  不能为空
      * @param mCallback
      */
     public <T> void dataRequestByJsonOrStr(String requestType, Activity activity, String mUrl,
@@ -165,7 +170,7 @@ public class GenericRequestManager {
 
         final String URL = mServerHost + File.separator + mUrl;    //URL
 
-        OkLogger.e("------->URL地址："+URL);
+        OkLogger.e("------->URL地址：" + URL);
 
         switch (requestType) {
 
@@ -186,8 +191,9 @@ public class GenericRequestManager {
 
     /**
      * 文件下载
+     *
      * @param activity  取消请求的Tag
-     * @param mUrl  请求地址
+     * @param mUrl      请求地址
      * @param mParams   请求参数（没有可以不填）
      * @param mCallback
      */

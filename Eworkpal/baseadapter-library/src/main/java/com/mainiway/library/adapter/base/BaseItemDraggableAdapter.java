@@ -8,8 +8,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MotionEvent;
 import android.view.View;
 
+
 import com.mainiway.library.R;
-import com.mainiway.library.adapter.base.callback.ItemDragAndSwipeCallback;
 import com.mainiway.library.adapter.base.listener.OnItemDragListener;
 import com.mainiway.library.adapter.base.listener.OnItemSwipeListener;
 

@@ -81,7 +81,7 @@ public class CheckActivity2 extends BaseTitleActivity {
 
         rvContacts.addOnItemTouchListener(new OnItemClickListener() {
             @Override
-            public void SimpleOnItemClick(BaseQuickAdapter adapter, View itemLayout, int position) {
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View itemLayout, int position) {
                 //Contact contact = (Contact) adapter.getItem(position);
                 //OkLogger.e(contact.getName() + "");
 

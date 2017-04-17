@@ -244,7 +244,9 @@ public class UserLoginActivity extends BaseActivity {
 //
 //                        }
 //                    }).show();
-                    if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//弹出图片验证码时
+
+
+                    /*if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {//弹出图片验证码时
                         if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode()) && et_picture_code.getText().length() == 4) {
 
                         } else {
@@ -260,8 +262,8 @@ public class UserLoginActivity extends BaseActivity {
                         } else {
                             ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
                         }
-                    }
-
+                    }*/
+                    startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业

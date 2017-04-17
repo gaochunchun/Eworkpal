@@ -6,11 +6,13 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemClickListener;
 import com.mainiway.eworkpal.R;
@@ -115,12 +117,35 @@ public class PullToRefreshUseActivity extends Activity implements BaseQuickAdapt
         mRecyclerView.setAdapter(mQuickAdapter);
         mCurrentCounter = mQuickAdapter.getData().size();
 
-        mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
+        mQuickAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ToastUtils.showToastCenter("onItemClick" + position);
+                //Toast.makeText(PullToRefreshUseActivity.this, "onItemClick" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        /*mRecyclerView.addOnItemTouchListener(new OnItemClickListener( ){
+
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(PullToRefreshUseActivity.this, "" + Integer.toString(position), Toast.LENGTH_SHORT).show();
+
+            }
+        });*/
+
+
+
+        //名字修改
+        /*mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Toast.makeText(PullToRefreshUseActivity.this, Integer.toString(position), Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
+
+
     }
 
 

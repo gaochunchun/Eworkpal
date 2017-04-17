@@ -6,12 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.mainiway.eworkpal.activity.test.PullToRefreshUseActivity;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 import com.mainiway.library.adapter.base.listener.OnItemChildClickListener;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.adapter.AttendanceLateAdapter;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.model.AttendanceLateModle;
+import com.mainiway.library.adapter.base.listener.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,14 +57,33 @@ public class AttendanceLateListActivity extends BaseTitleActivity {
         mAdapter = new AttendanceLateAdapter(data,this);
         mRecycleView.setAdapter(mAdapter);
 
-        mRecycleView.addOnItemTouchListener(new OnItemChildClickListener() {
+        /*mRecycleView.addOnItemTouchListener(new OnItemChildClickListener() {
             @Override
-            public void SimpleOnItemChildClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+            public void onSimpleItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
                 if (view.getId() == R.id.appeal_tv) {
                     Toast.makeText(AttendanceLateListActivity.this, "点我干嘛", Toast.LENGTH_SHORT).show();
                 }
             }
+        });*/
+
+
+        mRecycleView.addOnItemTouchListener(new OnItemClickListener( ){
+
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(AttendanceLateListActivity.this, "" + Integer.toString(position), Toast.LENGTH_SHORT).show();
+
+            }
         });
+
+        /*mRecycleView.addOnItemTouchListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onSimpleItemClick(BaseQuickAdapter baseQuickAdapter, View view, int i) {
+                if (view.getId() == R.id.appeal_tv) {
+                    Toast.makeText(AttendanceLateListActivity.this, "点我干嘛", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });*/
 
     }
 }

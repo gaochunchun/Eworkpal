@@ -4,6 +4,7 @@ import android.support.annotation.LayoutRes;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
+
 import com.mainiway.library.adapter.base.entity.MultiItemEntity;
 
 import java.util.List;

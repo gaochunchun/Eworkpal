@@ -51,6 +51,6 @@ public abstract class BaseSectionQuickAdapter<T extends SectionEntity, K extends
         }
     }
 
-    protected abstract void convertHead(BaseViewHolder helper, T item);
+    protected abstract void convertHead(K helper, T item);
 
 }

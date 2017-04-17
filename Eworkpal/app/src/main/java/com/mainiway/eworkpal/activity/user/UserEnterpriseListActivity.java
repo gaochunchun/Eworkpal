@@ -77,7 +77,7 @@ public class UserEnterpriseListActivity extends BaseTitleActivity {
         mEnterpriseListAdapter.openLoadAnimation();
         mRecyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
-            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
 
                 UserLoginToModle userLoginModle = (UserLoginToModle) adapter.getItem(position);
                 login(userLoginModle.companyID);

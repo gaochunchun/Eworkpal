@@ -3,6 +3,7 @@ package com.mainiway.library.adapter.base.animation;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.view.View;
+
 public class SlideInLeftAnimation implements BaseAnimation {
 
 

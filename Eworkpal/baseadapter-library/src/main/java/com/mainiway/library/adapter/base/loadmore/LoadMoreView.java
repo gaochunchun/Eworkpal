@@ -5,6 +5,7 @@ import android.support.annotation.LayoutRes;
 
 import com.mainiway.library.adapter.base.BaseViewHolder;
 
+
 public abstract class LoadMoreView {
 
     public static final int STATUS_DEFAULT = 1;
@@ -13,6 +14,7 @@ public abstract class LoadMoreView {
     public static final int STATUS_END = 4;
 
     private int mLoadMoreStatus = STATUS_DEFAULT;
+    private boolean mLoadMoreEndGone = false;
 
     public void setLoadMoreStatus(int loadMoreStatus) {
         this.mLoadMoreStatus = loadMoreStatus;
@@ -39,6 +41,11 @@ public abstract class LoadMoreView {
                 visibleLoadFail(holder, false);
                 visibleLoadEnd(holder, true);
                 break;
+            case STATUS_DEFAULT:
+                visibleLoading(holder, false);
+                visibleLoadFail(holder, false);
+                visibleLoadEnd(holder, false);
+                break;
         }
     }
 
@@ -51,44 +58,59 @@ public abstract class LoadMoreView {
     }
 
     private void visibleLoadEnd(BaseViewHolder holder, boolean visible) {
-        if (isLoadEndGone()) {
-            return;
+        final int loadEndViewId=getLoadEndViewId();
+        if (loadEndViewId != 0) {
+            holder.setVisible(loadEndViewId, visible);
         }
-        holder.setVisible(getLoadEndViewId(), visible);
     }
+
+    public final void setLoadMoreEndGone(boolean loadMoreEndGone) {
+        this.mLoadMoreEndGone = loadMoreEndGone;
+    }
+
+    public final boolean isLoadEndMoreGone(){
+        if(getLoadEndViewId()==0){
+            return true;
+        }
+        return mLoadMoreEndGone;}
+
+    /**
+     * No more data is hidden
+     * @return true for no more data hidden load more
+     * @deprecated Use {@link BaseQuickAdapter#loadMoreEnd(boolean)} instead.
+     */
+    @Deprecated
+    public boolean isLoadEndGone(){return mLoadMoreEndGone;}
 
     /**
      * load more layout
      *
      * @return
      */
-    public abstract @LayoutRes int getLayoutId();
-
-    /**
-     * No more data is hidden
-     *
-     * @return true for no more data hidden load more
-     */
-    public abstract boolean isLoadEndGone();
+    public abstract @LayoutRes
+    int getLayoutId();
 
     /**
      * loading view
      *
      * @return
      */
-    protected abstract @IdRes int getLoadingViewId();
+    protected abstract @IdRes
+    int getLoadingViewId();
 
     /**
      * load fail view
      *
      * @return
      */
-    protected abstract @IdRes int getLoadFailViewId();
+    protected abstract @IdRes
+    int getLoadFailViewId();
 
     /**
-     * load end view, If {@link LoadMoreView#isLoadEndGone()} is true, you can return 0
+     * load end view, you can return 0
      *
      * @return
      */
-    protected abstract @IdRes int getLoadEndViewId();
+    protected abstract @IdRes
+    int getLoadEndViewId();
 }

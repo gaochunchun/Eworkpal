@@ -34,7 +34,7 @@ public class AnimationUseActivity extends Activity {
     private void initAdapter() {
         mQuickAdapter = new QuickAdapter();
         mQuickAdapter.openLoadAnimation();
-        mRecyclerView.addOnItemTouchListener(new OnItemChildClickListener() {
+        /*mRecyclerView.addOnItemTouchListener(new OnItemChildClickListener() {
             @Override
             public void SimpleOnItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 String content = null;
@@ -49,7 +49,7 @@ public class AnimationUseActivity extends Activity {
                 }
                 Toast.makeText(AnimationUseActivity.this, content, Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
         mRecyclerView.setAdapter(mQuickAdapter);
     }
 
