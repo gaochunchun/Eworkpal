@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
 
-public abstract   class OnItemClickListener extends SimpleClickListener {
+public abstract class OnItemClickListener extends SimpleClickListener {
 
 
     @Override
