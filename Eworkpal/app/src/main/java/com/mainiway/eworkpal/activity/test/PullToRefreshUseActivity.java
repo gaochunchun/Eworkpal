@@ -6,16 +6,14 @@ import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.utils.ToastUtils;
 import com.mainiway.library.adapter.base.BaseQuickAdapter;
-import com.mainiway.library.adapter.base.listener.OnItemClickListener;
-import com.mainiway.eworkpal.R;
 
 
 /**

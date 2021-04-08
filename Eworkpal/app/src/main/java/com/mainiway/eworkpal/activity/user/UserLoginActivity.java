@@ -264,6 +264,7 @@ public class UserLoginActivity extends BaseActivity {
                         }
                     }*/
                     startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
+                    finish();
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业

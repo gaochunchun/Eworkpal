@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 //定义打包时间函数
-/*def packageTime() {
+def packageTime() {
     return new Date().format("yyyy-MM-dd-HH-mm", TimeZone.getTimeZone("UTC"))
-}*/
+}
 
 //获取local.properties的内容
-/*Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())*/
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -19,37 +19,52 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
 
-    sourceSets{                     //直接在libs里面添加so库，不用创建jniLibs文件夹
+    sourceSets {                     //直接在libs里面添加so库，不用创建jniLibs文件夹
         main {
             jniLibs.srcDirs = ['libs']
         }
     }
 
     // 签名文件
-    /*signingConfigs {
+    signingConfigs {
         release {
-            // relase签名----在local.properties 文件里面配置
-            storeFile file(properties.getProperty("keystroe_storeFile"))
-            storePassword properties.getProperty("keystroe_storePassword")
-            keyAlias properties.getProperty("keystroe_keyAlias")
-            keyPassword properties.getProperty("keystroe_keyPassword")
-        }
-    }*/
 
+
+            keyAlias 'key0'
+            keyPassword 'ccn001'
+            storeFile file('key.jks')
+            storePassword 'ccn001'
+
+            // relase签名----在local.properties 文件里面配置
+            //storeFile file(properties.getProperty("keystroe_storeFile"))
+            //storePassword properties.getProperty("keystroe_storePassword")
+            //keyAlias properties.getProperty("keystroe_keyAlias")
+            //keyPassword properties.getProperty("keystroe_keyPassword")
+        }
+    }
 
 
     buildTypes {
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.release
+        }
+
         release {
             // 版本名前缀
-            //versionNameSuffix "-relase"
+            versionNameSuffix "-relase"
             // 开启ZipAlign优化
-            //zipAlignEnabled true
+            zipAlignEnabled false
             // 移除无用的resource文件
-            //shrinkResources true
+            shrinkResources false
             // 使用release签名
-            //signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -58,36 +73,36 @@ android {
 
     // 渠道Flavors，配置不同的渠道
     productFlavors {
-       /* GooglePaly {
-            //指定这个渠道的版本号
-            versionCode 2
-            versionName "2.0"
-            //指定区别于其他渠道的 applicationId
-            applicationId "com.mainiway.eworkpal.hd"
-        }
-        xiaomi {}
-        umeng {}
-        qihu360 {}
-        wandoujia {}
-        yingyongbao {}*/
+        /* GooglePaly {
+             //指定这个渠道的版本号
+             versionCode 2
+             versionName "2.0"
+             //指定区别于其他渠道的 applicationId
+             applicationId "com.mainiway.eworkpal.hd"
+         }
+         xiaomi {}
+         umeng {}
+         qihu360 {}
+         wandoujia {}
+         yingyongbao {}*/
         //其他...
     }
 
 
-    android{
+    android {
 
         /*applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def outputFile = output.outputFile
                 if (outputFile != null && outputFile.name.endsWith('.apk')) {
                     File outputDirectory = new File(outputFile.parent);
-                    def fileName
-                    if (variant.buildType.name == "release") {
+                    def fileName = "app_v${defaultConfig.versionName}_${packageTime()}.apk"
+                    *//*if (variant.buildType.name == "release") {
                         fileName = "app_v${defaultConfig.versionName}_${packageTime()}_${variant.productFlavors[0].name}.apk"
                     } else {
                         fileName = "app_v${defaultConfig.versionName}_${packageTime()}_debug.apk"
-                    }
-                    fileName = "app_v${defaultConfig.versionName}_${packageTime()}.apk"
+                    }*//*
+                    //fileName = "app_v${defaultConfig.versionName}_${packageTime()}.apk"
                     output.outputFile = new File(outputDirectory, fileName)
                 }
             }
@@ -108,4 +123,5 @@ dependencies {
     compile "com.android.support:design:$rootProject.supportLibraryVersion"//测试，待移除
     compile 'com.google.code.gson:gson:2.5'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.android.support:support-v4:28.0.0'
 }
