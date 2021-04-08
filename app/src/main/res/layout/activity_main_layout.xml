@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_F7F9FC"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:background="@mipmap/ic_main_top_background">
+
+        <ImageView
+            android:id="@+id/iv_head_portrait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="30px"
+            android:src="@mipmap/ic_main_head_portrait" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60px"
+            android:layout_marginTop="70px"
+            android:layout_toRightOf="@+id/iv_head_portrait"
+            android:text="抠脚大汉"
+            android:textColor="@color/yellow_F8E71C"
+            android:textSize="28px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_department"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="20px"
+            android:layout_toRightOf="@+id/iv_head_portrait"
+            android:text="云办公产品部"
+            android:textColor="@color/white"
+            android:textSize="28px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_department"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="30px"
+            android:text="2016年11月24日 周四"
+            android:textColor="@color/white"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="74px"
+            android:layout_marginTop="38px"
+            android:text="9 : 30"
+            android:textColor="@color/white"
+            android:textSize="66px" />
+
+        <TextView
+            android:id="@+id/tv_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_time"
+            android:layout_marginRight="85px"
+            android:layout_marginTop="30px"
+            android:background="@mipmap/ic_main_sign_bg"
+            android:gravity="center"
+            android:text="@string/sign"
+            android:textColor="@color/white"
+            android:textSize="30px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px">
+
+        <LinearLayout
+            android:id="@+id/ll_job_alert"
+            android:layout_width="match_parent"
+            android:layout_height="76px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_16dp_white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="340px"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/waiting_for_my_approval"
+                    android:textColor="@color/black_4A4A4A"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="10"
+                    android:textColor="@android:color/holo_red_light" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_mian_line" />
+
+            <LinearLayout
+                android:layout_width="340px"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/job_alert"
+                    android:textColor="@color/black_4A4A4A"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="10"
+                    android:textColor="@android:color/holo_red_light" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_my_attendance"
+            android:layout_width="330px"
+            android:layout_height="154px"
+            android:layout_below="@+id/ll_job_alert"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/your_attendance_is_in_the_statistics"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_attendance"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
+                android:text="@string/my_attendance"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_my_application"
+            android:layout_width="330px"
+            android:layout_height="154px"
+            android:layout_below="@+id/ll_job_alert"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_my_attendance"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quickly_check_your_application"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_annual_leave"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
+                android:text="@string/my_application"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_business_travel"
+            android:layout_width="214px"
+            android:layout_height="105px"
+            android:layout_below="@+id/ll_my_attendance"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_business_travel"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="@string/a_business_travel"
+                android:textColor="@color/blue_85B2F6"
+                android:textSize="28px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_leave"
+            android:layout_width="214px"
+            android:layout_height="105px"
+            android:layout_below="@+id/ll_my_attendance"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_business_travel"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_leave"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="@string/leave"
+                android:textColor="@color/blue_85B2F6"
+                android:textSize="28px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_overtime"
+            android:layout_width="214px"
+            android:layout_height="105px"
+            android:layout_below="@+id/ll_business_travel"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="10px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_overtime"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="@string/overtime"
+                android:textColor="@color/blue_85B2F6"
+                android:textSize="28px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="214px"
+            android:layout_height="105px"
+            android:layout_below="@+id/ll_leave"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/ll_overtime"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_more"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="@string/more"
+                android:textColor="@color/blue_85B2F6"
+                android:textSize="28px" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="212px"
+            android:layout_height="230px"
+            android:layout_below="@+id/ll_my_application"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_leave"
+            android:background="@drawable/rectangle_4dp_white"
+            android:orientation="vertical"
+            android:paddingLeft="10px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35px"
+                android:drawableLeft="@mipmap/ic_main_approval"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="@string/approval"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:text="@string/do_not_wait_any_longer"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_mail_list"
+            android:layout_width="380px"
+            android:layout_height="154px"
+            android:layout_below="@+id/ll_overtime"
+            android:layout_marginRight="10px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="@string/small_partners_are_in_this"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_mian_mail_list"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
+                android:text="@string/mail_list"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="154px"
+            android:layout_below="@+id/ll_overtime"
+            android:layout_marginLeft="10px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ll_mail_list"
+            android:background="@drawable/rectangle_4dp_white"
+            android:orientation="vertical"
+            android:paddingLeft="20px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="@string/fast_learning_to_improve_work_efficiency"
+                android:textColor="@color/gray_9B9B9B"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_help_center"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingTop="15px"
+                android:text="@string/help_center"
+                android:textColor="@color/black_4A4A4A"
+                android:textSize="30px"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_application_center"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_below="@+id/ll_mail_list"
+            android:layout_marginTop="30px"
+            android:background="@drawable/rectangle_4dp_white"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_application_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/ic_main_icon"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:text="@string/application_center"
+                android:textColor="@color/yellow_F5A263"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ll_application_center"
+            android:layout_marginTop="40px"
+            android:text="@string/the_new_version_of_the_line.there_are_comments_to_mention_oh"
+            android:textColor="@color/blue_85B2F6"
+            android:textSize="28px" />
+    </RelativeLayout>
+</LinearLayout>

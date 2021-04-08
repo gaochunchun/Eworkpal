@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_F7F9FC"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="80px"
+        android:text="2016年12月20日    星期一   09:00"
+        android:textColor="@color/black_4A4A4A"
+        android:textSize="28px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30px"
+            android:text="签到"
+            android:textColor="@color/black_4A4A4A"
+            android:textSize="26px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45px"
+            android:paddingLeft="30px"
+            android:text="迟到"
+            android:textColor="@color/red_D9384D"
+            android:textSize="26px" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20px"
+        android:layout_marginTop="20px"
+        android:paddingLeft="30px"
+        android:text="09:34   徐汇区桂平路310号"
+        android:textColor="@color/black_4A4A4A"
+        android:textSize="26px" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="116px"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="30px"
+            android:text="调整打卡时间"
+            android:textColor="@color/black_202020"
+            android:textSize="28px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="09:34"
+            android:textColor="@color/black_202020"
+            android:textSize="28px"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_time_select_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:src="@mipmap/ic_attendance_time_select_down" />
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_marginTop="20px"
+        android:background="@color/white"
+        android:gravity="left"
+        android:hint="请填写申诉理由"
+        android:paddingLeft="30px"
+        android:paddingTop="20px"
+        android:textSize="30px" />
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="96px"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="80px"
+        android:background="@drawable/rectangle_27dp_blue_selected"
+        android:gravity="center"
+        android:text="提交" />
+</LinearLayout>

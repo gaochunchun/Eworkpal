@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <Button
+        android:onClick="onClick"
+        android:id="@+id/btn_network"
+        android:text="网络请求测试"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_rv"
+        android:text="RecyclerView动画"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_contact"
+        android:text="----通讯录界面-----"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_refresh"
+        android:text="下拉刷新示例"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+ <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_timeselect"
+        android:text="时间弹窗测试"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_1"
+        android:text="样式1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:id="@+id/btn_2"
+        android:text="样式2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

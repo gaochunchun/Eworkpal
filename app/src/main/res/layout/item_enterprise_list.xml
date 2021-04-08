@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white_F7F9FC"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="20px"
+        android:id="@+id/tv_company"
+        android:layout_width="match_parent"
+        android:layout_height="96px"
+        android:background="@drawable/rectangle_27dp_gray_selected"
+        android:gravity="center"
+        android:text="上海曼威网络科技"
+        android:textColor="@color/gray_999999"
+        android:textSize="32px" />
+
+</LinearLayout>
