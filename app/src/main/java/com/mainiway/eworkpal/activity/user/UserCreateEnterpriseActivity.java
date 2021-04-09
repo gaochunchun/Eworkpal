@@ -118,7 +118,7 @@ public class UserCreateEnterpriseActivity extends BaseTitleActivity {
 
             if (!TextUtils.isEmpty(et_enterprise_name.getText()) && !TextUtils.isEmpty(et_name.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_confirm_password.getText())) {
 
-                DealViewUtils.buttonState(tv_create_enterprise, R.drawable.rectangle_27dp_blue_selected, true);
+                DealViewUtils.buttonState(tv_create_enterprise, R.drawable.rectangle_5dp_blue_selected, true);
 
             }
         }

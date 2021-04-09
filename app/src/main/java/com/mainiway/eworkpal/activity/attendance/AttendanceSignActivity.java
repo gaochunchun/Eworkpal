@@ -76,7 +76,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
             if (distance > 100) {
                 tv_sign.setBackgroundResource(R.drawable.rectangle_27dp_light_gray);
             } else {
-                tv_sign.setBackgroundResource(R.drawable.rectangle_27dp_blue_selected);
+                tv_sign.setBackgroundResource(R.drawable.rectangle_5dp_blue_selected);
 
             }
 

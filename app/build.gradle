@@ -112,16 +112,16 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':okhttplibrary')
-    compile project(':progressordialog')
-    compile project(':material-spinner-1.0.5')//测试，待移除
-    compile project(':imagepicker')
-    compile project(':baseadapter-library')
-    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"//测试，待移除
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"//测试，待移除
-    compile 'com.google.code.gson:gson:2.5'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':okhttplibrary')
+    implementation project(':progressordialog')
+    implementation project(':material-spinner-1.0.5')//测试，待移除
+    implementation project(':imagepicker')
+    implementation project(':baseadapter-library')
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"//测试，待移除
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"//测试，待移除
+    implementation 'com.google.code.gson:gson:2.5'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.android.support:support-v4:28.0.0'
 }

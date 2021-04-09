@@ -178,9 +178,9 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
 
                 //显示图片验证码时，判断手机号、验证码、图片验证码是否为空
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
-                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_5dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_5dp_blue, false);
                 }
 
 
@@ -188,7 +188,7 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
                 if (et_picture_code.getText().length() == 4) {
                     if (et_picture_code.getText().toString().equalsIgnoreCase(ImageCodeView.getInstance().getCode())) {
                         rl_picture_code_layout.setVisibility(View.GONE);
-                        DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
+                        DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_5dp_blue_selected, true);
                         pass = 1;
                     } else {
                         ToastUtils.showToastShort(getString(R.string.image_verification_code_error));
@@ -199,15 +199,15 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
             } else {//不显示图片验证码时，只判断手机号、验证码是否为空
                 //获取验证码按钮的状态
                 if (!TextUtils.isEmpty(et_phone_number.getText())) {
-                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_5dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_5dp_blue, false);
                 }
                 //下一步按钮的状态
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_phone_code.getText())) {
-                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_5dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_5dp_blue, false);
                 }
             }
 
@@ -240,9 +240,9 @@ public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
                     //如果服务器返回的status=403，显示图片验证码
                     rl_picture_code_layout.setVisibility(View.VISIBLE);
                     //获取验证码不可点击
-                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code, R.drawable.rectangle_5dp_blue, false);
                     //下一步不可点击
-                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_get_code_next, R.drawable.rectangle_5dp_blue, false);
                 } else {
                     ToastUtils.showToastShort(responseData.message.get(0).msg);
                 }

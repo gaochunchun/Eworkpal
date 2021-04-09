@@ -87,9 +87,9 @@ public class UserForgetPwdActivity extends BaseTitleActivity {
         @Override
         public void afterTextChanged(Editable s) {
             if (!TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_confirm_password.getText())) {
-                DealViewUtils.buttonState(tv_commit, R.drawable.rectangle_27dp_blue_selected, true);
+                DealViewUtils.buttonState(tv_commit, R.drawable.rectangle_5dp_blue_selected, true);
             } else {
-                DealViewUtils.buttonState(tv_commit, R.drawable.rectangle_27dp_blue, false);
+                DealViewUtils.buttonState(tv_commit, R.drawable.rectangle_5dp_blue, false);
             }
 
         }

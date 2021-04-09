@@ -22,7 +22,7 @@ public class SDCardUtils {
 
 
     //文件存储目录
-    public static final String BASE_PATH = getSDCardPath() + "Eworkpal";
+    public static final String BASE_PATH = getSDCardPath() + "Ework";
     public static final String PHOTO_PATH = BASE_PATH + File.separator + "photo";
     public static final String FILE_PATH = BASE_PATH + File.separator + "file";
 

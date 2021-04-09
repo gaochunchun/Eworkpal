@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Eworkpal</string>
+    <string name="app_name">Ework</string>
     <string name="title_activity_login">用户登录</string>
     <string name="simple_view_behavior">com.mainiway.eworkpal.widgets.SimpleViewBehavior</string>
 
@@ -12,8 +12,8 @@
     <!--登录注册模块-->
     <string name="text_back">返回</string>
     <string name="text_commit">提交</string>
-    <string name="text_sign_in">登录</string>
-    <string name="text_registration_of_new_enterprises">注册新企业</string>
+    <string name="text_sign_in">账号登录</string>
+    <string name="text_registration_of_new_enterprises">短信验证码登录</string>
     <string name="text_phone_number">手机号</string>
     <string name="text_password">密码</string>
     <string name="text_forget_password">忘记密码?</string>

@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="92px"
             android:layout_marginTop="20px"
-            android:background="@drawable/rectangle_27dp_blue_selected"
+            android:background="@drawable/rectangle_5dp_blue_selected"
             android:text="@string/customactivityoncrash_error_activity_error_details"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="92px"
             android:layout_marginTop="25px"
-            android:background="@drawable/rectangle_27dp_blue_selected"
+            android:background="@drawable/rectangle_5dp_blue_selected"
             android:text="@string/customactivityoncrash_error_activity_error_upload"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />

@@ -29,7 +29,7 @@ public class SplashActivity extends BaseActivity {
         final View view = View.inflate(this,R.layout.activity_splash,null);
         setContentView(view);
         AlphaAnimation mAa = new AlphaAnimation(0.2f, 1.0f);
-        mAa.setDuration(1900);
+        mAa.setDuration(1800);
         view.startAnimation(mAa);
         mAa.setAnimationListener(new AnimationListener() {
             @Override

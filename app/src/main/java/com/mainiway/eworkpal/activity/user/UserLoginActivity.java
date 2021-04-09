@@ -191,9 +191,9 @@ public class UserLoginActivity extends BaseActivity {
             if (rl_picture_code_layout.getVisibility() == View.VISIBLE) {
                 //如果弹出图片验证码，则判断手机号、密码、图片验证码不为空，设置登录按钮的点击状态
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText()) && !TextUtils.isEmpty(et_picture_code.getText())) {
-                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_5dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_5dp_blue, false);
                 }
 
                 //弹出图片验证码时，比对图片验证码
@@ -208,9 +208,9 @@ public class UserLoginActivity extends BaseActivity {
                 }
             } else {//只有用户名，密码,没有图片验证码布局
                 if (!TextUtils.isEmpty(et_phone_number.getText()) && !TextUtils.isEmpty(et_password.getText())) {
-                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue_selected, true);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_5dp_blue_selected, true);
                 } else {
-                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_27dp_blue, false);
+                    DealViewUtils.buttonState(tv_login, R.drawable.rectangle_5dp_blue, false);
                 }
             }
         }
@@ -268,7 +268,7 @@ public class UserLoginActivity extends BaseActivity {
                     break;
 
                 case R.id.tv_join_enterprise:   //申请加入企业
-                    startActivity(new Intent(UserLoginActivity.this, UserJoinEnterpriseActivity.class));
+                    //startActivity(new Intent(UserLoginActivity.this, UserJoinEnterpriseActivity.class));
                     break;
 
                 case R.id.tv_forgetpwd: //找回密码
@@ -320,7 +320,7 @@ public class UserLoginActivity extends BaseActivity {
                 } else if (baseResponse.status == ResultErrorCode.CODE_LOGIN_THREE) {
                     //如果服务器返回的status=402，显示图片验证码，否则不显示
                     rl_picture_code_layout.setVisibility(View.VISIBLE);
-                    tv_login.setBackgroundResource(R.drawable.rectangle_27dp_blue);
+                    tv_login.setBackgroundResource(R.drawable.rectangle_5dp_blue);
                     tv_login.setClickable(false);
                 } else {
                     ToastUtils.showToastShort(baseResponse.message.get(0).msg);
