@@ -16,11 +16,10 @@ public class UpdateCheckinsRequest {
     //M21：重签次数？
     public static String getRequestParameter(String date) {
         String xmlTop = "<?xml version=\"1.0\"?><FHE><Tickets/><PostId>3950243730</PostId><Data DataType=\"Json/P\">";
-        String param = "<?xml version=\"1.0\"?>\n" +
-                "<FHE><Tickets/><PostId>3740712623</PostId><Data DataType=\"Json/P\">{\n" +
+        String param = "{\n" +
                 "  \"M16\" : \"28:b4:48:2e:26:33\",\n" +
                 "  \"M11\" : 1,\n" +
-                "  \"M19\" : \"+" + date + "+\",\n" +
+                "  \"M19\" : \"" + date + "\",\n" +
                 "  \"M20\" : \"\",\n" +
                 "  \"M14\" : \"\",\n" +
                 "  \"M25\" : 0,\n" +
@@ -31,7 +30,7 @@ public class UpdateCheckinsRequest {
                 "  \"M21\" : 1,\n" +
                 "  \"M18\" : \"\",\n" +
                 "  \"M13\" : 121.50933837890625\n" +
-                "}</Data></FHE>\n";
+                "}";
         String xmlEnd = "</Data></FHE>";
 
         return xmlTop + param + xmlEnd;

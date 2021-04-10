@@ -26,12 +26,21 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.ccn.SmartPDA.OkHttpUtil;
+import com.ccn.SmartPDA.callback.StringCallback;
+import com.ccn.SmartPDA.cookie.store.CookieStore;
+import com.ccn.SmartPDA.model.Response;
+import com.ccn.SmartPDA.utils.OkLogger;
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.sign.CreateCheckinsRequest;
 import com.mainiway.eworkpal.base.BaseTitleActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DateUtils;
 
 import java.util.Date;
+
+import okhttp3.Cookie;
+import okhttp3.HttpUrl;
 
 
 /**
@@ -314,6 +323,34 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     intent.putExtras(bundle);
                     intent.setClass(AttendanceSignActivity.this, AttendanceReportedPositionActivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.tv_sign:
+
+                    HttpUrl httpUrl = HttpUrl.parse(CreateCheckinsRequest.URL_createCheckins);
+                    Cookie.Builder builder = new Cookie.Builder();
+                    Cookie cookie = builder.name("Cookie").value("FSAuthXC=0G4WkhQuvm800003dkOG0O31vUJUmyRC29v9MLUhXNyaMctdcVVjUZASfLFbqXzYGB9ivooSg44oWtpS3uWFP0XGyhgLR5T5K2TYTgVdyylkba7rdOKhgfEA2YzYtzhT82zBB0VaentSQsQBATjUKZS4fN2vb9EyleIY0CVeYyLuBwYWr6P271G5NTC9tdzq1Edhe5sBsGqarxoW33yDf5g2M5KXlxJXl6abDv7wKwi6LkCBMI3OMikpZBp1; LoginId=LOGIN_ID_514f9a0d-5e2c-4889-82e6-7d32d233946c; fs_token=Op0tOpCqC6GjOJavC2qqOcPZBJavE3SjDMLbDZ1cPcPZOp5a; FSAuthX=0G4WkhQuvm800003dkOG0O31vUJUmyRC29v9MLUhXNyaMctdcVVjUZASfLFbqXzYGB9ivooSg44oWtpS3uWFP0XGyhgLR5T5K2TYTgVdyylkba7rdOKhgfEA2YzYtzhT82zBB0VaentSQsQBATjUKZS4fN2vb9EyleIY0CVeYyLuBwYWr6P271G5NTC9tdzq1Edhe5sBsGqarxoW33yDf5g2M5KXlxJXl6abDv7wKwi6LkCBMI3OMikpZBp1; sso_token=3c1d76a4-8a27-43ce-bf59-6627a0fc25f9").
+                            domain(httpUrl.host()).build();
+                    CookieStore cookieStore = OkHttpUtil.getInstance().getCookieJar().getCookieStore();
+                    cookieStore.saveCookie(httpUrl, cookie);
+
+
+                    String date = "2021-04-10";
+                    String param = CreateCheckinsRequest.getRequestParameter(date);
+                    OkHttpUtil.<String>post(CreateCheckinsRequest.URL_createCheckins)//
+                            .tag(this)
+                            //.upString(xmlData, MediaType.parse("application/xml"))
+                            .upString(param)
+                            .execute(new StringCallback() {
+                                @Override
+                                public void onSuccess(Response<String> response) {
+                                    OkLogger.e("------->" + response.body());
+                                }
+
+                                @Override
+                                public void onError(Response<String> response) {
+                                    OkLogger.e("error:" + response.body());
+                                }
+                            });
                     break;
             }
         }
