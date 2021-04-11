@@ -26,33 +26,22 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
-import com.ccn.SmartPDA.OkHttpUtil;
-import com.ccn.SmartPDA.callback.StringCallback;
-import com.ccn.SmartPDA.cookie.store.CookieStore;
-import com.ccn.SmartPDA.model.Response;
-import com.ccn.SmartPDA.utils.OkLogger;
 import com.mainiway.eworkpal.R;
 import com.mainiway.eworkpal.activity.sign.CreateCheckinsRequest;
-import com.mainiway.eworkpal.base.BaseTitleActivity;
+import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.listener.OnClickFastListener;
 import com.mainiway.eworkpal.utils.DateUtils;
 
 import java.util.Date;
 
-import okhttp3.Cookie;
-import okhttp3.HttpUrl;
-
 
 /**
  * ===========================================
- * 作    者：zhsh
- * 版    本：1.0
- * 创建日期：2016/12/8.
- * 描    述：考勤界面，关于地图定位的
+ * 描    述：考勤界面，关于地图定位
  * ===========================================
  */
 
-public class AttendanceSignActivity extends BaseTitleActivity implements AMapLocationListener, AMap.OnMapClickListener, LocationSource {
+public class AttendanceSignActivity extends BaseActivity implements AMapLocationListener, AMap.OnMapClickListener, LocationSource {
 
     private MapView mapView;
     private AMap aMap;
@@ -93,12 +82,12 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_sign);
-        setTitle("考勤");
-        showBackwardView(true);
-        showForwardView(R.mipmap.ic_attendance_record, R.mipmap.ic_attendance_statistics);
+        //setTitle("考勤");
+        //showBackwardView(true);
+        //showForwardView(R.mipmap.ic_attendance_record, R.mipmap.ic_attendance_statistics);
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 此方法必须重写
         initView();
@@ -107,6 +96,8 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         initData();
     }
 
+
+
     private void initView() {
         tv_location = findView(R.id.tv_location);
         tv_location.setOnClickListener(new FastClickListener());
@@ -114,7 +105,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         tv_sign = findView(R.id.tv_sign);
         tv_sign.setOnClickListener(new FastClickListener());
         //默认的中心点坐标（31.163882, 121.40439）
-        defaultLatLng = new LatLng(31.163882, 121.40439);
+        defaultLatLng = new LatLng(31.102277, 121.515632);
 
         tv_internal_clock = findView(R.id.tv_internal_clock);
         tv_internal_clock.setOnClickListener(new clickListener());
@@ -136,7 +127,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
         if (aMap == null) {
             aMap = mapView.getMap();
             //初始化地点显示为上海
-            LatLng latLng = new LatLng(31.2379124310, 121.5020200654);
+            LatLng latLng = new LatLng(31.102277, 121.515632);
             aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
 
             UiSettings settings = aMap.getUiSettings();
@@ -326,17 +317,17 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                     break;
                 case R.id.tv_sign:
 
-                    HttpUrl httpUrl = HttpUrl.parse(CreateCheckinsRequest.URL_createCheckins);
+                   /* HttpUrl httpUrl = HttpUrl.parse(CreateCheckinsRequest.URL_createCheckins);
                     Cookie.Builder builder = new Cookie.Builder();
                     Cookie cookie = builder.name("Cookie").value("FSAuthXC=0G4WkhQuvm800003dkOG0O31vUJUmyRC29v9MLUhXNyaMctdcVVjUZASfLFbqXzYGB9ivooSg44oWtpS3uWFP0XGyhgLR5T5K2TYTgVdyylkba7rdOKhgfEA2YzYtzhT82zBB0VaentSQsQBATjUKZS4fN2vb9EyleIY0CVeYyLuBwYWr6P271G5NTC9tdzq1Edhe5sBsGqarxoW33yDf5g2M5KXlxJXl6abDv7wKwi6LkCBMI3OMikpZBp1; LoginId=LOGIN_ID_514f9a0d-5e2c-4889-82e6-7d32d233946c; fs_token=Op0tOpCqC6GjOJavC2qqOcPZBJavE3SjDMLbDZ1cPcPZOp5a; FSAuthX=0G4WkhQuvm800003dkOG0O31vUJUmyRC29v9MLUhXNyaMctdcVVjUZASfLFbqXzYGB9ivooSg44oWtpS3uWFP0XGyhgLR5T5K2TYTgVdyylkba7rdOKhgfEA2YzYtzhT82zBB0VaentSQsQBATjUKZS4fN2vb9EyleIY0CVeYyLuBwYWr6P271G5NTC9tdzq1Edhe5sBsGqarxoW33yDf5g2M5KXlxJXl6abDv7wKwi6LkCBMI3OMikpZBp1; sso_token=3c1d76a4-8a27-43ce-bf59-6627a0fc25f9").
                             domain(httpUrl.host()).build();
                     CookieStore cookieStore = OkHttpUtil.getInstance().getCookieJar().getCookieStore();
-                    cookieStore.saveCookie(httpUrl, cookie);
+                    cookieStore.saveCookie(httpUrl, cookie);*/
 
 
                     String date = "2021-04-10";
                     String param = CreateCheckinsRequest.getRequestParameter(date);
-                    OkHttpUtil.<String>post(CreateCheckinsRequest.URL_createCheckins)//
+                    /*OkHttpUtil.<String>post(CreateCheckinsRequest.URL_createCheckins)
                             .tag(this)
                             //.upString(xmlData, MediaType.parse("application/xml"))
                             .upString(param)
@@ -350,7 +341,7 @@ public class AttendanceSignActivity extends BaseTitleActivity implements AMapLoc
                                 public void onError(Response<String> response) {
                                     OkLogger.e("error:" + response.body());
                                 }
-                            });
+                            });*/
                     break;
             }
         }

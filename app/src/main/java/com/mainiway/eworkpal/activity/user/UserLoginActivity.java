@@ -16,8 +16,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mainiway.eworkpal.AppAplication;
+import com.blankj.utilcode.util.NetworkUtils;
 import com.mainiway.eworkpal.R;
+import com.mainiway.eworkpal.activity.attendance.AttendanceSignActivity;
 import com.mainiway.eworkpal.base.BaseActivity;
 import com.mainiway.eworkpal.base.BaseResponse;
 import com.mainiway.eworkpal.callback.DialogCallback;
@@ -31,7 +32,6 @@ import com.mainiway.eworkpal.utils.DealViewUtils;
 import com.mainiway.eworkpal.utils.GsonConvertUtil;
 import com.mainiway.eworkpal.utils.KeyboardUtils;
 import com.mainiway.eworkpal.utils.ToastUtils;
-import com.mainiway.eworkpal.utils.ValidateUtils;
 import com.mainiway.eworkpal.widgets.ImageCodeView;
 import com.mainiway.eworkpal.widgets.SecretTextView;
 import com.mainiway.imagepicker.view.SystemBarTintManager;
@@ -83,8 +83,9 @@ public class UserLoginActivity extends BaseActivity {
         initView();
 
         //提示网络连接不可用
-        if (!ValidateUtils.isNetworkConnected(AppAplication.getContext())) {
-            mSVProgressHUD.showInfoWithStatus("网络不可用",SVProgressHUD.SVProgressHUDMaskType.None);
+        //if (!ValidateUtils.isNetworkConnected(AppAplication.getContext())) {
+        if (!NetworkUtils.isConnected()) {
+            mSVProgressHUD.showInfoWithStatus("当前网络不可用！", SVProgressHUD.SVProgressHUDMaskType.None);
             //mSVProgressHUD.showErrorWithStatus("网络未连接",SVProgressHUD.SVProgressHUDMaskType.None);
         }
     }
@@ -263,7 +264,8 @@ public class UserLoginActivity extends BaseActivity {
                             ToastUtils.showToastShort(getString(R.string.please_enter_the_correct_phone_number));
                         }
                     }*/
-                    startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
+                    //startActivity(new Intent(UserLoginActivity.this, MainActivity.class));
+                    startActivity(new Intent(UserLoginActivity.this, AttendanceSignActivity.class));
                     finish();
                     break;
 
@@ -290,11 +292,11 @@ public class UserLoginActivity extends BaseActivity {
     /**
      * 提交登录,返回企业列表(企业Id,企业Name)
      */
-    private void loginGo(String phone,String password) {
+    private void loginGo(String phone, String password) {
 
         Map<String, Object> mapList = new HashMap<String, Object>();
         mapList.put("phone", phone);
-        mapList.put("password",password);
+        mapList.put("password", password);
         mapList.put("type", ResultErrorCode.TYPE_LOGIN_TERMINAL);
         mapList.put("ispass", pass);
         String str = GsonConvertUtil.toJson(mapList);

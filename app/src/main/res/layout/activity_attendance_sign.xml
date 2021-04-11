@@ -1,229 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:keepScreenOn="true">
 
-    <RelativeLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="550px">
-
-        <com.amap.api.maps.MapView
-            android:id="@+id/map"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-        <TextView
-            android:id="@+id/tv_reported_position"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/tv_location"
-            android:clickable="true"
-            android:drawableLeft="@mipmap/ic_attendance_map_location"
-            android:drawablePadding="20px"
-            android:gravity="center_vertical"
-            android:paddingBottom="15px"
-            android:paddingRight="30px"
-            android:text="上报位置"
-            android:textColor="@color/black"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:clickable="true"
-            android:drawableLeft="@mipmap/ic_attendance_location"
-            android:drawablePadding="20px"
-            android:gravity="center_vertical"
-            android:paddingBottom="15px"
-            android:paddingRight="30px"
-            android:text="定位"
-            android:textColor="@color/black"/>
-    </RelativeLayout>
-
-    <TextView
-        android:id="@id/tv_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30px"
-        android:layout_marginTop="20px"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="26px"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20px"
-        android:layout_marginLeft="30px"
-        android:layout_marginTop="20px"
-        android:text="考勤时间:09:00-18:00  弹性30分钟"
-        android:textColor="@color/black"
-        android:textSize="26px"
-        android:textStyle="bold"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20px"
-        android:background="@color/white_F7F9FC"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="116px"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_internal_clock"
-            android:layout_width="324px"
-            android:layout_height="match_parent"
-            android:background="@drawable/color_white_blue_selector"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="内勤打卡"
-            android:textColor="@drawable/color_gray_white_selector"
-            android:textSize="28px"
-            android:textStyle="bold"/>
-
-        <ImageView
-            android:id="@+id/iv_center_of_clock"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_attendance_home_btn_one"/>
-
-
-        <TextView
-            android:id="@+id/tv_field_personnel_clock"
-            android:layout_width="324px"
-            android:layout_height="match_parent"
-            android:background="@drawable/color_white_blue_selector"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="外勤打卡"
-            android:textColor="@drawable/color_gray_white_selector"
-            android:textSize="28px"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20px"
-        android:background="@color/white_F7F9FC"/>
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="114px">
-
-        <ImageView
-            android:id="@+id/iv_go_to_work"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="30px"
-            android:src="@mipmap/ic_attendance_go_to_work"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40px"
-            android:layout_toRightOf="@+id/iv_go_to_work"
-            android:gravity="center_vertical">
+            android:layout_width="match_parent"
+            android:layout_height="300px"
+            android:background="@mipmap/ic_main_top_background">
 
-            <TextView
-                android:id="@+id/tv_clock_in"
+            <ImageView
+                android:id="@+id/iv_head_portrait"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上班打卡"
-                android:textColor="@color/black_030303"
-                android:textSize="26px"/>
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="30px"
+                android:src="@mipmap/ic_main_head_portrait" />
 
             <TextView
-                android:id="@+id/tv_attendance_range"
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_clock_in"
-                android:layout_marginTop="10px"
-                android:text="当前不在考勤范围内"
-                android:textColor="@color/gray_7B7B7B"
-                android:textSize="26px"/>
+                android:layout_marginLeft="60px"
+                android:layout_marginTop="70px"
+                android:layout_toRightOf="@+id/iv_head_portrait"
+                android:text="抠脚大汉"
+                android:textColor="@color/yellow_F8E71C"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_department"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_name"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="8px"
+                android:layout_toRightOf="@+id/iv_head_portrait"
+                android:text="部门：技术中心"
+                android:textColor="@color/white"
+                android:textSize="28px" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_clock_in"
-                android:layout_marginTop="10px"
-                android:layout_toRightOf="@+id/tv_attendance_range"
-                android:text="查看考勤地址"
-                android:textColor="@color/blue_8DB7F7"
-                android:textSize="26px"/>
+                android:layout_below="@+id/tv_department"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="3px"
+                android:layout_toRightOf="@+id/iv_head_portrait"
+                android:text="职位：Android工程师"
+                android:textColor="@color/red_D0021B"
+                android:textSize="28px" />
 
+            <TextView
+                android:id="@+id/tv_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_department"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="40px"
+                android:text="2016年11月24日 周四"
+                android:textColor="@color/white"
+                android:textSize="32px" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="38px"
+                android:layout_marginRight="74px"
+                android:text="9 : 30"
+                android:textColor="@color/white"
+                android:textSize="66px" />
+
+            <TextView
+                android:id="@+id/tv_sign2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_time"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30px"
+                android:layout_marginRight="85px"
+                android:background="@mipmap/ic_main_sign_bg"
+                android:gravity="center"
+                android:text="@string/sign"
+                android:textColor="@color/white"
+                android:textSize="30px" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="550px">
+
+            <com.amap.api.maps.MapView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_reported_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/tv_location"
+                android:clickable="true"
+                android:drawableLeft="@mipmap/ic_attendance_map_location"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingRight="30px"
+                android:paddingBottom="15px"
+                android:text="上报位置"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:clickable="true"
+                android:drawableLeft="@mipmap/ic_attendance_location"
+                android:drawablePadding="20px"
+                android:gravity="center_vertical"
+                android:paddingRight="30px"
+                android:paddingBottom="15px"
+                android:text="定位"
+                android:textColor="@color/black" />
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_sign"
-            android:layout_width="116px"
-            android:layout_height="58px"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="30px"
-            android:background="@drawable/rectangle_5dp_blue_selected"
-            android:gravity="center"
-            android:text="签到"
-            android:textColor="@color/white"
-            android:textSize="26px"/>
-    </RelativeLayout>
-
-    <include layout="@layout/layout_line_horizonal"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="114px"
-        android:layout_marginTop="20px">
-
-        <ImageView
-            android:id="@+id/iv_go_off_wor"
-            android:layout_width="wrap_content"
+            android:id="@id/tv_date"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginLeft="30px"
-            android:src="@mipmap/ic_attendance_go_off_work"/>
+            android:layout_marginTop="20px"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="26px"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_clock"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40px"
-            android:layout_toRightOf="@+id/iv_go_off_wor"
-            android:gravity="center_vertical"
-            android:text="下班打卡"
-            android:textColor="@color/black_030303"
-            android:textSize="26px"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="15px"
+            android:layout_marginBottom="10px"
+            android:text="考勤时间:08:30-17:30  弹性1小时"
+            android:textColor="@color/black"
+            android:textSize="26px"
+            android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="116px"
-            android:layout_height="58px"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="30px"
-            android:background="@drawable/rectangle_27dp_light_gray"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:background="@color/white_F7F9FC" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45px"
             android:gravity="center"
-            android:text="签退"
-            android:textColor="@color/white"
-            android:textSize="26px"/>
-    </RelativeLayout>
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white_F7F9FC"/>
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_internal_clock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/color_white_blue_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="考勤打卡"
+                android:textColor="@drawable/color_gray_white_selector"
+                android:textSize="28px"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_center_of_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_attendance_home_btn_one"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/tv_field_personnel_clock"
+                android:layout_width="324px"
+                android:layout_height="match_parent"
+                android:background="@drawable/color_white_blue_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="外勤打卡"
+                android:textColor="@drawable/color_gray_white_selector"
+                android:textSize="28px"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="@color/white_F7F9FC" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="114px">
+
+            <ImageView
+                android:id="@+id/iv_go_to_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:src="@mipmap/ic_attendance_go_to_work" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40px"
+                android:layout_toRightOf="@+id/iv_go_to_work"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_clock_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班打卡"
+                    android:textColor="@color/black_030303"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:id="@+id/tv_attendance_range"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_clock_in"
+                    android:layout_marginTop="10px"
+                    android:text="当前不在考勤范围内"
+                    android:textColor="@color/gray_7B7B7B"
+                    android:textSize="26px" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_clock_in"
+                    android:layout_marginTop="10px"
+                    android:layout_toRightOf="@+id/tv_attendance_range"
+                    android:text="查看考勤地址"
+                    android:textColor="@color/blue_8DB7F7"
+                    android:textSize="26px" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_sign"
+                android:layout_width="116px"
+                android:layout_height="58px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30px"
+                android:background="@drawable/rectangle_5dp_blue_selected"
+                android:gravity="center"
+                android:text="签到"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </RelativeLayout>
+
+        <include layout="@layout/layout_line_horizonal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="114px"
+            android:layout_marginTop="20px">
+
+            <ImageView
+                android:id="@+id/iv_go_off_wor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30px"
+                android:src="@mipmap/ic_attendance_go_off_work" />
+
+            <TextView
+                android:id="@+id/tv_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40px"
+                android:layout_toRightOf="@+id/iv_go_off_wor"
+                android:gravity="center_vertical"
+                android:text="下班打卡"
+                android:textColor="@color/black_030303"
+                android:textSize="26px" />
+
+            <TextView
+                android:layout_width="116px"
+                android:layout_height="58px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30px"
+                android:background="@drawable/rectangle_27dp_light_gray"
+                android:gravity="center"
+                android:text="签退"
+                android:textColor="@color/white"
+                android:textSize="26px" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white_F7F9FC" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
