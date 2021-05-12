@@ -36,10 +36,8 @@ import okhttp3.Response;
 
 /**
  * ===========================================
- * 作    者：gao_chun
  * 版    本：1.0
- * 创建日期：2016-11-19.
- * 描    述：公用的获取手机验证码（需根据传递的Intent信息设置Title）
+ * 描    述：公用的获取手机验证码
  * ===========================================
  */
 public class UserCommonPhoneCodeActivity extends BaseTitleActivity {
